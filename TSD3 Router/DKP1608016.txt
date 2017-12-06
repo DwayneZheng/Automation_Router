@@ -1,0 +1,232 @@
+*** Settings ***
+Suite Setup       ElementLocator-DIR-878
+Resource          ../AllResources.txt
+
+*** Test Cases ***
+0004
+    [Tags]    DKP1608016-0004
+    ToLoginPage
+    ChooseLanguage    ${Language-繁體中文-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    10s
+    clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
+    sleep    1s
+    clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
+    sleep    1s
+    Wizard-Next
+    sleep    5s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    繁體中文
+    LoginwithPsw
+    ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
+    log    ${TAKE-IP}
+    LoginwithPsw
+    sleep    1s
+    Settings-Wizard-Page
+    sleep    5s
+    Wizard-Next
+    sleep    3s
+    sleep    1s
+    click    ${Back-Click}
+    sleep    1s
+    sleep    2s
+    click    ${Settings-Wizard-Internet Connection(DHCP)-Click}
+    sleep    1s
+    Wizard-Next
+    sleep    20s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    繁體中文
+    LoginwithPsw
+    ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
+    log    ${TAKE-IP}
+    sleep    1s
+    LoginwithPsw
+    RestoreDevice
+    sleep    60
+
+0006
+    [Tags]    DKP1608016-0006
+    ToLoginPage
+    ChooseLanguage    ${Language-繁體中文-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    20s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    繁體中文
+    LoginwithPsw
+    RestoreDevice
+    sleep    60
+
+0007
+    [Tags]    DKP1608016-0007
+    ToLoginPage
+    ChooseLanguage    ${Language-English-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    20s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    English
+    LoginwithPsw
+    RestoreDevice
+    sleep    60
+
+0008
+    [Tags]    DKP1608016-0008
+    ToLoginPage
+    ChooseLanguage    ${Language-한국-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    20s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    한국
+    LoginwithPsw
+    RestoreDevice
+    sleep    60
+
+0016
+    [Tags]    DKP1608016-0016
+    ToLoginPage
+    ChooseLanguage    ${Language-繁體中文-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    10s
+    Wizard-PPPoE-Username/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    繁體中文
+    LoginwithPsw
+    ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
+    log    ${TAKE-IP}
+    LoginwithPsw
+    RestoreDevice
+    sleep    60
+
+0017
+    [Tags]    DKP1608016-0017
+    ToLoginPage
+    ChooseLanguage    ${Language-English-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    10s
+    Wizard-PPPoE-Username/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    English
+    LoginwithPsw
+    ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
+    log    ${TAKE-IP}
+    LoginwithPsw
+    RestoreDevice
+    sleep    60
+
+0018
+    [Tags]    DKP1608016-0018
+    ToLoginPage
+    ChooseLanguage    ${Language-한국-Select-child}
+    sleep    5s
+    Wizard-Next
+    sleep    10s
+    Wizard-PPPoE-Username/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Wi-Fi Network Name/password
+    Wizard-Next
+    sleep    5s
+    Wizard-Device Admin Password
+    Wizard-Next
+    sleep    3s
+    Wizard-check
+    Wizard-Next
+    click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    sleep    60s
+    ToLoginPage
+    sleep    10s
+    LoginPage-CheckLanguage    한국
+    LoginwithPsw
+    ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
+    log    ${TAKE-IP}
+    LoginwithPsw
+    RestoreDevice
+    sleep    60

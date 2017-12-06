@@ -1,0 +1,3 @@
+*** Settings ***
+Library           com.rabbit.automation.robotframework.KeyWordLib
+Resource          CommonFunctions.txt
