@@ -3,6 +3,8 @@ Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 
 *** Keywords ***
+----test----
+
 ToLoginPage
     tourl    http://192.168.0.1
     sleep    3s
@@ -197,8 +199,7 @@ Def-Ping
     ...    ${arg7}=default
     [Documentation]    testping ${arg1} | ${arg2} | ${arg3} | ${arg4} | ${arg5} | ${arg6} | ${arg7}
     ...
-    ...    Lost Percent \ | \ \ \ options \ \ | \ \ options \ \ | \ \ options | \ options \ | \ options | \ options \
-    ...    EX: 10 | -f \ \ | \ \ -l \ | \ 1000 \ | -n \ | 10 | 8.8.8.8
+    ...    Lost Percent \ | \ \ \ options \ \ | \ \ options \ \ | \ \ options | \ options \ | \ options | \ options \ EX: 10 | -f \ \ | \ \ -l \ | \ 1000 \ | -n \ | 10 | 8.8.8.8
     ${defping}    defping    ${arg1}    ${arg2}    ${arg3}    ${arg4}    ${arg5}
     ...    ${arg6}    ${arg7}
     Should Be True    ${defping}
@@ -409,3 +410,6 @@ FunctionTable-Management-Statistics
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     click    ${Function Table-Management-Statistics-FunctionTableChild}
     waitElementDisplayed    ${Management-Statistics-Internet-Click}    10    true
+
+----1214----
+    sleep    1

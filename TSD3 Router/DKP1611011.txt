@@ -213,7 +213,9 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171212
     [Tags]    DKP1611011-0007
     ToLoginWithoutPassword
+    #===Test===
     #===Restore===
+    #===Test1===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
@@ -437,3 +439,7 @@ Library           String
     ${check-L2TP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
     Should Be True    "${check-L2TP}"=="L2TP"
     #===Check Internet Status End===
+
+test
+    defping    0    8.8.8.8    -n    4    default    default
+    ...    default
