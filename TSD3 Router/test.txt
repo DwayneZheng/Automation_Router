@@ -1,0 +1,32 @@
+*** Settings ***
+Resource          ../AllResources.txt
+Library           String
+
+*** Test Cases ***
+test
+    ${string}    Set Variable    74:DA:DA:E4:59:7F
+    ${ignore first} =    Get Substring    ${string}    1
+    ${ignore last} =    Get Substring    ${string}    \    -1
+    ${5th to 10th} =    Get Substring    ${string}    4    10
+    ${first two} =    Get Substring    ${string}    \    2
+    ${last two} =    Get Substring    ${string}    -5
+    ${t} =    Get Substring    ${string}    12
+    ${last two1} =    Get Substring    ${last two}    \    -3
+    ${last two2} =    Get Substring    ${last two}    -2
+    ${last two3} =    Remove String    ${last two}    :
+    ${dlink2}    Set Variable    ${last two1}${last two2}
+    ${dlink3}    Set Variable    dlink${last two1}${last two2}
+    Should Be String    ${dlink3}    dlink597F
+    ${val1}=    Set Variable    4243
+    ${val2}=    Get Substring    ${val1}=    1    4
+    ${val3}=    Evaluate    ${val1}+1
+
+packet
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+
+MAC TEST
+    ${string}    Set Variable    00-21-CC-D5-B5-3F
+    ${Check mac}    MAC_Address    ${string}
+    Should Be True    ${Check mac}

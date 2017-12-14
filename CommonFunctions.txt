@@ -1,10 +1,9 @@
 *** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
+Library           ../Functions/MAC Address.py
 
 *** Keywords ***
-----test----
-
 ToLoginPage
     tourl    http://192.168.0.1
     sleep    3s
@@ -411,5 +410,18 @@ FunctionTable-Management-Statistics
     click    ${Function Table-Management-Statistics-FunctionTableChild}
     waitElementDisplayed    ${Management-Statistics-Internet-Click}    10    true
 
-----1214----
-    sleep    1
+----12/13---
+
+Configure PPPoE-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    73459408@hinet.net    #Setting \ Account
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
+    sleep    1s

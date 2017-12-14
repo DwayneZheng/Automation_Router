@@ -12,7 +12,6 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-0001
     #Restore
-    #-test
     ToLoginWithoutPassword
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
@@ -25,7 +24,6 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     sleep    3s
-    #-test End===
 
 0003
     [Documentation]    Internet_DHCP WAN Connection_Release IP Button Check
@@ -123,7 +121,7 @@ Library           String
     Should Be True    "${check-PPPOE}"=="PPPoE"
 
 0028
-    [Documentation]    Internet _Static IP WAN Connection_Go to settings button check
+    [Documentation]    Internet _Static IP WAN Connection_Go to settings button check \
     ...
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-0028
@@ -209,20 +207,52 @@ Library           String
     ${check-L2TP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
     Should Be True    "${check-L2TP}"=="L2TP"
 
-0007
-    [Documentation]    DUT_LAN connection_Go to settings button check
-    ...
-    ...    OK verify by Dwayne Cheng 20171212
-    [Tags]    DKP1611011-0007
+0006
+    [Documentation]    80%
+    ...    DUT status check
+    [Tags]    DKP1611011-0006
     ToLoginWithoutPassword
-    #===Test===
-    #===Restore===
-    #===Test1===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ToHiddenPage
+    ${GetLANMAC}    getText    ${Hidden-Page-LAN MAC-GetVar}
+    log    ${GetLANMAC}
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    click    ${Home Page-DUT-ImgClick}
+    ${GetWifiStatus}    getText    ${Home Page-DUT-Wifi-Status-GetVar}
+    log    ${GetWifiStatus}
+    Run Keyword If    "${GetWifiStatus}"=="Enabled"    log    WifiStatus:Matched
+    ...    ELSE    log    WifiStatus:Not Matched
+    ${GetIPv6Status}    getText    ${Home Page-DUT-IPv6-DHCP-PD-GetVar}
+    log    ${GetIPv6Status}
+    Run Keyword If    "${GetIPv6Status}"=="Enabled"    log    IPv6Status:Matched
+    ...    ELSE    log    IPv6Status:Not Matched
+    ${GetIPv4MACStatus}    getText    ${Home Page-DUT-IPv4 -MAC Address-GetVar}
+    log    ${GetIPv4MACStatus}
+    Run Keyword If    "${GetLANMAC}"=="${GetIPv4MACStatus}"    log    LANMAC:Matched
+    ...    ELSE    log    LANMAC:Not Matched
+    ${GetDefault Gateway}    getText    ${Home Page-DUT-IPv4-Router IP Address-GetVar}
+    log    ${GetDefault Gateway}
+    ${GetPing}    defping    ${GetDefault Gateway}    -n    10    10
+    Run Keyword If    "${GetPing}"=="True"    log    PingIPv4:Matched
+    ...    ELSE    log    PingIPv4:Not Matched    Should Be True    False
+
+0007
+    [Documentation]    OK
+    ...    DUT_LAN connection_Go to settings button check
+    [Tags]    DKP1611011-0007
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
     ToLoginPage
     Lang2English
     ToClickLoginBtn
@@ -230,21 +260,18 @@ Library           String
     click    ${Home Page-Go to settings (Network)-Click}
     ${GetTitleText}    getText    ${Settings-Network-Title-GetVar}
     log    ${GetTitleText}
-    Run Keyword If    "${GetTitleText}"=="Network Settings"    log    Matched
-    ...    ELSE    log    Not Matched    Should Be True    False
+    Run Keyword If    "${GetTitleText}"=="Network Settings"    log    Lanuage:Matched
+    ...    ELSE    log    Lanuage:Not Matched    Should Be True    False
 
 0008
-    [Documentation]    DUT_Wi-Fi connection_Go to settings button check
-    ...
-    ...    OK verify by Dwayne Cheng 20171212
+    [Documentation]    OK
+    ...    DUT_Wi-Fi connection_Go to settings button check
     [Tags]    DKP1611011-0008
     ToLoginWithoutPassword
-    #===Restore===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
     ToLoginPage
     Lang2English
     ToClickLoginBtn
@@ -252,68 +279,56 @@ Library           String
     click    ${Home Page-Go to settings (WiFi)-Click}
     ${GetWifiTitleText}    getText    ${Settings-Wireless-Title-GetVar}
     log    ${GetWifiTitleText}
-    Run Keyword If    "${GetWifiTitleText}"=="Wireless"    log    Matched
-    ...    ELSE    log    Not Matched    Should Be True    False
+    Run Keyword If    "${GetWifiTitleText}"=="Wireless"    log    Lanuage:Matched
+    ...    ELSE    log    Lanuage:Not Matched    Should Be True    False
 
 0009
-    [Documentation]    Connection Clients check
-    ...
-    ...    OK verify by Dwayne Cheng 20171212
+    [Documentation]    OK
+    ...    Connection Clients check
     [Tags]    DKP1611011-0009
     ToLoginWithoutPassword
-    #===Restore===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
     ToLoginPage
     Lang2English
     ToClickLoginBtn
     click    ${Home Page-Connected Clients(image)-Click}
-    waitElementDisplayed    ${Home Page-Connected Clients-Edit1-ImgClick}    10    true
     ${ClientsCount}    getText    ${Home Page-Connected Clients(character)-Click}
     log    ${ClientsCount}
     ${ClientsCountFor}    Evaluate    ${ClientsCount}+1
     : FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    click    ${Home Page-Connected Clients-Edit${INDEX1}-ImgClick}
-    \    waitElementDisplayed    ${Settings - Wizard Page-X (Close)-Click}    10    true
     \    ${Clients-Vendor}    getText    ${Home Page-Connected Clients-Vendor-GetVar}
     \    log    ${Clients-Vendor}
     \    ${Clients-MAC Address}    getText    ${Home Page-Connected Clients-MAC Address-GetVar}
     \    log    ${Clients-MAC Address}
     \    ${Clients-IP Address}    getText    ${Home Page-Connected Clients-IP Address-GetVar}
-    \    ${GetPing}    defping    0    ${Clients-IP Address}    -n    10
-    \    ...    default    default    default
+    \    ${GetPing}    defping    ${Clients-IP Address}    -n    10    10
     \    Run Keyword If    "${GetPing}"=="True"    log    PingIPv4:Matched
     \    ...    ELSE    log    PingIPv4:Not Matched    Should Be True    False
-    \    log    ${Clients-IP Address}
     \    click    ${Settings - Wizard Page-X (Close)-Click}
-    \    waitElementDisplayed    ${Home Page-Connected Clients-Edit1-ImgClick}    10    true
+    \    log    ${Clients-IP Address}
 
 0010
-    [Documentation]    Connection Clients_Edit button check
-    ...
-    ...    OK verify by Dwayne Cheng 20171212
+    [Documentation]    OK
+    ...    Connection Clients_Edit button check
     [Tags]    DKP1611011-0010
     ToLoginWithoutPassword
-    #===Restore===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
     ToLoginPage
     Lang2English
     ToClickLoginBtn
     click    ${Home Page-Connected Clients(image)-Click}
-    waitElementDisplayed    ${Home Page-Connected Clients-Edit1-ImgClick}    10    true
     ${ClientsCount}    getText    ${Home Page-Connected Clients(character)-Click}
     log    ${ClientsCount}
     ${ClientsCountFor}    Evaluate    ${ClientsCount}+1
     : FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    click    ${Home Page-Connected Clients-Edit${INDEX1}-ImgClick}
-    \    waitElementDisplayed    ${Settings - Wizard Page-X (Close)-Click}    10    true
     \    ${Clients-Name}    getText    ${Home Page-Connected Clients-Name-GetVar}
     \    log    ${Clients-Name}
     \    ${Clients-Vendor}    getText    ${Home Page-Connected Clients-Vendor-GetVar}
@@ -321,39 +336,114 @@ Library           String
     \    ${Clients-MAC Address}    getText    ${Home Page-Connected Clients-MAC Address-GetVar}
     \    log    ${Clients-MAC Address}
     \    ${Clients-IP Address}    getText    ${Home Page-Connected Clients-IP Address-GetVar}
-    \    ${GetPing}    defping    0    ${Clients-IP Address}    -n    10
-    \    ...    default    default    default
-    \    log    ${Clients-IP Address}
+    \    ${GetPing}    defping    ${Clients-IP Address}    -n    10    10
     \    Run Keyword If    "${GetPing}"=="True"    log    PingIPv4:Matched
     \    ...    ELSE    log    PingIPv4:Not Matched    Should Be True    False
     \    click    ${Settings - Wizard Page-X (Close)-Click}
-    \    waitElementDisplayed    ${Home Page-Connected Clients-Edit1-ImgClick}    10    true
+    \    log    ${Clients-IP Address}
 
-0021
-    [Documentation]    Internet Connected_Static IP Check
-    ...
-    ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-0021
+0018
+    [Documentation]    Not USB port
+    ...    USB device check
+    [Tags]    DKP1611011-0018
+
+0019
+    [Documentation]    OK
+    ...    Internet Connected_PPPoE Check
+    [Tags]    DKP1611011-0019
     ToLoginWithoutPassword
-    #===Restore===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
+    #Restore
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Configure PPPoE
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
+    click    ${Home Page-Go to settings (V4)-Click}
+    sleep    3s
+    ${check-PPPOE}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
+    Should Be True    "${check-PPPOE}"=="PPPoE"
+
+0020
+    [Documentation]    90%
+    ...    Internet Disconnected_PPPoE Check
+    ...    But click button of "Release IP Address" replace unplugging WAN connection.
+    [Tags]    DKP1611011-0020
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #Restore
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Configure PPPoE
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
+    click    ${Home Page-Go to settings (V4)-Click}
+    sleep    3s
+    ${check-PPPOE}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
+    Should Be True    "${check-PPPOE}"=="PPPoE"
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    10    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    10    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    10    true
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    60    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    ToLoginWithoutPassword
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    ${Reverse-Result}    defping    8.8.8.8    \    \    0
+    Run Keyword If    "${Reverse-Result}"=="False"    log    FunctionPass
+    ...    ELSE    log    FunctionFail    Should Be True    False
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Disconnected"
+
+0021
+    [Documentation]    OK
+    ...    Internet Connected_Static IP Check
+    [Tags]    DKP1611011-0021
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #Restore
     ToLoginPage
     Lang2English
     ToClickLoginBtn
     Configure StaticIP
+    #Setting staticIP
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    #===Ping Gateway===
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
-    #===Ping Gateway End===
-    #===Check Internet Status===
+    Def-Ping    ${GetDefault Gateway}    -n    4    0
+    #Ping Gateway
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
@@ -361,37 +451,34 @@ Library           String
     Should Be True    "${GetConnection Type(IPv4)}"=="Static IP (Static)"
     Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
     click    ${Home Page-Go to settings (V4)-Click}
-    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
+    sleep    3s
     ${check-Static IP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
     Should Be True    "${check-Static IP}"=="Static IP"
-    #===Check Internet Status End===
 
 0023
-    [Documentation]    Internet Connected_PPTP Check
-    ...
-    ...    OK verify by Dwayne Cheng 20171213
+    [Documentation]    OK
+    ...    Internet Connected_PPTP Check
     [Tags]    DKP1611011-0023
     ToLoginWithoutPassword
-    #===Restore===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
+    #Restore
     ToLoginPage
     Lang2English
     ToClickLoginBtn
     Configure PPTP
-    ToLoginWithoutPassword
-    #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
-    #===Ping Gateway End===
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    #===Check Internet Status===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Get-Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${Get-Gateway}
+    Def-Ping    ${Get-Gateway}    -n    4    0
+    #Ping IP
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
@@ -402,20 +489,71 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
     ${check-PPTP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
     Should Be True    "${check-PPTP}"=="PPTP"
-    #===Check Internet Status End===
 
-0025
-    [Documentation]    Internet Connected_L2TP Check
-    ...
-    ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-0025
+0024
+    [Documentation]    90%
+    ...    Internet Disconnected_PPTP Check
+    ...    But click button of "Release IP Address" replace unplugging WAN connection.
+    [Tags]    DKP1611011-0024
     ToLoginWithoutPassword
-    #===Restore===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
+    #Restore
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Configure PPTP
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Get-Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${Get-Gateway}
+    Def-Ping    ${Get-Gateway}    -n    4    0
+    #Ping IP
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPTP)"
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
+    click    ${Home Page-Go to settings (V4)-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
+    ${check-PPTP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
+    Should Be True    "${check-PPTP}"=="PPTP"
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    10    TRUE
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    10    TRUE
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    10    TRUE
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    60    TRUE
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    ToLoginWithoutPassword
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    ${Reverse-Result}    defping    8.8.8.8    \    \    0
+    Run Keyword If    "${Reverse-Result}"=="False"    log    FunctionPass
+    ...    ELSE    log    FunctionFail    Should Be True    False
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Disconnected"
+
+0025
+    [Documentation]    OK
+    ...    Internet Connected_L2TP Check
+    [Tags]    DKP1611011-002
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #Restore
     ToLoginPage
     Lang2English
     ToClickLoginBtn
@@ -423,13 +561,10 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
-    #===Ping Gateway End===
-    ToLoginWithoutPassword
-    #===Check Internet Status===
+    ${Get-Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${Get-Gateway}
+    Def-Ping    ${Get-Gateway}    -n    4    0
+    #Ping IP
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
@@ -440,8 +575,54 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
     ${check-L2TP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
     Should Be True    "${check-L2TP}"=="L2TP"
-    #===Check Internet Status End===
 
-----test------
-    defping    0    8.8.8.8    -n    4    default    default
-    ...    default
+0026
+    [Documentation]    90%
+    ...    Internet Disconnected_L2TP Check
+    ...    But click button of "Release IP Address" replace unplugging WAN connection.
+    [Tags]    DKP1611011-0026
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #Restore
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Configure L2TP
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Get-Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${Get-Gateway}
+    Def-Ping    ${Get-Gateway}    -n    4    0
+    #Ping IP
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (L2TP)"
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
+    click    ${Home Page-Go to settings (V4)-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
+    ${check-L2TP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
+    Should Be True    "${check-L2TP}"=="L2TP"
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    10    TRUE
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    10    TRUE
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    10    TRUE
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    60    TRUE
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    ToLoginWithoutPassword
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    ${Reverse-Result}    defping    8.8.8.8    \    \    0
+    Run Keyword If    "${Reverse-Result}"=="False"    log    FunctionPass
+    ...    ELSE    log    FunctionFail    Should Be True    False
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetNetwork Status(IPv4)}"=="Disconnected"
