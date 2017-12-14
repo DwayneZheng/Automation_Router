@@ -441,3 +441,7 @@ Library           String
     ${check-L2TP}    getText    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
     Should Be True    "${check-L2TP}"=="L2TP"
     #===Check Internet Status End===
+
+----test------
+    defping    0    8.8.8.8    -n    4    default    default
+    ...    default
