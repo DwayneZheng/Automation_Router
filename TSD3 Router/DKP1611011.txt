@@ -12,6 +12,7 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-0001
     #Restore
+    #-test
     ToLoginWithoutPassword
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
@@ -24,6 +25,7 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     sleep    3s
+    #-test End===
 
 0003
     [Documentation]    Internet_DHCP WAN Connection_Release IP Button Check
