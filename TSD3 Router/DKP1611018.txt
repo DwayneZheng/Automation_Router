@@ -349,6 +349,9 @@ Library           String
     ...
     ...    2.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    第 32行環境問題，先關閉
+    ...
+    ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -364,9 +367,6 @@ Library           String
     ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Before Change MAC address END===
     #Setting PPPOE
-    Configure PPPoE
-    FunctionTable-Home
-    ${IP Address-Get}    getText    ${Home Page-IP Address(IPv4)-GetVar}
     Configure PPPoE-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
@@ -379,10 +379,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    ${IP Address-Get}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}     3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -414,6 +418,8 @@ Library           String
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
@@ -431,6 +437,9 @@ Library           String
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    第 32行環境問題，先關閉
+    ...
+    ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -446,9 +455,6 @@ Library           String
     ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Before Change MAC address END===
     #Setting PPPOE
-    Configure PPPoE
-    FunctionTable-Home
-    ${IP Address-Get}    getText    ${Home Page-IP Address(IPv4)-GetVar}
     Configure PPPoE-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
@@ -461,10 +467,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    ${IP Address-Get}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}     3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -492,6 +502,8 @@ Library           String
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
@@ -512,6 +524,9 @@ Library           String
     ...
     ...    2.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    第 32行環境問題，先關閉
+    ...
+    ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -527,9 +542,6 @@ Library           String
     ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Before Change MAC address END===
     #Setting PPPOE
-    Configure PPPoE
-    FunctionTable-Home
-    ${IP Address-Get}    getText    ${Home Page-IP Address(IPv4)-GetVar}
     Configure PPPoE-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
@@ -542,10 +554,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    ${IP Address-Get}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}     3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
@@ -581,6 +597,8 @@ Library           String
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
@@ -598,6 +616,9 @@ Library           String
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    第 32行環境問題，先關閉
+    ...
+    ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -613,9 +634,6 @@ Library           String
     ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Before Change MAC address END===
     #Setting PPPOE
-    Configure PPPoE
-    FunctionTable-Home
-    ${IP Address-Get}    getText    ${Home Page-IP Address(IPv4)-GetVar}
     Configure PPPoE-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
@@ -628,10 +646,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    ${IP Address-Get}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}     3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
@@ -662,6 +684,8 @@ Library           String
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
