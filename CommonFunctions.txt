@@ -425,3 +425,11 @@ Configure PPPoE-Without Save
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
     sleep    1s
+
+Configure DHCP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-Dynamic IP-SelectChild}
+    sleep    1s

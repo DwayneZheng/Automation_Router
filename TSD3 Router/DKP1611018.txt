@@ -1,5 +1,6 @@
 *** Settings ***
 Suite Setup       ElementLocator-DIR-878
+Force Tags        DKP1611018
 Resource          ../AllResources.txt
 Library           String
 
@@ -672,36 +673,124 @@ Library           String
     #===Ping MTU END===
 
 0001
+    [Documentation]    Internet->IPv4 DHCP test
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    5.Capture wan packet to make sure DUT wan is using your MAC address
+    ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171214
+    [Tags]    DKP1611018-0001
+    #===Restore===
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Before Change MAC Address===
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #===Setting DHCP===
+    Configure DHCP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Choose-Select}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Choose-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-var(1)-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-var(1)-SelectChild}    #Setting MAC Address clone
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting DHCP END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Finish MAC Address===
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (DHCP)"
+    #===Ping \ Gateway===
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check mac}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check mac}
+    #===Check MAC \ Address END===
+    #===Ping MTU===
+    Def-Ping    0    8.8.8.8    -f    -l    1400
+    Def-Ping    0    8.8.8.8    -f    -l    1472
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1473
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
 
 0002
+    [Tags]    DKP1611018-0002
 
 0003
+    [Tags]    DKP1611018-0003
 
 0004
+    [Tags]    DKP1611018-0004
 
 0005
+    [Tags]    DKP1611018-0005
 
 0011
+    [Tags]    DKP1611018-0011
 
 0012
+    [Tags]    DKP1611018-0012
 
 0015
+    [Tags]    DKP1611018-0015
 
 0017
+    [Tags]    DKP1611018-0017
 
 0018
+    [Tags]    DKP1611018-0018
 
 0019
+    [Tags]    DKP1611018-0019
 
 0021
+    [Tags]    DKP1611018-0021
 
 0022
+    [Tags]    DKP1611018-0022
 
 0024
+    [Tags]    DKP1611018-0024
 
 0025
-	
-	
+    [Tags]    DKP1611018-0025
+
 test1
     ToLoginPage
     Lang2English
