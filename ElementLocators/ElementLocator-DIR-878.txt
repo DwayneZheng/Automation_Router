@@ -1,5 +1,5 @@
 ﻿*** Settings ***
-Documentation     Date：2017/12/13
+Documentation     Date：2017/12/14
 
 *** Keywords ***
 ElementLocator-DIR-878
@@ -226,6 +226,20 @@ ElementLocator-DIR-878
     Set Global Variable    ${Home Page-Connected Clients-Name-GetVar}
     ${Home Page-Internet Connected-ImgClick}    getElementLocator    xpath    //*[@id="wan_Light"]
     Set Global Variable    ${Home Page-Internet Connected-ImgClick}
+    ${Home Page-USB Device-ImgClick}    getElementLocator    xpath    //*[@id="usb_image"]
+    Set Global Variable    ${Home Page-USB Device-ImgClick}
+    ${Home Page-Available Space-GetVar}    getElementLocator    xpath    //*[@id="usbdev2_FreeSpace"]
+    Set Global Variable    ${Home Page-Available Space-GetVar}
+    ${Home Page-Total Space-GetVar}    getElementLocator    xpath    //*[@id="usbdev2_TotalSpace"]
+    Set Global Variable    ${Home Page-Total Space-GetVar}
+    ${Home Page-DLNA Media Server-Status-GetVar}    getElementLocator    xpath    //*[@id="dlna_Status"]
+    Set Global Variable    ${Home Page-DLNA Media Server-Status-GetVar}
+    ${Home Page-DLNA Media Server-Service Name-GetVar}    getElementLocator    xpath    //*[@id="dlna_ServiceName"]
+    Set Global Variable    ${Home Page-DLNA Media Server-Service Name-GetVar}
+    ${Home Page-Windows File Sharing-Status-GetVar}    getElementLocator    xpath    //*[@id="samba_Status"]
+    Set Global Variable    ${Home Page-Windows File Sharing-Status-GetVar}
+    ${Home Page-FTP-Status-GetVar}    getElementLocator    xpath    //*[@id="ftp_Status"]
+    Set Global Variable    ${Home Page-FTP-Status-GetVar}
 #Settings - Wizard Page
     ${Settings - Wizard Page-Wizard-Select}    getElementLocator    xpath    //a[@onclick='return confirmExit()']
     Set Global Variable    ${Settings - Wizard Page-Wizard-Select}
