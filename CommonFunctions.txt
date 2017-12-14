@@ -3,8 +3,6 @@ Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 
 *** Keywords ***
-----test----
-
 ToLoginPage
     tourl    http://192.168.0.1
     sleep    3s
@@ -410,6 +408,3 @@ FunctionTable-Management-Statistics
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     click    ${Function Table-Management-Statistics-FunctionTableChild}
     waitElementDisplayed    ${Management-Statistics-Internet-Click}    10    true
-
-----1214----
-    sleep    1
