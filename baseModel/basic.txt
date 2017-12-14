@@ -1,0 +1,7 @@
+*** Settings ***
+Suite Setup       ElementLocator-DIR-878
+Resource          ../AllResources.txt
+
+*** Test Cases ***
+LoginCheck
+    ToLoginPage

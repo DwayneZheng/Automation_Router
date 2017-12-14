@@ -1,4 +1,6 @@
 *** Settings ***
+Documentation     Date：2017/12/12
+Library           ../Functions/pingLib.py
 
 *** Keywords ***
 ToLoginPage
@@ -72,19 +74,19 @@ ToClickLoginBtn
     sleep    1
 
 RestoreDevice
-    click    xpath    //a[@id='menu_Management']
-    sleep    1
-    click    xpath    //a[@id='menu_Management']
-    sleep    1
-    click    xpath    (//a[@onclick='return confirmExit()'])[13]
-    sleep    1
-    click    xpath    //div[@id='page_btn']
-    sleep    1
-    click    xpath    (//button[@type='button'])[3]
-    sleep    1
-    click    xpath    //div[@id='Confirm_btn']
-    sleep    95
-    click    xpath    //div[@id='Confirm_btn']
+    click    ${Management-Time&Schedule-Time-Management-FunctionTable}
+    waitElementDisplayed    ${Management-Time&Schedule-Time-Management-FunctionTable}    5    TRUE
+    click    ${Management-Time&Schedule-Time-Management-FunctionTable}
+    waitElementDisplayed    ${Management-Time&Schedule-Time-Management-FunctionTable}    5    TRUE
+    click    ${Management-System Admin-Admin-System Admin-FunctionTableChild}
+    waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
+    click    ${Management-System Admin-System-System-ChangePage}
+    waitElementDisplayed    ${Management-System Admin-System-Restore To Factory Default Settings-Click}    5    TRUE
+    click    ${Management-System Admin-System-Restore To Factory Default Settings-Click}
+    waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    5    TRUE
+    click    ${Management-System Admin-System-Restore-Yes-Click}
+    waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
+    click    ${Management-System Admin-System-Restore to factory default success-Click}
 
 Wizard-Next
     sleep    1s
@@ -174,7 +176,7 @@ Default-Setup-Wizard
     Run Keyword If    '${Get-Language}' == '${Check-Language}'    log    ConnectionType=true
     ...    ELSE    log    ConnectionType=false    should be true    false
 
-LoginwithPsw
+LoginWithPsw
     ToLoginPage
     sendtext    id    admin_Password    111111
     sleep    3s
@@ -189,3 +191,221 @@ Settings-Wizard-Page
     sleep    1s
     click    ${Settings-Wizard-Click}
     sleep    1s
+
+Def-Ping
+    [Arguments]    ${arg1}    ${arg2}    ${arg3}=default    ${arg4}=default    ${arg5}=default    ${arg6}=default
+    ...    ${arg7}=default
+    [Documentation]    testping ${arg1} | ${arg2} | ${arg3} | ${arg4} | ${arg5} | ${arg6} | ${arg7}
+    ...
+    ...    Lost Percent \ | \ \ \ options \ \ | \ \ options \ \ | \ \ options | \ options \ | \ options | \ options \
+    ...    EX: 10 | -f \ \ | \ \ -l \ | \ 1000 \ | -n \ | 10 | 8.8.8.8
+    ${defping}    defping    ${arg1}    ${arg2}    ${arg3}    ${arg4}    ${arg5}
+    ...    ${arg6}    ${arg7}
+    Should Be True    ${defping}
+
+ToLoginWithoutPassword
+    ToLoginPage
+    ToClickLoginBtn
+
+ToHiddenPage
+    tourl    http://192.168.0.1/version.txt
+    sleep    3s
+
+Configure PPPoE
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    73459408@hinet.net    #Setting \ Account
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
+    sleep    1s
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+
+Configure StaticIP
+    waitElementDisplayed    ${Settings - Internet - VLAN-Settings-FunctionTable}    10    true
+    click    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    sleep    1s
+    click    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    sleep    1s
+    click    ${Settings - Internet - VLAN-Internet-FunctionTableChild}
+    #Switch to Settings >> Internet >> IPv4
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}    10    true
+    click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    10    true
+    click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
+    #Switch to staticIP
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    192.168.100.10    #IP Address Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    192.168.100.1    #Default Gateway Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    192.168.100.1    #Primary DNS Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    8.8.8.8    #Secondary DNS Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    60    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+
+Configure PPTP
+    waitElementDisplayed    ${Settings - Internet - VLAN-Settings-FunctionTable}    10    true
+    click    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    sleep    1s
+    click    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    sleep    1s
+    click    ${Settings - Internet - VLAN-Internet-FunctionTableChild}
+    #Switch to Settings >> Internet >> IPv4
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}    10    true
+    click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    10    true
+    click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    #Switch to PPTP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+
+Configure L2TP
+    waitElementDisplayed    ${Settings - Internet - VLAN-Settings-FunctionTable}    10    true
+    click    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    sleep    1s
+    click    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    sleep    1s
+    click    ${Settings - Internet - VLAN-Internet-FunctionTableChild}
+    #Switch to Settings >> Internet >> IPv4
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}    10    true
+    click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    10    true
+    click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
+    #Switch to L2TP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+
+FunctionTable-Home
+    click    ${Function Table-Home-FunctionTable}
+    waitElementDisplayed    ${Home Page-Go to settings (V4)-Click}    10    true
+
+FunctionTable-Settings-Wizard
+    mouseOverToElement    ${Function Table-Settings-FunctionTable}
+    click    ${Function Table-Settings-Wizard-FunctionTableChild}
+    waitElementDisplayed    ${Settings - Wizard Page-Next-Click}    10    TRUE
+
+FunctionTable-Settings-Internet
+    mouseOverToElement    ${Function Table-Settings-FunctionTable}
+    click    ${Function Table-Settings-Internet-FunctionTableChild}
+    waitElementDisplayed    ${Settings-Network-Advanced Settings...-Link}    10    true
+
+FunctionTable-Settings-Wireless
+    mouseOverToElement    ${Function Table-Settings-FunctionTable}
+    click    ${Function Table-Settings-Wireless-FunctionTableChild}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
+
+FunctionTable-Settings-Network
+    mouseOverToElement    ${Function Table-Settings-FunctionTable}
+    click    ${Function Table-Settings-Network-FunctionTableChild}
+    waitElementDisplayed    ${Settings-Network-Enable DNS Relay-Switch}    10    true
+
+FunctionTable-Features-QoSEngine
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-QoS Engine-FunctionTableChild}
+    waitElementDisplayed    ${Features-Qos Engine-Download Speed-Input}    10    true
+
+FunctionTable-Features-Firewall
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-Firewall-FunctionTableChild}
+    waitElementDisplayed    ${Features-Firewall- Advanced-Enable DMZ-Switch}    10    true
+
+FunctionTable-Features-PortForwarding
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-Port Forwarding-FunctionTableChild}
+    waitElementDisplayed    ${Features-PortForwarding-Add Rule-Click}    10    true
+
+FunctionTable-Features-WebsiteFilter
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-Website Filter-FunctionTableChild}
+    waitElementDisplayed    ${Features-Forwarding-Virtual-Add Rule-Click}    10    true
+
+FunctionTable-Features-StaticRoute
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-Static Route-FunctionTableChild}
+    waitElementDisplayed    ${Features-Static Routes-IPv6-IPv6-Click}    10    true
+
+FunctionTable-Features-DynamicDNS
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-Dynamic DNS-FunctionTableChild}
+    waitElementDisplayed    ${Features-DynamicDNS-Enable Dynamic DNS-Switch}    10    true
+
+FunctionTable-Features-QuickVPN
+    mouseOverToElement    ${Function Table-Features-FunctionTable}
+    click    ${Function Table-Features-Quick VPN-FunctionTableChild}
+    waitElementDisplayed    ${Features-QuickVPN-L2TP over IPSec-Switch}    10    true
+
+FunctionTable-Management-Time&Schedule
+    mouseOverToElement    ${Function Table-Management-FunctionTable}
+    click    ${Function Table-Management-Time & Schedule-FunctionTableChild}
+    waitElementDisplayed    ${Management-Time&Schedule-Time-Time Zone-Select}    10    true
+
+FunctionTable-Management-SystemLog
+    mouseOverToElement    ${Function Table-Management-FunctionTable}
+    click    ${Function Table-Management-System Log-FunctionTableChild}
+    waitElementDisplayed    ${Management-System Log-Enable Logging to Syslog Server-Switch}    10    true
+
+FunctionTable-Management-SystemAdmin
+    mouseOverToElement    ${Function Table-Management-FunctionTable}
+    click    ${Function Table-Management-System Admin-FunctionTableChild}
+    waitElementDisplayed    ${Management-System Admin-Admin-Enable Graphical Authentication (CAPTCHA)-Switch}    10    true
+
+FunctionTable-Management-Device
+    mouseOverToElement    ${Function Table-Management-FunctionTable}
+    click    ${Function Table-Management-Device-FunctionTableChild}
+    waitElementDisplayed    ${Management-Device-Turn Parental Control-Select}    10    true
+
+FunctionTable-Management-Upgrade
+    mouseOverToElement    ${Function Table-Management-FunctionTable}
+    click    ${Function Table-Management-Upgrade-FunctionTableChild}
+    waitElementDisplayed    ${Management-Upgrade-Check for New Firmware-Click}    10    true
+
+FunctionTable-Management-Statistics
+    mouseOverToElement    ${Function Table-Management-FunctionTable}
+    click    ${Function Table-Management-Statistics-FunctionTableChild}
+    waitElementDisplayed    ${Management-Statistics-Internet-Click}    10    true

@@ -1,6 +1,0 @@
-*** Keywords ***
-LoadElementLocators_2
-    ${GoogleTranslateSubmitButton_2}=    getElementLocator    id    gt-submit_2
-    Set Global Variable    ${GoogleTranslateSubmitButton_2}
-    ${GoogleTranslateInput_2}=    getElementLocator    id    source_2
-    Set Global Variable    ${GoogleTranslateInput_2}
