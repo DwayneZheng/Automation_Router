@@ -1427,13 +1427,310 @@ Library           String
     #===Ping MTU END===
 
 0003
+    [Documentation]    Internet->IPv4 Static IP test
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    5.Capture wan packet to make sure DUT wan is using your MAC address
+    ...    -------------------------------------
     [Tags]    DKP1611018-0003
+    #===Restore===
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Before Change MAC Address===
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #===Setting Static IP===
+    Configure Static IP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10.2.75.175    #IP Address Input
+    #waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
+    #clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
+    #sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    #waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    3    true
+    #clearText    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}
+    #sendtext    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    10.2.75.1    #Default Gateway Input
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Choose-Select}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Choose-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-var(1)-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-var(1)-SelectChild}    #Setting MAC Address clone
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-StaticIP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting Static IP End===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Finish MAC Address===
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (Static)"
+    #===Ping \ Gateway===
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check mac}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check mac}
+    #===Check MAC \ Address END===
+    #===Ping MTU===
+    Def-Ping    0    8.8.8.8    -f    -l    1400
+    Def-Ping    0    8.8.8.8    -f    -l    1472
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1473
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
+    #===Check MAC \ Address END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1400
+    Def-Ping    0    8.8.8.8    -f    -l    1464
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
 
 0004
+    [Documentation]    Internet->IPv4 Static IP DNS test
     [Tags]    DKP1611018-0004
+    #===Restore===
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Setting Static IP===
+    Configure Static IP-Without Save
+    #===Configure DNS Server===
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10.2.75.175    #IP Address Input
+    #waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
+    #clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
+    #sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    #waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    3    true
+    #clearText    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}
+    #sendtext    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    10.2.75.1    #Default Gateway Input
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    2.2.2.2
+    #===Configure DNS Server End===
+    #===Configure MTU===
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Manual-SelectChild}    #Setting MTU
+    clearText    ${Settings-Internet-IPv4-StaticIP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-MTU-Manual-Input-Input}    1400
+    #===Configure MTU End===
+    #save
+    click    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting Static IP End===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (DHCP)"
+    #===Ping \ Gateway===
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #===Ping MTU===
+    ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckMTU1300}"=="True"
+    ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
+    ...    default    default
+    Should Be True    "${CheckMTU1372}"=="True"
+    sleep    5s
+    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink1}"=="False"
+    #===Configure DNS Server===
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    8.8.8.8
+    #save
+    click    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    5s
+    ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink2}"=="True"
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    #===Configure DNS Server End===
+    ${CheckMTU1373}    defping    0    8.8.8.8    -f    -l    1473
+    ...    default    default
+    Should Be True    "${CheckMTU1373}"=="True"
+    #===Ping MTU END===
 
 0005
     [Tags]    DKP1611018-0005
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    #===Configure DNS Server===
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    2.2.2.2
+    #===Configure DNS Server End===
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    #Setting MAC Address clone
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
+    #===Ping ===
+    ${CheckPingDNS1}    defping    0    8.8.8.8    default    default    default
+    ...    default    default
+    Should Be True    "${CheckPingDNS1}"=="True"
+    sleep    5s
+    ${CheckPingDNS2}    defping    0    www.google.com    default    default    default
+    ...    default    default
+    Should Be True    "${CheckPingDNS2}"=="False"
+    #===Check MAC \ Address END===
+    #===Ping End===
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    #===Configure DNS Server===
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    2.2.2.2
+    #===Configure DNS Server End===
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Ping ===
+    ${CheckPingDNS3}    defping    0    8.8.8.8    default    default    default
+    ...    default    default
+    Should Be True    "${CheckPingDNS3}"=="True"
+    sleep    5s
+    ${CheckPingDNS4}    defping    0    www.google.com    default    default    default
+    ...    default    default
+    Should Be True    "${CheckPingDNS4}"=="True"
+    #===Ping End===
 
 0011
     [Tags]    DKP1611018-0011
@@ -1479,4 +1776,3 @@ test1
     ...    default    default
     Run Keyword If    "${Error Ping}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True
-

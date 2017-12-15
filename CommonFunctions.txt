@@ -433,3 +433,11 @@ Configure DHCP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-DHCP-Dynamic IP-SelectChild}
     sleep    1s
+
+Configure Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
+    sleep    1s
