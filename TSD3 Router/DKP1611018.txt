@@ -944,33 +944,6 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
-<<<<<<< HEAD
-    #===Ping MTU===
-    ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
-    ...    default    default
-    Should Be True    "${CheckMTU1300}"=="True"
-    ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
-    ...    default    default
-    Should Be True    "${CheckMTU1372}"=="True"
-    sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
-    ...    default    default
-    Should Be True    "${CheckDlink1}"=="False"
-=======
-    log    ${Before MAC Address}
-    log    ${After MAC Address}
-    log    ${Finish MAC Address}
-    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
-    Should Be True    "${After MAC Address}"==""
-    Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
-    #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
-    ...    default    default
-    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
-    #===Ping MTU END===
 
 0066
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(enable)
@@ -1421,11 +1394,14 @@ Library           String
     #===Ping MTU===
     ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
     ...    default    default
-    Should Be True    "${CheckMTU1300}"=="False"
+    Should Be True    "${CheckMTU1300}"=="True"
     ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
     ...    default    default
-    Should Be True    "${CheckMTU1372}"=="False"
->>>>>>> origin/master
+    Should Be True    "${CheckMTU1372}"=="True"
+    sleep    5s
+    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
@@ -1450,11 +1426,11 @@ Library           String
     Should Be True    "${CheckMTU1373}"=="True"
     #===Ping MTU END===
 
-0004
-    [Tags]    DKP1611018-0004
-
 0003
     [Tags]    DKP1611018-0003
+
+0004
+    [Tags]    DKP1611018-0004
 
 0005
     [Tags]    DKP1611018-0005
@@ -1503,3 +1479,4 @@ test1
     ...    default    default
     Run Keyword If    "${Error Ping}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True
+
