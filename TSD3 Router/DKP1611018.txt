@@ -82,8 +82,8 @@ Library           String
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
-    ${Check mac}    MAC_Address    ${Finish MAC Address}
-    Should Be True    ${Check mac}
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
     #===Check MAC \ Address END===
     #Ping MTU
     Def-Ping    0    8.8.8.8    -f    -l    1400
@@ -415,6 +415,7 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
+    #Check MAC \ Address
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
@@ -423,6 +424,9 @@ Library           String
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
+    #===Check MAC \ Address END===
     #Ping MTU
     Def-Ping    0    8.8.8.8    -f    -l    1400
     Def-Ping    0    8.8.8.8    -f    -l    1464
@@ -594,6 +598,7 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
+    #Check MAC \ Address
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
@@ -602,6 +607,9 @@ Library           String
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
+    #===Check MAC \ Address END===
     #Ping MTU
     Def-Ping    0    8.8.8.8    -f    -l    1300
     Def-Ping    0    8.8.8.8    -f    -l    1322
@@ -637,9 +645,9 @@ Library           String
     Configure PPPoE-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    3    true
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
@@ -686,6 +694,590 @@ Library           String
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
     #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${After MAC Address}"==""
+    Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1322
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0063
+    [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Auto) + Mac Address Clone(disable)
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
+    clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${After MAC Address}"==""
+    Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1400
+    Def-Ping    0    8.8.8.8    -f    -l    1464
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0064
+    [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Manual) + Mac Address Clone(enable)
+    # copy by 52
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
+    clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
+    click    xpath    //*[@id="copyright"]
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    #Setting MAC Address clone
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
+    #===Check MAC \ Address END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1322
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0065
+    [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Manual) + Mac Address Clone(disable)
+    #copy 53
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
+    clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+<<<<<<< HEAD
+    #===Ping MTU===
+    ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckMTU1300}"=="True"
+    ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
+    ...    default    default
+    Should Be True    "${CheckMTU1372}"=="True"
+    sleep    5s
+    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink1}"=="False"
+=======
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${After MAC Address}"==""
+    Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1322
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0066
+    [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(enable)
+    #copy 46
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    #Setting MAC Address clone
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check-My PC MAC}
+    #===Check MAC \ Address END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1400
+    Def-Ping    0    8.8.8.8    -f    -l    1464
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0067
+    [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(disable)
+    #copy 47
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}    5    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}    #Remove MAC address clone
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    Should Be True    "${After MAC Address}"==""
+    Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1400
+    Def-Ping    0    8.8.8.8    -f    -l    1464
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0068
+    [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Manual) + Mac Address Clone(enable)
+    #copy 48
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
+    click    xpath    //*[@id="copyright"]
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    #Setting MAC Address clone
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}    3    true
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC Address
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
+    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
+    ...    ELSE    log    pass
+    ${Check mac}    MAC_Address    ${Finish MAC Address}
+    Should Be True    ${Check mac}
+    #===Check MAC Address END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1322
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0069
+    [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Manual) + Mac Address Clone(disable)
+    #copy 49
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPPOE
+    Configure PPPoE-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
+    ${After MAC Address}    getText    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    #save
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
@@ -829,14 +1421,11 @@ Library           String
     #===Ping MTU===
     ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
     ...    default    default
-    Should Be True    "${CheckMTU1300}"=="True"
+    Should Be True    "${CheckMTU1300}"=="False"
     ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
     ...    default    default
-    Should Be True    "${CheckMTU1372}"=="True"
-    sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
-    ...    default    default
-    Should Be True    "${CheckDlink1}"=="False"
+    Should Be True    "${CheckMTU1372}"=="False"
+>>>>>>> origin/master
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
@@ -861,11 +1450,11 @@ Library           String
     Should Be True    "${CheckMTU1373}"=="True"
     #===Ping MTU END===
 
-0003
-    [Tags]    DKP1611018-0003
-
 0004
     [Tags]    DKP1611018-0004
+
+0003
+    [Tags]    DKP1611018-0003
 
 0005
     [Tags]    DKP1611018-0005
