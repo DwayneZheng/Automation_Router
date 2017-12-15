@@ -942,7 +942,85 @@ Library           String
     #===Ping MTU END===
 
 0002
+    [Documentation]    Internet->IPv4 DHCP DNS test
     [Tags]    DKP1611018-0002
+    #===Restore===
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Setting DHCP===
+    Configure DHCP-Without Save
+    #===Configure DNS Server===
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    2.2.2.2
+    #===Configure DNS Server End===
+    #===Configure MTU===
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-Manual-SelectChild}    #Setting MTU
+    clearText    ${Settings-Internet-IPv4-DHCP-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-DHCP-Manual-Input-Input}    1400
+    #===Configure MTU End===
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Host Name-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-DHCP-Host Name-Input}
+    sendtext    ${Settings-Internet-IPv4-DHCP-Host Name-Input}    DUT model
+    #save
+    click    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting DHCP END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (DHCP)"
+    #===Ping \ Gateway===
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #===Ping MTU===
+    ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckMTU1300}"=="False"
+    ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
+    ...    default    default
+    Should Be True    "${CheckMTU1372}"=="False"
+    #===Configure DNS Server===
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    8.8.8.8
+    #save
+    click    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Configure DNS Server End===
+    ${CheckMTU1373}    defping    0    8.8.8.8    -f    -l    1473
+    ...    default    default
+    Should Be True    "${CheckMTU1373}"=="True"
+    #===Ping MTU END===
 
 0004
     [Tags]    DKP1611018-0004
