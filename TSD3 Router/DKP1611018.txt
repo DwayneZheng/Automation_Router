@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1611018
 Resource          ../AllResources.txt
@@ -944,6 +944,20 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
+    log    ${Before MAC Address}
+    log    ${After MAC Address}
+    log    ${Finish MAC Address}
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${After MAC Address}"==""
+    Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1322
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
 
 0066
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(enable)
@@ -1260,6 +1274,7 @@ Library           String
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+
 
 0001
     [Documentation]    Internet->IPv4 DHCP test
