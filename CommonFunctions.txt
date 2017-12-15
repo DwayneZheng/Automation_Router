@@ -441,3 +441,11 @@ Configure Static IP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
     sleep    1s
+
+Configure PPTP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    sleep    1s
