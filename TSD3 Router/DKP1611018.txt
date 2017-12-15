@@ -829,10 +829,14 @@ Library           String
     #===Ping MTU===
     ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
     ...    default    default
-    Should Be True    "${CheckMTU1300}"=="False"
+    Should Be True    "${CheckMTU1300}"=="True"
     ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
     ...    default    default
-    Should Be True    "${CheckMTU1372}"=="False"
+    Should Be True    "${CheckMTU1372}"=="True"
+    sleep    5s
+    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
@@ -847,7 +851,10 @@ Library           String
     click    ${Settings-Internet-IPv4-DHCP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
-    sleep    3s
+    sleep    5s
+    ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink2}"=="True"
     #===Configure DNS Server End===
     ${CheckMTU1373}    defping    0    8.8.8.8    -f    -l    1473
     ...    default    default
