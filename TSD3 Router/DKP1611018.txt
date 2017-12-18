@@ -1354,6 +1354,14 @@ Library           String
 
 0002
     [Documentation]    Internet->IPv4 DHCP DNS test
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    5.Capture wan packet and make sure DUT wan is quering DNS server 8.8.8.8
+    ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-0002
     #===Restore===
     ToLoginWithoutPassword
@@ -1842,6 +1850,9 @@ Library           String
 
 0012
     [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Auto)
+    ...
+    ...
+    ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-0012
     #Restore
     ToLoginWithoutPassword
@@ -1853,6 +1864,10 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
     #Setting PPTP
     Configure PPTP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}    3    true
@@ -1869,18 +1884,18 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    test5    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
-    click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU
     #save
     click    ${Settings-Internet-IPv4-PPTP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
@@ -1890,12 +1905,20 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${Finish MAC Address}
+    #===Check MAC \ Address END===
     #Ping MTU
     Def-Ping    0    8.8.8.8    -f    -l    1300
     Def-Ping    0    8.8.8.8    -f    -l    1372
@@ -1946,10 +1969,8 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU-Auto
     #save
@@ -2063,6 +2084,15 @@ Library           String
 
 0018
     [Documentation]    Internet->IPv4 PPTP DNS test
+    ...
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    3.Capture wan packet and make sure DUT wan is quering DNS server 8.8.8.8
+    ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-0018
     #===Restore===
     ToLoginWithoutPassword
@@ -2131,24 +2161,22 @@ Library           String
     click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
-    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
-    click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
-    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
-    clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
-    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    1.1.1.1
-    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    3    true
-    clearText    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}
-    sendtext    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    8.8.8.8
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Secondary DNS Server-Input}    8.8.8.8
     #save
-    click    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    click    ${Settings-Internet-IPv4-PPTP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
     ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
-    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     #===Configure DNS Server End===
     ${CheckMTU1473}    defping    0    8.8.8.8    -f    -l    1473
     ...    default    default
@@ -2156,19 +2184,388 @@ Library           String
     #===Ping MTU END===
 
 0019
+    [Documentation]    Internet->IPv4 L2TP Always on + Dynamic IP test + MTU(Auto)
+    ...
+    ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-0019
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
+    #Switch to L2TP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    #Setting MTU
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting L2TP END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1372
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1373
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
 
 0021
+    [Documentation]    Internet->IPv4 L2TP Manual + Dynamic IP test + MTU(Auto)
+    ...
+    ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-0021
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
+    #Switch to L2TP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    #Setting MTU
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting L2TP END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1372
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1373
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+    ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    10s
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    Def-Ping    0    8.8.8.8
 
 0022
+    [Documentation]    Internet->IPv4 L2TP Always on + Static IP test + MTU(Auto)
     [Tags]    DKP1611018-0022
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
+    #Switch to PPTP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    #Setting MTU-Auto
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1372
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1373
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
 
 0024
+    [Documentation]    Internet->IPv4 L2TP Manual + Static IP test + MTU(Auto)
     [Tags]    DKP1611018-0024
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    10.2.75.175    #input static address
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
+    #Switch to PPTP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    #Setting MTU-Auto
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    8.8.8.8    -f    -l    1300
+    Def-Ping    0    8.8.8.8    -f    -l    1372
+    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1373
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+    ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    ${Disconnect}    defping    0    8.8.8.8    default    default    default
+    ...    default    default
+    Should Be True    "${Disconnect}"=="False"
 
 0025
+    [Documentation]    Internet->IPv4 L2TP DNS test
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    3.Capture wan packet and make sure DUT wan is quering DNS server 8.8.8.8
+    ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-0025
+    #===Restore===
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #===Setting L2TP===
+    Configure L2TP-Without Save
+    #Switch to L2TP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    #===Switch to L2TP End===
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    #===Configure DNS Server===
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}    2.2.2.2
+    #===Configure DNS Server End===
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
+    #===Ping \ Gateway===
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #===Ping MTU===
+    ${CheckMTU1300}    defping    0    8.8.8.8    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckMTU1300}"=="True"
+    ${CheckMTU1372}    defping    0    8.8.8.8    -f    -l    1372
+    ...    default    default
+    Should Be True    "${CheckMTU1372}"=="True"
+    sleep    5s
+    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink1}"=="False"
+    #===Configure DNS Server===
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    1.1.1.1
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}    8.8.8.8
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    5s
+    ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
+    ...    default    default
+    Should Be True    "${CheckDlink2}"=="True"
+    #===Configure DNS Server End===
+    ${CheckMTU1473}    defping    0    8.8.8.8    -f    -l    1473
+    ...    default    default
+    Should Be True    "${CheckMTU1473}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
 
 test1
     ToLoginPage

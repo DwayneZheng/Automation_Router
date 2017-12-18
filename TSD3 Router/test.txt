@@ -32,6 +32,5 @@ MAC TEST
     Should Be True    ${Check mac}
 
 test123
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
-    ...    default    default
-    Should Be True    "${CheckDlink1}"=="False"
+    ToLoginWithoutPassword
+    scroll
