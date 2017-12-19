@@ -1508,6 +1508,9 @@ Library           String
     ...    ------------------------------------
     ...    5.Capture wan packet to make sure DUT wan is using your MAC address
     ...    -------------------------------------
+    ...
+    ...
+    ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-0003
     #===Restore===
     ToLoginWithoutPassword
@@ -1585,6 +1588,8 @@ Library           String
     ...    ------------------------------------
     ...    4.Capture wan packet and make sure DUT wan is quering DNS server 8.8.8.8
     ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-0004
     #===Restore===
     ToLoginWithoutPassword
@@ -1626,6 +1631,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (Static)"
     #===Ping \ Gateway===
@@ -1663,12 +1670,10 @@ Library           String
     ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
-    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     #===Configure DNS Server End===
     ${CheckMTU1473}    defping    0    ${GetDefault Gateway}    -f    -l    1373
     ...    default    default
-    Should Be True    "${CheckMTU1373}"=="Packet needs to be fragmented but DF set"
+    Should Be True    "${CheckMTU1473}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
 
 0005
@@ -1679,6 +1684,8 @@ Library           String
     ...    ------------------------------------
     ...    3.Capture wan packet and make sure DUT wan is quering DNS server 8.8.8.8
     ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-0005
     #Restore
     ToLoginWithoutPassword
@@ -1730,15 +1737,6 @@ Library           String
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
-    #Check MAC \ Address
-    log    ${Before MAC Address}
-    log    ${After MAC Address}
-    log    ${Finish MAC Address}
-    Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
-    Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
-    ...    ELSE    log    pass
-    ${Check-My PC MAC}    MAC_Address    ${Finish MAC Address}
-    Should Be True    ${Check-My PC MAC}
     #===Ping ===
     ${CheckPingDNS1}    defping    0    ${GetDefault Gateway}    default    default    default
     ...    default    default
@@ -1763,7 +1761,7 @@ Library           String
     sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    2.2.2.2
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    8.8.8.8
     #===Configure DNS Server End===
     #save
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
@@ -1814,7 +1812,7 @@ Library           String
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -1833,6 +1831,9 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -1844,13 +1845,13 @@ Library           String
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
     #Check MAC \ Address
     log    ${Before MAC Address}
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
@@ -1868,7 +1869,7 @@ Library           String
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
     sleep    20s
-    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    default    default    default
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     Should Be True    "${CheckDisconnect}"=="False"
 
@@ -1905,7 +1906,6 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to PPTP
-    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
     scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
@@ -1978,8 +1978,10 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPTP)"
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -1996,7 +1998,6 @@ Library           String
 
 0017
     [Documentation]    Internet->IPv4 PPTP Manual + Static IP test + MTU(Auto)
-    ...
     [Tags]    DKP1611018-0017
     #Restore
     ToLoginWithoutPassword
@@ -2031,8 +2032,13 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPTP)"
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
     sleep    10s
@@ -2055,7 +2061,7 @@ Library           String
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
     sleep    10s
-    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    default    default    default
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     Should Be True    "${CheckDisconnect}"=="False"
 
@@ -2310,8 +2316,10 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
+    Should Be True    "${Finish ConnectionType}"=="Static IP (L2TP)"
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -2360,8 +2368,13 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
@@ -2382,7 +2395,7 @@ Library           String
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
-    ${Disconnect}    defping    0    ${GetDefault Gateway}    default    default    default
+    ${Disconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     Should Be True    "${Disconnect}"=="False"
 
