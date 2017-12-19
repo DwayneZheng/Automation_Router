@@ -9,7 +9,8 @@ Library           String
     [Documentation]    Internet->IPv4 PPPoE Always on + Dynamic IP test + MTU(Auto) + Mac Address Clone(enable)
     ...
     ...
-    ...    Critrntia not test in this case:
+    ...
+    ...    Criteria not test in this case:
     ...
     ...    ------------------------------------
     ...
@@ -96,7 +97,7 @@ Library           String
 0047
     [Documentation]    Internet->IPv4 PPPoE Always on + Dynamic IP test + MTU(Auto) + Mac Address Clone(disable)
     ...
-    ...    Critrntia not test in this case:
+    ...    Criteria not test in this case::
     ...
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
@@ -173,7 +174,7 @@ Library           String
 0048
     [Documentation]    Internet->IPv4 PPPoE Always on + Dynamic IP test + MTU(Manual) + Mac Address Clone(enable)
     ...
-    ...    Critrntia not test in this case:
+    ...    Criteria not test in this case:
     ...
     ...    ------------------------------------
     ...
@@ -264,7 +265,7 @@ Library           String
     [Documentation]    Internet->IPv4 PPPoE Always on + Dynamic IP test + MTU(Manual) + Mac Address Clone(disable)
     ...
     ...
-    ...    Critrntia not test in this case:
+    ...    Criteria not test in this case:
     ...
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
@@ -342,7 +343,7 @@ Library           String
 0050
     [Documentation]    Internet->IPv4 PPPoE Always on + Static IP test + MTU(Auto) + Mac Address Clone(enable)
     ...
-    ...    Critrntia not test in this case:
+    ...    Criteria not test in this case:
     ...
     ...    ------------------------------------
     ...    1.Capture wan packet to make sure DUT wan is using your MAC address
@@ -438,6 +439,8 @@ Library           String
 0051
     [Documentation]    Internet->IPv4 PPPoE Always on + Static IP test + MTU(Auto) + Mac Address Clone(disable)
     ...
+    ...    Criteria not test in this case:
+    ...
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
@@ -521,7 +524,7 @@ Library           String
 0052
     [Documentation]    Internet->IPv4 PPPoE Always on + Static IP test + MTU(Manual) + Mac Address Clone(enable)
     ...
-    ...    Critrntia not test in this case:
+    ...    Criteria not test in this case:
     ...
     ...    ------------------------------------
     ...    1.Capture wan packet to make sure DUT wan is using your MAC address
@@ -530,7 +533,7 @@ Library           String
     ...    -------------------------------------
     ...    第 32行環境問題，先關閉
     ...
-    ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
+    ...    第 73行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -621,12 +624,14 @@ Library           String
 0053
     [Documentation]    Internet->IPv4 PPPoE Always on + Static IP test + MTU(Manual) + Mac Address Clone(disable)
     ...
+    ...    Criteria not test in this case:
+    ...
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
     ...    第 32行環境問題，先關閉
     ...
-    ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
+    ...    第 67行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -706,6 +711,14 @@ Library           String
 
 0063
     [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Auto) + Mac Address Clone(disable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
+    ...    第 32行環境問題，先關閉
+    ...
+    ...    第 67行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -757,7 +770,7 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    20s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -785,6 +798,14 @@ Library           String
 
 0064
     [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Manual) + Mac Address Clone(enable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
+    ...    第 33行環境問題，先關閉
+    ...
+    ...    第 77行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     # copy by 52
     #Restore
     ToLoginWithoutPassword
@@ -845,7 +866,7 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    20s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -878,6 +899,14 @@ Library           String
 
 0065
     [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Manual) + Mac Address Clone(disable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
+    ...    第 33行環境問題，先關閉
+    ...
+    ...    第 72行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     #copy 53
     #Restore
     ToLoginWithoutPassword
@@ -931,6 +960,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    sleep    1s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
     sleep    10s
@@ -961,6 +991,11 @@ Library           String
 
 0066
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(enable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
     #copy 46
     #Restore
     ToLoginWithoutPassword
@@ -1009,9 +1044,10 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    sleep    1s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    20s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -1042,6 +1078,11 @@ Library           String
 
 0067
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(disable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
     #copy 47
     #Restore
     ToLoginWithoutPassword
@@ -1116,6 +1157,11 @@ Library           String
 
 0068
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Manual) + Mac Address Clone(enable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
     #copy 48
     #Restore
     ToLoginWithoutPassword
@@ -1202,6 +1248,11 @@ Library           String
 
 0069
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Manual) + Mac Address Clone(disable)
+    ...
+    ...    Criteria not test in this case:
+    ...    ------------------------------------
+    ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
+    ...    -------------------------------------
     #copy 49
     #Restore
     ToLoginWithoutPassword
