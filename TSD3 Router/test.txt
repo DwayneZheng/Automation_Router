@@ -30,3 +30,9 @@ MAC TEST
     ${string}    Set Variable    00-21-CC-D5-B5-3F
     ${Check mac}    MAC_Address    ${string}
     Should Be True    ${Check mac}
+
+scroll-test
+    tourl    https://10minutemail.net/error-due.html
+    sleep    5s
+    scroll
+    sleep    5s
