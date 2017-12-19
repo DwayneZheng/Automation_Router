@@ -420,10 +420,10 @@ Configure PPPoE-Without Save
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    73459408@hinet.net    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    leslie    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    leslie    #Setting \ Password
     sleep    1s
 
 Configure DHCP-Without Save
@@ -440,6 +440,18 @@ Configure Static IP-Without Save
     click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10.2.75.175    #IP Address Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    10.2.75.1    #Default Gateway Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    8.8.8.8    #Primary DNS Server
     sleep    1s
 
 Configure PPTP-Without Save
@@ -448,6 +460,15 @@ Configure PPTP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
     sleep    1s
 
 ----12/18---
@@ -458,4 +479,98 @@ Configure L2TP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    sleep    1s
+
+---1219---
+
+Configure IPv4 PPPoE+Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    leslie    #Setting \ Account
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    leslie    #Setting \ Password
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
+    clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
+    sleep    1s
+
+Configure IPv4 PPTP+Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    #setting Static IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    10.2.75.175    #input static address
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    8.8.8.8
+    sleep    1s
+
+Configure IPv4 L2TP+Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    test5    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    10.2.75.175    #input static address
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
     sleep    1s
