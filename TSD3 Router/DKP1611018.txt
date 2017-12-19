@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation     Date：2017/12/18
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1611018
 Resource          ../AllResources.txt

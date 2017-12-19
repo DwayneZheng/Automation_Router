@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation     TSD3 Router Default Setup Wizard
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1608016
 Default Tags
@@ -6,6 +7,7 @@ Resource          ../AllResources.txt
 
 *** Test Cases ***
 0004
+    [Documentation]    Setup wizard should detect PPPoE first, if environment have DHCP and PPPoE server at the same time
     [Tags]    DKP1608016-0004
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
@@ -72,6 +74,7 @@ Resource          ../AllResources.txt
     sleep    60
 
 0006
+    [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
     [Tags]    DKP1608016-0006
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
