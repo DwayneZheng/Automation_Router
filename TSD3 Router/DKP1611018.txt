@@ -218,7 +218,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
-    click    xpath    //*[@id="copyright"]
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -577,7 +577,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
-    click    xpath    //*[@id="copyright"]
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -850,7 +850,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
-    click    xpath    //*[@id="copyright"]
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -1200,7 +1200,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
-    click    xpath    //*[@id="copyright"]
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -1996,7 +1996,6 @@ Library           String
 
 0017
     [Documentation]    Internet->IPv4 PPTP Manual + Static IP test + MTU(Auto)
-    ...
     [Tags]    DKP1611018-0017
     #Restore
     ToLoginWithoutPassword
