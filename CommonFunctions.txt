@@ -420,10 +420,10 @@ Configure PPPoE-Without Save
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    leslie    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    73459408@hinet.net    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    leslie    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
     sleep    1s
 
 Configure DHCP-Without Save
