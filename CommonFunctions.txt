@@ -212,6 +212,7 @@ ToHiddenPage
     sleep    3s
 
 Configure PPPoE
+    [Documentation]    Test in vm
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
@@ -219,10 +220,10 @@ Configure PPPoE
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    73459408@hinet.net    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    tsd3@dlink.com    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    111111    #Setting \ Password
     sleep    1s
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true

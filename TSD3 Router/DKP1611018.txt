@@ -2497,3 +2497,74 @@ test1
     ...    default    default
     Run Keyword If    "${Error Ping}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True
+
+0070
+    [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Manual)
+    #copy 12
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Before Change MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Before Change MAC address END===
+    #Setting PPTP
+    Configure PPTP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Always on-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    #setting Dynamic IP
+    #Switch to PPTP
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    1450
+    #save
+    click    ${Settings-Internet-IPv4-PPTP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPTP)"
+    #Finish MAC Address
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    #===Finish MAC Address===
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Check MAC \ Address
+    log    ${Before MAC Address}
+    log    ${Finish MAC Address}
+    #===Check MAC \ Address END===
+    #Ping MTU
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
