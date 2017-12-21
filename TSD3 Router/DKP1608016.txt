@@ -81,10 +81,15 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
     sleep    3s
+    LoginwithPsw
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0007
     [Tags]    DKP1608016-0007
@@ -104,10 +109,15 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    English
     sleep    3s
+    LoginwithPsw
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0008
     [Tags]    DKP1608016-0008
@@ -127,10 +137,15 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    한국
     sleep    3s
+    LoginwithPsw
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0016
     [Tags]    DKP1608016-0016
