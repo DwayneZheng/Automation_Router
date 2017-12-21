@@ -61,9 +61,6 @@ Resource          ../AllResources.txt
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     sleep    1s
-    LoginWithPsw
-    RestoreDevice
-    sleep    60
 
 0006
     [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
@@ -76,25 +73,18 @@ Resource          ../AllResources.txt
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    繁體中文
-    LoginWithPsw
-    RestoreDevice
-    sleep    60
+    sleep    3s
 
 0007
     [Tags]    DKP1608016-0007
@@ -106,25 +96,18 @@ Resource          ../AllResources.txt
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    English
-    LoginWithPsw
-    RestoreDevice
-    sleep    60
+    sleep    3s
 
 0008
     [Tags]    DKP1608016-0008
@@ -136,25 +119,18 @@ Resource          ../AllResources.txt
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    한국
-    LoginWithPsw
-    RestoreDevice
-    sleep    60
+    sleep    3s
 
 0016
     [Tags]    DKP1608016-0016
