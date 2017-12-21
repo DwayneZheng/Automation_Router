@@ -179,31 +179,25 @@ Resource          ../AllResources.txt
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
     Wizard-PPPoE-Username/password
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    sleep    3s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    繁體中文
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     LoginWithPsw
     RestoreDevice
-    sleep    60
 
 0017
     [Tags]    DKP1608016-0017
@@ -215,31 +209,25 @@ Resource          ../AllResources.txt
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
     Wizard-PPPoE-Username/password
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    sleep    3s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    English
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     LoginWithPsw
     RestoreDevice
-    sleep    60
 
 0018
     [Tags]    DKP1608016-0018
@@ -251,28 +239,22 @@ Resource          ../AllResources.txt
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
     Wizard-PPPoE-Username/password
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    sleep    3s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    한국
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     LoginWithPsw
     RestoreDevice
-    sleep    60

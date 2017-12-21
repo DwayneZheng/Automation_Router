@@ -101,22 +101,25 @@ ChooseLanguage
     sleep    1s
 
 Wizard-PPPoE-Username/password
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
     sleep    1s
 
 Wizard-Wi-Fi Network Name/password
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    878
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}    11111111
     sleep    1s
 
 Wizard-Device Admin Password
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    111111
     sleep    1s
@@ -178,8 +181,10 @@ Default-Setup-Wizard
 
 LoginWithPsw
     ToLoginPage
+    waitElementDisplayed    id    admin_Password    20    true
+    clearText    id    admin_Password    111111
     sendtext    id    admin_Password    111111
-    sleep    3s
+    waitElementDisplayed    id    logIn_btn    20    true
     click    id    logIn_btn
     sleep    3s
 
