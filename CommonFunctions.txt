@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
@@ -96,7 +96,9 @@ Wizard-Next
 
 ChooseLanguage
     [Arguments]    ${Language}
-    waitElementDisplayed    xapth    //a[contains(@href, '#')]    10    true
+    waitElementDisplayed    xpath    //a[contains(@href, '#')]    30    true
+    click    xpath    //a[contains(@href, '#')]
+    sleep    1s
     click    ${Language}
     sleep    1s
 
@@ -184,7 +186,7 @@ Default-Setup-Wizard
 LoginWithPsw
     ToLoginPage
     waitElementDisplayed    id    admin_Password    20    true
-    clearText    id    admin_Password    111111
+    clearText    id    admin_Password
     sendtext    id    admin_Password    111111
     waitElementDisplayed    id    logIn_btn    20    true
     click    id    logIn_btn
