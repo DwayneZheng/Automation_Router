@@ -61,6 +61,11 @@ Resource          ../AllResources.txt
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     sleep    1s
+    LoginwithPsw
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0006
     [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
@@ -156,7 +161,7 @@ Resource          ../AllResources.txt
     sleep    15s
     #===Restore END===
     ToLoginPage
-    ChooseLanguage    ${Default- Wizard Page-繁體中文-SelectChild}
+    ChooseLanguage    ${Language-繁體中文-Select-child}
     Wizard-Next
     Wizard-PPPoE-Username/password
     Wizard-Next
@@ -174,6 +179,8 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
+    LoginWithPsw
+    RestoreDevice
 
 0017
     [Tags]    DKP1608016-0017
@@ -202,6 +209,8 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
+    LoginWithPsw
+    RestoreDevice
 
 0018
     [Tags]    DKP1608016-0018
@@ -230,3 +239,5 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
+    LoginWithPsw
+    RestoreDevice
