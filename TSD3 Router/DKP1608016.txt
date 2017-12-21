@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     TSD3 Router Default Setup Wizard
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1608016
@@ -61,6 +61,11 @@ Resource          ../AllResources.txt
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     sleep    1s
+    LoginwithPsw
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0006
     [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
