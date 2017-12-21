@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
@@ -103,10 +103,10 @@ ChooseLanguage
 Wizard-PPPoE-Username/password
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    leslie
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    leslie
     sleep    1s
 
 Wizard-Wi-Fi Network Name/password

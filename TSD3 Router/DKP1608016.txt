@@ -165,7 +165,7 @@ Resource          ../AllResources.txt
     sleep    15s
     #===Restore END===
     ToLoginPage
-    ChooseLanguage    ${Language-繁體中文-Select-child}
+    ChooseLanguage    ${Default- Wizard Page-繁體中文-SelectChild}
     Wizard-Next
     Wizard-PPPoE-Username/password
     Wizard-Next
@@ -183,8 +183,6 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginWithPsw
-    RestoreDevice
 
 0017
     [Tags]    DKP1608016-0017
@@ -213,8 +211,6 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginWithPsw
-    RestoreDevice
 
 0018
     [Tags]    DKP1608016-0018
@@ -243,5 +239,3 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginWithPsw
-    RestoreDevice
