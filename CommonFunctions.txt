@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
@@ -90,7 +90,7 @@ RestoreDevice
     click    ${Management-System Admin-System-Restore to factory default success-Click}
 
 Wizard-Next
-    waitElementDisplayed    ${Wizard-Next-Click}    5    true
+    waitElementDisplayed    ${Wizard-Next-Click}    10    true
     click    ${Wizard-Next-Click}
     sleep    1s
 
@@ -125,6 +125,7 @@ Wizard-Device Admin Password
     sleep    1s
 
 Wizard-check
+    waitElementDisplayed    xpath    //*[@id="confirm_wifi_networkName24G"]    5    true
     ${Check-Wi-Fi Network Name}    getText    xpath    //*[@id="confirm_wifi_networkName24G"]
     ${Check-Wi-Fi Password}    getText    xpath    //*[@id="confirm_wifi_password24G"]
     ${Check-Device Admin Password}    getText    xpath    //*[@id="confirm_device_password"]
@@ -136,6 +137,7 @@ Wizard-check
 LoginPage-CheckLanguage
     [Arguments]    ${InputLanuage}
     [Tags]
+    waitElementDisplayed    xpath    (//a[contains(@href, '#')])[2]    20    true
     ${Lanuage Check}    getText    xpath    (//a[contains(@href, '#')])[2]
     Run Keyword If    "${Lanuage Check}"=="${InputLanuage}"    log    Lanuage:Matched
     ...    ELSE    log    Lanuage:Not Matched    Should Be True    False
@@ -189,11 +191,11 @@ LoginWithPsw
     sleep    3s
 
 Settings-Wizard-Page
-    sleep    1s
+    waitElementDisplayed    ${Settings-Click}    5    true
     click    ${Settings-Click}
-    sleep    1s
+    waitElementDisplayed    ${Settings-Click}    5    true
     click    ${Settings-Click}
-    sleep    1s
+    waitElementDisplayed    ${Settings-Wizard-Click}    5    true
     click    ${Settings-Wizard-Click}
     sleep    1s
 
