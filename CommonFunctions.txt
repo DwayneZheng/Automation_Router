@@ -90,14 +90,13 @@ RestoreDevice
     click    ${Management-System Admin-System-Restore to factory default success-Click}
 
 Wizard-Next
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Next-Click}    5    true
     click    ${Wizard-Next-Click}
     sleep    1s
 
 ChooseLanguage
     [Arguments]    ${Language}
-    click    xpath    //a[contains(@href, '#')]
-    sleep    1s
+    waitElementDisplayed    xapth    //a[contains(@href, '#')]    10    true
     click    ${Language}
     sleep    1s
 

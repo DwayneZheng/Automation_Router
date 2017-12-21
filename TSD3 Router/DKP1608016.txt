@@ -9,14 +9,19 @@ Resource          ../AllResources.txt
 0004
     [Documentation]    Setup wizard should detect PPPoE first, if environment have DHCP and PPPoE server at the same time
     [Tags]    DKP1608016-0004
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    10    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    1    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
     sleep    1s
@@ -76,6 +81,12 @@ Resource          ../AllResources.txt
 0006
     [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
     [Tags]    DKP1608016-0006
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
     sleep    5s
@@ -100,6 +111,12 @@ Resource          ../AllResources.txt
 
 0007
     [Tags]    DKP1608016-0007
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
     sleep    5s
@@ -124,6 +141,12 @@ Resource          ../AllResources.txt
 
 0008
     [Tags]    DKP1608016-0008
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
     sleep    5s
@@ -148,6 +171,12 @@ Resource          ../AllResources.txt
 
 0016
     [Tags]    DKP1608016-0016
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
     sleep    5s
@@ -178,6 +207,12 @@ Resource          ../AllResources.txt
 
 0017
     [Tags]    DKP1608016-0017
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
     sleep    5s
@@ -208,6 +243,12 @@ Resource          ../AllResources.txt
 
 0018
     [Tags]    DKP1608016-0018
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
     sleep    5s
