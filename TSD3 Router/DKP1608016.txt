@@ -141,7 +141,7 @@ Resource          ../AllResources.txt
     sleep    15s
     #===Restore END===
     ToLoginPage
-    ChooseLanguage    ${Default- Wizard Page-繁體中文-SelectChild}
+    ChooseLanguage    ${Language-繁體中文-Select-child}
     Wizard-Next
     Wizard-PPPoE-Username/password
     Wizard-Next
