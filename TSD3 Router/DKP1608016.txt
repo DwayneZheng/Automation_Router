@@ -24,51 +24,38 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    1    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
-    sleep    1s
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
+    waitElementDisplayed    xpath    (//a[contains(@href, '#')])[2]    15    true
     LoginPage-CheckLanguage    繁體中文
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     LoginWithPsw
-    sleep    1s
     Settings-Wizard-Page
-    sleep    5s
     Wizard-Next
-    sleep    3s
-    sleep    1s
+    waitElementDisplayed    ${Back-Click}    10    true
     click    ${Back-Click}
-    sleep    1s
-    sleep    2s
+    waitElementDisplayed    ${Settings-Wizard-Internet Connection(DHCP)-Click}    10    true
     click    ${Settings-Wizard-Internet Connection(DHCP)-Click}
-    sleep    1s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    繁體中文
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
