@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     TSD3 Router Default Setup Wizard
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1608016
@@ -250,7 +250,3 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-
-tt
-    ToLoginPage
-    ChooseLanguage    ${Language-繁體中文-Select-child}

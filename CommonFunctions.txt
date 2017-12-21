@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
@@ -105,10 +105,10 @@ ChooseLanguage
 Wizard-PPPoE-Username/password
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    leslie
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    tsd3@dlink.com
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    leslie
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
     sleep    1s
 
 Wizard-Wi-Fi Network Name/password
@@ -187,6 +187,7 @@ LoginWithPsw
     ToLoginPage
     waitElementDisplayed    id    admin_Password    20    true
     clearText    id    admin_Password
+    sleep    1s
     sendtext    id    admin_Password    111111
     waitElementDisplayed    id    logIn_btn    20    true
     click    id    logIn_btn
