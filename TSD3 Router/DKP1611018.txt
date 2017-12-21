@@ -1788,6 +1788,8 @@ Library           String
     ...
     ...    6.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...
+    ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-0011
     #Restore
     ToLoginWithoutPassword
