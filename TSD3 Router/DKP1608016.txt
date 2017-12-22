@@ -173,9 +173,10 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    3s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
+    sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
@@ -206,9 +207,10 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    3s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    English
+    sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
@@ -239,9 +241,10 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    3s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    한국
+    sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}

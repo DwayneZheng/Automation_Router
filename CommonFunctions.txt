@@ -105,10 +105,10 @@ ChooseLanguage
 Wizard-PPPoE-Username/password
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    tsd3@dlink.com
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    73459408@hinet.net
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    Y116658
     sleep    1s
 
 Wizard-Wi-Fi Network Name/password
