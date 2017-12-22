@@ -97,6 +97,7 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0007
+    [Documentation]    Setup Wizard_English Language(DHCP+Wired+Window7 Firefox)
     [Tags]    DKP1608016-0007
     #Restore
     ToLoginWithoutPassword
@@ -125,6 +126,7 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0008
+    [Documentation]    Setup Wizard_Korea Language(DHCP+Wired+Window7 Chrome)
     [Tags]    DKP1608016-0008
     #Restore
     ToLoginWithoutPassword
@@ -153,6 +155,7 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0016
+    [Documentation]    Setup Wizard_Chinese Language(PPPoE+Wired+Window10 IE11)
     [Tags]    DKP1608016-0016
     #Restore
     ToLoginWithoutPassword
@@ -187,6 +190,7 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0017
+    [Documentation]    Setup Wizard_English Language(PPPoE+Wired+Window7 Firefox)
     [Tags]    DKP1608016-0017
     #Restore
     ToLoginWithoutPassword
@@ -221,6 +225,7 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0018
+    [Documentation]    Setup Wizard_Korea Language(PPPoE+Wired+Window7 Chrome)
     [Tags]    DKP1608016-0018
     #Restore
     ToLoginWithoutPassword
