@@ -3096,7 +3096,7 @@ ElementLocator-DIR-878
     Set Global Variable    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}
     ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    getElementLocator    xpath    //*[@id="First_LSFLHD"]/td[1]/div/label
     Set Global Variable    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
-    ${Management-System Admin-System-Restore To Factory Default Settings-Click}    getElementLocator    xpath    //*[@id="main"]/table[1]/tbody/tr[6]/td/div/button
+    ${Management-System Admin-System-Restore To Factory Default Settings-Click}    getElementLocator    xpath    //div[@id='main']/table/tbody/tr[6]/td/div/button
     Set Global Variable    ${Management-System Admin-System-Restore To Factory Default Settings-Click}
     ${Management-System Admin-System-Restore-Yes-Click}    getElementLocator    xpath    (//div[@id='Confirm_btn'])[1]
     Set Global Variable    ${Management-System Admin-System-Restore-Yes-Click}
