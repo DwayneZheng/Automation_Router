@@ -99,6 +99,7 @@ Resource          ../AllResources.txt
     sleep    60
 
 0007
+    [Documentation]    Setup Wizard_English Language(DHCP+Wired+Window7 Firefox)
     [Tags]    DKP1608016-0007
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
@@ -123,6 +124,7 @@ Resource          ../AllResources.txt
     sleep    60
 
 0008
+    [Documentation]    Setup Wizard_Korea Language(DHCP+Wired+Window7 Chrome)
     [Tags]    DKP1608016-0008
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
@@ -147,6 +149,7 @@ Resource          ../AllResources.txt
     sleep    60
 
 0016
+    [Documentation]    Setup Wizard_Chinese Language(PPPoE+Wired+Window10 IE11)
     [Tags]    DKP1608016-0016
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
@@ -177,6 +180,7 @@ Resource          ../AllResources.txt
     sleep    60
 
 0017
+    [Documentation]    Setup Wizard_English Language(PPPoE+Wired+Window7 Firefox)
     [Tags]    DKP1608016-0017
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
@@ -207,6 +211,7 @@ Resource          ../AllResources.txt
     sleep    60
 
 0018
+    [Documentation]    Setup Wizard_Korea Language(PPPoE+Wired+Window7 Chrome)
     [Tags]    DKP1608016-0018
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
