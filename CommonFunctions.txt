@@ -90,39 +90,44 @@ RestoreDevice
     click    ${Management-System Admin-System-Restore to factory default success-Click}
 
 Wizard-Next
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Next-Click}    10    true
     click    ${Wizard-Next-Click}
     sleep    1s
 
 ChooseLanguage
     [Arguments]    ${Language}
+    waitElementDisplayed    xpath    //a[contains(@href, '#')]    30    true
     click    xpath    //a[contains(@href, '#')]
     sleep    1s
     click    ${Language}
     sleep    1s
 
 Wizard-PPPoE-Username/password
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
-    sleep    1s
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    tsd3@dlink.com
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
     sleep    1s
 
 Wizard-Wi-Fi Network Name/password
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    878
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}    11111111
     sleep    1s
 
 Wizard-Device Admin Password
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    111111
     sleep    1s
 
 Wizard-check
+    waitElementDisplayed    xpath    //*[@id="confirm_wifi_networkName24G"]    5    true
     ${Check-Wi-Fi Network Name}    getText    xpath    //*[@id="confirm_wifi_networkName24G"]
     ${Check-Wi-Fi Password}    getText    xpath    //*[@id="confirm_wifi_password24G"]
     ${Check-Device Admin Password}    getText    xpath    //*[@id="confirm_device_password"]
@@ -134,6 +139,7 @@ Wizard-check
 LoginPage-CheckLanguage
     [Arguments]    ${InputLanuage}
     [Tags]
+    waitElementDisplayed    xpath    (//a[contains(@href, '#')])[2]    20    true
     ${Lanuage Check}    getText    xpath    (//a[contains(@href, '#')])[2]
     Run Keyword If    "${Lanuage Check}"=="${InputLanuage}"    log    Lanuage:Matched
     ...    ELSE    log    Lanuage:Not Matched    Should Be True    False
@@ -179,17 +185,20 @@ Default-Setup-Wizard
 
 LoginWithPsw
     ToLoginPage
+    waitElementDisplayed    id    admin_Password    20    true
+    clearText    id    admin_Password
+    sleep    1s
     sendtext    id    admin_Password    111111
-    sleep    3s
+    waitElementDisplayed    id    logIn_btn    20    true
     click    id    logIn_btn
     sleep    3s
 
 Settings-Wizard-Page
-    sleep    1s
+    waitElementDisplayed    ${Settings-Click}    5    true
     click    ${Settings-Click}
-    sleep    1s
+    waitElementDisplayed    ${Settings-Click}    5    true
     click    ${Settings-Click}
-    sleep    1s
+    waitElementDisplayed    ${Settings-Wizard-Click}    5    true
     click    ${Settings-Wizard-Click}
     sleep    1s
 
@@ -212,6 +221,7 @@ ToHiddenPage
     sleep    3s
 
 Configure PPPoE
+    [Documentation]    Test in vm
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
@@ -219,10 +229,10 @@ Configure PPPoE
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    73459408@hinet.net    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    tsd3@dlink.com    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    sqbeiqwk    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    111111    #Setting \ Password
     sleep    1s
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
@@ -440,6 +450,18 @@ Configure Static IP-Without Save
     click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10.2.75.175    #IP Address Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    10.2.75.1    #Default Gateway Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    8.8.8.8    #Primary DNS Server
     sleep    1s
 
 Configure PPTP-Without Save
@@ -448,6 +470,15 @@ Configure PPTP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    test5    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
     sleep    1s
 
 ----12/18---
@@ -458,4 +489,110 @@ Configure L2TP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    dlink    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    dlink    #Password Input
+    sleep    1s
+
+---1219---
+
+Configure IPv4 PPPoE+Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    leslie    #Setting \ Account
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    leslie    #Setting \ Password
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
+    clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
+    sleep    1s
+
+Configure IPv4 PPTP+Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    dlink    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    dlink    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    #setting Static IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    192.168.11.197    #input static address
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    192.168.11.254    #Default Gateway Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    8.8.8.8
+    sleep    1s
+
+Configure IPv4 L2TP+Static IP-Without Save
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    dlink    #Username Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    dlink    #Password Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    192.168.11.197    #input static address
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    192.168.11.254    #Default Gateway Input
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
     sleep    1s

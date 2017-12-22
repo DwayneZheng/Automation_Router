@@ -9,234 +9,249 @@ Resource          ../AllResources.txt
 0004
     [Documentation]    Setup wizard should detect PPPoE first, if environment have DHCP and PPPoE server at the same time
     [Tags]    DKP1608016-0004
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    10    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
-    sleep    1s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    1    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
-    sleep    1s
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
+    waitElementDisplayed    xpath    (//a[contains(@href, '#')])[2]    15    true
     LoginPage-CheckLanguage    繁體中文
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     LoginWithPsw
-    sleep    1s
     Settings-Wizard-Page
-    sleep    5s
     Wizard-Next
-    sleep    3s
-    sleep    1s
+    waitElementDisplayed    ${Back-Click}    10    true
     click    ${Back-Click}
-    sleep    1s
-    sleep    2s
+    waitElementDisplayed    ${Settings-Wizard-Internet Connection(DHCP)-Click}    10    true
     click    ${Settings-Wizard-Internet Connection(DHCP)-Click}
-    sleep    1s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    繁體中文
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
     sleep    1s
-    LoginWithPsw
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0006
     [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
     [Tags]    DKP1608016-0006
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    繁體中文
-    LoginWithPsw
+    sleep    3s
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0007
     [Documentation]    Setup Wizard_English Language(DHCP+Wired+Window7 Firefox)
     [Tags]    DKP1608016-0007
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    English
-    LoginWithPsw
+    sleep    3s
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0008
     [Documentation]    Setup Wizard_Korea Language(DHCP+Wired+Window7 Chrome)
     [Tags]    DKP1608016-0008
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    20s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    한국
-    LoginWithPsw
+    sleep    3s
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0016
     [Documentation]    Setup Wizard_Chinese Language(PPPoE+Wired+Window10 IE11)
     [Tags]    DKP1608016-0016
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
     Wizard-PPPoE-Username/password
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    sleep    3s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    繁體中文
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginWithPsw
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0017
     [Documentation]    Setup Wizard_English Language(PPPoE+Wired+Window7 Firefox)
     [Tags]    DKP1608016-0017
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
     Wizard-PPPoE-Username/password
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    sleep    3s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    English
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginWithPsw
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
 
 0018
     [Documentation]    Setup Wizard_Korea Language(PPPoE+Wired+Window7 Chrome)
     [Tags]    DKP1608016-0018
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    sleep    15s
+    #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
-    sleep    5s
     Wizard-Next
-    sleep    10s
     Wizard-PPPoE-Username/password
     Wizard-Next
-    sleep    5s
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    sleep    5s
     Wizard-Device Admin Password
     Wizard-Next
-    sleep    3s
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    sleep    60s
+    sleep    3s
     ToLoginPage
-    sleep    10s
     LoginPage-CheckLanguage    한국
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginWithPsw
+    LoginwithPsw
     RestoreDevice
-    sleep    60
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
