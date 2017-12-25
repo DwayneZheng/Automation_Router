@@ -511,7 +511,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
@@ -607,7 +607,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
@@ -651,9 +651,9 @@ Library           String
     Configure PPPoE-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
@@ -699,7 +699,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
@@ -786,7 +786,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
@@ -883,7 +883,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
@@ -964,7 +964,7 @@ Library           String
     sleep    1s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    20s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -979,7 +979,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
@@ -1853,7 +1853,7 @@ Library           String
     log    ${After MAC Address}
     log    ${Finish MAC Address}
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     Should Be True    "${After MAC Address}"=="${Finish MAC Address}"
     Run Keyword If    "${Before MAC Address}"=="${Finish MAC Address}"    Should Be True    False
     ...    ELSE    log    pass
@@ -1981,7 +1981,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
     #Ping \ Gateway
