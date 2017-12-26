@@ -18,7 +18,7 @@ Resource          ../AllResources.txt
     ToLoginPage
     ChooseLanguage    ${Language-繁體中文-Select-child}
     Wizard-Next
-    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    10    true
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    60    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    1    true
