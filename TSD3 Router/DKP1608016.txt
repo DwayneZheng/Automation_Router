@@ -20,10 +20,10 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    60    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    admin
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    tsd3
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    1    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    111111
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    tsd3
     Wizard-Next
     Wizard-Wi-Fi Network Name/password
     Wizard-Next

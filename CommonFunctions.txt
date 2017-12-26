@@ -212,7 +212,19 @@ Def-Ping
 
 ToLoginWithoutPassword
     ToLoginPage
+    #check wizard
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    5
+    log    ${Check-wizard-Status}
+    Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
+    ...    ELSE    log    pass
+    sleep    5s
+    ToLoginPage
     ToClickLoginBtn
+    #check password
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    10
+    log    ${Check-password-Status}
+    #Run Keyword If    "${Check-password-Status}"=="True"
+    ...    # ELSE    LoginWithPsw    log    InputPassword
 
 ToHiddenPage
     tourl    http://192.168.0.1/version.txt
