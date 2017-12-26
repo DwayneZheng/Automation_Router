@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Date：2017/12/15
+Documentation     Date：2017/12/26
 
 *** Keywords ***
 ElementLocator-DIR-878
@@ -244,10 +244,18 @@ ElementLocator-DIR-878
     Set Global Variable    ${Home Page-RenewReleaseIPAddress-Click}
     ${Home Page-DUT-ImgClick}    getElementLocator    xpath    //*[@id="routerInfo_circle"]/img
     Set Global Variable    ${Home Page-DUT-ImgClick}
-    ${Home Page-DUT-Wifi-Status-GetVar}    getElementLocator    xpath    //*[@id="index_ShowStatus_24G"]
-    Set Global Variable    ${Home Page-DUT-Wifi-Status-GetVar}
-    ${Home Page-DUT-Wifi-Wi-Fi Name (SSID)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSSID_24G"]
-    Set Global Variable    ${Home Page-DUT-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Status-GetVar}    getElementLocator    xpath    //*[@id="index_ShowStatus_24G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Status-GetVar}
+    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSSID_24G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${Home Page-DUT-Wi-Fi 2.4GHz-Password-GetVar}    getElementLocator    xpath    //*[@id="index_ShowPassword_24G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 2.4GHz-Password-GetVar}
+    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Status-GetVar}    getElementLocator    xpath    //*[@id="index_ShowStatus_5G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Status-GetVar}
+    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSSID_5G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${Home Page-DUT-Wi-Fi 5GHz-Password-GetVar}    getElementLocator    xpath    //*[@id="index_ShowPassword_5G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 5GHz-Password-GetVar}
     ${Home Page-DUT-IPv6-DHCP-PD-GetVar}    getElementLocator    xpath    //*[@id="dhcp_Pd"]
     Set Global Variable    ${Home Page-DUT-IPv6-DHCP-PD-GetVar}
     ${Home Page-DUT-IPv6-Link-Local Address-GetVar}    getElementLocator    xpath    //*[@id="lan_IPv6_Link_Local_Address"]
@@ -1240,6 +1248,10 @@ ElementLocator-DIR-878
     Set Global Variable    ${Settings-Wireless-WPS-PIN Status-Switch}
     ${Settings-Wireless-Title-GetVar}    getElementLocator    xpath    //*[@id="FunctionName"]
     Set Global Variable    ${Settings-Wireless-Title-GetVar}
+    ${Settings-Wireless-Save-Click}    getElementLocator    xpath    //div[@id='Save_btn']
+    Set Global Variable    ${Settings-Wireless-Save-Click}
+    ${Settings-Wireless-Finish-Click}    getElementLocator    xpath    //button[@id='popalert_ok']
+    Set Global Variable    ${Settings-Wireless-Finish-Click}
     #Settings-Wireless-Guest Zone
     ${Settings-Wireless-Guest Zone-Guest Zone-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
     Set Global Variable    ${Settings-Wireless-Guest Zone-Guest Zone-ChangePage}

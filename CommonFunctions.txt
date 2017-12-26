@@ -358,7 +358,7 @@ FunctionTable-Settings-Internet
 FunctionTable-Settings-Wireless
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
     click    ${Function Table-Settings-Wireless-FunctionTableChild}
-    waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
 
 FunctionTable-Settings-Network
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
