@@ -2592,10 +2592,10 @@ test1
     click    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
     #Switch to PPTP
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Select}    #Setting MTU
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU-Auto
     #save
