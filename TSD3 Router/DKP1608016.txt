@@ -42,6 +42,7 @@ Resource          ../AllResources.txt
     LoginWithPsw
     Settings-Wizard-Page
     Wizard-Next
+    sleep    5s
     waitElementDisplayed    ${Back-Click}    10    true
     click    ${Back-Click}
     waitElementDisplayed    ${Settings-Wizard-Internet Connection(DHCP)-Click}    10    true
