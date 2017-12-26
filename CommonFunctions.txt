@@ -194,10 +194,8 @@ LoginWithPsw
     sleep    3s
 
 Settings-Wizard-Page
-    waitElementDisplayed    ${Settings-Click}    5    true
-    click    ${Settings-Click}
-    waitElementDisplayed    ${Settings-Click}    5    true
-    click    ${Settings-Click}
+    waitElementDisplayed    ${Settings-Click}    10    true
+    mouseOverToElement    ${Settings-Click}
     waitElementDisplayed    ${Settings-Wizard-Click}    5    true
     click    ${Settings-Wizard-Click}
     sleep    1s
