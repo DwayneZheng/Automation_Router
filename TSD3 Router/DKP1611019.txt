@@ -1,0 +1,70 @@
+*** Settings ***
+Documentation     Date：2017/12/26
+Suite Setup       ElementLocator-DIR-878
+Force Tags        DKP1611019
+Resource          ../AllResources.txt
+Library           String
+
+*** Test Cases ***
+0007
+    [Documentation]    Wireless->2.4G band->Security Mode = None
+    [Tags]    DKP1611019-0007
+
+0009
+    [Documentation]    Wireless->2.4G band->Security Mode = WPA
+    [Tags]    DKP1611019-0009
+
+0010
+    [Documentation]    Wireless->2.4G band->Security Mode = WPA2
+    [Tags]    DKP1611019-0010
+
+0011
+    [Documentation]    Wireless->5G band->Security Mode = None
+    [Tags]    DKP1611019-0011
+
+0013
+    [Documentation]    Wireless->5G band->Security Mode = WPA
+    [Tags]    DKP1611019-0013
+
+0014
+    [Documentation]    Wireless->5G band->Security Mode = WPA2
+    [Tags]    DKP1611019-0014
+
+0015
+    [Documentation]    Wireless->2.4G band->802.11 Mode = Mixed 802.11b/g/n
+    [Tags]    DKP1611019-0015
+
+0018
+    [Documentation]    Wireless->5G band->802.11 Mode = Mixed 802.11a/n/ac
+    [Tags]    DKP1611019-0018
+
+0032
+    [Documentation]    Wireless->SSID test
+    [Tags]    DKP1611019-0032
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status-Switch}
+    #===Configure DUT's 2.4G/5G SSID===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
+    clearText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    sendtext    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    !@#$%^&*()~[]:
+    ${Before Wi-Fi 2.4GHz SSID}    getText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    10    true
+    clearText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
+    sendtext    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    12 34 56/Aa}
+    ${Before Wi-Fi 5GHz SSID}    getText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
+    #===Configure DUT's 2.4G/5G SSID End===
+    ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-DUT-ImgClick}    30    true
+    click    ${Home Page-DUT-ImgClick}
+    waitElementDisplayed    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}    10    true
+    ${After Wi-Fi 2.4GHz SSID}    getText    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    waitElementDisplayed    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}    10    true
+    ${After Wi-Fi 5GHz SSID}    getText    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    Should Be True    "${After Wi-Fi 2.4GHz SSID}"=="${Before Wi-Fi 2.4GHz SSID}"
+    Should Be True    "${After Wi-Fi 5GHz SSID}"=="${Before Wi-Fi 5GHz SSID}"
