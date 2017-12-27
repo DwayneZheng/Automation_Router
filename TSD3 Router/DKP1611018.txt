@@ -2592,10 +2592,10 @@ test1
     click    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
     #Switch to PPTP
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
-    click    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Select}    #Setting MTU
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU-Auto
     #save
@@ -2607,16 +2607,14 @@ test1
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    sleep    3s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
     #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
-    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
-    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPTP)"
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -2625,19 +2623,22 @@ test1
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
-    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1372
-    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1373
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    sleep    3s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
-    sleep    10s
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
+    log    ${CheckDisconnect}
     Should Be True    "${CheckDisconnect}"=="False"
 
 0108
