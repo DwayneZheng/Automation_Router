@@ -2695,3 +2695,6 @@ test1
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+
+0110
+    [Documentation]    Internet->IPv4 PPTP Manual + Dynamic IP test + MTU(Manual)
