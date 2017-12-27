@@ -223,8 +223,7 @@ ToLoginWithoutPassword
     #check password
     ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    10
     log    ${Check-password-Status}
-    #Run Keyword If    "${Check-password-Status}"=="True"
-    ...    # ELSE    LoginWithPsw    log    InputPassword
+    Run Keyword If    "${Check-password-Status}"=="False"    LoginWithPsw
 
 ToHiddenPage
     tourl    http://192.168.0.1/version.txt
