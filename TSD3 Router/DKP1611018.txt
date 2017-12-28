@@ -48,7 +48,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -71,6 +71,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -88,9 +92,9 @@ Library           String
     Should Be True    ${Check-My PC MAC}
     #===Check MAC \ Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -132,7 +136,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -153,6 +157,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -165,9 +173,9 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -182,6 +190,7 @@ Library           String
     ...
     ...    2.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    OK verify by Richard Wu 20171228
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -210,7 +219,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
@@ -238,6 +247,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -255,9 +268,9 @@ Library           String
     Should Be True    ${Check mac}
     #===Check MAC Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -300,7 +313,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -322,6 +335,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -334,9 +351,9 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -381,7 +398,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250    #input static address
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -411,6 +428,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -430,9 +451,9 @@ Library           String
     Should Be True    ${Check-My PC MAC}
     #===Check MAC \ Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -475,7 +496,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250    #input static address
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -501,6 +522,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -515,9 +540,9 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -562,7 +587,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250    #input static address
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -596,6 +621,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -615,9 +644,9 @@ Library           String
     Should Be True    ${Check-My PC MAC}
     #===Check MAC \ Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -660,7 +689,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -689,6 +718,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -703,9 +736,9 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -719,7 +752,7 @@ Library           String
     ...    -------------------------------------
     ...    第 32行環境問題，先關閉
     ...
-    ...    第 67行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
+    ...    OK verify by Richard Wu 20171228
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -771,7 +804,7 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    30s
+    sleep    120s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -794,9 +827,9 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
@@ -819,7 +852,8 @@ Library           String
     ...    -------------------------------------
     ...    第 33行環境問題，先關閉
     ...
-    ...    第 77行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
+    ...
+    ...    OK verify by Richard Wu 20171228
     # copy by 52
     #Restore
     ToLoginWithoutPassword
@@ -848,7 +882,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250    #input static address
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -880,11 +914,15 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    20s
+    sleep    60s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -904,12 +942,20 @@ Library           String
     Should Be True    ${Check-My PC MAC}
     #===Check MAC \ Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0065
     [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Manual) + Mac Address Clone(disable)
@@ -920,7 +966,7 @@ Library           String
     ...    -------------------------------------
     ...    第 33行環境問題，先關閉
     ...
-    ...    第 72行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
+    ...    OK verify by Richard Wu 20171228
     #copy 53
     #Restore
     ToLoginWithoutPassword
@@ -949,7 +995,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -977,11 +1023,15 @@ Library           String
     sleep    1s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    20s
+    sleep    60s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -996,12 +1046,20 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0066
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(enable)
@@ -1010,6 +1068,8 @@ Library           String
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...
+    ...    OK verify by Richard Wu 20171228
     #copy 46
     #Restore
     ToLoginWithoutPassword
@@ -1039,7 +1099,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -1061,11 +1121,15 @@ Library           String
     sleep    1s
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    20s
+    sleep    60S
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -1083,12 +1147,20 @@ Library           String
     Should Be True    ${Check-My PC MAC}
     #===Check MAC \ Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0067
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Auto) + Mac Address Clone(disable)
@@ -1097,6 +1169,7 @@ Library           String
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    OK verify by Richard Wu 20171228
     #copy 47
     #Restore
     ToLoginWithoutPassword
@@ -1126,7 +1199,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -1145,11 +1218,15 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    60s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -1162,12 +1239,20 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1400
-    Def-Ping    0    8.8.8.8    -f    -l    1464
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1464
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1465
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0068
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Manual) + Mac Address Clone(enable)
@@ -1176,6 +1261,7 @@ Library           String
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    OK verify by Richard Wu 20171228
     #copy 48
     #Restore
     ToLoginWithoutPassword
@@ -1205,7 +1291,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    3    true
@@ -1231,11 +1317,15 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    60s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -1253,12 +1343,20 @@ Library           String
     Should Be True    ${Check mac}
     #===Check MAC Address END===
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0069
     [Documentation]    Internet->IPv4 PPPoE Manual + Dynamic IP test + MTU(Manual) + Mac Address Clone(disable)
@@ -1267,6 +1365,7 @@ Library           String
     ...    ------------------------------------
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
+    ...    OK verify by Richard Wu 20171228
     #copy 49
     #Restore
     ToLoginWithoutPassword
@@ -1296,7 +1395,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
+    #sendtext    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    CHT
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    3    true
@@ -1316,11 +1415,15 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    10s
+    sleep    60s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -1333,12 +1436,20 @@ Library           String
     Should Be True    "${After MAC Address}"==""
     Should Be True    "${Before MAC Address}"=="${Finish MAC Address}"
     #Ping MTU
-    Def-Ping    0    8.8.8.8    -f    -l    1300
-    Def-Ping    0    8.8.8.8    -f    -l    1322
-    ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1323
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1322
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1323
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0001
     [Documentation]    Internet->IPv4 DHCP test
