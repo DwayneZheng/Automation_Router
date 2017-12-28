@@ -747,7 +747,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.2.75.175    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    10.10.10.250    #input static address
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -776,6 +776,10 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
+    #Check type
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
+    #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
@@ -796,6 +800,15 @@ Library           String
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
+    #Disconnect Test
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    15s
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
 
 0064
     [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Manual) + Mac Address Clone(enable)
@@ -2725,7 +2738,7 @@ test1
     click    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    #Setting MTU-Manual
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    1350
+    sendtext    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    1450
     #save
     click    ${Settings-Internet-IPv4-PPTP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
@@ -2751,8 +2764,8 @@ test1
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
-    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1345
-    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1346
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
     ...    default    default
     Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===

@@ -439,10 +439,10 @@ Configure PPPoE-Without Save
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    leslie    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    tsd3    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    leslie    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    tsd3    #Setting \ Password
     sleep    1s
 
 Configure DHCP-Without Save
@@ -481,13 +481,13 @@ Configure PPTP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10.2.76.1    #PPTP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    test5    #Username Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    dlink    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    test5    #Password Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    dlink    #Password Input
     sleep    1s
 
 ----12/18---
@@ -559,7 +559,7 @@ Configure IPv4 PPTP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    #setting Static IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    10.2.76.216    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    10.2.76.215    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
