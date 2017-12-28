@@ -1,0 +1,161 @@
+﻿*** Settings ***
+Documentation     Date：2017/12/27
+
+*** Keywords ***
+ElementLocator-DIR-878-DKP1608016
+    #DKP1608016
+    ${Wizard-Next-Click}    getElementLocator    xpath    //*[@id="btn_next"]
+    Set Global Variable    ${Wizard-Next-Click}
+    ${Wizard-Username/Password Connection (PPPoE)-Click}    getElementLocator    id    cb_pppoe
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Click}
+    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    getElementLocator    id    pppoe_username
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
+    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    getElementLocator    id    pppoe_password
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
+    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    getElementLocator    id    wifi_networkName24G
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}
+    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}    getElementLocator    id    wifi_password24G
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}
+    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    getElementLocator    id    device_password
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}
+    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    getElementLocator    id    btn_next
+    Set Global Variable    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
+    ${Language-English-Select-child}    getElementLocator    xpath    //a[contains(@href, 'en-us')]
+    Set Global Variable    ${Language-English-Select-child}
+    ${Language-繁體中文-Select-child}    getElementLocator    xpath    //a[contains(@href, 'zh-tw')]
+    Set Global Variable    ${Language-繁體中文-Select-child}
+    ${Language-简体中文-Select-child}    getElementLocator    xpath    //a[contains(@href, 'zh-cn')]
+    Set Global Variable    ${Language-简体中文-Select-child}
+    ${Language-한국-Select-child}    getElementLocator    xpath    //a[contains(@href, 'ko-kr')]
+    Set Global Variable    ${Language-한국-Select-child}
+    ${Language-français-Select-child}    getElementLocator    xpath    //a[contains(@href, 'fr-fr')]
+    Set Global Variable    ${Language-français-Select-child}
+    ${Language-português-Select-child}    getElementLocator    xpath    //a[contains(@href, 'pt-br')]
+    Set Global Variable    ${Language-português-Select-child}
+    ${Language-Español-Select-child}    getElementLocator    xpath    //a[contains(@href, 'es-es')]
+    Set Global Variable    ${Language-Español-Select-child}
+    ${Language-Italiano-Select-child}    getElementLocator    xpath    //a[contains(@href, 'it-it')]
+    Set Global Variable    ${Language-Italiano-Select-child}
+    ${Language-Deutsch-Select-child}    getElementLocator    xpath    //a[contains(@href, 'de-de')]
+    Set Global Variable    ${Language-Deutsch-Select-child}
+    ${Language-русский-Select-child}    getElementLocator    xpath    //a[contains(@href, 'ru-ru')]
+    Set Global Variable    ${Language-русский-Select-child}
+    ${Back-Click}    getElementLocator    xpath    //*[@id="btn_back"]
+    Set Global Variable    ${Back-Click}
+    ${Settings-Click}    getElementLocator    xpath    //a[contains(@href, '#')]
+    Set Global Variable    ${Settings-Click}
+    ${Settings-Wizard-Click}    getElementLocator    xpath    //a[@onclick='return confirmExit()']
+    Set Global Variable    ${Settings-Wizard-Click}
+    ${Settings-Wizard-Internet Connection(DHCP)-Click}    getElementLocator    xpath    //*[@id="cb_dhcp"]
+    Set Global Variable    ${Settings-Wizard-Internet Connection(DHCP)-Click}
+    #Default- Wizard Page
+    ${Default- Wizard Page-X (Close)-Click}    getElementLocator    xpath    //div[@id='closeCreatePopBtn']
+    Set Global Variable    ${Default- Wizard Page-X (Close)-Click}
+    ${Default- Wizard Page-Toggle-Click}    getElementLocator    xpath    //a[contains(@href, '#')]
+    Set Global Variable    ${Default- Wizard Page-Toggle-Click}
+    ${Default- Wizard Page-Next-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Default- Wizard Page-Next-Click}
+    ${Default- Wizard Page-Finish-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Default- Wizard Page-Finish-Click}
+    ${Default- Wizard Page-Retry (Install)-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Default- Wizard Page-Retry (Install)-Click}
+    ${Default- Wizard Page-Back-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Default- Wizard Page-Back-Click}
+    ${Default- Wizard Page-Internet Connection(DHCP)-Click}    getElementLocator    xpath    //div[@id='cb_dhcp']
+    Set Global Variable    ${Default- Wizard Page-Internet Connection(DHCP)-Click}
+    ${Default- Wizard Page-Internet Connection(PPPoE)-Click}    getElementLocator    xpath    //div[@id='cb_pppoe']
+    Set Global Variable    ${Default- Wizard Page-Internet Connection(PPPoE)-Click}
+    ${Default- Wizard Page-Internet Connection(Static)-Click}    getElementLocator    xpath    //div[@id='cb_static']
+    Set Global Variable    ${Default- Wizard Page-Internet Connection(Static)-Click}
+    ${Default- Wizard Page-Username (PPPoE)-Input}    getElementLocator    xpath    //input[@id='pppoe_username']
+    Set Global Variable    ${Default- Wizard Page-Username (PPPoE)-Input}
+    ${Default- Wizard Page-Password (PPPoE)-Input}    getElementLocator    xpath    //input[@id='pppoe_password']
+    Set Global Variable    ${Default- Wizard Page-Password (PPPoE)-Input}
+    ${Default- Wizard Page-Static IP Address Connection-Click}    getElementLocator    xpath    //div[@id='cb_static']
+    Set Global Variable    ${Default- Wizard Page-Static IP Address Connection-Click}
+    ${Default- Wizard Page-Wi-Fi Network Name-Input}    getElementLocator    xpath    //input[@id='wifi_networkName24G']
+    Set Global Variable    ${Default- Wizard Page-Wi-Fi Network Name-Input}
+    ${Default- Wizard Page-Wi-Fi Password-Input}    getElementLocator    xpath    //input[@id='wifi_password24G']
+    Set Global Variable    ${Default- Wizard Page-Wi-Fi Password-Input}
+    ${Default- Wizard Page-Device Admin Password-Input}    getElementLocator    xpath    //input[@id='device_password']
+    Set Global Variable    ${Default- Wizard Page-Device Admin Password-Input}
+    ${Default- Wizard Page-Choose Language-Select}    getElementLocator    xpath    //a[contains(@href, '#')]
+    Set Global Variable    ${Default- Wizard Page-Choose Language-Select}
+    ${Default- Wizard Page-English-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'en-us')]
+    Set Global Variable    ${Default- Wizard Page-English-SelectChild}
+    ${Default- Wizard Page-繁體中文-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'zh-tw')]
+    Set Global Variable    ${Default- Wizard Page-繁體中文-SelectChild}
+    ${Default- Wizard Page-简体中文-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'zh-cn')]
+    Set Global Variable    ${Default- Wizard Page-简体中文-SelectChild}
+    ${Default- Wizard Page-한국-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'ko-kr')]
+    Set Global Variable    ${Default- Wizard Page-한국-SelectChild}
+    ${Default- Wizard Page-français-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'fr-fr')]
+    Set Global Variable    ${Default- Wizard Page-français-SelectChild}
+    ${Default- Wizard Page-português-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'pt-br')]
+    Set Global Variable    ${Default- Wizard Page-português-SelectChild}
+    ${Default- Wizard Page-Español-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'es-es')]
+    Set Global Variable    ${Default- Wizard Page-Español-SelectChild}
+    ${Default- Wizard Page-Italiano-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'it-it')]
+    Set Global Variable    ${Default- Wizard Page-Italiano-SelectChild}
+    ${Default- Wizard Page-Deutsch-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'de-de')]
+    Set Global Variable    ${Default- Wizard Page-Deutsch-SelectChild}
+    ${Default- Wizard Page-русский-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'ru-ru')]
+    Set Global Variable    ${Default- Wizard Page-русский-SelectChild}
+    #Login Page
+    ${Login Page-Model Name-Click}    getElementLocator    xpath    //*[@id="h_ModelName"]
+    Set Global Variable    ${Login Page-Model Name-Click}
+    ${Login Page-Hardware Version-Click}    getElementLocator    xpath    //*[@id="h_HWVersion"]
+    Set Global Variable    ${Login Page-Hardware Version-Click}
+    ${Login Page-Firmware Version-Click}    getElementLocator    xpath    //*[@id="h_FWVersion"]
+    Set Global Variable    ${Login Page-Firmware Version-Click}
+    ${Login Page-Language-Click}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Login Page-Language-Click}
+    ${Login Page-Admin Password-Input}    getElementLocator    xpath    //*[@id="admin_Password"]
+    Set Global Variable    ${Login Page-Admin Password-Input}
+    ${Login Page-Log In-Click}    getElementLocator    xpath    //button[@id='logIn_btn']
+    Set Global Variable    ${Login Page-Log In-Click}
+    ${Login Page-License Agreement-Link}    getElementLocator    xpath    //*[@id="eula"]/a
+    Set Global Variable    ${Login Page-License Agreement-Link}
+    #Function Table
+    ${Function Table-Home-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Home']
+    Set Global Variable    ${Function Table-Home-FunctionTable}
+    ${Function Table-Settings-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Settings']
+    Set Global Variable    ${Function Table-Settings-FunctionTable}
+    ${Function Table-Settings-Wizard-FunctionTableChild}    getElementLocator    xpath    //a[@onclick='return confirmExit()']
+    Set Global Variable    ${Function Table-Settings-Wizard-FunctionTableChild}
+    ${Function Table-Settings-Internet-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit();'])[2]
+    Set Global Variable    ${Function Table-Settings-Internet-FunctionTableChild}
+    ${Function Table-Settings-Wireless-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[2]
+    Set Global Variable    ${Function Table-Settings-Wireless-FunctionTableChild}
+    ${Function Table-Settings-Network-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[3]
+    Set Global Variable    ${Function Table-Settings-Network-FunctionTableChild}
+    ${Function Table-Features-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Advanced']
+    Set Global Variable    ${Function Table-Features-FunctionTable}
+    ${Function Table-Features-QoS Engine-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[4]
+    Set Global Variable    ${Function Table-Features-QoS Engine-FunctionTableChild}
+    ${Function Table-Features-Firewall-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[5]
+    Set Global Variable    ${Function Table-Features-Firewall-FunctionTableChild}
+    ${Function Table-Features-Port Forwarding-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[6]
+    Set Global Variable    ${Function Table-Features-Port Forwarding-FunctionTableChild}
+    ${Function Table-Features-Website Filter-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[7]
+    Set Global Variable    ${Function Table-Features-Website Filter-FunctionTableChild}
+    ${Function Table-Features-Static Route-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[8]
+    Set Global Variable    ${Function Table-Features-Static Route-FunctionTableChild}
+    ${Function Table-Features-Dynamic DNS-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[9]
+    Set Global Variable    ${Function Table-Features-Dynamic DNS-FunctionTableChild}
+    ${Function Table-Features-Quick VPN-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[10]
+    Set Global Variable    ${Function Table-Features-Quick VPN-FunctionTableChild}
+    ${Function Table-Management-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Management']
+    Set Global Variable    ${Function Table-Management-FunctionTable}
+    ${Function Table-Management-Time & Schedule-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[11]
+    Set Global Variable    ${Function Table-Management-Time & Schedule-FunctionTableChild}
+    ${Function Table-Management-System Log-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[12]
+    Set Global Variable    ${Function Table-Management-System Log-FunctionTableChild}
+    ${Function Table-Management-System Admin-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[13]
+    Set Global Variable    ${Function Table-Management-System Admin-FunctionTableChild}
+    ${Function Table-Management-Device-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[14]
+    Set Global Variable    ${Function Table-Management-Device-FunctionTableChild}
+    ${Function Table-Management-Upgrade-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[15]
+    Set Global Variable    ${Function Table-Management-Upgrade-FunctionTableChild}
+    ${Function Table-Management-Statistics-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[16]
+    Set Global Variable    ${Function Table-Management-Statistics-FunctionTableChild}

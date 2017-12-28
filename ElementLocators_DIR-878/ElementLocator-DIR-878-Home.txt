@@ -1,0 +1,138 @@
+﻿*** Settings ***
+Documentation     Date：2017/12/27
+
+*** Keywords ***
+ElementLocator-DIR-878-Home
+    #Home Page
+    ${Home Page-Home-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Home']
+    Set Global Variable    ${Home Page-Home-FunctionTable}
+    ${Home Page-Internet Connected-Click}    getElementLocator    xpath    //*[@id="map_title"]
+    Set Global Variable    ${Home Page-Internet Connected-Click}
+    ${Home Page-Internet Disconnected-Click}    getElementLocator    xpath    //*[@id="map_title"]
+    Set Global Variable    ${Home Page-Internet Disconnected-Click}
+    ${Home Page-New Firmware Available-Click}    getElementLocator    xpath    //*[@id="map_fw_info"]
+    Set Global Variable    ${Home Page-New Firmware Available-Click}
+    ${Home Page-Internet-Click}    getElementLocator    xpath    //img[@id='internet_image']
+    Set Global Variable    ${Home Page-Internet-Click}
+    ${Home Page-IPv6-Click}    getElementLocator    xpath    //div[@id='v6_btn_WAN']
+    Set Global Variable    ${Home Page-IPv6-Click}
+    ${Home Page-Go to settings (V6)-Click}    getElementLocator    xpath    //a[@id='goto_internet_v6']
+    Set Global Variable    ${Home Page-Go to settings (V6)-Click}
+    ${Home Page-IPv4-Click}    getElementLocator    xpath    //div[@id='v4_btn_WAN']
+    Set Global Variable    ${Home Page-IPv4-Click}
+    ${Home Page-Go to settings (V4)-Click}    getElementLocator    xpath    //a[@id='goto_internet_v4']
+    Set Global Variable    ${Home Page-Go to settings (V4)-Click}
+    ${Home Page-Click to repair-Click}    getElementLocator    xpath    //*[@id="settings_Wizard"]
+    Set Global Variable    ${Home Page-Click to repair-Click}
+    ${Home Page-Clients-Click}    getElementLocator    xpath    //*[@id="routerInfo_circle"]
+    Set Global Variable    ${Home Page-Clients-Click}
+    ${Home Page-Go to settings (Network)-Click}    getElementLocator    xpath    //a[contains(@href, 'Network.html')]
+    Set Global Variable    ${Home Page-Go to settings (Network)-Click}
+    ${Home Page-Go to settings (WiFi)-Click}    getElementLocator    xpath    (//a[contains(@href, 'WiFi.html')])[4]
+    Set Global Variable    ${Home Page-Go to settings (WiFi)-Click}
+    ${Home Page-Connected Clients(character)-Click}    getElementLocator    xpath    //*[@id="Total_ConnectedClients"]
+    Set Global Variable    ${Home Page-Connected Clients(character)-Click}
+    ${Home Page-Connected Clients(image)-Click}    getElementLocator    xpath    //*[@id="clientInfo_circle"]
+    Set Global Variable    ${Home Page-Connected Clients(image)-Click}
+    ${Home Page-Edit Client-Click}    getElementLocator    xpath    //div[@onclick='editData(2)']
+    Set Global Variable    ${Home Page-Edit Client-Click}
+    ${Home Page-Name-Input}    getElementLocator    xpath    //input[@id='client_Name']
+    Set Global Variable    ${Home Page-Name-Input}
+    ${Home Page-Reserve IP-Input}    getElementLocator    xpath    //input[@id='client_editMac']
+    Set Global Variable    ${Home Page-Reserve IP-Input}
+    ${Home Page-IP Address (Reserved)-Switch}    getElementLocator    xpath    //input[@id='enableReserveIP']
+    Set Global Variable    ${Home Page-IP Address (Reserved)-Switch}
+    ${Home Page-Parental Control-Switch}    getElementLocator    xpath    //input[@id='enableAccess']
+    Set Global Variable    ${Home Page-Parental Control-Switch}
+    ${Home Page-Schedule-Click}    getElementLocator    xpath    //*[@id="show_Schedule"]
+    Set Global Variable    ${Home Page-Schedule-Click}
+    ${Home Page-Save-Click}    getElementLocator    xpath    //button[@id='check_btn']
+    Set Global Variable    ${Home Page-Save-Click}
+    ${Home Page-+ (Add Client)-Click}    getElementLocator    xpath    //div[@onclick='addData()']
+    Set Global Variable    ${Home Page-+ (Add Client)-Click}
+    ${Home Page-Cable Status(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowCableStatus"]
+    Set Global Variable    ${Home Page-Cable Status(IPv4)-GetVar}
+    ${Home Page-Connection Type(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowConnectionType"]
+    Set Global Variable    ${Home Page-Connection Type(IPv4)-GetVar}
+    ${Home Page-Network Status(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowNetworkStatus"]
+    Set Global Variable    ${Home Page-Network Status(IPv4)-GetVar}
+    ${Home Page-Connection Uptime(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowConnectionUpTime"]
+    Set Global Variable    ${Home Page-Connection Uptime(IPv4)-GetVar}
+    ${Home Page-MAC Address(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowWanMacAddress"]
+    Set Global Variable    ${Home Page-MAC Address(IPv4)-GetVar}
+    ${Home Page-IP Address(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowIPAddress"]
+    Set Global Variable    ${Home Page-IP Address(IPv4)-GetVar}
+    ${Home Page-Subnet Mask(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSubnetMask"]
+    Set Global Variable    ${Home Page-Subnet Mask(IPv4)-GetVar}
+    ${Home Page-Default Gateway(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowDefaultGateway"]
+    Set Global Variable    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${Home Page-Primary DNS Server(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowPrimaryDNS"]
+    Set Global Variable    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${Home Page-Secondary DNS Server(IPv4)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSecondaryDNS"]
+    Set Global Variable    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    ${Home Page-Connection Type(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="Connection_Type_IPv6"]
+    Set Global Variable    ${Home Page-Connection Type(IPv6)-GetVar}
+    ${Home Page-Network Status(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="IPv6_NetworkStatus"]
+    Set Global Variable    ${Home Page-Network Status(IPv6)-GetVar}
+    ${Home Page-Connection Uptime(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowConnectionUpTime_IPv6"]
+    Set Global Variable    ${Home Page-Connection Uptime(IPv6)-GetVar}
+    ${Home Page-WAN IPv6 Address(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="wan_IPv6_Address"]
+    Set Global Variable    ${Home Page-WAN IPv6 Address(IPv6)-GetVar}
+    ${Home Page-Default Gateway(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="wan_IPv6_DefaultGateway"]
+    Set Global Variable    ${Home Page-Default Gateway(IPv6)-GetVar}
+    ${Home Page-Primary DNS Server(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="primary_IPv6_Dns_Server"]
+    Set Global Variable    ${Home Page-Primary DNS Server(IPv6)-GetVar}
+    ${Home Page-Secondary DNS Server(IPv6)-GetVar}    getElementLocator    xpath    //*[@id="secondary_IPv6_Dns_Server"]
+    Set Global Variable    ${Home Page-Secondary DNS Server(IPv6)-GetVar}
+    ${Home Page-RenewReleaseIPAddress-Click}    getElementLocator    xpath    //*[@id="RenewRelease_btn"]
+    Set Global Variable    ${Home Page-RenewReleaseIPAddress-Click}
+    ${Home Page-DUT-ImgClick}    getElementLocator    xpath    //*[@id="routerInfo_circle"]/img
+    Set Global Variable    ${Home Page-DUT-ImgClick}
+    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Status-GetVar}    getElementLocator    xpath    //*[@id="index_ShowStatus_24G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Status-GetVar}
+    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSSID_24G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${Home Page-DUT-Wi-Fi 2.4GHz-Password-GetVar}    getElementLocator    xpath    //*[@id="index_ShowPassword_24G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 2.4GHz-Password-GetVar}
+    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Status-GetVar}    getElementLocator    xpath    //*[@id="index_ShowStatus_5G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Status-GetVar}
+    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}    getElementLocator    xpath    //*[@id="index_ShowSSID_5G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${Home Page-DUT-Wi-Fi 5GHz-Password-GetVar}    getElementLocator    xpath    //*[@id="index_ShowPassword_5G"]
+    Set Global Variable    ${Home Page-DUT-Wi-Fi 5GHz-Password-GetVar}
+    ${Home Page-DUT-IPv6-DHCP-PD-GetVar}    getElementLocator    xpath    //*[@id="dhcp_Pd"]
+    Set Global Variable    ${Home Page-DUT-IPv6-DHCP-PD-GetVar}
+    ${Home Page-DUT-IPv6-Link-Local Address-GetVar}    getElementLocator    xpath    //*[@id="lan_IPv6_Link_Local_Address"]
+    Set Global Variable    ${Home Page-DUT-IPv6-Link-Local Address-GetVar}
+    ${Home Page-DUT-IPv4-Router IP Address-GetVar}    getElementLocator    xpath    //*[@id="index_ShowRouterIPAddress"]
+    Set Global Variable    ${Home Page-DUT-IPv4-Router IP Address-GetVar}
+    ${Home Page-DUT-IPv4 -MAC Address-GetVar}    getElementLocator    xpath    //*[@id="index_Show_MacAddress"]
+    Set Global Variable    ${Home Page-DUT-IPv4 -MAC Address-GetVar}
+    ${Home Page-Connected Clients-Edit1-ImgClick}    getElementLocator    xpath    //div[@onclick='editData(1)']
+    Set Global Variable    ${Home Page-Connected Clients-Edit1-ImgClick}
+    ${Home Page-Connected Clients-Edit2-ImgClick}    getElementLocator    xpath    //div[@onclick='editData(2)']
+    Set Global Variable    ${Home Page-Connected Clients-Edit2-ImgClick}
+    ${Home Page-Connected Clients-IP Address-GetVar}    getElementLocator    xpath    //*[@id="client_IPAdr"]
+    Set Global Variable    ${Home Page-Connected Clients-IP Address-GetVar}
+    ${Home Page-Connected Clients-MAC Address-GetVar}    getElementLocator    xpath    //*[@id="client_MACAddress"]
+    Set Global Variable    ${Home Page-Connected Clients-MAC Address-GetVar}
+    ${Home Page-Connected Clients-Vendor-GetVar}    getElementLocator    xpath    //*[@id="client_Vendor"]
+    Set Global Variable    ${Home Page-Connected Clients-Vendor-GetVar}
+    ${Home Page-Connected Clients-Name-GetVar}    getElementLocator    xpath    //*[@id="client_Name"]
+    Set Global Variable    ${Home Page-Connected Clients-Name-GetVar}
+    ${Home Page-Internet Connected-ImgClick}    getElementLocator    xpath    //*[@id="wan_Light"]
+    Set Global Variable    ${Home Page-Internet Connected-ImgClick}
+    ${Home Page-USB Device-ImgClick}    getElementLocator    xpath    //*[@id="usb_image"]
+    Set Global Variable    ${Home Page-USB Device-ImgClick}
+    ${Home Page-Available Space-GetVar}    getElementLocator    xpath    //*[@id="usbdev2_FreeSpace"]
+    Set Global Variable    ${Home Page-Available Space-GetVar}
+    ${Home Page-Total Space-GetVar}    getElementLocator    xpath    //*[@id="usbdev2_TotalSpace"]
+    Set Global Variable    ${Home Page-Total Space-GetVar}
+    ${Home Page-DLNA Media Server-Status-GetVar}    getElementLocator    xpath    //*[@id="dlna_Status"]
+    Set Global Variable    ${Home Page-DLNA Media Server-Status-GetVar}
+    ${Home Page-DLNA Media Server-Service Name-GetVar}    getElementLocator    xpath    //*[@id="dlna_ServiceName"]
+    Set Global Variable    ${Home Page-DLNA Media Server-Service Name-GetVar}
+    ${Home Page-Windows File Sharing-Status-GetVar}    getElementLocator    xpath    //*[@id="samba_Status"]
+    Set Global Variable    ${Home Page-Windows File Sharing-Status-GetVar}
+    ${Home Page-FTP-Status-GetVar}    getElementLocator    xpath    //*[@id="ftp_Status"]
+    Set Global Variable    ${Home Page-FTP-Status-GetVar}

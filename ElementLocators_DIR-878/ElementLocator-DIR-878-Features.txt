@@ -1,0 +1,526 @@
+﻿*** Settings ***
+Documentation     Date：2017/12/27
+
+*** Keywords ***
+ElementLocator-DIR-878-Features
+    #Features-Qos Engine
+    ${Features-Qos Engine-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-Qos Engine-Features-FunctionTable}
+    ${Features-Qos Engine-Qos Engine-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[4]
+    Set Global Variable    ${Features-Qos Engine-Qos Engine-FunctionTableChild}
+    ${Features-Qos Engine-Download Speed-Input}    getElementLocator    xpath    //input[@id='QoS_DownloadSpeed']
+    Set Global Variable    ${Features-Qos Engine-Download Speed-Input}
+    ${Features-Qos Engine-Download Speed-(remind)-ImgClick}    getElementLocator    xpath    //img[@onclick='popupIDialog()']
+    Set Global Variable    ${Features-Qos Engine-Download Speed-(remind)-ImgClick}
+    ${Features-Qos Engine-Download Speed-(remind)-ok button-Click}    getElementLocator    xpath    //button[@id='btn_OK']
+    Set Global Variable    ${Features-Qos Engine-Download Speed-(remind)-ok button-Click}
+    ${Features-Qos Engine-Upload Speed-Input}    getElementLocator    xpath    //input[@id='QoS_UploadSpeed']
+    Set Global Variable    ${Features-Qos Engine-Upload Speed-Input}
+    ${Features-Qos Engine-Connected Clients(1)-Item}    getElementLocator    xpath    //*[@id="ss_itemContainer"]/div
+    Set Global Variable    ${Features-Qos Engine-Connected Clients(1)-Item}
+    ${Features-Qos Engine-slideshow(left)-ImgClick}    getElementLocator    xpath    //*[@id="slideshow"]/div[1]
+    Set Global Variable    ${Features-Qos Engine-slideshow(left)-ImgClick}
+    ${Features-Qos Engine-slideshow(right)-ImgClick}    getElementLocator    xpath    //*[@id="slideshow"]/div[3]
+    Set Global Variable    ${Features-Qos Engine-slideshow(right)-ImgClick}
+    ${Features-Qos Engine-Highest-Click}    getElementLocator    xpath    //*[@id="prioity_highest_container"]/div
+    Set Global Variable    ${Features-Qos Engine-Highest-Click}
+    ${Features-Qos Engine-High(1)-Click}    getElementLocator    xpath    //*[@id="prioity_high_container"]/div[1]
+    Set Global Variable    ${Features-Qos Engine-High(1)-Click}
+    ${Features-Qos Engine-High(2)-Click}    getElementLocator    xpath    //*[@id="prioity_high_container"]/div[2]
+    Set Global Variable    ${Features-Qos Engine-High(2)-Click}
+    ${Features-Qos Engine-Medium(1-1)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[1]
+    Set Global Variable    ${Features-Qos Engine-Medium(1-1)-Click}
+    ${Features-Qos Engine-Medium(1-2)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[2]
+    Set Global Variable    ${Features-Qos Engine-Medium(1-2)-Click}
+    ${Features-Qos Engine-Medium(1-3)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[3]
+    Set Global Variable    ${Features-Qos Engine-Medium(1-3)-Click}
+    ${Features-Qos Engine-Medium(1-4)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[4]
+    Set Global Variable    ${Features-Qos Engine-Medium(1-4)-Click}
+    ${Features-Qos Engine-Medium(2-1)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[5]
+    Set Global Variable    ${Features-Qos Engine-Medium(2-1)-Click}
+    ${Features-Qos Engine-Medium(2-2)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[6]
+    Set Global Variable    ${Features-Qos Engine-Medium(2-2)-Click}
+    ${Features-Qos Engine-Medium(2-3)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[7]
+    Set Global Variable    ${Features-Qos Engine-Medium(2-3)-Click}
+    ${Features-Qos Engine-Medium(2-4)-Click}    getElementLocator    xpath    //*[@id="prioity_medium_container"]/div[8]
+    Set Global Variable    ${Features-Qos Engine-Medium(2-4)-Click}
+    #Features-Firewall- Advanced
+    ${Features-Firewall- Advanced-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-Firewall- Advanced-Features-FunctionTable}
+    ${Features-Firewall- Advanced-Firewall -FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[5]
+    Set Global Variable    ${Features-Firewall- Advanced-Firewall -FunctionTableChild}
+    ${Features-Firewall- Advanced-Settings-Advanced-Click}    getElementLocator    xpath    (//div[@id='page_btn'])[2]
+    Set Global Variable    ${Features-Firewall- Advanced-Settings-Advanced-Click}
+    ${Features-Firewall- Advanced-Enable DMZ-Switch}    getElementLocator    xpath    //div[@id='enableDMZHost']
+    Set Global Variable    ${Features-Firewall- Advanced-Enable DMZ-Switch}
+    ${Features-Firewall- Advanced-DMZ IP Address-Input}    getElementLocator    xpath    //input[@id='dmz_IPAddress']
+    Set Global Variable    ${Features-Firewall- Advanced-DMZ IP Address-Input}
+    ${Features-Firewall- Advanced-DMZ IP Address(choose)-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-Firewall- Advanced-DMZ IP Address(choose)-Select}
+    ${Features-Firewall- Advanced-DMZ IP Address(clear)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Features-Firewall- Advanced-DMZ IP Address(clear)-SelectChild}
+    ${Features-Firewall- Advanced-var(1)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-Firewall- Advanced-var(1)-SelectChild}
+    ${Features-Firewall- Advanced-Enable SPI IPv4-Switch}    getElementLocator    xpath    //div[@id='enableSPIIPv4']
+    Set Global Variable    ${Features-Firewall- Advanced-Enable SPI IPv4-Switch}
+    ${Features-Firewall- Advanced-Enable Anti-spoof Checking-Switch}    getElementLocator    xpath    //div[@id='enableAntispoofChecking']
+    Set Global Variable    ${Features-Firewall- Advanced-Enable Anti-spoof Checking-Switch}
+    ${Features-Firewall- Advanced-IPv6 Simple Security-Switch}    getElementLocator    xpath    //div[@id='enableIPv6SimpleSecurity']
+    Set Global Variable    ${Features-Firewall- Advanced-IPv6 Simple Security-Switch}
+    ${Features-Firewall- Advanced-IPv6 Ingress Filtering-Switch}    getElementLocator    xpath    //div[@id='enableIPv6IngressFiltering']
+    Set Global Variable    ${Features-Firewall- Advanced-IPv6 Ingress Filtering-Switch}
+    ${Features-Firewall- Advanced-Advanced Settings...-Link}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock1');"]
+    Set Global Variable    ${Features-Firewall- Advanced-Advanced Settings...-Link}
+    ${Features-Firewall- Advanced-PPTP-Switch}    getElementLocator    xpath    //div[@id='pptp']
+    Set Global Variable    ${Features-Firewall- Advanced-PPTP-Switch}
+    ${Features-Firewall- Advanced-IPSec (VPN)-Switch}    getElementLocator    xpath    //div[@id='ipSec']
+    Set Global Variable    ${Features-Firewall- Advanced-IPSec (VPN)-Switch}
+    ${Features-Firewall- Advanced-RTSP-Switch}    getElementLocator    xpath    //div[@id='rtsp']
+    Set Global Variable    ${Features-Firewall- Advanced-RTSP-Switch}
+    ${Features-Firewall- Advanced-SIP-Switch}    getElementLocator    xpath    //div[@id='sip']
+    Set Global Variable    ${Features-Firewall- Advanced-SIP-Switch}
+    #Features-Firewall- IPv4
+    ${Features-Firewall- IPv4-Settings-IPv4-Click}    getElementLocator    xpath    (//div[@id='page_btn'])[2]
+    Set Global Variable    ${Features-Firewall- IPv4-Settings-IPv4-Click}
+    ${Features-Firewall- IPv4-Selector-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-Firewall- IPv4-Selector-Select}
+    ${Features-Firewall- IPv4-Turn IPv4 Filtering OFF-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Features-Firewall- IPv4-Turn IPv4 Filtering OFF-SelectChild}
+    ${Features-Firewall- IPv4-Turn IPv4 Filtering ON and ALLOW rules listed-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-Firewall- IPv4-Turn IPv4 Filtering ON and ALLOW rules listed-SelectChild}
+    ${Features-Firewall- IPv4-Turn IPv4 Filtering ON and DENY rules listed-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Features-Firewall- IPv4-Turn IPv4 Filtering ON and DENY rules listed-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Click}
+    ${Features-Firewall- IPv4-Add Rule-Name-Input}    getElementLocator    xpath    //input[@id='FWv4_Name']
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Name-Input}
+    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range-Select}
+    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range-WAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'WAN')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range-WAN-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range-LAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'LAN')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range-LAN-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range(input)-Input}    getElementLocator    xpath    //input[@id='FWv4_SourceIPRange']
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Source IP Address Range(input)-Input}
+    ${Features-Firewall- IPv4-Add Rule-Destination Address Range-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Destination Address Range-Select}
+    ${Features-Firewall- IPv4-Add Rule-Destination Address Range-LAN-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'LAN')])[2]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Destination Address Range-LAN-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Destination Address Range-WAN-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'WAN')])[2]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Destination Address Range-WAN-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Destination Address Range(input)-Input}    getElementLocator    xpath    //input[@id='FWv4_DestinationIPRange']
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Destination Address Range(input)-Input}
+    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-Select}
+    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-TCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'TCP')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-TCP-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-UDP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'UDP')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-UDP-SelectChild}
+    ${Features-Firewall- IPv4-Protocol & Port Range(input)-Input}    getElementLocator    xpath    //input[@id='FWv4_PortRange']
+    Set Global Variable    ${Features-Firewall- IPv4-Protocol & Port Range(input)-Input}
+    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-Any-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Any')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Protocol & Port Range-Any-SelectChild}
+    ${Features-Firewall- IPv4-Add Rule-Schedule(Link)-Link}    getElementLocator    xpath    //a[contains(@href, 'Schedule.html')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Schedule(Link)-Link}
+    ${Features-Firewall- IPv4-Add Rule-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Schedule-Select}
+    ${Features-Firewall- IPv4-Add Rule-Schedule-Always-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Always')]
+    Set Global Variable    ${Features-Firewall- IPv4-Add Rule-Schedule-Always-SelectChild}
+    #Features-Firewall- IPv6
+    ${Features-Firewall- IPv6-Settings-IPv6-Click}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Features-Firewall- IPv6-Settings-IPv6-Click}
+    ${Features-Firewall- IPv6-Selector-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-Firewall- IPv6-Selector-Select}
+    ${Features-Firewall- IPv6-Turn IPv6 Filtering OFF-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Features-Firewall- IPv6-Turn IPv6 Filtering OFF-SelectChild}
+    ${Features-Firewall- IPv6-Turn IPv6 Filtering ON and ALLOW rules listed-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-Firewall- IPv6-Turn IPv6 Filtering ON and ALLOW rules listed-SelectChild}
+    ${Features-Firewall- IPv6-Turn IPv6 Filtering ON and DENY rules listed-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Features-Firewall- IPv6-Turn IPv6 Filtering ON and DENY rules listed-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Click}
+    ${Features-Firewall- IPv6-Add Rule-Name-Input}    getElementLocator    xpath    //input[@id='FWv6_Name']
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Name-Input}
+    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range-Select}
+    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range-WAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'WAN')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range-WAN-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range-LAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'LAN')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range-LAN-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range(input)-Input}    getElementLocator    xpath    //input[@id='FWv6_SourceIPRange']
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Source IP Address Range(input)-Input}
+    ${Features-Firewall- IPv6-Add Rule-Destination Address Range-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Destination Address Range-Select}
+    ${Features-Firewall- IPv6-Add Rule-Destination Address Range-LAN-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'LAN')])[2]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Destination Address Range-LAN-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Destination Address Range-WAN-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'WAN')])[2]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Destination Address Range-WAN-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Destination Address Range(input)-Input}    getElementLocator    xpath    //input[@id='FWv6_DestinationIPRange']
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Destination Address Range(input)-Input}
+    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-Select}
+    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-TCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'TCP')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-TCP-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-UDP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'UDP')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-UDP-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range(input)-Input}    getElementLocator    xpath    //input[@id='FWv6_PortRange']
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range(input)-Input}
+    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-Any-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Any')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Protocol & Port Range-Any-SelectChild}
+    ${Features-Firewall- IPv6-Add Rule-Schedule(Link)-Link}    getElementLocator    xpath    //a[contains(@href, 'Schedule.html')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Schedule(Link)-Link}
+    ${Features-Firewall- IPv6-Add Rule-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Schedule-Select}
+    ${Features-Firewall- IPv6-Add Rule-Schedule-Always-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Always')]
+    Set Global Variable    ${Features-Firewall- IPv6-Add Rule-Schedule-Always-SelectChild}
+    #Features-PortForwarding
+    ${Features-PortForwarding-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-PortForwarding-Features-FunctionTable}
+    ${Features-PortForwarding-PortForwarding-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[6]
+    Set Global Variable    ${Features-PortForwarding-PortForwarding-FunctionTableChild}
+    ${Features-PortForwarding-PortForwarding(Change)-Click}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Features-PortForwarding-PortForwarding(Change)-Click}
+    ${Features-PortForwarding-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-PortForwarding-Add Rule-Click}
+    ${Features-PortForwarding-Name-Input}    getElementLocator    xpath    //input[@id='pf_Name']
+    Set Global Variable    ${Features-PortForwarding-Name-Input}
+    ${Features-PortForwarding-LocalIP(Input)-Input}    getElementLocator    xpath    //input[@id='pf_LocalIP']
+    Set Global Variable    ${Features-PortForwarding-LocalIP(Input)-Input}
+    ${Features-PortForwarding-LocalIP-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[5]
+    Set Global Variable    ${Features-PortForwarding-LocalIP-Select}
+    ${Features-PortForwarding-(var1)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Features-PortForwarding-(var1)-SelectChild}
+    ${Features-PortForwarding-(var2)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-PortForwarding-(var2)-SelectChild}
+    ${Features-PortForwarding-TCP Port-Input}    getElementLocator    xpath    //input[@id='pf_TCPPort']
+    Set Global Variable    ${Features-PortForwarding-TCP Port-Input}
+    ${Features-PortForwarding-UDP Port-Input}    getElementLocator    xpath    //input[@id='pf_UDPPort']
+    Set Global Variable    ${Features-PortForwarding-UDP Port-Input}
+    ${Features-PortForwarding-Schedule(Link)-Link}    getElementLocator    xpath    //a[contains(@href, 'Schedule.html')]
+    Set Global Variable    ${Features-PortForwarding-Schedule(Link)-Link}
+    ${Features-PortForwarding-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Features-PortForwarding-Schedule-Select}
+    ${Features-PortForwarding-Always-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Always')]
+    Set Global Variable    ${Features-PortForwarding-Always-SelectChild}
+    #Features-Forwarding-Virtual
+    ${Features-Forwarding-Virtual-PortForwarding(Change)-Click}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Features-Forwarding-Virtual-PortForwarding(Change)-Click}
+    ${Features-Forwarding-Virtual-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-Forwarding-Virtual-Add Rule-Click}
+    ${Features-Forwarding-Virtual-Name(input)-Input}    getElementLocator    xpath    //input[@id='vs_Name']
+    Set Global Variable    ${Features-Forwarding-Virtual-Name(input)-Input}
+    ${Features-Forwarding-Virtual-Name-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-Forwarding-Virtual-Name-Select}
+    ${Features-Forwarding-Virtual-Application Name-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Features-Forwarding-Virtual-Application Name-SelectChild}
+    ${Features-Forwarding-Virtual-TELNET-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-Forwarding-Virtual-TELNET-SelectChild}
+    ${Features-Forwarding-Virtual-HTTP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Features-Forwarding-Virtual-HTTP-SelectChild}
+    ${Features-Forwarding-Virtual-HTTPS-SelectChild}    getElementLocator    xpath    //a[contains(@href, '3')]
+    Set Global Variable    ${Features-Forwarding-Virtual-HTTPS-SelectChild}
+    ${Features-Forwarding-Virtual-FTP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '4')]
+    Set Global Variable    ${Features-Forwarding-Virtual-FTP-SelectChild}
+    ${Features-Forwarding-Virtual-DNS-SelectChild}    getElementLocator    xpath    //a[contains(@href, '5')]
+    Set Global Variable    ${Features-Forwarding-Virtual-DNS-SelectChild}
+    ${Features-Forwarding-Virtual-SMTP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '6')]
+    Set Global Variable    ${Features-Forwarding-Virtual-SMTP-SelectChild}
+    ${Features-Forwarding-Virtual-POP3-SelectChild}    getElementLocator    xpath    //a[contains(@href, '7')]
+    Set Global Variable    ${Features-Forwarding-Virtual-POP3-SelectChild}
+    ${Features-Forwarding-Virtual-H.323-SelectChild}    getElementLocator    xpath    //a[contains(@href, '8')]
+    Set Global Variable    ${Features-Forwarding-Virtual-H.323-SelectChild}
+    ${Features-Forwarding-Virtual-REMOTE DESKTOP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '9')]
+    Set Global Variable    ${Features-Forwarding-Virtual-REMOTE DESKTOP-SelectChild}
+    ${Features-Forwarding-Virtual-PPTP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '10')]
+    Set Global Variable    ${Features-Forwarding-Virtual-PPTP-SelectChild}
+    ${Features-Forwarding-Virtual-L2TP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '11')]
+    Set Global Variable    ${Features-Forwarding-Virtual-L2TP-SelectChild}
+    ${Features-Forwarding-Virtual-Wake-On-Lan-SelectChild}    getElementLocator    xpath    //a[contains(@href, '12')]
+    Set Global Variable    ${Features-Forwarding-Virtual-Wake-On-Lan-SelectChild}
+    ${Features-Forwarding-Virtual-LocalIP(Input)-Input}    getElementLocator    xpath    //input[@id='vs_LocalIP']
+    Set Global Variable    ${Features-Forwarding-Virtual-LocalIP(Input)-Input}
+    ${Features-Forwarding-Virtual-LocalIP-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Features-Forwarding-Virtual-LocalIP-Select}
+    ${Features-Forwarding-Virtual-(var1)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[3]
+    Set Global Variable    ${Features-Forwarding-Virtual-(var1)-SelectChild}
+    ${Features-Forwarding-Virtual-(var2)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[5]
+    Set Global Variable    ${Features-Forwarding-Virtual-(var2)-SelectChild}
+    ${Features-Forwarding-Virtual-Protocol-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Features-Forwarding-Virtual-Protocol-SelectChild}
+    ${Features-Forwarding-Virtual-TCP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '6')])[2]
+    Set Global Variable    ${Features-Forwarding-Virtual-TCP-SelectChild}
+    ${Features-Forwarding-Virtual-UDP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '17')]
+    Set Global Variable    ${Features-Forwarding-Virtual-UDP-SelectChild}
+    ${Features-Forwarding-Virtual-Both-SelectChild}    getElementLocator    xpath    //a[contains(@href, '256')]
+    Set Global Variable    ${Features-Forwarding-Virtual-Both-SelectChild}
+    ${Features-Forwarding-Virtual-External Port-Input}    getElementLocator    xpath    //input[@id='vs_ExternalPort']
+    Set Global Variable    ${Features-Forwarding-Virtual-External Port-Input}
+    ${Features-Forwarding-Virtual-Internal Port-Input}    getElementLocator    xpath    //input[@id='vs_InternalPort']
+    Set Global Variable    ${Features-Forwarding-Virtual-Internal Port-Input}
+    ${Features-Forwarding-Virtual-Other-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '')])[48]
+    Set Global Variable    ${Features-Forwarding-Virtual-Other-SelectChild}
+    ${Features-Forwarding-Virtual-Protocol Number-}    getElementLocator    xpath    //input[@id='vs_ProtocolNumber']
+    Set Global Variable    ${Features-Forwarding-Virtual-Protocol Number-}
+    ${Features-Forwarding-Virtual-Schedule(Link)-Link}    getElementLocator    xpath    //a[contains(@href, 'Schedule.html')]
+    Set Global Variable    ${Features-Forwarding-Virtual-Schedule(Link)-Link}
+    ${Features-Forwarding-Virtual-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Features-Forwarding-Virtual-Schedule-Select}
+    ${Features-Forwarding-Virtual-Always-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Always')]
+    Set Global Variable    ${Features-Forwarding-Virtual-Always-SelectChild}
+    #Features-WebsiteFilter
+    ${Features-WebsiteFilter-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-WebsiteFilter-Features-FunctionTable}
+    ${Features-WebsiteFilter-Website Filter-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[7]
+    Set Global Variable    ${Features-WebsiteFilter-Website Filter-FunctionTableChild}
+    ${Features-WebsiteFilter-Selector-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-WebsiteFilter-Selector-Select}
+    ${Features-WebsiteFilter-DENY clients access to ONLY these sites-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-WebsiteFilter-DENY clients access to ONLY these sites-SelectChild}
+    ${Features-WebsiteFilter-ALLOW clients access to ONLY these sites-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Features-WebsiteFilter-ALLOW clients access to ONLY these sites-SelectChild}
+    ${Features-WebsiteFilter-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-WebsiteFilter-Add Rule-Click}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var1)-Input}    getElementLocator    xpath    //input[@id='website0']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var1)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var2)-Input}    getElementLocator    xpath    //input[@id='website1']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var2)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var3)-Input}    getElementLocator    xpath    //input[@id='website2']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var3)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var4)-Input}    getElementLocator    xpath    //input[@id='website3']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var4)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var5)-Input}    getElementLocator    xpath    //input[@id='website4']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var5)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var6)-Input}    getElementLocator    xpath    //input[@id='website5']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var6)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var7)-Input}    getElementLocator    xpath    //input[@id='website6']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var7)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var8)-Input}    getElementLocator    xpath    //input[@id='website7']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var8)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var9)-Input}    getElementLocator    xpath    //input[@id='website8']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var9)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var10)-Input}    getElementLocator    xpath    //input[@id='website9']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var10)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var11)-Input}    getElementLocator    xpath    //input[@id='website10']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var11)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var12)-Input}    getElementLocator    xpath    //input[@id='website11']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var12)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var13)-Input}    getElementLocator    xpath    //input[@id='website12']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var13)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var14)-Input}    getElementLocator    xpath    //input[@id='website13']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var14)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var15)-Input}    getElementLocator    xpath    //input[@id='website14']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var15)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var16)-Input}    getElementLocator    xpath    //input[@id='website15']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var16)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var17)-Input}    getElementLocator    xpath    //input[@id='website16']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var17)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var18)-Input}    getElementLocator    xpath    //input[@id='website17']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var18)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var19)-Input}    getElementLocator    xpath    //input[@id='website18']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var19)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var20)-Input}    getElementLocator    xpath    //input[@id='website19']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var20)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var21)-Input}    getElementLocator    xpath    //input[@id='website20']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var21)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var22)-Input}    getElementLocator    xpath    //input[@id='website21']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var22)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var23)-Input}    getElementLocator    xpath    //input[@id='website22']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var23)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-Input(var24)-Input}    getElementLocator    xpath    //input[@id='website23']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-Input(var24)-Input}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar1-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(0)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar1-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar2-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(1)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar2-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar3-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(2)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar3-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar4-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(3)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar4-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar5-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(4)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar5-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar6-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(5)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar6-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar7-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(6)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar7-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar8-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(7)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar8-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar9-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(8)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar9-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar10-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(9)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar10-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar11-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(10)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar11-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar12-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(11)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar12-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar13-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(12)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar13-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar14-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(13)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar14-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar15-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(14)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar15-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar16-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(15)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar16-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar17-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(16)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar17-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar18-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(17)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar18-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar19-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(18)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar19-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar20-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(19)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar20-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar21-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(20)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar21-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar22-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(21)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar22-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar23-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(22)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar23-ImgClick}
+    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar24-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(23)']
+    Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar24-ImgClick}
+    #Features-Static Routes-IPv4
+    ${Features-Static Routes-IPv4-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-Static Routes-IPv4-Features-FunctionTable}
+    ${Features-Static Routes-IPv4-Static Routes-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[8]
+    Set Global Variable    ${Features-Static Routes-IPv4-Static Routes-FunctionTableChild}
+    ${Features-Static Routes-IPv4-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-Static Routes-IPv4-Add Rule-Click}
+    ${Features-Static Routes-IPv4-Name-Input}    getElementLocator    xpath    //input[@id='sr_Name']
+    Set Global Variable    ${Features-Static Routes-IPv4-Name-Input}
+    ${Features-Static Routes-IPv4-Destination Network-Input}    getElementLocator    xpath    //input[@id='sr_DestinationIP']
+    Set Global Variable    ${Features-Static Routes-IPv4-Destination Network-Input}
+    ${Features-Static Routes-IPv4-Mask-Input}    getElementLocator    xpath    //input[@id='sr_Netmask']
+    Set Global Variable    ${Features-Static Routes-IPv4-Mask-Input}
+    ${Features-Static Routes-IPv4-Gateway-Input}    getElementLocator    xpath    //input[@id='sr_Gateway']
+    Set Global Variable    ${Features-Static Routes-IPv4-Gateway-Input}
+    ${Features-Static Routes-IPv4-Metric-Input}    getElementLocator    xpath    //input[@id='sr_Metric']
+    Set Global Variable    ${Features-Static Routes-IPv4-Metric-Input}
+    ${Features-Static Routes-IPv4-Interface-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-Static Routes-IPv4-Interface-Select}
+    ${Features-Static Routes-IPv4-WAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'WAN')]
+    Set Global Variable    ${Features-Static Routes-IPv4-WAN-SelectChild}
+    ${Features-Static Routes-IPv4-Apply-Click}    getElementLocator    xpath    //button[@id='save_buttonFocus']
+    Set Global Variable    ${Features-Static Routes-IPv4-Apply-Click}
+    ${Features-Static Routes-IPv4-Status-Checkbox}    getElementLocator    xpath    //tr[@id='tr0']/td/input
+    Set Global Variable    ${Features-Static Routes-IPv4-Status-Checkbox}
+    ${Features-Static Routes-IPv4-Edit-ImgClick}    getElementLocator    xpath    //img[@onclick='editData(0)']
+    Set Global Variable    ${Features-Static Routes-IPv4-Edit-ImgClick}
+    ${Features-Static Routes-IPv4-Delete-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(0)']
+    Set Global Variable    ${Features-Static Routes-IPv4-Delete-ImgClick}
+    #Features-Static Routes-IPv6
+    ${Features-Static Routes-IPv6-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-Static Routes-IPv6-Features-FunctionTable}
+    ${Features-Static Routes-IPv6-Static Routes-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[8]
+    Set Global Variable    ${Features-Static Routes-IPv6-Static Routes-FunctionTableChild}
+    ${Features-Static Routes-IPv6-IPv6-Click}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Features-Static Routes-IPv6-IPv6-Click}
+    ${Features-Static Routes-IPv6-Add Rule-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-Static Routes-IPv6-Add Rule-Click}
+    ${Features-Static Routes-IPv6-Name-Input}    getElementLocator    xpath    //input[@id='sr_Name']
+    Set Global Variable    ${Features-Static Routes-IPv6-Name-Input}
+    ${Features-Static Routes-IPv6-Destination Network-Input}    getElementLocator    xpath    //input[@id='sr_DestNetwork']
+    Set Global Variable    ${Features-Static Routes-IPv6-Destination Network-Input}
+    ${Features-Static Routes-IPv6-PrefixLen-Input}    getElementLocator    xpath    //input[@id='sr_PrefixLen']
+    Set Global Variable    ${Features-Static Routes-IPv6-PrefixLen-Input}
+    ${Features-Static Routes-IPv6-Gateway-Input}    getElementLocator    xpath    //input[@id='sr_Gateway']
+    Set Global Variable    ${Features-Static Routes-IPv6-Gateway-Input}
+    ${Features-Static Routes-IPv6-Metric-Input}    getElementLocator    xpath    //input[@id='sr_Metric']
+    Set Global Variable    ${Features-Static Routes-IPv6-Metric-Input}
+    ${Features-Static Routes-IPv6-Interface-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-Static Routes-IPv6-Interface-Select}
+    ${Features-Static Routes-IPv6-NULL-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'NULL')]
+    Set Global Variable    ${Features-Static Routes-IPv6-NULL-SelectChild}
+    ${Features-Static Routes-IPv6-WAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'WAN')]
+    Set Global Variable    ${Features-Static Routes-IPv6-WAN-SelectChild}
+    ${Features-Static Routes-IPv6-LAN-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'LAN')]
+    Set Global Variable    ${Features-Static Routes-IPv6-LAN-SelectChild}
+    ${Features-Static Routes-IPv6-DHCP-PD-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'LAN(DHCP-PD)')]
+    Set Global Variable    ${Features-Static Routes-IPv6-DHCP-PD-SelectChild}
+    ${Features-Static Routes-IPv6-Apply-Click}    getElementLocator    xpath    //button[@id='save_buttonFocus']
+    Set Global Variable    ${Features-Static Routes-IPv6-Apply-Click}
+    ${Features-Static Routes-IPv6-Status-Checkbox}    getElementLocator    xpath    //tr[@id='tr0']/td/input
+    Set Global Variable    ${Features-Static Routes-IPv6-Status-Checkbox}
+    ${Features-Static Routes-IPv6-Edit-ImgClick}    getElementLocator    xpath    //img[@onclick='editData(0)']
+    Set Global Variable    ${Features-Static Routes-IPv6-Edit-ImgClick}
+    ${Features-Static Routes-IPv6-Delete-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(0)']
+    Set Global Variable    ${Features-Static Routes-IPv6-Delete-ImgClick}
+    #Features-DynamicDNS
+    ${Features-DynamicDNS-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-DynamicDNS-Features-FunctionTable}
+    ${Features-DynamicDNS-DynamicDNS-FunctionTableChild}    getElementLocator    xpath    //*[@id="m_Advanced"]/ul/li[6]/a
+    Set Global Variable    ${Features-DynamicDNS-DynamicDNS-FunctionTableChild}
+    ${Features-DynamicDNS-Enable Dynamic DNS-Switch}    getElementLocator    xpath    //*[@id="enableDynamicDNS"]
+    Set Global Variable    ${Features-DynamicDNS-Enable Dynamic DNS-Switch}
+    ${Features-DynamicDNS-Status-GetVar}    getElementLocator    xpath    //*[@id="serverStatus"]
+    Set Global Variable    ${Features-DynamicDNS-Status-GetVar}
+    ${Features-DynamicDNS-Server Address-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-DynamicDNS-Server Address-Select}
+    ${Features-DynamicDNS-Dlinkddns.com-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Features-DynamicDNS-Dlinkddns.com-SelectChild}
+    ${Features-DynamicDNS-Dyndns.com-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Features-DynamicDNS-Dyndns.com-SelectChild}
+    ${Features-DynamicDNS-Manual-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Features-DynamicDNS-Manual-SelectChild}
+    ${Features-DynamicDNS-Server Address(input)-Input}    getElementLocator    xpath    //input[@id='serverAddress_input']
+    Set Global Variable    ${Features-DynamicDNS-Server Address(input)-Input}
+    ${Features-DynamicDNS-Host Name-Input}    getElementLocator    xpath    //input[@id='hostName']
+    Set Global Variable    ${Features-DynamicDNS-Host Name-Input}
+    ${Features-DynamicDNS-User Name-Input}    getElementLocator    xpath    //input[@id='userName']
+    Set Global Variable    ${Features-DynamicDNS-User Name-Input}
+    ${Features-DynamicDNS-Password-Input}    getElementLocator    xpath    //input[@id='password']
+    Set Global Variable    ${Features-DynamicDNS-Password-Input}
+    ${Features-DynamicDNS-Time Out-Input}    getElementLocator    xpath    //input[@id='timeOut']
+    Set Global Variable    ${Features-DynamicDNS-Time Out-Input}
+    ${Features-DynamicDNS-Add Record-Click}    getElementLocator    xpath    //button[@id='createButton']
+    Set Global Variable    ${Features-DynamicDNS-Add Record-Click}
+    ${Features-DynamicDNS-Add Record-Host Name-Input}    getElementLocator    xpath    //input[@id='dnsv6_HostName']
+    Set Global Variable    ${Features-DynamicDNS-Add Record-Host Name-Input}
+    ${Features-DynamicDNS-Add Record-IPv6 Address-Input}    getElementLocator    xpath    //input[@id='dnsv6_IPAddress']
+    Set Global Variable    ${Features-DynamicDNS-Add Record-IPv6 Address-Input}
+    ${Features-DynamicDNS-Add Record-IPv6 Address(select)-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Features-DynamicDNS-Add Record-IPv6 Address(select)-Select}
+    ${Features-DynamicDNS- Add Record-Computer Name-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[2]
+    Set Global Variable    ${Features-DynamicDNS- Add Record-Computer Name-SelectChild}
+    ${Features-DynamicDNS-Add Record-Apply-Click}    getElementLocator    xpath    //button[@id='save_buttonFocus']
+    Set Global Variable    ${Features-DynamicDNS-Add Record-Apply-Click}
+    ${Features-DynamicDNS-Status-Checkbox}    getElementLocator    xpath    //*[@id="status_1"]
+    Set Global Variable    ${Features-DynamicDNS-Status-Checkbox}
+    ${Features-DynamicDNS-Hostname-GetVar}    getElementLocator    xpath    //*[@id="hostname_1"]
+    Set Global Variable    ${Features-DynamicDNS-Hostname-GetVar}
+    ${Features-DynamicDNS-Ipv6address-GetVar}    getElementLocator    xpath    //*[@id="ipv6address_1"]
+    Set Global Variable    ${Features-DynamicDNS-Ipv6address-GetVar}
+    ${Features-DynamicDNS-Edit-ImgClick}    getElementLocator    xpath    //*[@id="editicon_1"]
+    Set Global Variable    ${Features-DynamicDNS-Edit-ImgClick}
+    ${Features-DynamicDNS-Apply-Click}    getElementLocator    xpath    //*[@id="Save_edit_pop_btn"]
+    Set Global Variable    ${Features-DynamicDNS-Apply-Click}
+    ${Features-DynamicDNS-Delete-ImgClick}    getElementLocator    xpath    //*[@id="delicon_1"]
+    Set Global Variable    ${Features-DynamicDNS-Delete-ImgClick}
+    #Features-QuickVPN
+    ${Features-QuickVPN-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
+    Set Global Variable    ${Features-QuickVPN-Features-FunctionTable}
+    ${Features-QuickVPN-Quick VPN-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[10]
+    Set Global Variable    ${Features-QuickVPN-Quick VPN-FunctionTableChild}
+    ${Features-QuickVPN-L2TP over IPSec-Switch}    getElementLocator    xpath    //*[@id="status_vpn"]
+    Set Global Variable    ${Features-QuickVPN-L2TP over IPSec-Switch}
+    ${Features-QuickVPN-Username-Input}    getElementLocator    xpath    //input[@id='userName']
+    Set Global Variable    ${Features-QuickVPN-Username-Input}
+    ${Features-QuickVPN-Password-Input}    getElementLocator    xpath    //input[@id='password']
+    Set Global Variable    ${Features-QuickVPN-Password-Input}
+    ${Features-QuickVPN-PSK-Input}    getElementLocator    xpath    //input[@id='psk']
+    Set Global Variable    ${Features-QuickVPN-PSK-Input}
+    ${Features-QuickVPN-Advanced Settings...-Link}    getElementLocator    xpath    //*[@id="advButton"]
+    Set Global Variable    ${Features-QuickVPN-Advanced Settings...-Link}
+    ${Features-QuickVPN-Authentication Protocol-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Features-QuickVPN-Authentication Protocol-Select}
+    ${Features-QuickVPN-MSCHAPv2-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'MSCHAPv2')]
+    Set Global Variable    ${Features-QuickVPN-MSCHAPv2-SelectChild}
+    ${Features-QuickVPN-PAP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'PAP')]
+    Set Global Variable    ${Features-QuickVPN-PAP-SelectChild}
+    ${Features-QuickVPN-CHAP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'CHAP')])[2]
+    Set Global Variable    ${Features-QuickVPN-CHAP-SelectChild}
+    ${Features-QuickVPN-MPPE-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Features-QuickVPN-MPPE-Select}
+    ${Features-QuickVPN-None-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'None')]
+    Set Global Variable    ${Features-QuickVPN-None-SelectChild}
+    ${Features-QuickVPN-RC4-40-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'RC4-40')]
+    Set Global Variable    ${Features-QuickVPN-RC4-40-SelectChild}
+    ${Features-QuickVPN-RC4-128-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'RC4-128')]
+    Set Global Variable    ${Features-QuickVPN-RC4-128-SelectChild}
