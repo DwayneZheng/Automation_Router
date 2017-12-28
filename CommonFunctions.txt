@@ -82,8 +82,8 @@ RestoreDevice
     click    ${Management-System Admin-Admin-System Admin-FunctionTableChild}
     waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
     click    ${Management-System Admin-System-System-ChangePage}
-    waitElementDisplayed    ${Management-System Admin-System-Restore To Factory Default Settings-Click}    5    TRUE
-    click    ${Management-System Admin-System-Restore To Factory Default Settings-Click}
+    waitElementDisplayed    xpath     (//button[@type='button'])[3]    5    TRUE
+    click    xpath     (//button[@type='button'])[3]
     waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    5    TRUE
     click    ${Management-System Admin-System-Restore-Yes-Click}
     waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE

@@ -531,7 +531,7 @@ ElementLocator-DIR-878
     Set Global Variable    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
     ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_DynamicIP']
     Set Global Variable    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}
-    ${Settings-Internet-IPv4-DHCP-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[16]
+    ${Settings-Internet-IPv4-DHCP-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[17]
     Set Global Variable    ${Settings-Internet-IPv4-DHCP-MTU-Select}
     ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[7]
     Set Global Variable    ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}
