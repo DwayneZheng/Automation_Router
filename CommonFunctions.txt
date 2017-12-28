@@ -82,8 +82,8 @@ RestoreDevice
     click    ${Management-System Admin-Admin-System Admin-FunctionTableChild}
     waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
     click    ${Management-System Admin-System-System-ChangePage}
-    waitElementDisplayed    xpath     (//button[@type='button'])[3]    5    TRUE
-    click    xpath     (//button[@type='button'])[3]
+    waitElementDisplayed    xpath    (//button[@type='button'])[3]    5    TRUE
+    click    xpath    (//button[@type='button'])[3]
     waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    5    TRUE
     click    ${Management-System Admin-System-Restore-Yes-Click}
     waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
@@ -544,7 +544,7 @@ Configure IPv4 PPTP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    192.168.11.254    #PPTP Server Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10.2.76.1    #PPTP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    dlink    #Username Input
@@ -559,13 +559,13 @@ Configure IPv4 PPTP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    #setting Static IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    192.168.11.197    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    10.2.76.216    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    192.168.11.254    #Default Gateway Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    10.2.76.254    #Default Gateway Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    8.8.8.8
@@ -579,7 +579,7 @@ Configure IPv4 L2TP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10.2.76.1    #L2TP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    dlink    #Username Input
@@ -594,13 +594,13 @@ Configure IPv4 L2TP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    192.168.11.197    #input static address
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    10.2.76.216    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    192.168.11.254    #Default Gateway Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    10.2.76.254    #Default Gateway Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
