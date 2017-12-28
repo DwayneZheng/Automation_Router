@@ -1562,6 +1562,7 @@ Library           String
     sendtext    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    2.2.2.2
     #===Configure DNS Server End===
     #===Configure MTU===
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-DHCP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Manual-SelectChild}    3    true
@@ -1597,7 +1598,7 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
     sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
