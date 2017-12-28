@@ -2049,7 +2049,7 @@ Library           String
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
@@ -2330,7 +2330,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (L2TP)"
     #Ping \ Gateway
@@ -2385,7 +2385,7 @@ Library           String
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
@@ -2513,6 +2513,8 @@ test1
 
 0070
     [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Manual)
+    ...
+    ...    OK verify by Richard Wu 20171227
     #copy 12
     #Restore
     ToLoginWithoutPassword
@@ -2584,6 +2586,8 @@ test1
 
 0107
     [Documentation]    Internet->IPv4 PPTP Manual + Dynamic IP test + MTU(Auto)
+    ...
+    ...    OK verify by Richard Wu 20171227
     #copy by 0017
     #Restore
     ToLoginWithoutPassword
@@ -2654,6 +2658,8 @@ test1
 
 0108
     [Documentation]    Internet->IPv4 PPTP Always on + Static IP test + MTU(Manual)
+    ...
+    ...    OK verify by Richard Wu 20171227
     #Copy by 15
     #Restore
     ToLoginWithoutPassword
@@ -2780,4 +2786,74 @@ test1
     ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     log    ${CheckDisconnect}
+    Should Be True    "${CheckDisconnect}"=="False"
+
+0111
+    [Documentation]    Internet->IPv4 PPTP Manual + Static IP test + MTU(Manual)
+    [Tags]    DKP1611018-0111
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting PPTP
+    Configure IPv4 PPTP+Static IP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
+    #Switch to PPTP
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    1450
+    #save
+    click    ${Settings-Internet-IPv4-PPTP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
+    sleep    10s
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    10s
+    ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
     Should Be True    "${CheckDisconnect}"=="False"
