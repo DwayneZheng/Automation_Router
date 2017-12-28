@@ -1,0 +1,1040 @@
+﻿*** Settings ***
+Documentation     Date：2017/12/27
+
+*** Keywords ***
+ElementLocator-DIR-878-setting
+    #Settings - Wizard Page
+    ${Settings - Wizard Page-Wizard-Select}    getElementLocator    xpath    //a[@onclick='return confirmExit()']
+    Set Global Variable    ${Settings - Wizard Page-Wizard-Select}
+    ${Settings - Wizard Page-X (Close)-Click}    getElementLocator    xpath    //div[@id='closeCreatePopBtn']
+    Set Global Variable    ${Settings - Wizard Page-X (Close)-Click}
+    ${Settings - Wizard Page-Next-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard Page-Next-Click}
+    ${Settings - Wizard Page-Retry (Install)-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Settings - Wizard Page-Retry (Install)-Click}
+    ${Settings - Wizard Page-DHCP Connection (Dynamic IP Address)-Click}    getElementLocator    xpath    //div[@id='cb_dhcp']
+    Set Global Variable    ${Settings - Wizard Page-DHCP Connection (Dynamic IP Address)-Click}
+    ${Settings - Wizard Page-Username/Password Connection (PPPoE)-Click}    getElementLocator    xpath    //div[@id='cb_pppoe']
+    Set Global Variable    ${Settings - Wizard Page-Username/Password Connection (PPPoE)-Click}
+    ${Settings - Wizard Page-Static IP Address Connection-Click}    getElementLocator    xpath    //div[@id='cb_static']
+    Set Global Variable    ${Settings - Wizard Page-Static IP Address Connection-Click}
+    ${Settings - Wizard Page-Back-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Settings - Wizard Page-Back-Click}
+    #Settings - Wizard - DHCP
+    ${Settings - Wizard - DHCP-Wi-Fi Network Name-Input}    getElementLocator    xpath    //input[@id='wifi_networkName24G']
+    Set Global Variable    ${Settings - Wizard - DHCP-Wi-Fi Network Name-Input}
+    ${Settings - Wizard - DHCP-Wi-Fi Password-Input}    getElementLocator    xpath    //input[@id='wifi_password24G']
+    Set Global Variable    ${Settings - Wizard - DHCP-Wi-Fi Password-Input}
+    ${Settings - Wizard - DHCP-Back-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Settings - Wizard - DHCP-Back-Click}
+    ${Settings - Wizard - DHCP-Next-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard - DHCP-Next-Click}
+    ${Settings - Wizard - DHCP-Device Admin Password-Input}    getElementLocator    xpath    //input[@id='device_password']
+    Set Global Variable    ${Settings - Wizard - DHCP-Device Admin Password-Input}
+    ${Settings - Wizard - DHCP-Finish-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard - DHCP-Finish-Click}
+    #Settings - Wizard - PPPoE
+    ${Settings - Wizard - PPPoE-Username-Input}    getElementLocator    xpath    //input[@id='pppoe_username']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Username-Input}
+    ${Settings - Wizard - PPPoE-Password-Input}    getElementLocator    xpath    //input[@id='pppoe_password']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Password-Input}
+    ${Settings - Wizard - PPPoE-Back-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Back-Click}
+    ${Settings - Wizard - PPPoE-Next-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Next-Click}
+    ${Settings - Wizard - PPPoE-Wi-Fi Network Name-Input}    getElementLocator    xpath    //input[@id='wifi_password24G']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Wi-Fi Network Name-Input}
+    ${Settings - Wizard - PPPoE-Wi-Fi Password-Input}    getElementLocator    xpath    //input[@id='wifi_networkName24G']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Wi-Fi Password-Input}
+    ${Settings - Wizard - PPPoE-Device Admin Password-Input}    getElementLocator    xpath    //input[@id='device_password']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Device Admin Password-Input}
+    ${Settings - Wizard - PPPoE-Finish-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard - PPPoE-Finish-Click}
+    #Settings - Wizard - Static
+    ${Settings - Wizard - Static-IP Address-Input}    getElementLocator    xpath    //input[@id='static_ipAddress']
+    Set Global Variable    ${Settings - Wizard - Static-IP Address-Input}
+    ${Settings - Wizard - Static-Subnet Mask-Input}    getElementLocator    xpath    //input[@id='static_subnetMask']
+    Set Global Variable    ${Settings - Wizard - Static-Subnet Mask-Input}
+    ${Settings - Wizard - Static-Gateway Address-Input}    getElementLocator    xpath    //input[@id='static_gateway']
+    Set Global Variable    ${Settings - Wizard - Static-Gateway Address-Input}
+    ${Settings - Wizard - Static-Primary DNS Address-Input}    getElementLocator    xpath    //input[@id='static_primaryDNS']
+    Set Global Variable    ${Settings - Wizard - Static-Primary DNS Address-Input}
+    ${Settings - Wizard - Static-Secondary DNS Address-Input}    getElementLocator    xpath    //input[@id='static_secondaryDNS']
+    Set Global Variable    ${Settings - Wizard - Static-Secondary DNS Address-Input}
+    ${Settings - Wizard - Static-Back-Click}    getElementLocator    xpath    //button[@id='btn_back']
+    Set Global Variable    ${Settings - Wizard - Static-Back-Click}
+    ${Settings - Wizard - Static-Next-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard - Static-Next-Click}
+    ${Settings - Wizard - Static-Wi-Fi Network Name-Input}    getElementLocator    xpath    //input[@id='wifi_password24G']
+    Set Global Variable    ${Settings - Wizard - Static-Wi-Fi Network Name-Input}
+    ${Settings - Wizard - Static-Wi-Fi Password-Input}    getElementLocator    xpath    //input[@id='wifi_networkName24G']
+    Set Global Variable    ${Settings - Wizard - Static-Wi-Fi Password-Input}
+    ${Settings - Wizard - Static-Device Admin Password-Input}    getElementLocator    xpath    //input[@id='device_password']
+    Set Global Variable    ${Settings - Wizard - Static-Device Admin Password-Input}
+    ${Settings - Wizard - Static-Finish-Click}    getElementLocator    xpath    //button[@id='btn_next']
+    Set Global Variable    ${Settings - Wizard - Static-Finish-Click}
+    #Settings - Internet - VLAN
+    ${Settings - Internet - VLAN-Settings-FunctionTable}    getElementLocator    xpath    //a[contains(@href, '#')]
+    Set Global Variable    ${Settings - Internet - VLAN-Settings-FunctionTable}
+    ${Settings - Internet - VLAN-Internet-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit();'])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-Internet-FunctionTableChild}
+    ${Settings - Internet - VLAN-ToVlan-ChangePage}    getElementLocator    xpath    (//div[@id='page_btn'])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-ToVlan-ChangePage}
+    ${Settings - Internet - VLAN-Status-Switch}    getElementLocator    xpath    //div[@id='enableVLAN']
+    Set Global Variable    ${Settings - Internet - VLAN-Status-Switch}
+    ${Settings - Internet - VLAN-Priority ID-Switch}    getElementLocator    xpath    //div[@id='enablePriority']
+    Set Global Variable    ${Settings - Internet - VLAN-Priority ID-Switch}
+    ${Settings - Internet - VLAN-Internet VLAN ID-Input}    getElementLocator    xpath    //input[@id='internetVlanId']
+    Set Global Variable    ${Settings - Internet - VLAN-Internet VLAN ID-Input}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-Select}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=0)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=0)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=1)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=1)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=2)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=2)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=3)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '3')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=3)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=4)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '4')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=4)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=5)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '5')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=5)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=6)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '6')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=6)-SelectChild}
+    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=7)-SelectChild}    getElementLocator    xpath    //a[contains(@href, '7')]
+    Set Global Variable    ${Settings - Internet - VLAN-(Internet)Priority ID-(var=7)-SelectChild}
+    ${Settings - Internet - VLAN-IPTV VLAN ID-Input}    getElementLocator    xpath    //input[@id='iptvVlanId']
+    Set Global Variable    ${Settings - Internet - VLAN-IPTV VLAN ID-Input}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-Select}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=0)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=0)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=1)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=1)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=2)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=2)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=3)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '3')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=3)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=4)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '4')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=4)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=5)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '5')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=5)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=6)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '6')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=6)-SelectChild}
+    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=7)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '7')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-(IPTV)Priority ID-(var=7)-SelectChild}
+    ${Settings - Internet - VLAN-VOIP VLAN ID-Input}    getElementLocator    xpath    //input[@id='voipVlanId']
+    Set Global Variable    ${Settings - Internet - VLAN-VOIP VLAN ID-Input}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-Select}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=0)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=0)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=1)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=1)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=2)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=2)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=3)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '3')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=3)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=4)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '4')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=4)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=5)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '5')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=5)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=6)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '6')])[4]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=6)-SelectChild}
+    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=7)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '7')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-(VOIP)Priority ID-(var=7)-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 1-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 1-Select}
+    ${Settings - Internet - VLAN-LAN Port 1-(LAN1)Internet-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Internet')])[4]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 1-(LAN1)Internet-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 1-(LAN1)IPTV-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'IPTV')]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 1-(LAN1)IPTV-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 1-(LAN1)VOIP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'VOIP')]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 1-(LAN1)VOIP-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 2-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 2-Select}
+    ${Settings - Internet - VLAN-LAN Port 2-(LAN2)Internet-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Internet')])[5]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 2-(LAN2)Internet-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 2-(LAN2)IPTV-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'IPTV')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 2-(LAN2)IPTV-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 2-(LAN2)VOIP-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'VOIP')])[2]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 2-(LAN2)VOIP-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 3-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[14]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 3-Select}
+    ${Settings - Internet - VLAN-LAN Port 3-(LAN3)Internet-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'Internet')])[6]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 3-(LAN3)Internet-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 3-(LAN3)IPTV-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'IPTV')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 3-(LAN3)IPTV-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 3-(LAN3)VOIP-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'VOIP')])[3]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 3-(LAN3)VOIP-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 4-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[16]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 4-Select}
+    ${Settings - Internet - VLAN-LAN Port 4-(LAN4)Internet-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'Internet')])[7]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 4-(LAN4)Internet-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 4-(LAN4)IPTV-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'IPTV')])[4]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 4-(LAN4)IPTV-SelectChild}
+    ${Settings - Internet - VLAN-LAN Port 4-(LAN4)VOIP-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'VOIP')])[4]
+    Set Global Variable    ${Settings - Internet - VLAN-LAN Port 4-(LAN4)VOIP-SelectChild}
+    ${Settings - Internet - VLAN-Wireless-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[18]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless-Select}
+    ${Settings - Internet - VLAN-Wireless-(Wireless)Internet-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Internet')])[8]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless-(Wireless)Internet-SelectChild}
+    ${Settings - Internet - VLAN-Wireless-(Wireless)IPTV-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'IPTV')])[5]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless-(Wireless)IPTV-SelectChild}
+    ${Settings - Internet - VLAN-Wireless-(Wireless)VOIP-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'VOIP')])[5]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless-(Wireless)VOIP-SelectChild}
+    ${Settings - Internet - VLAN-Wireless Guest Zone-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[20]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless Guest Zone-Select}
+    ${Settings - Internet - VLAN-Wireless Guest Zone-(Wireless Guest)Internet-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Internet')])[9]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless Guest Zone-(Wireless Guest)Internet-SelectChild}
+    ${Settings - Internet - VLAN-Wireless Guest Zone-(Wireless Guest)IPTV-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'IPTV')])[6]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless Guest Zone-(Wireless Guest)IPTV-SelectChild}
+    ${Settings - Internet - VLAN-Wireless Guest Zone-(Wireless Guest)VOIP-SelectChild}    getElementLocator    xpath    (//a[contains(@href,'VOIP')])[6]
+    Set Global Variable    ${Settings - Internet - VLAN-Wireless Guest Zone-(Wireless Guest)VOIP-SelectChild}
+    #Settings-Internet-IPv4-StaticIP
+    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
+    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
+    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    getElementLocator    xpath    //input[@id='iPAddress_StaticIP']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    getElementLocator    xpath    //input[@id='subnetMask_StaticIP']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
+    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    getElementLocator    xpath    //input[@id='defaultGateway_StaticIP']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}
+    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_StaticIP']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
+    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_StaticIP']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv4-StaticIP-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-MTU-Select}
+    ${Settings-Internet-IPv4-StaticIP-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[5]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Auto-SelectChild}
+    ${Settings-Internet-IPv4-StaticIP-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[5]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Manual-SelectChild}
+    ${Settings-Internet-IPv4-StaticIP-MTU-Manual-Input-Input}    getElementLocator    xpath    //input[@id='mtu_StaticIP_Input']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-MTU-Manual-Input-Input}
+    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Input}    getElementLocator    xpath    //input[@id='macAddress_StaticIP']
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Input}
+    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Choose-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[14]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Choose-Select}
+    ${Settings-Internet-IPv4-StaticIP-var(1)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[6]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-var(1)-SelectChild}
+    ${Settings-Internet-IPv4-StaticIP-Save-Click}    getElementLocator    xpath    //*[@id="Save_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Save-Click}
+    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    getElementLocator    xpath    //*[@id="Confirm_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    #Settings-Internet-IPv4-DHCP
+    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-Select}
+    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    getElementLocator    xpath    (//a[contains(@href, '#')])[5]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}
+    ${Settings-Internet-IPv4-DHCP-Dynamic IP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Dynamic IP-SelectChild}
+    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
+    ${Settings-Internet-IPv4-DHCP-Host Name-Input}    getElementLocator    xpath    //input[@id='hostName_DynamicIP']
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Host Name-Input}
+    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_DynamicIP']
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
+    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_DynamicIP']
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv4-DHCP-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[16]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-MTU-Select}
+    ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[7]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}
+    ${Settings-Internet-IPv4-DHCP-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[6]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Manual-SelectChild}
+    ${Settings-Internet-IPv4-DHCP-Manual-Input-Input}    getElementLocator    xpath    //input[@id='mtu_DynamicIP_Input']
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Manual-Input-Input}
+    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Input}    getElementLocator    xpath    //input[@id='macAddress_DynamicIP']
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Input}
+    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Choose-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[18]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-MAC Address Clone-Choose-Select}
+    ${Settings-Internet-IPv4-DHCP-var(1)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[8]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-var(1)-SelectChild}
+    ${Settings-Internet-IPv4-DHCP-Save-Click}    getElementLocator    xpath    //*[@id="Save_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-DHCP-Save-Click}
+    #Settings-Internet-IPv4-PPPoE
+    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    getElementLocator    xpath    //a[contains(@href, '3')]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-Username-Input}    getElementLocator    xpath    //input[@id='userName_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    ${Settings-Internet-IPv4-PPPoE-Password-Input}    getElementLocator    xpath    //input[@id='password_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Select}
+    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[2]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Always on-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-On demand-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[2]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-On demand-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-On demand-Maximum Idle Time-Input}    getElementLocator    xpath    //input[@id='maximumIdleTime_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-On demand-Maximum Idle Time-Input}
+    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '3')])[2]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Reconnect Mode-Manual-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[20]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
+    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[9]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[7]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    getElementLocator    xpath    //input[@id='ipAddress_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
+    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    getElementLocator    xpath    //input[@id='serviceName_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
+    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
+    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv4-PPPoE-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[22]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-MTU-Select}
+    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[10]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-MTU-Auto-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[8]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    getElementLocator    xpath    //input[@id='mtu_PPPoE_Input']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
+    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}    getElementLocator    xpath    //input[@id='macAddress_PPPoE']
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Input}
+    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[24]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
+    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[11]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}
+    ${Settings-Internet-IPv4-PPPoE-Save-Click}    getElementLocator    xpath    //*[@id="Save_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    #Settings-Internet-IPv4-PPTP
+    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
+    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '4')]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    getElementLocator    xpath    //input[@id='serverIPAddress_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
+    ${Settings-Internet-IPv4-PPTP-Username-Input}    getElementLocator    xpath    //input[@id='userName_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Username-Input}
+    ${Settings-Internet-IPv4-PPTP-Password-Input}    getElementLocator    xpath    //input[@id='password_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Password-Input}
+    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Select}
+    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Always on-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[3]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Always on-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-On demand-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[3]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-On demand-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-On demand-Maximum Idle Time-Input}    getElementLocator    xpath    //input[@id='maximumIdleTime_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-On demand-Maximum Idle Time-Input}
+    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '3')])[3]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Reconnect Mode-Manual-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[26]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
+    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[12]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[9]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    getElementLocator    xpath    //input[@id='ipAddress_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
+    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    getElementLocator    xpath    //input[@id='subnetMask_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}
+    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    getElementLocator    xpath    //input[@id='gatewayIP_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}
+    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
+    ${Settings-Internet-IPv4-PPTP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_PPTP']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv4-PPTP-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[28]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-MTU-Select}
+    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[13]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[10]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}
+    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    getElementLocator    xpath    //input[@id='mtu_PPTP_Input']
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}
+    ${Settings-Internet-IPv4-PPTP-Save-Click}    getElementLocator    xpath    //*[@id="Save_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Save-Click}
+    #Settings-Internet-IPv4-L2TP
+    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
+    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    getElementLocator    xpath    //a[contains(@href, '5')]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    getElementLocator    xpath    //input[@id='serverIPAddress_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
+    ${Settings-Internet-IPv4-L2TP-Username-Input}    getElementLocator    xpath    //input[@id='userName_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Username-Input}
+    ${Settings-Internet-IPv4-L2TP-Password-Input}    getElementLocator    xpath    //input[@id='password_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Password-Input}
+    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-On demand-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-On demand-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-On demand-Maximum Idle Time-Input}    getElementLocator    xpath    //input[@id='maximumIdleTime_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-On demand-Maximum Idle Time-Input}
+    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '3')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[30]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[14]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[11]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    getElementLocator    xpath    //input[@id='ipAddress_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    getElementLocator    xpath    //input[@id='subnetMask_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}
+    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    getElementLocator    xpath    //input[@id='gatewayIP_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}
+    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
+    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_L2TP']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv4-L2TP-MTU-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[32]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[15]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[12]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}
+    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    getElementLocator    xpath    //input[@id='mtu_L2TP_Input']
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}
+    ${Settings-Internet-IPv4-L2TP-Save-Click}    getElementLocator    xpath    //*[@id="Save_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    #Settings-Internet-IPv4-DS-Lite
+    ${Settings-Internet-IPv4-DS-Lite-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-My Internet Connection is-Select}
+    ${Settings-Internet-IPv4-DS-Lite-DS-Lite-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '6')])[2]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-DS-Lite-SelectChild}
+    ${Settings-Internet-IPv4-DS-Lite-Advanced Settings...-Click}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-Advanced Settings...-Click}
+    ${Settings-Internet-IPv4-DS-Lite-DS-Lite Configuration-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[34]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-DS-Lite Configuration-Select}
+    ${Settings-Internet-IPv4-DS-Lite-DS-Lite DHCPv6 Option-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Dhcpv6Option')]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-DS-Lite DHCPv6 Option-SelectChild}
+    ${Settings-Internet-IPv4-DS-Lite-Manual Configuration-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Manual')])[2]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-Manual Configuration-SelectChild}
+    ${Settings-Internet-IPv4-DS-Lite-AFTR IPv6 Address-Input}    getElementLocator    xpath    //input[@id='afterIPv6Address_DSLite']
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-AFTR IPv6 Address-Input}
+    ${Settings-Internet-IPv4-DS-Lite-B4 IPv4 Address-Input}    getElementLocator    xpath    //input[@id='b4IPv4Address_DSLite']
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-B4 IPv4 Address-Input}
+    ${Settings-Internet-IPv4-DS-Lite-WAN IPv6 Address-Input}    getElementLocator    xpath    //*[@id="wanIPv6Address_DSLite"]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-WAN IPv6 Address-Input}
+    ${Settings-Internet-IPv4-DS-Lite-IPv6 WAN Default Gateway-Input}    getElementLocator    xpath    //*[@id="ipv6WanDefaultGateway_DSLite"]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-IPv6 WAN Default Gateway-Input}
+    ${Settings-Internet-IPv4-DS-Lite-Save-Click}    getElementLocator    xpath    //*[@id="Save_btn"]
+    Set Global Variable    ${Settings-Internet-IPv4-DS-Lite-Save-Click}
+    #Settings-Internet-IPv6-Auto
+    ${Settings-Internet-IPv6-Auto-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-Auto-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-Auto-Auto Detection-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'autodetection')]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Auto Detection-SelectChild}
+    ${Settings-Internet-IPv6-Auto-DNS Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-DNS Type-Select}
+    ${Settings-Internet-IPv6-Auto-Obtain a DNS server address automatically-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'auto')])[3]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Obtain a DNS server address automatically-SelectChild}
+    ${Settings-Internet-IPv6-Auto-Use the following DNS address-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'manual')]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Use the following DNS address-SelectChild}
+    ${Settings-Internet-IPv6-Auto-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-Auto-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-Auto-Enable DHCP-PD-Switch}    getElementLocator    xpath    //div[8]/table/tbody/tr[2]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Enable DHCP-PD-Switch}
+    ${Settings-Internet-IPv6-Auto-LAN IPv6 Address(Disabled)-Input}    getElementLocator    xpath    //input[@id='ipv6_lan_ip']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-LAN IPv6 Address(Disabled)-Input}
+    ${Settings-Internet-IPv6-Auto-LAN IPv6 Link-Local Address-Input}    getElementLocator    xpath    //*[@id="ipv6_lan_link_local_addr"]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-LAN IPv6 Link-Local Address-Input}
+    ${Settings-Internet-IPv6-Auto-Advanced Settings-Click}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Advanced Settings-Click}
+    ${Settings-Internet-IPv6-Auto-Enable Automatic IPv6 Address Assignmen-Switch}    getElementLocator    xpath    //div[2]/table/tbody/tr[2]/td/label/span
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Enable Automatic IPv6 Address Assignmen-Switch}
+    ${Settings-Internet-IPv6-Auto-Enable Automatic DHCP-PD in LAN-Switch}    getElementLocator    xpath    //div[12]/div[2]/table/tbody/tr[3]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Enable Automatic DHCP-PD in LAN-Switch}
+    ${Settings-Internet-IPv6-Auto-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-Auto-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-Auto-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-Auto-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-Auto-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-Auto-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-Auto-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-Auto-IPv6 Address Range (End)-Input}
+    #Settings-Internet-IPv6-Static
+    ${Settings-Internet-IPv6-Static-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-Static-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-Static-Static IPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'staticIPv6')]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Static IPv6-SelectChild}
+    ${Settings-Internet-IPv6-Static-Use Link-Local Address-Switch}    getElementLocator    xpath    //div[@id='wanBlock_static']/table/tbody/tr/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Use Link-Local Address-Switch}
+    ${Settings-Internet-IPv6-Static-IPv6 Address(Disabled)-Input}    getElementLocator    xpath    //input[@id='staticIPv6_IPv6Address']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-IPv6 Address(Disabled)-Input}
+    ${Settings-Internet-IPv6-Static-Subnet Prefix Length(Disabled)-Input}    getElementLocator    xpath    //input[@id='staticIPv6_subnetPrefixLength']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Subnet Prefix Length(Disabled)-Input}
+    ${Settings-Internet-IPv6-Static-Default Gateway-Input}    getElementLocator    xpath    //input[@id='staticIPv6_DefaultGateway']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Default Gateway-Input}
+    ${Settings-Internet-IPv6-Static-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-Static-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-Static-LAN IPv6 Address-Input}    getElementLocator    xpath    //input[@id='ipv6_lan_ip']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-LAN IPv6 Address-Input}
+    ${Settings-Internet-IPv6-Static-LAN IPv6 Link-Local Address-Link}    getElementLocator    xpath    //*[@id="ipv6_lan_link_local_addr"]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-LAN IPv6 Link-Local Address-Link}
+    ${Settings-Internet-IPv6-Static-Advanced Settings-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Advanced Settings-Link}
+    ${Settings-Internet-IPv6-Static-Enable Automatic IPv6 Address Assignment-Switch}    getElementLocator    xpath    //div[@id='advanceBlock_genernal']/table/tbody/tr[2]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Enable Automatic IPv6 Address Assignment-Switch}
+    ${Settings-Internet-IPv6-Static-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-Static-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-Static-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-Static-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-Static-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-Static-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-Static-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-Static-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-IPv6 Address Range (End)-Input}
+    ${Settings-Internet-IPv6-Static-IPv6 Address Lifetime-Input}    getElementLocator    xpath    //input[@id='dhcp_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-Static-IPv6 Address Lifetime-Input}
+    #Settings-Internet-IPv6-SLAAC
+    ${Settings-Internet-IPv6-SLAAC-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-SLAAC-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-SLAAC-Auto Configuration (SLAAC/DHCPv6)-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'autoconfiguration')]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Auto Configuration (SLAAC/DHCPv6)-SelectChild}
+    ${Settings-Internet-IPv6-SLAAC-DNS Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-DNS Type-Select}
+    ${Settings-Internet-IPv6-SLAAC-Obtain a DNS server address automatically-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'auto')])[3]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Obtain a DNS server address automatically-SelectChild}
+    ${Settings-Internet-IPv6-SLAAC-Use the following DNS address-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'manual')]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Use the following DNS address-SelectChild}
+    ${Settings-Internet-IPv6-SLAAC-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-SLAAC-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-SLAAC-Enable DHCP-PD-Switch}    getElementLocator    xpath    //div[@id='lanBlock_genernal']/table/tbody/tr[2]/td/label/span
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Enable DHCP-PD-Switch}
+    ${Settings-Internet-IPv6-SLAAC-LAN IPv6 Address(Disabled)-Input}    getElementLocator    xpath    //input[@id='ipv6_lan_ip']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-LAN IPv6 Address(Disabled)-Input}
+    ${Settings-Internet-IPv6-SLAAC-LAN IPv6 Link-Local Address-read}    getElementLocator    xpath    //*[@id="ipv6_lan_link_local_addr"]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-LAN IPv6 Link-Local Address-read}
+    ${Settings-Internet-IPv6-SLAAC-Advanced Settings-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Advanced Settings-Link}
+    ${Settings-Internet-IPv6-SLAAC-Enable Automatic IPv6 Address Assignment-Switch}    getElementLocator    xpath    //div[@id='advanceBlock_genernal']/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Enable Automatic IPv6 Address Assignment-Switch}
+    ${Settings-Internet-IPv6-SLAAC-Enable Automatic DHCP-PD in LAN-Switch}    getElementLocator    xpath    //div[12]/div[2]/table/tbody/tr[3]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Enable Automatic DHCP-PD in LAN-Switch}
+    ${Settings-Internet-IPv6-SLAAC-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-SLAAC-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-SLAAC-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-SLAAC-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-SLAAC-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-SLAAC-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-SLAAC-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-SLAAC-IPv6 Address Range (End)-Input}
+    #Settings-Internet-IPv6-PPPoE
+    ${Settings-Internet-IPv6-PPPoE-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-PPPoE-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-PPPoE-PPPoE-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'pppoe')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-PPPoE-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-PPPoE Session-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-PPPoE Session-Select}
+    ${Settings-Internet-IPv6-PPPoE-Share with IPv4-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'share')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Share with IPv4-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Create a new session-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'new')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Create a new session-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Username-Input}    getElementLocator    xpath    //input[@id='pppoe_Username']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Username-Input}
+    ${Settings-Internet-IPv6-PPPoE-Password-Input}    getElementLocator    xpath    //input[@id='pppoe_Password']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Password-Input}
+    ${Settings-Internet-IPv6-PPPoE-Service Name-Input}    getElementLocator    xpath    //input[@id='pppoe_ServiceName']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Service Name-Input}
+    ${Settings-Internet-IPv6-PPPoE-Reconnect Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Reconnect Mode-Select}
+    ${Settings-Internet-IPv6-PPPoE-Alwars on-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Alwars on-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Manual-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Manual-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Address Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Address Mode-Select}
+    ${Settings-Internet-IPv6-PPPoE-Dynamic IP-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'auto')])[3]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Dynamic IP-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Static-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'manual')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Static-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-IP Address-Input}    getElementLocator    xpath    //input[@id='pppoe_IPAddress']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-IP Address-Input}
+    ${Settings-Internet-IPv6-PPPoE-MTU-Input}    getElementLocator    xpath    //input[@id='pppoe_MTU']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-MTU-Input}
+    ${Settings-Internet-IPv6-PPPoE-DNS Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-DNS Type-Select}
+    ${Settings-Internet-IPv6-PPPoE-Obtain a DNS server address automatically-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'auto')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Obtain a DNS server address automatically-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Use the following DNS address-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'manual')])[2]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Use the following DNS address-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-PPPoE-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-PPPoE-Enable DHCP-PD-Switch}    getElementLocator    xpath    //tr[2]/td/label/span
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Enable DHCP-PD-Switch}
+    ${Settings-Internet-IPv6-PPPoE-LAN IPv6 Address(Disabled)-Input}    getElementLocator    xpath    //input[@id='ipv6_lan_ip']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-LAN IPv6 Address(Disabled)-Input}
+    ${Settings-Internet-IPv6-PPPoE-LAN IPv6 Link-Local Address-Read}    getElementLocator    xpath    //*[@id="ipv6_lan_link_local_addr"]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-LAN IPv6 Link-Local Address-Read}
+    ${Settings-Internet-IPv6-PPPoE-Advanced Settings…-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Advanced Settings…-Link}
+    ${Settings-Internet-IPv6-PPPoE-Enable Automatic IPv6 Address Assignment-Switch}    getElementLocator    xpath    //div[2]/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Enable Automatic IPv6 Address Assignment-Switch}
+    ${Settings-Internet-IPv6-PPPoE-Enable Automatic DHCP-PD in LAN-Switch}    getElementLocator    xpath    //div[12]/div[2]/table/tbody/tr[3]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Enable Automatic DHCP-PD in LAN-Switch}
+    ${Settings-Internet-IPv6-PPPoE-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[14]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-PPPoE-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-PPPoE-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-PPPoE-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-PPPoE-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-PPPoE-IPv6 Address Range (End)-Input}
+    #Settings-Internet-IPv6-tunnel
+    ${Settings-Internet-IPv6-tunnel-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-tunnel-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-tunnel-IPV6 in IPV4 tunnel-SelectChild}    getElementLocator    xpath    //a[contains(@href, '6in4')]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-IPV6 in IPV4 tunnel-SelectChild}
+    ${Settings-Internet-IPv6-tunnel-Remote IPv4 Address-Input}    getElementLocator    xpath    //input[@id='ipv6Inv4_RemoteIPv4Address']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Remote IPv4 Address-Input}
+    ${Settings-Internet-IPv6-tunnel-Remote IPv6 Address-Input}    getElementLocator    xpath    //input[@id='ipv6Inv4_RemoteIPv6Address']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Remote IPv6 Address-Input}
+    ${Settings-Internet-IPv6-tunnel-Local IPv4 Address-read}    getElementLocator    xpath    //*[@id="ipv6Inv4_LocalIPv4Address"]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Local IPv4 Address-read}
+    ${Settings-Internet-IPv6-tunnel-Local IPv6 Address-Input}    getElementLocator    xpath    //input[@id='ipv6Inv4_LocalIPv6Address']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Local IPv6 Address-Input}
+    ${Settings-Internet-IPv6-tunnel-Subnet Prefix Length-Input}    getElementLocator    xpath    //input[@id='ipv6Inv4_SubnetPrefixLength']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Subnet Prefix Length-Input}
+    ${Settings-Internet-IPv6-tunnel-DNS Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-DNS Type-Select}
+    ${Settings-Internet-IPv6-tunnel-Obtain a DNS server address automatically-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'auto')])[3]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Obtain a DNS server address automatically-SelectChild}
+    ${Settings-Internet-IPv6-tunnel-Use the following DNS address-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'manual')]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Use the following DNS address-SelectChild}
+    ${Settings-Internet-IPv6-tunnel-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-tunnel-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-tunnel-Enable DHCP-PD-Switch}    getElementLocator    xpath    //div[@id='lanBlock_genernal']/table/tbody/tr[2]/td/label/span
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Enable DHCP-PD-Switch}
+    ${Settings-Internet-IPv6-tunnel-LAN IPv6 Address(Disabled)-Input}    getElementLocator    xpath    //input[@id='ipv6_lan_ip']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-LAN IPv6 Address(Disabled)-Input}
+    ${Settings-Internet-IPv6-tunnel-LAN IPv6 Link-Local Address-Read}    getElementLocator    xpath    //*[@id="ipv6_lan_link_local_addr"]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-LAN IPv6 Link-Local Address-Read}
+    ${Settings-Internet-IPv6-tunnel-Advanced Settings…-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Advanced Settings…-Link}
+    ${Settings-Internet-IPv6-tunnel-Enable Automatic IPv6 Address Assignment-Switch}    getElementLocator    xpath    //div[2]/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Enable Automatic IPv6 Address Assignment-Switch}
+    ${Settings-Internet-IPv6-tunnel-Enable Automatic DHCP-PD in LAN-Switch}    getElementLocator    xpath    //div[12]/div[2]/table/tbody/tr[3]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Enable Automatic DHCP-PD in LAN-Switch}
+    ${Settings-Internet-IPv6-tunnel-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-tunnel-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-tunnel-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-tunnel-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-tunnel-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-tunnel-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-tunnel-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-tunnel-IPv6 Address Range (End)-Input}
+    #Settings-Internet-IPv6-6to4
+    ${Settings-Internet-IPv6-6to4-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-6to4-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-6to4-IPV6 in IPV4 tunnel-SelectChild}    getElementLocator    xpath    //a[contains(@href, '6to4')]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-IPV6 in IPV4 tunnel-SelectChild}
+    ${Settings-Internet-IPv6-6to4-6to4 Address-read}    getElementLocator    xpath    //*[@id="ipv6Tov4_Address"]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-6to4 Address-read}
+    ${Settings-Internet-IPv6-6to4-6to4 Relay-Input}    getElementLocator    xpath    //input[@id='ipv6Tov4_Relay']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-6to4 Relay-Input}
+    ${Settings-Internet-IPv6-6to4-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-6to4-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-6to4-LAN IPv6 Address-Input}    getElementLocator    xpath    //input[@id='ipv6to4_lanip']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-LAN IPv6 Address-Input}
+    ${Settings-Internet-IPv6-6to4-LAN IPv6 Link-Local Address-read}    getElementLocator    xpath    //*[@id="ipv6Tov4_LANIPv6LinkLocalAddress"]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-LAN IPv6 Link-Local Address-read}
+    ${Settings-Internet-IPv6-6to4-Advanced Settings...-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Advanced Settings...-Link}
+    ${Settings-Internet-IPv6-6to4-Enable Automatic IPv6 Address Assignment-Switch}    getElementLocator    xpath    //div[@id='advanceBlock_genernal']/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Enable Automatic IPv6 Address Assignment-Switch}
+    ${Settings-Internet-IPv6-6to4-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-6to4-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-6to4-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-6to4-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-6to4-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-6to4-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-6to4-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-IPv6 Address Range (End)-Input}
+    ${Settings-Internet-IPv6-6to4-IPv6 Address Lifetime-Input}    getElementLocator    xpath    //input[@id='dhcp_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-6to4-IPv6 Address Lifetime-Input}
+    #Settings-Internet-IPv6-6rd
+    ${Settings-Internet-IPv6-6rd-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-6rd-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-6rd-6rd-SelectChild}    getElementLocator    xpath    //a[contains(@href, '6rd')]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-6rd-SelectChild}
+    ${Settings-Internet-IPv6-6rd-Assign IPv6 Prefix-Read}    getElementLocator    xpath    //*[@id="ipv6rd_AssignedIPv6Prefix"]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Assign IPv6 Prefix-Read}
+    ${Settings-Internet-IPv6-6rd-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Primary DNS Server-Input}
+    ${Settings-Internet-IPv6-6rd-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNS']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Secondary DNS Server-Input}
+    ${Settings-Internet-IPv6-6rd-Enable Hub and Spoke Mode-Switch}    getElementLocator    xpath    //div[10]/table/tbody/tr[2]/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Enable Hub and Spoke Mode-Switch}
+    ${Settings-Internet-IPv6-6rd-6rd Configuration-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-6rd Configuration-Select}
+    ${Settings-Internet-IPv6-6rd-6rd DHCPv4 Option-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'auto')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-6rd DHCPv4 Option-SelectChild}
+    ${Settings-Internet-IPv6-6rd-Manual Configuration-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'manual')])[2]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Manual Configuration-SelectChild}
+    ${Settings-Internet-IPv6-6rd-6rd IPv6 Prefix-Input}    getElementLocator    xpath    //input[@id='ipv6rd_IPv6Prefix']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-6rd IPv6 Prefix-Input}
+    ${Settings-Internet-IPv6-6rd-6rd IPv6 Prefix(after"/")-Input}    getElementLocator    xpath    //input[@id='ipv6rd_IPv6PrefixLength']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-6rd IPv6 Prefix(after"/")-Input}
+    ${Settings-Internet-IPv6-6rd-WAN IPv4 Address-Input}    getElementLocator    xpath    //input[@id='ipv6rd_IPv4PrefixLength']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-WAN IPv4 Address-Input}
+    ${Settings-Internet-IPv6-6rd-6rd Border Relay IPv4 Address-Input}    getElementLocator    xpath    //input[@id='ipv6rd_BorderRelay']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-6rd Border Relay IPv4 Address-Input}
+    ${Settings-Internet-IPv6-6rd-LAN IPv6 Address-Read}    getElementLocator    xpath    //*[@id="ipv6rd_LANIPv6Address"]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-LAN IPv6 Address-Read}
+    ${Settings-Internet-IPv6-6rd-LAN IPv6 Link-Local Address-Read}    getElementLocator    xpath    //*[@id="ipv6rd_LANIPv6LinkLocalAddress"]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-LAN IPv6 Link-Local Address-Read}
+    ${Settings-Internet-IPv6-6rd-Advanced Settings...-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Advanced Settings...-Link}
+    ${Settings-Internet-IPv6-6rd-Enable Automatic IPv6 Address Assignment-Switch}    getElementLocator    xpath    //div[@id='advanceBlock_genernal']/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Enable Automatic IPv6 Address Assignment-Switch}
+    ${Settings-Internet-IPv6-6rd-Autoconfiguration Type-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Autoconfiguration Type-Select}
+    ${Settings-Internet-IPv6-6rd-SLAAC+RDNSS-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'rdnss')]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-SLAAC+RDNSS-SelectChild}
+    ${Settings-Internet-IPv6-6rd-SLAAC+Stateless DHCP-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateless')]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-SLAAC+Stateless DHCP-SelectChild}
+    ${Settings-Internet-IPv6-6rd-Router Advertisement Lifetime-Input}    getElementLocator    xpath    //input[@id='ra_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Router Advertisement Lifetime-Input}
+    ${Settings-Internet-IPv6-6rd-Stateful DHCPv6-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'stateful')]
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-Stateful DHCPv6-SelectChild}
+    ${Settings-Internet-IPv6-6rd-IPv6 Address Range (Start)-Input}    getElementLocator    xpath    //input[@id='dhcp_start']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-IPv6 Address Range (Start)-Input}
+    ${Settings-Internet-IPv6-6rd-IPv6 Address Range (End)-Input}    getElementLocator    xpath    //input[@id='dhcp_end']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-IPv6 Address Range (End)-Input}
+    ${Settings-Internet-IPv6-6rd-IPv6 Address Lifetime-Input}    getElementLocator    xpath    //input[@id='dhcp_lifetime']
+    Set Global Variable    ${Settings-Internet-IPv6-6rd-IPv6 Address Lifetime-Input}
+    #Settings-Internet-IPv6-Local
+    ${Settings-Internet-IPv6-Local-IPv6-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Internet-IPv6-Local-IPv6-ChangePage}
+    ${Settings-Internet-IPv6-Local-My Internet Connection is-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Internet-IPv6-Local-My Internet Connection is-Select}
+    ${Settings-Internet-IPv6-Local-Local Connectivity Only-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'linklocal')]
+    Set Global Variable    ${Settings-Internet-IPv6-Local-Local Connectivity Only-SelectChild}
+    ${Settings-Internet-IPv6-Local-Advanced Settings...-Link}    getElementLocator    xpath    //div[@id='advButton']
+    Set Global Variable    ${Settings-Internet-IPv6-Local-Advanced Settings...-Link}
+    ${Settings-Internet-IPv6-Local-Enable ULA-Switch}    getElementLocator    xpath    //div[12]/div/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Internet-IPv6-Local-Enable ULA-Switch}
+    ${Settings-Internet-IPv6-Local-Use Default ULA Prefix-Switch}    getElementLocator    xpath    //tr[@id='UseDefaultULAPrefix_tr']/td/input
+    Set Global Variable    ${Settings-Internet-IPv6-Local-Use Default ULA Prefix-Switch}
+    ${Settings-Internet-IPv6-Local-ULA Prefix(disabled)-Input}    getElementLocator    xpath    //input[@id='linklocal_ULAPrefix']
+    Set Global Variable    ${Settings-Internet-IPv6-Local-ULA Prefix(disabled)-Input}
+    ${Settings-Internet-IPv6-Local-Current ULA Prefix-GetVar}    getElementLocator    xpath    //*[@id="linklocal_CurrentULAPrefix"]
+    Set Global Variable    ${Settings-Internet-IPv6-Local-Current ULA Prefix-GetVar}
+    ${Settings-Internet-IPv6-Local-LAN IPv6 ULA-GetVar}    getElementLocator    xpath    //*[@id="linklocal_LanIPv6ULA"]
+    Set Global Variable    ${Settings-Internet-IPv6-Local-LAN IPv6 ULA-GetVar}
+    #Settings-Wireless
+    ${Settings-Wireless-Settings-FunctionTable}    getElementLocator    xpath    //a[contains(@href, '#')]
+    Set Global Variable    ${Settings-Wireless-Settings-FunctionTable}
+    ${Settings-Wireless-Wireless-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[2]
+    Set Global Variable    ${Settings-Wireless-Wireless-FunctionTableChild}
+    ${Settings-Wireless-Smart Connect Status-Switch}    getElementLocator    xpath    //div[@id='RADIO_smart']/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Wireless-Smart Connect Status-Switch}
+    ${Settings-Wireless-2.4G-Status-Switch}    getElementLocator    xpath    //tr[@id='status_24_tr']/td/label/span[2]
+    Set Global Variable    ${Settings-Wireless-2.4G-Status-Switch}
+    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    getElementLocator    xpath    //input[@id='wifiName_24']
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    ${Settings-Wireless-2.4G-Password-Input}    getElementLocator    xpath    //input[@id='password_24']
+    Set Global Variable    ${Settings-Wireless-2.4G-Password-Input}
+    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    getElementLocator    xpath    //div[@onclick="showAdv('24');"]
+    Set Global Variable    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
+    ${Settings-Wireless-2.4G-Security Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Wireless-2.4G-Security Mode-Select}
+    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'None')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}
+    ${Settings-Wireless-2.4G-Security Mode-WPAORWPA2-PSK-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'WPAORWPA2-PSK')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Security Mode-WPAORWPA2-PSK-SelectChild}
+    ${Settings-Wireless-2.4G-802.11 Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Settings-Wireless-2.4G-802.11 Mode-Select}
+    ${Settings-Wireless-2.4G-802.11 Mode-Mixed 802.11b/g/n-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'bgn')]
+    Set Global Variable    ${Settings-Wireless-2.4G-802.11 Mode-Mixed 802.11b/g/n-SelectChild}
+    ${Settings-Wireless-2.4G-802.11 Mode-Mixed 802.11g/n-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'gn')])[2]
+    Set Global Variable    ${Settings-Wireless-2.4G-802.11 Mode-Mixed 802.11g/n-SelectChild}
+    ${Settings-Wireless-2.4G-802.11 Mode-802.11n only-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'n')])[11]
+    Set Global Variable    ${Settings-Wireless-2.4G-802.11 Mode-802.11n only-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[8]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-Select}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-Auto-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-Auto-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-1-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-1-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-2-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '2')])[2]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-2-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-3-SelectChild}    getElementLocator    xpath    //a[contains(@href, '3')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-3-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-4-SelectChild}    getElementLocator    xpath    //a[contains(@href, '4')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-4-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-5-SelectChild}    getElementLocator    xpath    //a[contains(@href, '5')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-5-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-6-SelectChild}    getElementLocator    xpath    //a[contains(@href, '6')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-6-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-7-SelectChild}    getElementLocator    xpath    //a[contains(@href, '7')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-7-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-8-SelectChild}    getElementLocator    xpath    //a[contains(@href, '8')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-8-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-9-SelectChild}    getElementLocator    xpath    //a[contains(@href, '9')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-9-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-10-SelectChild}    getElementLocator    xpath    //a[contains(@href, '10')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-10-SelectChild}
+    ${Settings-Wireless-2.4G-Wi-Fi Channel-11-SelectChild}    getElementLocator    xpath    //a[contains(@href, '11')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Wi-Fi Channel-11-SelectChild}
+    ${Settings-Wireless-2.4G-Transmission Power-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[10]
+    Set Global Variable    ${Settings-Wireless-2.4G-Transmission Power-Select}
+    ${Settings-Wireless-2.4G-Transmission Power-High-SelectChild}    getElementLocator    xpath    //a[contains(@href, '100')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Transmission Power-High-SelectChild}
+    ${Settings-Wireless-2.4G-Transmission Power-Medium-SelectChild}    getElementLocator    xpath    //a[contains(@href, '50')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Transmission Power-Medium-SelectChild}
+    ${Settings-Wireless-2.4G-Transmission Power-Low-SelectChild}    getElementLocator    xpath    //a[contains(@href, '25')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Transmission Power-Low-SelectChild}
+    ${Settings-Wireless-2.4G-Channel Width-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[12]
+    Set Global Variable    ${Settings-Wireless-2.4G-Channel Width-Select}
+    ${Settings-Wireless-2.4G-Channel Width-Auto 20/40 MHz-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[5]
+    Set Global Variable    ${Settings-Wireless-2.4G-Channel Width-Auto 20/40 MHz-SelectChild}
+    ${Settings-Wireless-2.4G-Channel Width-20 MHz-SelectChild}    getElementLocator    xpath    //a[contains(@href, '20')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Channel Width-20 MHz-SelectChild}
+    ${Settings-Wireless-2.4G-HT20/40 Coexistence-Switch}    getElementLocator    xpath    //tr[@id='coexistence_24_tr']/td/input
+    Set Global Variable    ${Settings-Wireless-2.4G-HT20/40 Coexistence-Switch}
+    ${Settings-Wireless-2.4G-Visibility Status-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[14]
+    Set Global Variable    ${Settings-Wireless-2.4G-Visibility Status-Select}
+    ${Settings-Wireless-2.4G-Visibility Status-Visible-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'true')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Visibility Status-Visible-SelectChild}
+    ${Settings-Wireless-2.4G-Visibility Status-Invisible-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'false')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Visibility Status-Invisible-SelectChild}
+    ${Settings-Wireless-2.4G-Schedule(link)-Link}    getElementLocator    xpath    //a[contains(@href, 'Schedule.html')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Schedule(link)-Link}
+    ${Settings-Wireless-2.4G-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[16]
+    Set Global Variable    ${Settings-Wireless-2.4G-Schedule-Select}
+    ${Settings-Wireless-2.4G-Schedule-Always Enable-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Always')]
+    Set Global Variable    ${Settings-Wireless-2.4G-Schedule-Always Enable-SelectChild}
+    ${Settings-Wireless-5G-Status-Switch}    getElementLocator    xpath    //div[@id='RADIO_5']/table/tbody/tr[2]/td/label/span[2]
+    Set Global Variable    ${Settings-Wireless-5G-Status-Switch}
+    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    getElementLocator    xpath    //input[@id='wifiName_5']
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
+    ${Settings-Wireless-5G-Password-Input}    getElementLocator    xpath    //input[@id='password_5']
+    Set Global Variable    ${Settings-Wireless-5G-Password-Input}
+    ${Settings-Wireless-5G-Advanced Settings-Link}    getElementLocator    xpath    //div[@onclick="showAdv('5');"]
+    Set Global Variable    ${Settings-Wireless-5G-Advanced Settings-Link}
+    ${Settings-Wireless-5G-Security Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[18]
+    Set Global Variable    ${Settings-Wireless-5G-Security Mode-Select}
+    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'None')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Security Mode-None-SelectChild}
+    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'WPAORWPA2-PSK')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}
+    ${Settings-Wireless-5G-802.11 Mode-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[20]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-Select}
+    ${Settings-Wireless-5G-802.11 Mode-Mixed 802.11a/n/ac-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'anac')]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-Mixed 802.11a/n/ac-SelectChild}
+    ${Settings-Wireless-5G-802.11 Mode-Mixed 802.11n/ac-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'nac')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-Mixed 802.11n/ac-SelectChild}
+    ${Settings-Wireless-5G-802.11 Mode-Mixed 802.11a/n-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'an')])[3]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-Mixed 802.11a/n-SelectChild}
+    ${Settings-Wireless-5G-802.11 Mode-802.11ac only-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'ac')])[3]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-802.11ac only-SelectChild}
+    ${Settings-Wireless-5G-802.11 Mode-802.11a only-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'a')])[26]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-802.11a only-SelectChild}
+    ${Settings-Wireless-5G-802.11 Mode-802.11n only-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'n')])[16]
+    Set Global Variable    ${Settings-Wireless-5G-802.11 Mode-802.11n only-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[22]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-Select}
+    ${Settings-Wireless-5G-Wi-Fi Channel-Auto-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[7]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-Auto-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-36-SelectChild}    getElementLocator    xpath    //a[contains(@href, '36')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-36-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-40-SelectChild}    getElementLocator    xpath    //a[contains(@href, '40')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-40-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-44-SelectChild}    getElementLocator    xpath    //a[contains(@href, '44')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-44-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-48-SelectChild}    getElementLocator    xpath    //a[contains(@href, '48')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-48-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-149-SelectChild}    getElementLocator    xpath    //a[contains(@href, '149')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-149-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-153-SelectChild}    getElementLocator    xpath    //a[contains(@href, '153')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-153-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-157-SelectChild}    getElementLocator    xpath    //a[contains(@href, '157')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-157-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-161-SelectChild}    getElementLocator    xpath    //a[contains(@href, '161')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-161-SelectChild}
+    ${Settings-Wireless-5G-Wi-Fi Channel-165-SelectChild}    getElementLocator    xpath    //a[contains(@href, '165')]
+    Set Global Variable    ${Settings-Wireless-5G-Wi-Fi Channel-165-SelectChild}
+    ${Settings-Wireless-5G-Transmission Power-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[24]
+    Set Global Variable    ${Settings-Wireless-5G-Transmission Power-Select}
+    ${Settings-Wireless-5G-Transmission Power-High-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '100')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Transmission Power-High-SelectChild}
+    ${Settings-Wireless-5G-Transmission Power-Medium-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '50')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Transmission Power-Medium-SelectChild}
+    ${Settings-Wireless-5G-Transmission Power-Low-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '25')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Transmission Power-Low-SelectChild}
+    ${Settings-Wireless-5G-Channel Width-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[26]
+    Set Global Variable    ${Settings-Wireless-5G-Channel Width-Select}
+    ${Settings-Wireless-5G-Channel Width-Auto 20/40/80 MHz-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '1')])[11]
+    Set Global Variable    ${Settings-Wireless-5G-Channel Width-Auto 20/40/80 MHz-SelectChild}
+    ${Settings-Wireless-5G-Channel Width-Auto 20/40 MHz-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '0')])[11]
+    Set Global Variable    ${Settings-Wireless-5G-Channel Width-Auto 20/40 MHz-SelectChild}
+    ${Settings-Wireless-5G-Visibility Status-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[28]
+    Set Global Variable    ${Settings-Wireless-5G-Visibility Status-Select}
+    ${Settings-Wireless-5G-Visibility Status-Visible-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'true')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Visibility Status-Visible-SelectChild}
+    ${Settings-Wireless-5G-Visibility Status-Invisible-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'false')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Visibility Status-Invisible-SelectChild}
+    ${Settings-Wireless-5G-Schedule(link)-Link}    getElementLocator    xpath    (//a[contains(@href, 'Schedule.html')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Schedule(link)-Link}
+    ${Settings-Wireless-5G-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[30]
+    Set Global Variable    ${Settings-Wireless-5G-Schedule-Select}
+    ${Settings-Wireless-5G-Schedule-Always Enable-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Always')])[2]
+    Set Global Variable    ${Settings-Wireless-5G-Schedule-Always Enable-SelectChild}
+    ${Settings-Wireless-WPS-PBC Status-Switch}    getElementLocator    xpath    //div[@id='div_WPS']/table/tbody/tr[2]/td/input
+    Set Global Variable    ${Settings-Wireless-WPS-PBC Status-Switch}
+    ${Settings-Wireless-WPS-PIN Status-Switch}    getElementLocator    xpath    //div[@id='div_WPS']/table/tbody/tr[3]/td/input
+    Set Global Variable    ${Settings-Wireless-WPS-PIN Status-Switch}
+    ${Settings-Wireless-Title-GetVar}    getElementLocator    xpath    //*[@id="FunctionName"]
+    Set Global Variable    ${Settings-Wireless-Title-GetVar}
+    ${Settings-Wireless-Save-Click}    getElementLocator    xpath    //div[@id='Save_btn']
+    Set Global Variable    ${Settings-Wireless-Save-Click}
+    ${Settings-Wireless-Finish-Click}    getElementLocator    xpath    //button[@id='popalert_ok']
+    Set Global Variable    ${Settings-Wireless-Finish-Click}
+    #Settings-Wireless-Guest Zone
+    ${Settings-Wireless-Guest Zone-Guest Zone-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-Guest Zone-ChangePage}
+    ${Settings-Wireless-Guest Zone-2.4G-Status-Switch}    getElementLocator    xpath    //div[@id='status_gz_24']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-2.4G-Status-Switch}
+    ${Settings-Wireless-Guest Zone-2.4G-Wi-Fi Name (SSID)-Input}    getElementLocator    xpath    //input[@id='wifiName_24g']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-2.4G-Wi-Fi Name (SSID)-Input}
+    ${Settings-Wireless-Guest Zone-2.4G-Password-Input}    getElementLocator    xpath    //input[@id='password_24g']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-2.4G-Password-Input}
+    ${Settings-Wireless-Guest Zone-2.4G-Schedule(link)-Link}    getElementLocator    xpath    //a[contains(@href, 'Schedule.html')]
+    Set Global Variable    ${Settings-Wireless-Guest Zone-2.4G-Schedule(link)-Link}
+    ${Settings-Wireless-Guest Zone-2.4G-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Wireless-Guest Zone-2.4G-Schedule-Select}
+    ${Settings-Wireless-Guest Zone-2.4G-Schedule-Always Enable-SelectChild}    getElementLocator    xpath    //a[contains(@href, 'Always')]
+    Set Global Variable    ${Settings-Wireless-Guest Zone-2.4G-Schedule-Always Enable-SelectChild}
+    ${Settings-Wireless-Guest Zone-5G-Status-Switch}    getElementLocator    xpath    //div[@id='status_gz_5']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-5G-Status-Switch}
+    ${Settings-Wireless-Guest Zone-5G-Wi-Fi Name (SSID)-Input}    getElementLocator    xpath    //input[@id='wifiName_5g']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-5G-Wi-Fi Name (SSID)-Input}
+    ${Settings-Wireless-Guest Zone-5G-Password-Input}    getElementLocator    xpath    //input[@id='password_5g']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-5G-Password-Input}
+    ${Settings-Wireless-Guest Zone-5G-Schedule(link)-Link}    getElementLocator    xpath    (//a[contains(@href, 'Schedule.html')])[2]
+    Set Global Variable    ${Settings-Wireless-Guest Zone-5G-Schedule(link)-Link}
+    ${Settings-Wireless-Guest Zone-5G-Schedule-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[6]
+    Set Global Variable    ${Settings-Wireless-Guest Zone-5G-Schedule-Select}
+    ${Settings-Wireless-Guest Zone-5G-Schedule-Always Enable-SelectChild}    getElementLocator    xpath    (//a[contains(@href, 'Always')])[2]
+    Set Global Variable    ${Settings-Wireless-Guest Zone-5G-Schedule-Always Enable-SelectChild}
+    ${Settings-Wireless-Guest Zone-Internet Access Only-Switch}    getElementLocator    xpath    //div[@id='internetAccessOnly']
+    Set Global Variable    ${Settings-Wireless-Guest Zone-Internet Access Only-Switch}
+    #Settings-Network
+    ${Settings-Network-Settings-FunctionTable}    getElementLocator    xpath    //a[contains(@href, '#')]
+    Set Global Variable    ${Settings-Network-Settings-FunctionTable}
+    ${Settings-Network-Network-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[3]
+    Set Global Variable    ${Settings-Network-Network-FunctionTableChild}
+    ${Settings-Network-LAN IP Address-Input}    getElementLocator    xpath    //input[@id='lanIP']
+    Set Global Variable    ${Settings-Network-LAN IP Address-Input}
+    ${Settings-Network-Subnet Mask-Input}    getElementLocator    xpath    //input[@id='subnetMask']
+    Set Global Variable    ${Settings-Network-Subnet Mask-Input}
+    ${Settings-Network-Management Link-Input}    getElementLocator    xpath    //input[@id='presentDeviceName']
+    Set Global Variable    ${Settings-Network-Management Link-Input}
+    ${Settings-Network-Local Domain Name-Input}    getElementLocator    xpath    //input[@id='localDomainName']
+    Set Global Variable    ${Settings-Network-Local Domain Name-Input}
+    ${Settings-Network-Enable DNS Relay-Switch}    getElementLocator    xpath    //div[@id='enableDNSRelay']
+    Set Global Variable    ${Settings-Network-Enable DNS Relay-Switch}
+    ${Settings-Network-Advanced Settings...-Link}    getElementLocator    xpath    //div[@onclick="showAdv('advancedBlock');"]
+    Set Global Variable    ${Settings-Network-Advanced Settings...-Link}
+    ${Settings-Network-DHCP Server-Status-Switch}    getElementLocator    xpath    //div[@id='dhcpServer_status']
+    Set Global Variable    ${Settings-Network-DHCP Server-Status-Switch}
+    ${Settings-Network-DHCP IP Address Range-Input}    getElementLocator    xpath    //input[@id='dhcpIPAddressRange1']
+    Set Global Variable    ${Settings-Network-DHCP IP Address Range-Input}
+    ${Settings-Network-DHCP IP Address Range(to)-Input}    getElementLocator    xpath    //input[@id='dhcpIPAddressRange2']
+    Set Global Variable    ${Settings-Network-DHCP IP Address Range(to)-Input}
+    ${Settings-Network-DHCP Lease Time-Input}    getElementLocator    xpath    //input[@id='dhcpLeaseTime']
+    Set Global Variable    ${Settings-Network-DHCP Lease Time-Input}
+    ${Settings-Network-DHCP Server-Always Broadcast-Switch}    getElementLocator    xpath    //div[@id='alwaysBroadcast']
+    Set Global Variable    ${Settings-Network-DHCP Server-Always Broadcast-Switch}
+    ${Settings-Network-WAN Port Speed-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
+    Set Global Variable    ${Settings-Network-WAN Port Speed-Select}
+    ${Settings-Network-WAN Port Speed-auto-SelectChild}    getElementLocator    xpath    //a[contains(@href, '0')]
+    Set Global Variable    ${Settings-Network-WAN Port Speed-auto-SelectChild}
+    ${Settings-Network-WAN Port Speed-1000Mbps-SelectChild}    getElementLocator    xpath    //a[contains(@href, '1')]
+    Set Global Variable    ${Settings-Network-WAN Port Speed-1000Mbps-SelectChild}
+    ${Settings-Network-WAN Port Speed-100Mbps-SelectChild}    getElementLocator    xpath    //a[contains(@href, '2')]
+    Set Global Variable    ${Settings-Network-WAN Port Speed-100Mbps-SelectChild}
+    ${Settings-Network-WAN Port Speed-10Mbps-SelectChild}    getElementLocator    xpath    //a[contains(@href, '3')]
+    Set Global Variable    ${Settings-Network-WAN Port Speed-10Mbps-SelectChild}
+    ${Settings-Network-UPnP-Switch}    getElementLocator    xpath    //div[@id='upnp']
+    Set Global Variable    ${Settings-Network-UPnP-Switch}
+    ${Settings-Network-IPv4 Multicast Streams-Switch}    getElementLocator    xpath    //div[@id='multicastStreams_v4']
+    Set Global Variable    ${Settings-Network-IPv4 Multicast Streams-Switch}
+    ${Settings-Network-IPv6 Multicast Streams-Switch}    getElementLocator    xpath    //div[@id='multicastStreams_v6']
+    Set Global Variable    ${Settings-Network-IPv6 Multicast Streams-Switch}
+    ${Settings-Network-Title-GetVar}    getElementLocator    xpath    //*[@id="main"]/table/tbody/tr[1]/td/div
+    Set Global Variable    ${Settings-Network-Title-GetVar}
+   

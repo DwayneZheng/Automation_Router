@@ -1,0 +1,32 @@
+﻿*** Settings ***
+Documentation     Date：2017/12/27
+
+*** Keywords ***
+ElementLocator-DIR-878-Hidden
+    #Hidden-Page
+    ${Hidden-Page-Firmware Externel Version-GetVar}    getElementLocator    xpath    //*[@id="exterVer"]
+    Set Global Variable    ${Hidden-Page-Firmware Externel Version-GetVar}
+    ${Hidden-Page-Firmware Internal Version-GetVar}    getElementLocator    xpath    //*[@id="interVer"]
+    Set Global Variable    ${Hidden-Page-Firmware Internal Version-GetVar}
+    ${Hidden-Page-Date-GetVar}    getElementLocator    xpath    //*[@id="data"]
+    Set Global Variable    ${Hidden-Page-Date-GetVar}
+    ${Hidden-Page-Checksum-GetVar}    getElementLocator    xpath    //*[@id="checksum"]
+    Set Global Variable    ${Hidden-Page-Checksum-GetVar}
+    ${Hidden-Page-WAN MAC-GetVar}    getElementLocator    xpath    //*[@id="wanmac"]
+    Set Global Variable    ${Hidden-Page-WAN MAC-GetVar}
+    ${Hidden-Page-LAN MAC-GetVar}    getElementLocator    xpath    //*[@id="lanmac"]
+    Set Global Variable    ${Hidden-Page-LAN MAC-GetVar}
+    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}    getElementLocator    xpath    //*[@id="wlanmac_2"]
+    Set Global Variable    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
+    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    getElementLocator    xpath    //*[@id="wlanmac_5"]
+    Set Global Variable    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
+    ${Hidden-Page-2.4GHz country code-GetVar}    getElementLocator    xpath    //*[@id="domain_2"]
+    Set Global Variable    ${Hidden-Page-2.4GHz country code-GetVar}
+    ${Hidden-Page-5GHz country code-GetVar}    getElementLocator    xpath    //*[@id="domain_5"]
+    Set Global Variable    ${Hidden-Page-5GHz country code-GetVar}
+    ${Hidden-Page-Firmware Query-GetVar}    getElementLocator    xpath    //*[@id="firmQuery"]
+    Set Global Variable    ${Hidden-Page-Firmware Query-GetVar}
+    ${Hidden-Page-2.4GHZ SSID-GetVar}    getElementLocator    xpath    //*[@id="ssid_2"]
+    Set Global Variable    ${Hidden-Page-2.4GHZ SSID-GetVar}
+    ${Hidden-Page-5GHZ SSID-GetVar}    getElementLocator    xpath    //*[@id="ssid_5"]
+    Set Global Variable    ${Hidden-Page-5GHZ SSID-GetVar}

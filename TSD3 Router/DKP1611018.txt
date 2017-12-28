@@ -771,7 +771,7 @@ Library           String
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
     click    ${Home Page-RenewReleaseIPAddress-Click}    #Connect Button
-    sleep    20s
+    sleep    30s
     #Finish MAC Address
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -2514,6 +2514,8 @@ test1
 
 0070
     [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Manual)
+    ...
+    ...    OK verify by Richard Wu 20171227
     #copy 12
     #Restore
     ToLoginWithoutPassword
@@ -2585,6 +2587,8 @@ test1
 
 0107
     [Documentation]    Internet->IPv4 PPTP Manual + Dynamic IP test + MTU(Auto)
+    ...
+    ...    OK verify by Richard Wu 20171227
     #copy by 0017
     #Restore
     ToLoginWithoutPassword
@@ -2655,6 +2659,8 @@ test1
 
 0108
     [Documentation]    Internet->IPv4 PPTP Always on + Static IP test + MTU(Manual)
+    ...
+    ...    OK verify by Richard Wu 20171227
     #Copy by 15
     #Restore
     ToLoginWithoutPassword
