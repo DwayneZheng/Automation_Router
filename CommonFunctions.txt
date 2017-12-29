@@ -500,7 +500,7 @@ Configure L2TP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    192.168.11.254    #L2TP Server Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10.2.76.1    #L2TP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    dlink    #Username Input
@@ -594,7 +594,7 @@ Configure IPv4 L2TP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    10.2.76.216    #input static address
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    10.2.76.215    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
