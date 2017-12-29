@@ -1,5 +1,7 @@
 *** Settings ***
-Documentation     Date：2017/12/14
+Documentation     Subject: TSD3 Router Home Page
+...
+...               Date：2017/12/14
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1611011
 Resource          ../AllResources.txt
@@ -121,8 +123,7 @@ Library           String
     Should Be True    "${check-PPPOE}"=="PPPoE"
 
 0028
-    [Documentation]    Internet _Static IP WAN Connection_Go to settings button check \
-    ...    OK verify by Richard Wu 20171212
+    [Documentation]    Internet _Static IP WAN Connection_Go to settings button check \ OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-0028
     #Restore
     ToLoginWithoutPassword

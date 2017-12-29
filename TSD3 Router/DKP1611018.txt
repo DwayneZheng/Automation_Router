@@ -1,5 +1,7 @@
 *** Settings ***
-Documentation     Date：2017/12/18
+Documentation     Subject: TSD3 Router->Settings->Internet
+...
+...               Date：2017/12/18
 Suite Setup       ElementLocator-DIR-878
 Force Tags        DKP1611018
 Resource          ../AllResources.txt
@@ -2427,7 +2429,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
-    #Switch to PPTP
+    #Switch to L2TP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}    #Setting MTU
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
@@ -2969,3 +2971,257 @@ test1
     ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     Should Be True    "${CheckDisconnect}"=="False"
+
+0112
+    [Documentation]    Internet->IPv4 L2TP Always on + Dynamic IP test + MTU(Manual)
+    #Copy by 19
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
+    #Switch to L2TP
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    1400
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting L2TP END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0114
+    [Documentation]    Internet->IPv4 L2TP Manual + Dynamic IP test + MTU(Manual)
+    #copy by 21
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure L2TP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
+    #Switch to L2TP
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    1400
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting L2TP END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+    ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    10s
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    Def-Ping    0    ${GetDefault Gateway}
+
+0115
+    [Documentation]    Internet->IPv4 L2TP Always on + Static IP test + MTU(Manual)
+    #copy by 22
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure IPv4 L2TP+Static IP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Always on-SelectChild}    #Reconnect mode = Always on
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    #Switch to L2TP
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    1400
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (L2TP)"
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+
+0117
+    [Documentation]    Internet->IPv4 L2TP Manual + Static IP test + MTU(Manual)
+    #Copy by 24
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    #Setting L2TP
+    Configure IPv4 L2TP+Static IP-Without Save
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-Reconnect Mode-Manual-SelectChild}    #Reconnect mode = Manual
+    ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
+    #Switch to L2TP
+    scroll
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    #Setting MTU
+    waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}
+    sendtext    ${Settings-Internet-IPv4-L2TP-MTU-Manual-Input-Input}    1400
+    #save
+    click    ${Settings-Internet-IPv4-L2TP-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    #===Setting PPPOE END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    5    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    #Ping \ Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    #===Ping END===
+    #Ping MTU
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
+    Def-Ping    0    ${GetDefault Gateway}    -f    -l    1350
+    ${Packet Fragmented}    defping    0    ${GetDefault Gateway}    -f    -l    1550
+    ...    default    default
+    Should Be True    "${Packet Fragmented}"=="Packet needs to be fragmented but DF set"
+    #===Ping MTU END===
+    ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    20    true
+    click    ${Home Page-RenewReleaseIPAddress-Click}
+    sleep    20s
+    ${Disconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
+    ...    default    default
+    Should Be True    "${Disconnect}"=="False"
