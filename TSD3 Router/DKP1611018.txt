@@ -1463,7 +1463,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171214
-    [Tags]    DKP1611018-0001    DKP1611018-DHCP-0001
+    [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0001
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
@@ -1540,7 +1540,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171218
-    [Tags]    DKP1611018-0002    DKP1611018-DHCP-0002
+    [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0002
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
@@ -1637,7 +1637,7 @@ Library           String
     ...
     ...
     ...    OK verify by Dwayne Cheng 20171219
-    [Tags]    DKP1611018-0003    DKP1611018-Static IP-0003
+    [Tags]    DKP1611018-Static IP    DKP1611018-Static IP-0003
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
@@ -1716,7 +1716,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171219
-    [Tags]    DKP1611018-0004    DKP1611018-Static IP-0004
+    [Tags]    DKP1611018-Static IP   DKP1611018-Static IP-0004
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
@@ -1812,7 +1812,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171219
-    [Tags]    DKP1611018-0005    DKP1611018-PPPoE-0005
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0005
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -1916,7 +1916,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171219
-    [Tags]    DKP1611018-0011    DKP1611018-PPPoE-0011
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0011
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2006,7 +2006,7 @@ Library           String
     ...
     ...
     ...    OK verify by Dwayne Cheng 20171218
-    [Tags]    DKP1611018-0012    DKP1611018-PPTP-0012
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0012
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2074,7 +2074,7 @@ Library           String
 
 0015
     [Documentation]    Internet->IPv4 PPTP Always on + Static IP test + MTU(Auto)
-    [Tags]    DKP1611018-0015    DKP1611018-PPTP-0015
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0015
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2126,7 +2126,7 @@ Library           String
 
 0017
     [Documentation]    Internet->IPv4 PPTP Manual + Static IP test + MTU(Auto)
-    [Tags]    DKP1611018-0017    DKP1611018-PPTP-0017
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0017
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2202,7 +2202,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171218
-    [Tags]    DKP1611018-0018    DKP1611018-PPTP-0018
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0018
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
@@ -2285,7 +2285,7 @@ Library           String
     [Documentation]    Internet->IPv4 L2TP Always on + Dynamic IP test + MTU(Auto)
     ...
     ...    OK verify by Dwayne Cheng 20171218
-    [Tags]    DKP1611018-0019    DKP1611018-L2TP-0019
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0019
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2343,7 +2343,7 @@ Library           String
     [Documentation]    Internet->IPv4 L2TP Manual + Dynamic IP test + MTU(Auto)
     ...
     ...    OK verify by Dwayne Cheng 20171218
-    [Tags]    DKP1611018-0021    DKP1611018-L2TP-0021
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0021
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2410,7 +2410,7 @@ Library           String
 
 0022
     [Documentation]    Internet->IPv4 L2TP Always on + Static IP test + MTU(Auto)
-    [Tags]    DKP1611018-0022    DKP1611018-L2TP-0022
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0022
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2462,7 +2462,7 @@ Library           String
 
 0024
     [Documentation]    Internet->IPv4 L2TP Manual + Static IP test + MTU(Auto)
-    [Tags]    DKP1611018-0024    DKP1611018-L2TP-0024
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0024
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -2532,7 +2532,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171218
-    [Tags]    DKP1611018-0025    DKP1611018-L2TP-0025
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0025
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
