@@ -10,7 +10,7 @@ Resource          ../AllResources.txt
 *** Test Cases ***
 0004
     [Documentation]    Setup wizard should detect PPPoE first, if environment have DHCP and PPPoE server at the same time
-    [Tags]    DKP1608016-0004    DKP1608016-DHCP-PPPoE
+    [Tags]    DKP1608016-DHCP-PPPoE-0004    DKP1608016-DHCP-PPPoE
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
