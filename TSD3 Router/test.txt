@@ -37,3 +37,9 @@ logintest
     Run Keyword If    "${Check-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
     ...    ELSE    log
     sleep    5s
+
+Stringtext
+    tourl    http://192.168.0.1
+    sleep    3s
+    ${fw}    getText    xpath    //*[@id="modelName"]
+    should contain    ${fw}    878    msg=not 878
