@@ -70,6 +70,7 @@ Lang2Italiano
     sleep    1
 
 ToClickLoginBtn
+    sendKeyEscape    id    admin_Password
     sleep    1
     click    xpath    //button[@id='logIn_btn']
     sleep    1
