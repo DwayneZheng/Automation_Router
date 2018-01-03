@@ -70,7 +70,7 @@ Lang2Italiano
     sleep    1
 
 ToClickLoginBtn
-    sendKeyEscape    id    admin_Password
+    sendKeyEscape
     sleep    1
     click    xpath    //button[@id='logIn_btn']
     sleep    1
@@ -190,7 +190,7 @@ LoginWithPsw
     clearText    id    admin_Password
     sleep    1s
     sendtext    id    admin_Password    111111
-    sendKeyEscape    id    admin_Password
+    sendKeyEscape
     waitElementDisplayed    id    logIn_btn    20    true
     click    id    logIn_btn
     sleep    3s
