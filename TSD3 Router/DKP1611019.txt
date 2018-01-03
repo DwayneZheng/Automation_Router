@@ -11,10 +11,54 @@ Library           String
 0007
     [Documentation]    Wireless->2.4G band->Security Mode = None
     [Tags]    DKP1611019-0007
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status-Switch}    #Disable Smart connect
+    #===Configure 2.4G band Security Mode = None===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
+    click    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-Select}    10    true
+    click    ${Settings-Wireless-2.4G-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    10    true
+    click    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    #===Configure 2.4G band Security Mode = None End===
+    scroll
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
 
 0009
     [Documentation]    Wireless->2.4G band->Security Mode = WPA
     [Tags]    DKP1611019-0009
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status-Switch}    #Disable Smart connect
+    #===Configure 2.4G band Security Mode = None===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
+    click    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-Select}    10    true
+    click    ${Settings-Wireless-2.4G-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    10    true
+    click    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
 
 0010
     [Documentation]    Wireless->2.4G band->Security Mode = WPA2
