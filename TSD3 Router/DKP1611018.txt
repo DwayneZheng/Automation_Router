@@ -1716,7 +1716,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171219
-    [Tags]    DKP1611018-Static IP   DKP1611018-Static IP-0004
+    [Tags]    DKP1611018-Static IP    DKP1611018-Static IP-0004
     #===Restore===
     ToLoginWithoutPassword
     RestoreDevice
@@ -2074,6 +2074,12 @@ Library           String
 
 0015
     [Documentation]    Internet->IPv4 PPTP Always on + Static IP test + MTU(Auto)
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    IP address is already in use when configuring Server IP and Static IP Adress
+    ...    -------------------------------------
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0015
     #Restore
     ToLoginWithoutPassword
@@ -2126,6 +2132,12 @@ Library           String
 
 0017
     [Documentation]    Internet->IPv4 PPTP Manual + Static IP test + MTU(Auto)
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    IP address is already in use when configuring Server IP and Static IP Adress
+    ...    -------------------------------------
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0017
     #Restore
     ToLoginWithoutPassword
@@ -2410,6 +2422,12 @@ Library           String
 
 0022
     [Documentation]    Internet->IPv4 L2TP Always on + Static IP test + MTU(Auto)
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    IP address is already in use when configuring Server IP and Static IP Adress
+    ...    -------------------------------------
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0022
     #Restore
     ToLoginWithoutPassword
@@ -2462,6 +2480,12 @@ Library           String
 
 0024
     [Documentation]    Internet->IPv4 L2TP Manual + Static IP test + MTU(Auto)
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    IP address is already in use when configuring Server IP and Static IP Adress
+    ...    -------------------------------------
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0024
     #Restore
     ToLoginWithoutPassword

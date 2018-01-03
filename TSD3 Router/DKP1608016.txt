@@ -73,6 +73,7 @@ Resource          ../AllResources.txt
 0006
     [Documentation]    Setup Wizard_Chinese Language(DHCP+Wired+Window10 IE11)
     [Tags]    DKP1608016-DHCP    DKP1608016-DHCP-0006
+    changeBrowser    ie
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -102,6 +103,7 @@ Resource          ../AllResources.txt
 0007
     [Documentation]    Setup Wizard_English Language(DHCP+Wired+Window7 Firefox)
     [Tags]    DKP1608016-DHCP    DKP1608016-DHCP-0007
+    changeBrowser    firefox
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -131,6 +133,7 @@ Resource          ../AllResources.txt
 0008
     [Documentation]    Setup Wizard_Korea Language(DHCP+Wired+Window7 Chrome)
     [Tags]    DKP1608016-DHCP    DKP1608016-DHCP-0008
+    changeBrowser    chrome
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -160,6 +163,7 @@ Resource          ../AllResources.txt
 0016
     [Documentation]    Setup Wizard_Chinese Language(PPPoE+Wired+Window10 IE11)
     [Tags]    DKP1608016-PPPoE    DKP1608016-PPPoE-0016
+    changeBrowser    ie
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -195,6 +199,7 @@ Resource          ../AllResources.txt
 0017
     [Documentation]    Setup Wizard_English Language(PPPoE+Wired+Window7 Firefox)
     [Tags]    DKP1608016-PPPoE    DKP1608016-PPPoE-0017
+    changeBrowser    firefox
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -230,6 +235,7 @@ Resource          ../AllResources.txt
 0018
     [Documentation]    Setup Wizard_Korea Language(PPPoE+Wired+Window7 Chrome)
     [Tags]    DKP1608016-PPPoE    DKP1608016-PPPoE-0018
+    changeBrowser    chrome
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
