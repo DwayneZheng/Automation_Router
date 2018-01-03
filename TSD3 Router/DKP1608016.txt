@@ -117,6 +117,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     Wizard-check
     Wizard-Next
+    sleep    1s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
