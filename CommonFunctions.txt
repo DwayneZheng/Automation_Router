@@ -225,6 +225,7 @@ ToLoginWithoutPassword
     #check password
     ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
     log    ${Check-password-Status}
+    dismissAlert
     Run Keyword If    "${Check-password-Status}"=="False"    LoginWithPsw
 
 ToHiddenPage
