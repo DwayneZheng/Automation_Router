@@ -189,6 +189,7 @@ LoginWithPsw
     clearText    id    admin_Password
     sleep    1s
     sendtext    id    admin_Password    111111
+    sendKeyEscape    id    admin_Password
     waitElementDisplayed    id    logIn_btn    20    true
     click    id    logIn_btn
     sleep    3s
@@ -213,7 +214,7 @@ Def-Ping
 ToLoginWithoutPassword
     ToLoginPage
     #check wizard
-    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    5
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
     log    ${Check-wizard-Status}
     Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
     ...    ELSE    log    pass
@@ -221,7 +222,7 @@ ToLoginWithoutPassword
     ToLoginPage
     ToClickLoginBtn
     #check password
-    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    10
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
     log    ${Check-password-Status}
     Run Keyword If    "${Check-password-Status}"=="False"    LoginWithPsw
 

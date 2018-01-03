@@ -114,3 +114,37 @@ Library           String
     ${After Wi-Fi 5GHz SSID}    getText    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
     Should Be True    "${After Wi-Fi 2.4GHz SSID}"=="${Before Wi-Fi 2.4GHz SSID}"
     Should Be True    "${After Wi-Fi 5GHz SSID}"=="${Before Wi-Fi 5GHz SSID}"
+
+0001
+    ToLoginWithoutPassword
+    ToHiddenPage
+    #Check default SSID
+    waitElementDisplayed    ${Hidden-Page-LAN MAC-GetVar}    10    true
+    ${Hidden-LAN MAC}    getText    ${Hidden-Page-LAN MAC-GetVar}
+    ${LAN MAC}    Remove String    ${Hidden-LAN MAC}    :
+    ${LAN MAC-last4}    Get Substring    ${LAN MAC}    -4
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${SSID-last4}    Get Substring    ${SSID}    -4
+    Should Be True    "${SSID-last4}"=="${LAN MAC-last4}"
+    #===Check default SSID END===
+    #Default WPA2 setting
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    ${check-WPA2}    getText    ${Settings-Wireless-Security Mode-Select}
+    should contain    ${check-WPA2}    WPA2    msg=Not find WPA2
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    5    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}
+    #Check 2.4G and 5G wifi name
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    5    true
+    ${2.4G-wifi}    getText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    5    true
+    ${5G-wifi}    getText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
+    Should Be True    "${2.4G-wifi}"=="${5G-wifi}"
+    #===Check 2.4G and 5G wifi name End===
+    #===Default WPA2 setting END===
+    #${fw}    getText    xpath    //*[@id="modelName"]
+    #should contain    ${fw}    878    msg=not 878
