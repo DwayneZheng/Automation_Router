@@ -2,6 +2,7 @@
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
+Library           ../Functions/wifi_connect.py
 
 *** Keywords ***
 ToLoginPage
@@ -608,3 +609,7 @@ Configure IPv4 L2TP+Static IP-Without Save
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
     sleep    1s
+
+Wifi-connect
+    [Arguments]    ${arg1}    ${arg2}=default
+    WIFI_ModifyingAndConnect    ${arg1}    ${arg2}

@@ -43,3 +43,6 @@ Stringtext
     sleep    3s
     ${fw}    getText    xpath    //*[@id="modelName"]
     should contain    ${fw}    878    msg=not 878
+
+WIFI
+    Wifi-connect    dlink-5610
