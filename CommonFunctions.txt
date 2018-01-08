@@ -3,6 +3,8 @@ Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
 Library           ../Functions/wifi_connect.py
+Library           ../Functions/wifi-mac.py
+Library           ../Functions/LAN_disconnect.py
 
 *** Keywords ***
 ToLoginPage
@@ -610,6 +612,13 @@ Configure IPv4 L2TP+Static IP-Without Save
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
     sleep    1s
 
+----1/5---
+
 Wifi-connect
     [Arguments]    ${arg1}    ${arg2}=default
     WIFI_ModifyingAndConnect    ${arg1}    ${arg2}
+
+Wifi-MAC address check
+    [Arguments]    ${arg1}    ${arg2}=default    ${arg3}=default
+    ${msg}    wireless_mac_match    ${arg1}    ${arg2}    ${arg3}
+    Should Be True    ${msg}
