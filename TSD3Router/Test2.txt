@@ -17,6 +17,7 @@
     ${val2}=    Get Substring    ${val1}=    1    4
     ${val3}=    Evaluate    ${val1}+1
 
+
 0001
     ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
     ...    default    default
