@@ -46,6 +46,7 @@ Stringtext
 
 WIFI
     Wifi-connect    dlink-5610
+    Wifi-connect    dlink-579C
 
 wifi mac check
     Wifi-MAC address check    dlink-5610    74:da:da:94:56:11    74:da:da:94:56:12
@@ -55,3 +56,4 @@ ping
 
 Lan disconnect
     Ethernet_disconnect
+

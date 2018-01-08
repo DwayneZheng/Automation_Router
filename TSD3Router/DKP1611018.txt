@@ -1599,7 +1599,7 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
-    ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
+    ${CheckDlink1}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
@@ -1617,13 +1617,13 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
-    ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
+    ${CheckDlink2}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
     #===Configure DNS Server End===
-    ${CheckMTU1373}    defping    0    ${GetDefault Gateway}    -f    -l    1473
+    ${CheckMTU1373}    defping    0    ${GetDefault Gateway}    -f    -l    1373
     ...    default    default
-    Should Be True    "${CheckMTU1373}"=="Packet needs to be fragmented but DF set" \
+    Should Be True    "${CheckMTU1373}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
 
 0003
@@ -1775,7 +1775,7 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
     sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ${CheckDlink1}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
@@ -1793,13 +1793,13 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
-    ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
+    ${CheckDlink2}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
     #===Configure DNS Server End===
-    ${CheckMTU1473}    defping    0    ${GetDefault Gateway}    -f    -l    1373
+    ${CheckMTU1373}    defping    0    ${GetDefault Gateway}    -f    -l    1373
     ...    default    default
-    Should Be True    "${CheckMTU1473}"=="Packet needs to be fragmented but DF set"
+    Should Be True    "${CheckMTU1373}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
 
 0005
