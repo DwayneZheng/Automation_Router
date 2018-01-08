@@ -2,7 +2,6 @@
 0002
     123
 
-
 0001
     ${Packet Fragmented}    defping    0    8.8.8.8    -f    -l    1465
     ...    default    default
