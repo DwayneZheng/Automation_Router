@@ -116,6 +116,16 @@ Library           String
     Should Be True    "${After Wi-Fi 5GHz SSID}"=="${Before Wi-Fi 5GHz SSID}"
 
 0001
+    [Documentation]    Wireless->Smart Connect default status test
+    ...
+    ...    HT20/40 Coxistence not support
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
     ToLoginWithoutPassword
     ToHiddenPage
     #Check default SSID
@@ -123,28 +133,283 @@ Library           String
     ${Hidden-LAN MAC}    getText    ${Hidden-Page-LAN MAC-GetVar}
     ${LAN MAC}    Remove String    ${Hidden-LAN MAC}    :
     ${LAN MAC-last4}    Get Substring    ${LAN MAC}    -4
-    ToLoginWithoutPassword
+    waitElementDisplayed    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}    3    true
+    ${2.4GHZ WLAN MAC}    getText    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
+    waitElementDisplayed    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    3    true
+    ${5GHZ WLAN MAC}    getText    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
+    sleep    100s    #Waitting \ for enable 5G wifi
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
     ${SSID-last4}    Get Substring    ${SSID}    -4
     Should Be True    "${SSID-last4}"=="${LAN MAC-last4}"
+    Wifi-MAC address check    ${SSID}    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
     #===Check default SSID END===
     #Default WPA2 setting
     waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
     click    ${Settings-Wireless-Advanced Settings…-Link}
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
-    ${check-WPA2}    getText    ${Settings-Wireless-Security Mode-Select}
-    should contain    ${check-WPA2}    WPA2    msg=Not find WPA2
+    ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
+    should contain    ${Security Mode}    WPA2    msg=Security Mode not find WPA2
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    #===Default WPA2 setting END===
+    #Disable smart connect
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    5    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}
     #Check 2.4G and 5G wifi name
     waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    5    true
-    ${2.4G-wifi}    getText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    ${2.4G-wifi-name}    getText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
     waitElementDisplayed    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    5    true
-    ${5G-wifi}    getText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
-    Should Be True    "${2.4G-wifi}"=="${5G-wifi}"
+    ${5G-wifi-name}    getText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
+    Should Be True    "${2.4G-wifi-name}"=="${5G-wifi-name}"
+    #===Check 2.4G and 5G wifi name end===
+    #Check 2.4G and 5G wifi password
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    5    true
+    ${2.4G-wifi-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Password-Input}    5    true
+    ${5G-wifi-name-password}    getText    ${Settings-Wireless-5G-Password-Input}
+    Should Be True    "${2.4G-wifi-password}"=="${5G-wifi-name-password}"
+    Should Be True    "${Wireless-password}"=="${2.4G-wifi-password}"
+    #===Check 2.4G and 5G wifi password end===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    5    true
+    click    ${Settings-Wireless-5G-Advanced Settings-Link}
+    #Check 2.4G and 5G wifi Security Mode
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    5    true
+    ${2.4G-wifi-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Password-Input}    5    true
+    ${5G-wifi-name-password}    getText    ${Settings-Wireless-5G-Password-Input}
+    Should Be True    "${2.4G-wifi-password}"=="${5G-wifi-name-password}"
+    #===Check 2.4G and 5G wifi Security Mode END===
+    #Check 2.4G default
+    #Security Mode
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-Select}    5    true
+    ${2.4G-wifi-security mode}    getText    ${Settings-Wireless-2.4G-Security Mode-Select}
+    Should Be True    "${2.4G-wifi-security mode}"=="WPA/WPA2-Personal"
+    #802.11 Mode
+    waitElementDisplayed    ${Settings-Wireless-2.4G-802.11 Mode-Select}     \    true
+    ${2.4G-wifi-802.11 mode}    getText    ${Settings-Wireless-2.4G-802.11 Mode-Select}
+    Should Be True    "${2.4G-wifi-802.11 mode}"=="Mixed 802.11b/g/n"
+    #Wi-Fi Channel
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Channel-Select}    5    true
+    ${2.4G-wifi-channel}    getText    ${Settings-Wireless-2.4G-Wi-Fi Channel-Select}
+    Should Be True    "${2.4G-wifi-channel}"=="Auto"
+    #Transmission Power
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Transmission Power-Select}    5    true
+    ${2.4G-wifi-transmis power}    getText    ${Settings-Wireless-2.4G-Transmission Power-Select}
+    Should Be True    "${2.4G-wifi-transmis power}"=="High"
+    #Channel Width
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Channel Width-Select}    5    true
+    ${2.4G-wifi-Channel Width}    getText    ${Settings-Wireless-2.4G-Channel Width-Select}
+    Should Be True    "${2.4G-wifi-Channel Width}"=="Auto 20/40 MHz"
+    #HT20/40 Coxistence not yet
+    #Visibility Status
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Visibility Status-Select}    5    true
+    ${2.4G-wifi-VisibilityStatus}    getText    ${Settings-Wireless-2.4G-Visibility Status-Select}
+    Should Be True    "${2.4G-wifi-VisibilityStatus}"=="Visible"
+    #Schedule
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Schedule-Select}    5    true
+    ${2.4G-wifi-Schedule}    getText    ${Settings-Wireless-2.4G-Schedule-Select}
+    Should Be True    "${2.4G-wifi-Schedule}"=="Always Enable"
+    #===Check 2.4G default===
+    #Check 5G default
+    #Security Mode
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-Select}    5    true
+    ${5G-wifi-security mode}    getText    ${Settings-Wireless-5G-Security Mode-Select}
+    Should Be True    "${5G-wifi-security mode}"=="WPA/WPA2-Personal"
+    #802.11 Mode
+    waitElementDisplayed    ${Settings-Wireless-5G-802.11 Mode-Select}    \    true
+    ${5G-wifi-802.11 mode}    getText    ${Settings-Wireless-5G-802.11 Mode-Select}
+    Should Be True    "${5G-wifi-802.11 mode}"=="Mixed 802.11a/n/ac"
+    #Wi-Fi Channel
+    waitElementDisplayed    ${Settings-Wireless-5G-Wi-Fi Channel-Select}    5    true
+    ${5G-wifi-channel}    getText    ${Settings-Wireless-5G-Wi-Fi Channel-Select}
+    Should Be True    "${5G-wifi-channel}"=="Auto"
+    #Transmission Power
+    waitElementDisplayed    ${Settings-Wireless-5G-Transmission Power-Select}    5    true
+    ${5G-wifi-transmis power}    getText    ${Settings-Wireless-5G-Transmission Power-Select}
+    Should Be True    "${5G-wifi-transmis power}"=="High"
+    #Channel Width
+    waitElementDisplayed    ${Settings-Wireless-5G-Channel Width-Select}    5    true
+    ${5G-wifi-Channel Width}    getText    ${Settings-Wireless-5G-Channel Width-Select}
+    Should Be True    "${5G-wifi-Channel Width}"=="Auto 20/40/80 MHz"
+    #Visibility Status
+    waitElementDisplayed    ${Settings-Wireless-5G-Visibility Status-Select}    5    true
+    ${5G-wifi-VisibilityStatus}    getText    ${Settings-Wireless-5G-Visibility Status-Select}
+    Should Be True    "${5G-wifi-VisibilityStatus}"=="Visible"
+    #Schedule
+    waitElementDisplayed    ${Settings-Wireless-5G-Schedule-Select}    5    true
+    ${5G-wifi-Schedule}    getText    ${Settings-Wireless-5G-Schedule-Select}
+    Should Be True    "${5G-wifi-Schedule}"=="Always Enable"
+    #===Check 5G default===
+    #${fw}    getText    xpath    //*[@id="modelName"]
+    #should contain    ${fw}    878    msg=not 878
+
+0002
+    [Documentation]    Wireless->Smart Connect enable/encryption=None test
+    ...
+    ...    Not support disable ethernet
+    ...
+    ...    OK verify by Richard Wu 20180109
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    #Check default MAC
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ToHiddenPage
+    ${2.4GHZ WLAN MAC}    getText    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
+    waitElementDisplayed    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    3    true
+    ${5GHZ WLAN MAC}    getText    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
+    sleep    100s
+    Wifi-MAC address check    ${SSID}    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
+    #===Check default MAC END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    #Security Mode None setting
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    click    ${Settings-Wireless-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-None-SelectChild}    5    true
+    click    ${Settings-Wireless-None-SelectChild}
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    5    true
+    click    ${Settings-Wireless-Save-Click}
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    40    true
+    click    ${Settings-Wireless-Finish-Click}
+    #===#Security Mode None setting===
+    #Connect \ WIFI
+    Wifi-connect    ${SSID}
+    ${CheckAuthentication}    Check_Authentication    Open
+    should be true    ${CheckAuthentication}
+    #===Connect \ WIFI END===
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
+    should contain    ${Security Mode}    None    msg=Security Mode not find None
     #===Check 2.4G and 5G wifi name End===
     #===Default WPA2 setting END===
     #${fw}    getText    xpath    //*[@id="modelName"]
     #should contain    ${fw}    878    msg=not 878
+
+0004
+    [Documentation]    Wireless->Smart Connect enable/encryption=WPA test
+    ...
+    ...    Not support disable ethernet
+    ...
+    ...
+    ...    OK verify by Richard Wu 20180110
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ToHiddenPage
+    #Check default MAC
+    ${2.4GHZ WLAN MAC}    getText    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
+    waitElementDisplayed    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    3    true
+    ${5GHZ WLAN MAC}    getText    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
+    sleep    100s
+    Wifi-MAC address check    ${SSID}    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
+    #===Check default MAC END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    #Security Mode None setting
+    waitElementDisplayed    ${Settings-Wireless-Password-Input}    5    true
+    ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    click    ${Settings-Wireless-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    5    true
+    click    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    5    true
+    click    ${Settings-Wireless-Save-Click}
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    40    true
+    click    ${Settings-Wireless-Finish-Click}
+    #===#Security Mode None setting===
+    #Connect \ WIFI
+    Wifi-connect    ${SSID}    ${Wireless-password}    WPA
+    ${CheckAuthentication}    Check_Authentication    WPA-Personal
+    should be true    ${CheckAuthentication}
+    #===Connect \ WIFI END===
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
+    should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
+
+0005
+    [Documentation]    Wireless->Smart Connect enable/encryption=WPA2 test
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    ToHiddenPage
+    #Check default MAC
+    ${2.4GHZ WLAN MAC}    getText    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
+    waitElementDisplayed    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    3    true
+    ${5GHZ WLAN MAC}    getText    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
+    sleep    100s
+    Wifi-MAC address check    dlink-5610    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
+    #===Check default MAC END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    #Security Mode None setting
+    waitElementDisplayed    ${Settings-Wireless-Password-Input}    5    true
+    ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    click    ${Settings-Wireless-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    5    true
+    click    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    5    true
+    click    ${Settings-Wireless-Save-Click}
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    40    true
+    click    ${Settings-Wireless-Finish-Click}
+    #===#Security Mode None setting===
+    #Connect \ WIFI
+    Wifi-connect    dlink-5610    ${Wireless-password}    WPA2
+    ${CheckAuthentication}    Check_Authentication    WPA2-Personal
+    should be true    ${CheckAuthentication}
+    #===Connect \ WIFI END===
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
+    should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
+
+0006
