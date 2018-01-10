@@ -1,0 +1,89 @@
+*** Settings ***
+Documentation     Subject: TSD3 Router->Management->System Admin
+...
+...               Date：2018/01/10
+Suite Setup       ElementLocator-DIR-878
+Force Tags        DKP1611014
+Resource          ../AllResources.txt
+
+*** Test Cases ***
+0001
+    [Documentation]    Admin Password modify test
+    ...
+    ...    OK verify by Dwayne Cheng 20180110
+    [Tags]    DKP1611014-0001
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
+    clearText    ${Management-System Admin-Admin-Password-Input}
+    sendtext    ${Management-System Admin-Admin-Password-Input}    111111    #Modify password
+    ${BeforePassword}    getText    ${Management-System Admin-Admin-Password-Input}
+    click    ${Management-System Admin-Admin-Save}
+    sleep    30s
+    LoginwithPsw
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+
+0007
+    [Documentation]    System->Save Settings To Local Hard Drive
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    DUT must save current setting on local pc(Major)
+    ...    -------------------------------------
+    [Tags]    DKP1611014-0007
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
+    click    ${Management-System Admin-System-System-ChangePage}
+    waitElementDisplayed    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    10    true
+    click    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}
+
+0008
+    [Documentation]    System->Load Settings From Local Hard Drive
+    ...
+    ...    Critrntia not test in this case:
+    ...
+    ...    ------------------------------------
+    ...    The restore configure file must same as previous setting(Major)
+    ...    -------------------------------------
+    [Tags]    DKP1611014-0008
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
+    click    ${Management-System Admin-System-System-ChangePage}
+
+0009
+    [Documentation]    System->Restore To Factory Default Settings
+    [Tags]    DKP1611014-0009
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
+    click    ${Management-System Admin-System-System-ChangePage}
