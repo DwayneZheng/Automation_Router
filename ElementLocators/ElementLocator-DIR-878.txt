@@ -3128,7 +3128,9 @@ ElementLocator-DIR-878
     ${Management-System Admin-Admin-Remote Admin Port-Input}    getElementLocator    xpath    //*[@id="remoteAdminPort"]
     Set Global Variable    ${Management-System Admin-Admin-Remote Admin Port-Input}
     ${Management-System Admin-Admin-Use HTTPS-Switch}    getElementLocator    xpath    //*[@id="checkUseHTTPS"]/label/span[2]
-    Set Global Variable    ${Management-System Admin-Admin-Use HTTPS-Switch}
+    Set Global Variable    ${Management-System Admin-Admin-Use HTTPS-Switch}	
+    ${Management-System Admin-Admin-Save}    getElementLocator    xpath    //div[@id='Save_btn']
+    Set Global Variable    ${Management-System Admin-Admin-Save}
     #Management-System Admin-System
     ${Management-System Admin-System-Management-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Management']
     Set Global Variable    ${Management-System Admin-System-Management-FunctionTable}
