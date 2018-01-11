@@ -11,12 +11,19 @@ Library           String
 0007
     [Documentation]    Wireless->2.4G band->Security Mode = None
     [Tags]    DKP1611019-0007
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
     ToLoginPage
     Lang2English
     ToClickLoginBtn
     FunctionTable-Settings-Wireless
-    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
-    click    ${Settings-Wireless-Smart Connect Status-Switch}    #Disable Smart connect
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
     #===Configure 2.4G band Security Mode = None===
     waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
     click    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
@@ -25,11 +32,18 @@ Library           String
     waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    10    true
     click    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
     #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-5G-Status-Switch}    10    true
+    click    ${Settings-Wireless-5G-Status-Switch}    #Close 5G WIFI
     scroll
     waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    sleep    10s
+    Wifi-connect    ${SSID}
+    ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
+    should be true    ${CheckAuthentication}
 
 0009
     [Documentation]    Wireless->2.4G band->Security Mode = WPA
@@ -45,36 +59,180 @@ Library           String
     Lang2English
     ToClickLoginBtn
     FunctionTable-Settings-Wireless
-    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
-    click    ${Settings-Wireless-Smart Connect Status-Switch}    #Disable Smart connect
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
     #===Configure 2.4G band Security Mode = None===
     waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
     click    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-Select}    10    true
     click    ${Settings-Wireless-2.4G-Security Mode-Select}
-    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    10    true
-    click    ${Settings-Wireless-2.4G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    waitElementDisplayed    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    10    true
+    click    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    #2.4G-Security Mode-WPA2
     #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-5G-Status-Switch}    10    true
+    click    ${Settings-Wireless-5G-Status-Switch}    #Close 5G WIFI
+    scroll
     waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    5    true
+    ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
+    Wifi-connect    ${SSID}    ${Wireless-password}    WPA
+    ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
+    should be true    ${CheckAuthentication}
 
 0010
     [Documentation]    Wireless->2.4G band->Security Mode = WPA2
     [Tags]    DKP1611019-0010
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
+    #===Configure 2.4G band Security Mode = None===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Advanced Settings…-Link}    10    true
+    click    ${Settings-Wireless-2.4G-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Security Mode-Select}    10    true
+    click    ${Settings-Wireless-2.4G-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    10    true
+    click    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    #2.4G-Security Mode-WPA2
+    #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-5G-Status-Switch}    10    true
+    click    ${Settings-Wireless-5G-Status-Switch}    #Close 5G WIFI
+    scroll
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    5    true
+    ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
+    Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
+    should be true    ${CheckAuthentication}
 
 0011
     [Documentation]    Wireless->5G band->Security Mode = None
     [Tags]    DKP1611019-0011
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
+    #===Configure 2.4G band Security Mode = None===
+    waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    10    true
+    click    ${Settings-Wireless-5G-Advanced Settings-Link}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-Select}     10    true
+    click    ${Settings-Wireless-5G-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    10    true
+    click    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Status-Switch}    10    true
+    click    ${Settings-Wireless-2.4G-Status-Switch}    #Close 2.4G WIFI
+    scroll
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    sleep    10s
+    Wifi-connect    ${SSID}
+    ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
+    should be true    ${CheckAuthentication}
 
 0013
     [Documentation]    Wireless->5G band->Security Mode = WPA
     [Tags]    DKP1611019-0013
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
+    #===Configure 2.4G band Security Mode = None===
+    waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    10    true
+    click    ${Settings-Wireless-5G-Advanced Settings-Link}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}    10    true
+    click    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    10    true
+    click    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Status-Switch}    10    true
+    click    ${Settings-Wireless-2.4G-Status-Switch}    #Close 2.4G WIFI
+    scroll
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
+    sleep    10s
+    Wifi-connect    ${SSID}    ${Wireless-password}    WPA
+    ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
+    should be true    ${CheckAuthentication}
 
 0014
     [Documentation]    Wireless->5G band->Security Mode = WPA2
     [Tags]    DKP1611019-0014
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
+    #===Configure 2.4G band Security Mode = None===
+    waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    10    true
+    click    ${Settings-Wireless-5G-Advanced Settings-Link}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}    10    true
+    click    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    10    true
+    click    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    #===Configure 2.4G band Security Mode = None End===
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Status-Switch}    10    true
+    click    ${Settings-Wireless-2.4G-Status-Switch}    #Close 2.4G WIFI
+    scroll
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
+    click    ${Settings-Wireless-Save-Click}    #Save
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
+    click    ${Settings-Wireless-Finish-Click}    #Finish
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
+    sleep    10s
+    Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
+    should be true    ${CheckAuthentication}
 
 0015
     [Documentation]    Wireless->2.4G band->802.11 Mode = Mixed 802.11b/g/n
@@ -193,7 +351,7 @@ Library           String
     ${2.4G-wifi-security mode}    getText    ${Settings-Wireless-2.4G-Security Mode-Select}
     Should Be True    "${2.4G-wifi-security mode}"=="WPA/WPA2-Personal"
     #802.11 Mode
-    waitElementDisplayed    ${Settings-Wireless-2.4G-802.11 Mode-Select}     \    true
+    waitElementDisplayed    ${Settings-Wireless-2.4G-802.11 Mode-Select}    \    true
     ${2.4G-wifi-802.11 mode}    getText    ${Settings-Wireless-2.4G-802.11 Mode-Select}
     Should Be True    "${2.4G-wifi-802.11 mode}"=="Mixed 802.11b/g/n"
     #Wi-Fi Channel
@@ -374,13 +532,16 @@ Library           String
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
     #===Restore END===
     ToLoginWithoutPassword
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     ToHiddenPage
     #Check default MAC
     ${2.4GHZ WLAN MAC}    getText    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
     waitElementDisplayed    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    3    true
     ${5GHZ WLAN MAC}    getText    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
     sleep    100s
-    Wifi-MAC address check    dlink-5610    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
+    Wifi-MAC address check    ${SSID}    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
     #===Check default MAC END===
     ToLoginPage
     Lang2English
@@ -401,7 +562,7 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}
     #===#Security Mode None setting===
     #Connect \ WIFI
-    Wifi-connect    dlink-5610    ${Wireless-password}    WPA2
+    Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -413,3 +574,39 @@ Library           String
     should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
 
 0006
+    [Documentation]    Wireless->Smart Connect enable/SSID special characters test
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    clearText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    sendtext     ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    ~!@#$% ^&*()_+
+    waitElementDisplayed    ${Settings-Wireless-Password-Input}    5    true
+    clearText    ${Settings-Wireless-Password-Input}
+    sendtext     ${Settings-Wireless-Password-Input}    ~!@#$% ^&*()_+
+    waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
+    click    ${Settings-Wireless-Advanced Settings…-Link}
+    waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
+    click    ${Settings-Wireless-Security Mode-Select}
+    waitElementDisplayed    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}    5    true
+    click    ${Settings-Wireless-WPA/WPA2-Personal-SelectChild}
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    5    true
+    click    ${Settings-Wireless-Save-Click}
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    40    true
+    click    ${Settings-Wireless-Finish-Click}
+    Wifi-connect    "~!@#$% ^&*()_+"    ~!@#$% ^&*()_+    WPA2
+
+wifi connect
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    Wifi-connect    ${SSID}
