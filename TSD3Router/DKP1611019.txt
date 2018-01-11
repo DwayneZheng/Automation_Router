@@ -140,10 +140,10 @@ Library           String
     #===Configure 2.4G band Security Mode = None===
     waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    10    true
     click    ${Settings-Wireless-5G-Advanced Settings-Link}
-    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-Select}     10    true
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-Select}    10    true
     click    ${Settings-Wireless-5G-Security Mode-Select}
     waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    10    true
-    click    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    click    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    #5G-Security Mode-None
     #===Configure 2.4G band Security Mode = None End===
     waitElementDisplayed    ${Settings-Wireless-2.4G-Status-Switch}    10    true
     click    ${Settings-Wireless-2.4G-Status-Switch}    #Close 2.4G WIFI
@@ -177,10 +177,10 @@ Library           String
     #===Configure 2.4G band Security Mode = None===
     waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    10    true
     click    ${Settings-Wireless-5G-Advanced Settings-Link}
+    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-Select}    10    true
+    click    ${Settings-Wireless-5G-Security Mode-Select}
     waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}    10    true
-    click    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}
-    waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    10    true
-    click    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    #2.4G-Security Mode-None
+    click    ${Settings-Wireless-5G-Security Mode-WPAORWPA2-PSK-SelectChild}    #5G-Security Mode-None
     #===Configure 2.4G band Security Mode = None End===
     waitElementDisplayed    ${Settings-Wireless-2.4G-Status-Switch}    10    true
     click    ${Settings-Wireless-2.4G-Status-Switch}    #Close 2.4G WIFI
@@ -588,10 +588,10 @@ Library           String
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     clearText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    sendtext     ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    ~!@#$% ^&*()_+
+    sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    ~!@#$% ^&*()_+
     waitElementDisplayed    ${Settings-Wireless-Password-Input}    5    true
     clearText    ${Settings-Wireless-Password-Input}
-    sendtext     ${Settings-Wireless-Password-Input}    ~!@#$% ^&*()_+
+    sendtext    ${Settings-Wireless-Password-Input}    ~!@#$% ^&*()_+
     waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
     click    ${Settings-Wireless-Advanced Settings…-Link}
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
