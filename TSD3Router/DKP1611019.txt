@@ -588,10 +588,10 @@ Library           String
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     clearText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    ~!@#$% ^&*()_+
+    sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    "~!@#$% ^&*()_+"
     waitElementDisplayed    ${Settings-Wireless-Password-Input}    5    true
     clearText    ${Settings-Wireless-Password-Input}
-    sendtext    ${Settings-Wireless-Password-Input}    ~!@#$% ^&*()_+
+    sendtext    ${Settings-Wireless-Password-Input}    "~!@#$% ^&*()_+"
     waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
     click    ${Settings-Wireless-Advanced Settings…-Link}
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
