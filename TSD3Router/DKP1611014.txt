@@ -12,7 +12,7 @@ Library           String
     [Documentation]    Admin Password modify test
     ...
     ...    OK verify by Dwayne Cheng 20180110
-    [Tags]    DKP1611014-0001
+    [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0001
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -41,7 +41,7 @@ Library           String
     ...    ------------------------------------
     ...    DUT must save current setting on local pc(Major)
     ...    -------------------------------------
-    [Tags]    DKP1611014-0007
+    [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0007
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -65,7 +65,7 @@ Library           String
     ...    ------------------------------------
     ...    The restore configure file must same as previous setting(Major)
     ...    -------------------------------------
-    [Tags]    DKP1611014-0008
+    [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0008
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -127,7 +127,7 @@ Library           String
 
 0009
     [Documentation]    System->Restore To Factory Default Settings
-    [Tags]    DKP1611014-0009
+    [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0009
     #Restore
     ToLoginWithoutPassword
     RestoreDevice

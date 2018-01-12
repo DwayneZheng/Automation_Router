@@ -12,7 +12,7 @@ Library           String
     [Documentation]    Internet Connection Check
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0001
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0001
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -31,7 +31,7 @@ Library           String
     [Documentation]    Internet_DHCP WAN Connection_Release IP Button Check
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0003
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0003
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -54,7 +54,7 @@ Library           String
     [Documentation]    Internet_DHCP WAN Connection_Renew IP Button Check (Runnig after 0003 and remove restore function)
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0004
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0004
     ToLoginWithoutPassword
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
@@ -69,7 +69,7 @@ Library           String
     [Documentation]    Internet _DHCP WAN Connection_Go to settings button Check
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0005
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0005
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -96,7 +96,7 @@ Library           String
     [Documentation]    Internet _PPPoE WAN Connection_Go to settings button check
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0027
+    [Tags]    DKP1611011-PPPoE    DKP1611011-PPPoE-0027
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -124,7 +124,7 @@ Library           String
 
 0028
     [Documentation]    Internet _Static IP WAN Connection_Go to settings button check \ OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0028
+    [Tags]    DKP1611011-StaticIP    DKP1611011-StaticIP-0028
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -153,7 +153,7 @@ Library           String
     [Documentation]    Internet _PPTP WAN Connection_Go to settings button check
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0029
+    [Tags]    DKP1611011-PPTP    DKP1611011-PPTP-0029
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -182,7 +182,7 @@ Library           String
     [Documentation]    Internet _L2TP WAN Connection_Go to settings button check
     ...
     ...    OK verify by Richard Wu 20171212
-    [Tags]    DKP1611011-0030
+    [Tags]    DKP1611011-L2TP    DKP1611011-L2TP-0030
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -215,7 +215,7 @@ Library           String
     ...
     ...    ------------------
     ...    Check IPv6 status
-    [Tags]    DKP1611011-0006
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0006
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -270,7 +270,7 @@ Library           String
     [Documentation]    DUT_LAN connection_Go to settings button check
     ...
     ...    OK verify by Dwayne Cheng 20171212
-    [Tags]    DKP1611011-0007
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0007
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -292,7 +292,7 @@ Library           String
     [Documentation]    DUT_Wi-Fi connection_Go to settings button check
     ...
     ...    OK verify by Dwayne Cheng 20171212
-    [Tags]    DKP1611011-0008
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0008
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -314,7 +314,7 @@ Library           String
     [Documentation]    Connection Clients check
     ...
     ...    OK verify by Dwayne Cheng 20171212
-    [Tags]    DKP1611011-0009
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0009
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -350,7 +350,7 @@ Library           String
     [Documentation]    Connection Clients_Edit button check
     ...
     ...    OK verify by Dwayne Cheng 20171212
-    [Tags]    DKP1611011-0010
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0010
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -389,7 +389,7 @@ Library           String
     ...
     ...
     ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-0018
+    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0018
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -421,7 +421,7 @@ Library           String
     [Documentation]    Internet Connected_PPPoE Check
     ...
     ...    OK verify by Dwayne Cheng 20171214
-    [Tags]    DKP1611011-0019
+    [Tags]    DKP1611011-PPPoE    DKP1611011-PPPoE-0019
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -460,7 +460,7 @@ Library           String
     ...    Critenria not test in this case：
     ...    ---------------------
     ...    3.Unplug WAN connection
-    [Tags]    DKP1611011-0020
+    [Tags]    DKP1611011-PPPoE    DKP1611011-PPPoE-0020
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -519,7 +519,7 @@ Library           String
     [Documentation]    Internet Connected_Static IP Check
     ...
     ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-0021
+    [Tags]    DKP1611011-StaticIP    DKP1611011-StaticIP-0021
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -556,7 +556,7 @@ Library           String
     [Documentation]    Internet Connected_PPTP Check
     ...
     ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-0023
+    [Tags]    DKP1611011-PPTP    DKP1611011-PPTP-0023
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -596,7 +596,7 @@ Library           String
     ...    Critenria not test in this case：
     ...    -----------------------------
     ...    3.Unplug WAN connection
-    [Tags]    DKP1611011-0024
+    [Tags]    DKP1611011-PPTP    DKP1611011-PPTP-0024
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -657,7 +657,7 @@ Library           String
     [Documentation]    Internet Connected_L2TP Check
     ...
     ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-002
+    [Tags]    DKP1611011-L2TP    DKP1611011-L2TP-0025
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice
@@ -697,7 +697,7 @@ Library           String
     ...    Critenria not test in this case：
     ...    ---------------------
     ...    3.Unplug WAN connection
-    [Tags]    DKP1611011-0026
+    [Tags]    DKP1611011-L2TP    DKP1611011-L2TP-0026
     ToLoginWithoutPassword
     #===Restore===
     RestoreDevice

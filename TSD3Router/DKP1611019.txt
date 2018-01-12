@@ -10,7 +10,7 @@ Library           String
 *** Test Cases ***
 0007
     [Documentation]    Wireless->2.4G band->Security Mode = None
-    [Tags]    DKP1611019-0007
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0007
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -47,7 +47,7 @@ Library           String
 
 0009
     [Documentation]    Wireless->2.4G band->Security Mode = WPA
-    [Tags]    DKP1611019-0009
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0009
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -85,7 +85,7 @@ Library           String
 
 0010
     [Documentation]    Wireless->2.4G band->Security Mode = WPA2
-    [Tags]    DKP1611019-0010
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0010
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -123,7 +123,7 @@ Library           String
 
 0011
     [Documentation]    Wireless->5G band->Security Mode = None
-    [Tags]    DKP1611019-0011
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0011
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -160,7 +160,7 @@ Library           String
 
 0013
     [Documentation]    Wireless->5G band->Security Mode = WPA
-    [Tags]    DKP1611019-0013
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0013
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -198,7 +198,7 @@ Library           String
 
 0014
     [Documentation]    Wireless->5G band->Security Mode = WPA2
-    [Tags]    DKP1611019-0014
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0014
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -236,7 +236,7 @@ Library           String
 
 0015
     [Documentation]    Wireless->2.4G band->802.11 Mode = Mixed 802.11b/g/n
-    [Tags]    DKP1611019-0015
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0015
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -265,11 +265,11 @@ Library           String
 
 0018
     [Documentation]    Wireless->5G band->802.11 Mode = Mixed 802.11a/n/ac
-    [Tags]    DKP1611019-0018
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0018
 
 0032
     [Documentation]    Wireless->SSID test
-    [Tags]    DKP1611019-0032
+    [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0032
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
@@ -302,6 +302,7 @@ Library           String
     [Documentation]    Wireless->Smart Connect default status test
     ...
     ...    HT20/40 Coxistence not support
+	[Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0001
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -440,6 +441,7 @@ Library           String
     ...    Not support disable ethernet
     ...
     ...    OK verify by Richard Wu 20180109
+	[Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0002
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -498,6 +500,7 @@ Library           String
     ...
     ...
     ...    OK verify by Richard Wu 20180110
+	[Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0004
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -549,6 +552,7 @@ Library           String
 
 0005
     [Documentation]    Wireless->Smart Connect enable/encryption=WPA2 test
+	[Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0005
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -600,6 +604,7 @@ Library           String
 
 0006
     [Documentation]    Wireless->Smart Connect enable/SSID special characters test
+	[Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0006
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
