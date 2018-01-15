@@ -1280,9 +1280,9 @@ ElementLocator-DIR-878
     Set Global Variable    ${Settings-Wireless-WPS-PIN Status-Switch}
     ${Settings-Wireless-Title-GetVar}    getElementLocator    xpath    //*[@id="FunctionName"]
     Set Global Variable    ${Settings-Wireless-Title-GetVar}
-    ${Settings-Wireless-Save-Click}    getElementLocator    xpath    //button[@type='submit']
+    ${Settings-Wireless-Save-Click}    getElementLocator    xpath    //div[@id='Save_btn']
     Set Global Variable    ${Settings-Wireless-Save-Click}
-    ${Settings-Wireless-Finish-Click}    getElementLocator    xpath    //div[@id='Confirm_btn']
+    ${Settings-Wireless-Finish-Click}    getElementLocator    xpath    //button[@id='popalert_ok']
     Set Global Variable    ${Settings-Wireless-Finish-Click}
     #Settings-Wireless-Guest Zone
     ${Settings-Wireless-Guest Zone-Guest Zone-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']
@@ -3128,7 +3128,7 @@ ElementLocator-DIR-878
     ${Management-System Admin-Admin-Remote Admin Port-Input}    getElementLocator    xpath    //*[@id="remoteAdminPort"]
     Set Global Variable    ${Management-System Admin-Admin-Remote Admin Port-Input}
     ${Management-System Admin-Admin-Use HTTPS-Switch}    getElementLocator    xpath    //*[@id="checkUseHTTPS"]/label/span[2]
-    Set Global Variable    ${Management-System Admin-Admin-Use HTTPS-Switch}	
+    Set Global Variable    ${Management-System Admin-Admin-Use HTTPS-Switch}
     ${Management-System Admin-Admin-Save}    getElementLocator    xpath    //div[@id='Save_btn']
     Set Global Variable    ${Management-System Admin-Admin-Save}
     #Management-System Admin-System
@@ -3142,6 +3142,14 @@ ElementLocator-DIR-878
     Set Global Variable    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}
     ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    getElementLocator    xpath    //*[@id="First_LSFLHD"]/td[1]/div/label
     Set Global Variable    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
+    ${Management-System Admin-System-Load-Restore-Click}    getElementLocator    xpath    //tr[@id='upload_File_Button']/td/button
+    Set Global Variable    ${Management-System Admin-System-Load-Restore-Click}
+    ${Management-System Admin-System-Load-Yes-Click}    getElementLocator    xpath    //div[@id='popMessage_button_upload']
+    Set Global Variable    ${Management-System Admin-System-Load-Yes-Click}
+    ${Management-System Admin-System-Load-NO-Click}    getElementLocator    xpath    //div[@onclick='returnToMain()']
+    Set Global Variable    ${Management-System Admin-System-Load-NO-Click}
+    ${Management-System Admin-System-Load Settings From Local Hard Drive Success-Click}    getElementLocator    xpath    //div[@onclick='returnToHome()']
+    Set Global Variable    ${Management-System Admin-System-Load Settings From Local Hard Drive Success-Click}
     ${Management-System Admin-System-Restore To Factory Default Settings-Click}    getElementLocator    xpath    //div[@id='main']/table/tbody/tr[6]/td/div/button
     Set Global Variable    ${Management-System Admin-System-Restore To Factory Default Settings-Click}
     ${Management-System Admin-System-Restore-Yes-Click}    getElementLocator    xpath    (//div[@id='Confirm_btn'])[1]
