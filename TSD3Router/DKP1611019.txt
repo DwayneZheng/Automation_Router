@@ -665,3 +665,16 @@ wifi connect
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     Wifi-connect    ${SSID}
+
+upload
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
+    click    ${Management-System Admin-System-System-ChangePage}
+    # ===Load Settings From Local Hard Drive===
+    ${Local}    Set Variable    D:\\config.bin
+    log    ${Local}
+    #sendtext    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    ${Local}
+    sendtext    id    select_Folder    ${Local}
+    sleep    100
+    click    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
+    click    ${Management-System Admin-System-Load-Restore-Click}

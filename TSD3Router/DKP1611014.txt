@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Subject: TSD3 Router->Management->System Admin
 ...
 ...               Date：2018/01/10
@@ -110,7 +110,9 @@ Library           String
     FunctionTable-Management-SystemAdmin
     click    ${Management-System Admin-System-System-ChangePage}
     # ===Load Settings From Local Hard Drive===
-    sendtext    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    C:\Users\f9621\Downloads\config.bin
+    ${Local}    Set Variable    C:\Users\f9621\Downloads\config.bin
+    sendtext    id    select_Folder    ${Local}
+    #sendtext    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    C:\Users\f9621\Downloads\config.bin
     click    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
     click    ${Management-System Admin-System-Load-Restore-Click}
     waitElementDisplayed    ${Management-System Admin-System-Load-Yes-Click}    10    true
