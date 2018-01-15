@@ -4,7 +4,7 @@ Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
 Library           ../Functions/wifi_connect.py
 Library           ../Functions/wifi-mac.py
-Library           ../Functions/LAN_disconnect.py
+Library           ../Functions/LAN_control.py
 
 *** Keywords ***
 ToLoginPage
@@ -623,9 +623,7 @@ Wifi-connect
     ...
     ...    1)WPA2
     ...
-    ...    2)WPA \
-    ...    3)other \
-    ...
+    ...    2)WPA \ 3)other \
     ${Connect-Check}    WIFI_ModifyingAndConnect    ${arg1}    ${arg2}    ${arg3}
     should be true    ${Connect-Check}
 
