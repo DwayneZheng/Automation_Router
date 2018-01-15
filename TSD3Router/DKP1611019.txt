@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Subject: TSD3 Router->Settings->Wireless
 ...
 ...               Date：2017/12/26
@@ -666,19 +666,6 @@ wifi connect
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     Wifi-connect    ${SSID}
 
-upload
-    ToLoginWithoutPassword
-    FunctionTable-Management-SystemAdmin
-    click    ${Management-System Admin-System-System-ChangePage}
-    # ===Load Settings From Local Hard Drive===
-    ${Local}    Set Variable    D:\\config.bin
-    log    ${Local}
-    #sendtext    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    ${Local}
-    sendtext    id    select_Folder    ${Local}
-    sleep    100
-    click    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
-    click    ${Management-System Admin-System-Load-Restore-Click}
-
 LANControl
     [Tags]    LANControl
     Ethernet_disable
@@ -707,3 +694,4 @@ LANControl
     ...    default    default
     Run Keyword If    "${Reverse-Result1}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True    False
+
