@@ -4,7 +4,7 @@ Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
 Library           ../Functions/wifi_connect.py
 Library           ../Functions/wifi-mac.py
-Library           ../Functions/LAN_disconnect.py
+Library           ../Functions/LAN_control.py
 
 *** Keywords ***
 ToLoginPage
