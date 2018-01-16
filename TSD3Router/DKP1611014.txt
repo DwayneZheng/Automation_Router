@@ -41,6 +41,7 @@ Library           String
     ...    ------------------------------------
     ...    DUT must save current setting on local pc(Major)
     ...    -------------------------------------
+    ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0007
     #Restore
     ToLoginWithoutPassword
@@ -65,6 +66,7 @@ Library           String
     ...    ------------------------------------
     ...    The restore configure file must same as previous setting(Major)
     ...    -------------------------------------
+    ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0008
     #Restore
     ToLoginWithoutPassword
@@ -123,12 +125,14 @@ Library           String
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
     ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    ${AfterSSIDPassword}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${AfterSSIDPassword}    getText    ${Settings-Wireless-Password-Input}
     Should Be True    "${BeforeSSID}"=="${AfterSSID}"
     Should Be True    "${BeforeSSIDPassword}"=="${AfterSSIDPassword}"
 
 0009
     [Documentation]    System->Restore To Factory Default Settings
+    ...
+    ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0009
     #Restore
     ToLoginWithoutPassword
