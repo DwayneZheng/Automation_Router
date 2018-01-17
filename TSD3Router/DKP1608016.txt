@@ -41,6 +41,12 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="動態 IP (PPPoE)"
     LoginWithPsw
     Settings-Wizard-Page
     Wizard-Next
@@ -63,6 +69,12 @@ Resource          ../AllResources.txt
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="動態 IP (DHCP)"
     sleep    1s
     LoginwithPsw
     RestoreDevice
@@ -93,6 +105,13 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
+    ToLoginWithoutPassword
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="動態 IP (DHCP)"
     sleep    3s
     LoginwithPsw
     RestoreDevice
@@ -124,6 +143,13 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    English
+    ToLoginWithoutPassword
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (DHCP)"
     sleep    3s
     LoginwithPsw
     RestoreDevice
@@ -154,6 +180,13 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    한국
+    ToLoginWithoutPassword
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (DHCP)"
     sleep    3s
     LoginwithPsw
     RestoreDevice
@@ -187,6 +220,13 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
+    ToLoginWithoutPassword
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="動態 IP (PPPoE)"
     sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
@@ -223,6 +263,13 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    English
+    ToLoginWithoutPassword
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic PPPoE"
     sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
@@ -259,6 +306,13 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    한국
+    ToLoginWithoutPassword
+    #===Check Internet Status===
+    ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    log    ${GetConnection Type(IPv4)}
+    ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    log    ${GetNetwork Status(IPv4)}
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
     sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
