@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Subject: TSD3 Router->Settings->Wireless
 ...
 ...               Date：2017/12/26
@@ -668,7 +668,7 @@ wifi connect
 
 LANControl
     [Tags]    LANControl
-    Ethernet_disable
+    Ethernet_Choose_Disable    1
     sleep    30s
     ${Reverse-Result}    defping    0    192.168.0.1    default    default    default
     ...    default    default
@@ -685,13 +685,12 @@ LANControl
     ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
     Wifi-connect    ${SSID}    ${Wireless-password}
     sleep    30s
-    Ethernet_disable
+    Ethernet_Choose_Disable    1
     sleep    30s
     def-ping    20    192.168.0.1
-    WIFI_disconnect
+    WIFI_Delete_Profile
     sleep    30s
     ${Reverse-Result1}    defping    0    192.168.0.1    default    default    default
     ...    default    default
     Run Keyword If    "${Reverse-Result1}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True    False
-

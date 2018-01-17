@@ -56,4 +56,4 @@ ping
     Def-Ping    0    8.8.8.8
 
 Lan disconnect
-    Ethernet_disconnect
+    Ethernet_Choose_Disable    1
