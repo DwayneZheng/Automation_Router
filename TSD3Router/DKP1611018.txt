@@ -195,7 +195,7 @@ Library           String
     ...    2.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0048
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0048
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -290,7 +290,7 @@ Library           String
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
     ...    OK verify by Richard Wu 20171213
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0049
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0049
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -377,7 +377,7 @@ Library           String
     ...    第 32行環境問題，先關閉
     ...
     ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0050
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0050
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -476,7 +476,7 @@ Library           String
     ...    第 32行環境問題，先關閉
     ...
     ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0051
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0051
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -568,7 +568,7 @@ Library           String
     ...    第 32行環境問題，先關閉
     ...
     ...    第 73行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0052
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0052
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -671,7 +671,7 @@ Library           String
     ...    第 32行環境問題，先關閉
     ...
     ...    第 67行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0053
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0053
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -763,7 +763,7 @@ Library           String
     ...    第 32行環境問題，先關閉
     ...
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0063
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0063
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -865,7 +865,7 @@ Library           String
     ...
     ...
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0064
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0064
     # copy by 52
     #Restore
     ToLoginWithoutPassword
@@ -979,7 +979,7 @@ Library           String
     ...    第 33行環境問題，先關閉
     ...
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0065
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0065
     #copy 53
     #Restore
     ToLoginWithoutPassword
@@ -1083,7 +1083,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0066
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0066
     #copy 46
     #Restore
     ToLoginWithoutPassword
@@ -1184,7 +1184,7 @@ Library           String
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0067
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0067
     #copy 47
     #Restore
     ToLoginWithoutPassword
@@ -1277,7 +1277,7 @@ Library           String
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0068
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0068
     #copy 48
     #Restore
     ToLoginWithoutPassword
@@ -1382,7 +1382,7 @@ Library           String
     ...    1.Capture DUT wan packet -> send PADI with "CHT" as service name
     ...    -------------------------------------
     ...    OK verify by Richard Wu 20171228
-	[Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0069
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0069
     #copy 49
     #Restore
     ToLoginWithoutPassword
@@ -1553,6 +1553,17 @@ Library           String
     ...    ------------------------------------
     ...    5.Capture wan packet and make sure DUT wan is quering DNS server 8.8.8.8
     ...    -------------------------------------
+    ...
+    ...    Fail
+    ...    ----------------------------------
+    ...    DIR-878_FW_V1.10B03
+    ...    The LAN PC can get ping request and the ping value higher than 1373.
+    ...    But MTU =1400
+    ...    ----------------------------------
+    ...    Pass
+    ...    ----------------------------------
+    ...    DIR-878_FW_V1.01B03
+    ...    ----------------------------------
     ...
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0002
@@ -2664,7 +2675,7 @@ test1
     [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Manual)
     ...
     ...    OK verify by Richard Wu 20171227
-	[Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0070
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0070
     #copy 12
     #Restore
     ToLoginWithoutPassword
@@ -2738,7 +2749,7 @@ test1
     [Documentation]    Internet->IPv4 PPTP Manual + Dynamic IP test + MTU(Auto)
     ...
     ...    OK verify by Richard Wu 20171227
-	[Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0107
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0107
     #copy by 0017
     #Restore
     ToLoginWithoutPassword
@@ -2811,7 +2822,7 @@ test1
     [Documentation]    Internet->IPv4 PPTP Always on + Static IP test + MTU(Manual)
     ...
     ...    OK verify by Richard Wu 20171227
-	[Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0108
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0108
     #Copy by 15
     #Restore
     ToLoginWithoutPassword
@@ -2870,7 +2881,7 @@ test1
     [Documentation]    Internet->IPv4 PPTP Manual + Dynamic IP test + MTU(Manual)
     ...
     ...    OK verify by Richard Wu 20171229
-	[Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0110
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0110
     #copy by 107
     #Restore
     ToLoginWithoutPassword
@@ -2949,7 +2960,7 @@ test1
     ...    Line 39 get pptp ip was not matched
     ...
     ...    OK verify by Richard Wu 20171229
-	[Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0111
+    [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0111
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -3022,7 +3033,7 @@ test1
     ...
     ...
     ...    OK verify by Richard Wu 20171229
-	[Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0112
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0112
     #Copy by 19
     #Restore
     ToLoginWithoutPassword
@@ -3084,7 +3095,7 @@ test1
     [Documentation]    Internet->IPv4 L2TP Manual + Dynamic IP test + MTU(Manual)
     ...
     ...    OK verify by Richard Wu 20171229
-	[Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0114
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0114
     #copy by 21
     #Restore
     ToLoginWithoutPassword
@@ -3158,7 +3169,7 @@ test1
     ...
     ...
     ...    OK verify by Richard Wu 20171229
-	[Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0115
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0115
     #copy by 22
     #Restore
     ToLoginWithoutPassword
@@ -3218,7 +3229,7 @@ test1
     ...
     ...
     ...    OK verify by Richard Wu 20171229
-	[Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0117
+    [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0117
     #Copy by 24
     #Restore
     ToLoginWithoutPassword

@@ -41,6 +41,7 @@ Library           String
     ...    ------------------------------------
     ...    DUT must save current setting on local pc(Major)
     ...    -------------------------------------
+    ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0007
     #Restore
     ToLoginWithoutPassword
@@ -65,13 +66,14 @@ Library           String
     ...    ------------------------------------
     ...    The restore configure file must same as previous setting(Major)
     ...    -------------------------------------
+    ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0008
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    60    true
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
@@ -90,6 +92,13 @@ Library           String
     Configure PPTP
     ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin
+    clearText    ${Management-System Admin-Admin-Password-Input}
+    sendtext    ${Management-System Admin-Admin-Password-Input}    111111    #Modify password
+    ${BeforePassword}    getText    ${Management-System Admin-Admin-Password-Input}
+    click    ${Management-System Admin-Admin-Save}
+    sleep    30s
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
     click    ${Management-System Admin-System-System-ChangePage}
     waitElementDisplayed    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    10    true
     click    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    #Save Settings To Local Hard Drive
@@ -101,19 +110,12 @@ Library           String
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin
-    clearText    ${Management-System Admin-Admin-Password-Input}
-    sendtext    ${Management-System Admin-Admin-Password-Input}    111111    #Modify password
-    ${BeforePassword}    getText    ${Management-System Admin-Admin-Password-Input}
-    click    ${Management-System Admin-Admin-Save}
-    sleep    30s
-    ToLoginWithoutPassword
-    FunctionTable-Management-SystemAdmin
     click    ${Management-System Admin-System-System-ChangePage}
     # ===Load Settings From Local Hard Drive===
-    ${Local}    Set Variable    C:\Users\f9621\Downloads\config.bin
+    ${Local}    Set Variable    C:\\Users\\f9621\\Downloads\\config.bin
     sendtext    id    select_Folder    ${Local}
     #sendtext    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    C:\Users\f9621\Downloads\config.bin
-    click    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
+    #click    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
     click    ${Management-System Admin-System-Load-Restore-Click}
     waitElementDisplayed    ${Management-System Admin-System-Load-Yes-Click}    10    true
     click    ${Management-System Admin-System-Load-Yes-Click}
@@ -123,12 +125,14 @@ Library           String
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
     ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    ${AfterSSIDPassword}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${AfterSSIDPassword}    getText    ${Settings-Wireless-Password-Input}
     Should Be True    "${BeforeSSID}"=="${AfterSSID}"
     Should Be True    "${BeforeSSIDPassword}"=="${AfterSSIDPassword}"
 
 0009
     [Documentation]    System->Restore To Factory Default Settings
+    ...
+    ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0009
     #Restore
     ToLoginWithoutPassword
