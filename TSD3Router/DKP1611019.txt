@@ -703,3 +703,25 @@ LANControl
     ...    default    default
     Run Keyword If    "${Reverse-Result1}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True    False
+
+ping-log-test
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    Ethernet_Choose_enable    all
+    sleep    5s
+    Def-Ping    0    192.168.0.1
+    WIFI_Data_Rate    test
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
+    Wifi-connect    ${SSID}    ${Wireless-password}
+    WIFI_Data_Rate    ping-log-test
