@@ -11,6 +11,8 @@ Library           String
 0007
     [Documentation]    Wireless->2.4G band->Security Mode = None
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0007
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -21,6 +23,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
@@ -40,10 +44,15 @@ Library           String
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    sleep    10s
+    sleep    60s
     Wifi-connect    ${SSID}
+    sleep    5s
+    Ethernet_Choose_Disable    all
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
     should be true    ${CheckAuthentication}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0009
     [Documentation]    Wireless->2.4G band->Security Mode = WPA
@@ -694,3 +703,25 @@ LANControl
     ...    default    default
     Run Keyword If    "${Reverse-Result1}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True    False
+
+ping-log-test
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    Ethernet_Choose_enable    all
+    sleep    5s
+    Def-Ping    0    192.168.0.1
+    WIFI_Data_Rate    test
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
+    Wifi-connect    ${SSID}    ${Wireless-password}
+    WIFI_Data_Rate    ping-log-test
