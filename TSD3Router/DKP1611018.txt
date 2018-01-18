@@ -22,7 +22,7 @@ Library           String
     ...    -------------------------------------
     ...
     ...    OK verify by Richard Wu 20171213
-    [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0046
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0046
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
