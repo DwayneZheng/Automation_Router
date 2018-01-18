@@ -76,7 +76,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -163,7 +163,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -254,7 +254,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -343,7 +343,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -1142,7 +1142,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -1240,7 +1240,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -1340,7 +1340,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -1439,7 +1439,7 @@ Library           String
     #===Finish MAC Address===
     #Check type
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"    #Check connection type
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -1714,6 +1714,7 @@ Library           String
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
+    sleep    3s
     #===Ping END===
     #===Ping MTU===
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
@@ -1877,7 +1878,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"
     ToLoginPage
     Lang2English
     ToClickLoginBtn
@@ -1998,6 +1999,7 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
+    sleep    3s
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
@@ -2624,6 +2626,7 @@ Library           String
     Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #===Ping MTU===
+    sleep    3s
     ${CheckMTU1300}    defping    0    ${GetDefault Gateway}    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckMTU1300}"=="True"
@@ -3194,7 +3197,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (L2TP)"
     #Ping \ Gateway
@@ -3257,7 +3260,7 @@ Library           String
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
     ${Home page IP Address}    getText    ${Home Page-IP Address(IPv4)-GetVar}
-    #Should Be True    "${Set IP Address}"=="${Home page IP Address}"
+    Should Be True    "${Set IP Address}"=="${Home page IP Address}"
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (L2TP)"
     #Ping \ Gateway
@@ -3280,3 +3283,13 @@ Library           String
     ${Disconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     Should Be True    "${Disconnect}"=="False"
+
+test
+    #${fw}    getText    xpath    //*[@id="modelName"]
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    should contain    ${Finish ConnectionType}    PPPoE    msg=not PPPoE
+    #Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"

@@ -633,6 +633,8 @@ ElementLocator-DIR-878
     Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}
     ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}    getElementLocator    xpath    //input[@id='gatewayIP_PPTP']
     Set Global Variable    ${Settings-Internet-IPv4-PPTP-PPTP Gateway IP Address-Input}
+    ${Settings-Internet-IPv4-PPTP-Check PPTP Gateway IP Address-GetVar}    getElementLocator    xpath    //*[@id="gatewayIP_PPTP_tr"]/td[1]/label
+    Set Global Variable    ${Settings-Internet-IPv4-PPTP-Check PPTP Gateway IP Address-GetVar}
     ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_PPTP']
     Set Global Variable    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     ${Settings-Internet-IPv4-PPTP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_PPTP']
@@ -682,6 +684,8 @@ ElementLocator-DIR-878
     Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}
     ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}    getElementLocator    xpath    //input[@id='gatewayIP_L2TP']
     Set Global Variable    ${Settings-Internet-IPv4-L2TP-L2TP Gateway IP Address-Input}
+    ${Settings-Internet-IPv4-L2TP-Check L2TP Gateway IP Address-GetVar}    getElementLocator    xpath    //*[@id="gatewayIP_L2TP_tr"]/td[1]/label
+    Set Global Variable    ${Settings-Internet-IPv4-L2TP-Check L2TP Gateway IP Address-GetVar}
     ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    getElementLocator    xpath    //input[@id='primaryDNSAddress_L2TP']
     Set Global Variable    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     ${Settings-Internet-IPv4-L2TP-Secondary DNS Server-Input}    getElementLocator    xpath    //input[@id='secondaryDNSAddress_L2TP']
@@ -3156,7 +3160,7 @@ ElementLocator-DIR-878
     Set Global Variable    ${Management-System Admin-System-Restore-Yes-Click}
     ${Management-System Admin-System-Restore-No-Click}    getElementLocator    xpath    (//div[@id='Confirm_btn'])[2]
     Set Global Variable    ${Management-System Admin-System-Restore-No-Click}
-    ${Management-System Admin-System-Restore to factory default success-Click}    getElementLocator    xpath    //*[@id="SuccessFACTORYDEFAULT"]/table[2]/tbody/tr/td/center/div
+    ${Management-System Admin-System-Restore to factory default success-Click}    getElementLocator    xpath    //div[@id='SuccessFACTORYDEFAULT']/table[2]/tbody/tr/td/center/div
     Set Global Variable    ${Management-System Admin-System-Restore to factory default success-Click}
     ${Management-System Admin-System-Reboot The Device-Click}    getElementLocator    xpath    //*[@id="rebootSetting"]/tbody/tr[2]/td[1]/div/button
     Set Global Variable    ${Management-System Admin-System-Reboot The Device-Click}
