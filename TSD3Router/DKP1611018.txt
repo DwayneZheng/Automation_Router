@@ -1489,6 +1489,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (DHCP)"
     #===Before Change MAC Address===
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${Before MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
@@ -1875,7 +1877,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
-    Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${Finish ConnectionType}"=="Dynamic PPPoE"
     ToLoginPage
     Lang2English
     ToClickLoginBtn
@@ -2655,21 +2657,6 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1473}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
-
-test1
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    ${abc}    getText    xpath    //*[@id="h_FWVersion"]
-    waitElementDisplayed    ${Settings - Internet - VLAN-Settings-FunctionTable}    10    true
-    mouseOverToElement    ${Settings - Internet - VLAN-Settings-FunctionTable}
-    waitElementDisplayed    ${Settings - Internet - VLAN-Internet-FunctionTableChild}    10    true
-    click    ${Settings - Internet - VLAN-Internet-FunctionTableChild}
-    #46tmp
-    ${Error Ping}    defping    0    8.8.8.8    -f    -l    1465
-    ...    default    default
-    Run Keyword If    "${Error Ping}"=="False"    log    FunctionPass
-    ...    ELSE    log    FunctionFail    Should Be True
 
 0070
     [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Manual)
