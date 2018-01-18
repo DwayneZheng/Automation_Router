@@ -57,3 +57,13 @@ ping
 
 Lan disconnect
     Ethernet_Choose_Disable    1
+
+Lan enable
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    defping    0    8.8.8.8    default    default    default    default
+    ...    default
+    Ethernet_Choose_enable    all
+    sleep    5s
+    defping    0    8.8.8.8    default    default    default    default
+    ...    default

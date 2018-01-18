@@ -384,39 +384,6 @@ Library           String
     \    click    ${Settings - Wizard Page-X (Close)-Click}
     \    waitElementDisplayed    ${Home Page-Connected Clients-Edit1-ImgClick}    10    true
 
-0018
-    [Documentation]    USB device check
-    ...
-    ...
-    ...    OK verify by Dwayne Cheng 20171213
-    [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0018
-    ToLoginWithoutPassword
-    #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore End===
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    click    ${Home Page-USB Device-ImgClick}
-    waitElementDisplayed    ${Home Page-Available Space-GetVar}    10    true
-    #===Check Internet Status===
-    ${GetAvailableSpace}    getText    ${Home Page-Available Space-GetVar}
-    log    ${GetAvailableSpace}
-    ${GetTotalSpace}    getText    ${Home Page-Total Space-GetVar}
-    log    ${GetTotalSpace}
-    ${GetDLNAMediaServerStatus}    getText    ${Home Page-DLNA Media Server-Status-GetVar}
-    log    ${GetDLNAMediaServerStatus}
-    ${GetDLNAMediaServerServiceName}    getText    ${Home Page-DLNA Media Server-Service Name-GetVar}
-    log    ${GetDLNAMediaServerServiceName}
-    ${GetWindowsFileSharingStatus}    getText    ${Home Page-Windows File Sharing-Status-GetVar}
-    log    ${GetWindowsFileSharingStatus}
-    ${GetFTPStatusGetVar}    getText    ${Home Page-FTP-Status-GetVar}
-    log    ${GetFTPStatusGetVar}
-    Should Be True    "${GetDLNAMediaServerStatus}"=="Enabled"
-
 0019
     [Documentation]    Internet Connected_PPPoE Check
     ...
@@ -446,7 +413,7 @@ Library           String
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
     log    ${GetNetwork Status(IPv4)}
-    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic PPPoE"
     Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
     click    ${Home Page-Go to settings (V4)-Click}
     sleep    3s
@@ -488,7 +455,7 @@ Library           String
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
     log    ${GetNetwork Status(IPv4)}
-    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic PPPoE"
     Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
     click    ${Home Page-Go to settings (V4)-Click}
     sleep    3s
