@@ -240,13 +240,13 @@ Library           String
     ...    ELSE    log    LANMAC:Not Matched
     #===Check IPv4 status End===
     #===Check Wi-Fi status===
-    ${GetWifiStatus}    getText    ${Home Page-DUT-Wifi-Status-GetVar}
+    ${GetWifiStatus}    getText    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Status-GetVar}
     log    ${GetWifiStatus}
     Run Keyword If    "${GetWifiStatus}"=="Enabled"    log    WifiStatus:Matched
     ...    ELSE    log    WifiStatus:Not Matched
     ${GetSubstringIPv4MACForSSID}    Get Substring    ${GetIPv4MACStatus}    -5
     ${ShouldBeStringIPv4MACForSSID}    Set Variable    dlink-${GetSubstringIPv4MACForSSID}
-    ${GetWi-Fi Name (SSID)}    getText    ${Home Page-DUT-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${GetWi-Fi Name (SSID)}    getText    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
     log    ${GetWi-Fi Name (SSID)}
     Should Be String    ${GetWi-Fi Name (SSID)}    ${ShouldBeStringIPv4MACForSSID}
     #===Check Wi-Fi status End===
@@ -413,7 +413,7 @@ Library           String
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
     log    ${GetNetwork Status(IPv4)}
-    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic PPPoE"
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
     Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
     click    ${Home Page-Go to settings (V4)-Click}
     sleep    3s
@@ -455,7 +455,7 @@ Library           String
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
     log    ${GetNetwork Status(IPv4)}
-    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic PPPoE"
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
     Should Be True    "${GetNetwork Status(IPv4)}"=="Connected"
     click    ${Home Page-Go to settings (V4)-Click}
     sleep    3s
