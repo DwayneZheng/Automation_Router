@@ -132,7 +132,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
     waitElementDisplayed    id    admin_Password    20    true
@@ -208,7 +208,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     sleep    1s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
     LoginPage-CheckLanguage    English
     ToLoginWithoutPassword
@@ -245,7 +245,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
     LoginPage-CheckLanguage    한국
     ToLoginWithoutPassword
@@ -315,7 +315,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
     waitElementDisplayed    id    admin_Password    20    true
@@ -395,7 +395,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
     LoginPage-CheckLanguage    English
     ToLoginWithoutPassword
@@ -438,7 +438,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
     LoginPage-CheckLanguage    한국
     ToLoginWithoutPassword
