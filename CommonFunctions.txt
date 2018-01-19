@@ -633,3 +633,12 @@ Wifi-MAC address check
     [Arguments]    ${arg1}    ${arg2}    ${arg3}=default
     ${msg}    wireless_mac_match    ${arg1}    ${arg2}    ${arg3}
     Should Be True    ${msg}
+
+---01/19---
+
+Restore-To-Default
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    50    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true

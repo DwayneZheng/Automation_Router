@@ -10,19 +10,17 @@ Library           String
 *** Test Cases ***
 0007
     [Documentation]    Wireless->2.4G band->Security Mode = None
+    ...
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0007
     Ethernet_Choose_enable    all
     sleep    5s
-    #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
-    #===Restore END===
+    Restore-To-Default
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
@@ -43,11 +41,13 @@ Library           String
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     sleep    60s
     Wifi-connect    ${SSID}
     sleep    5s
     Ethernet_Choose_Disable    all
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
     should be true    ${CheckAuthentication}
     Def-Ping    0    ${GetDefault Gateway}
@@ -56,7 +56,11 @@ Library           String
 
 0009
     [Documentation]    Wireless->2.4G band->Security Mode = WPA
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0009
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -67,6 +71,9 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
@@ -85,16 +92,28 @@ Library           String
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    5    true
     ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
+    sleep    60s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
     should be true    ${CheckAuthentication}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0010
     [Documentation]    Wireless->2.4G band->Security Mode = WPA2
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0010
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -105,6 +124,9 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
@@ -123,16 +145,28 @@ Library           String
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    5    true
     ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
+    sleep    60s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
     should be true    ${CheckAuthentication}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0011
     [Documentation]    Wireless->5G band->Security Mode = None
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0011
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -143,12 +177,16 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
     #===Configure 2.4G band Security Mode = None===
     waitElementDisplayed    ${Settings-Wireless-5G-Advanced Settings-Link}    10    true
     click    ${Settings-Wireless-5G-Advanced Settings-Link}
+    scroll
     waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-Select}    10    true
     click    ${Settings-Wireless-5G-Security Mode-Select}
     waitElementDisplayed    ${Settings-Wireless-5G-Security Mode-None-SelectChild}    10    true
@@ -161,15 +199,26 @@ Library           String
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    sleep    10s
+    sleep    60s
     Wifi-connect    ${SSID}
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
     should be true    ${CheckAuthentication}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0013
     [Documentation]    Wireless->5G band->Security Mode = WPA
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0013
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -180,6 +229,9 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
@@ -198,16 +250,28 @@ Library           String
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Password-Input}    10    true
     ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
-    sleep    10s
+    sleep    60s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
     should be true    ${CheckAuthentication}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0014
     [Documentation]    Wireless->5G band->Security Mode = WPA2
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0014
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -218,6 +282,9 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
@@ -236,16 +303,28 @@ Library           String
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
     click    ${Settings-Wireless-Finish-Click}    #Finish
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Password-Input}    10    true
     ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
-    sleep    10s
+    sleep    60s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
     should be true    ${CheckAuthentication}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0015
     [Documentation]    Wireless->2.4G band->802.11 Mode = Mixed 802.11b/g/n
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0015
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -256,11 +335,16 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
-    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
-    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
+    ${SSID}    getText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    10    true
+    ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
     waitElementDisplayed    ${Settings-Wireless-5G-Status-Switch}    10    true
     click    ${Settings-Wireless-5G-Status-Switch}    #Close 5G WIFI
     waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
@@ -269,12 +353,22 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}    #Finish
     sleep    100s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${Check-rate}    WIFI_Data_Rate    DKP1611019-0015
     Should be true    ${Check-rate}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0018
     [Documentation]    Wireless->5G band->802.11 Mode = Mixed 802.11a/n/ac
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0018
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -285,11 +379,16 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
-    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
-    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10
     click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    #Disable Smart connect
+    waitElementDisplayed    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    10    true
+    ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-Password-Input}    10    true
+    ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Status-Switch}    10    true
     click    ${Settings-Wireless-2.4G-Status-Switch}    #Close 2.4G WIFI
     waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
@@ -298,12 +397,20 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}    #Finish
     sleep    100s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
     ${Check-rate}    WIFI_Data_Rate    DKP1611019-0018
     Should be true    ${Check-rate}
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0032
     [Documentation]    Wireless->SSID test
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0032
+    Ethernet_Choose_enable    all
+    sleep    5s
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
@@ -337,6 +444,8 @@ Library           String
     ...
     ...    HT20/40 Coxistence not support
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0001
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -359,6 +468,9 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
@@ -465,6 +577,14 @@ Library           String
     waitElementDisplayed    ${Settings-Wireless-5G-Schedule-Select}    5    true
     ${5G-wifi-Schedule}    getText    ${Settings-Wireless-5G-Schedule-Select}
     Should Be True    "${5G-wifi-Schedule}"=="Always Enable"
+    sleep    100s
+    Wifi-connect    ${SSID}    ${Wireless-password}
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
     #===Check 5G default===
     #${fw}    getText    xpath    //*[@id="modelName"]
     #should contain    ${fw}    878    msg=not 878
@@ -476,6 +596,8 @@ Library           String
     ...
     ...    OK verify by Richard Wu 20180109
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0002
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -484,6 +606,9 @@ Library           String
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
     #===Restore END===
     ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     #Check default MAC
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
@@ -492,7 +617,7 @@ Library           String
     ${2.4GHZ WLAN MAC}    getText    ${Hidden-Page-2.4GHZ WLAN MAC-GetVar}
     waitElementDisplayed    ${Hidden-Page-5GHZ WLAN MAC-GetVar}    3    true
     ${5GHZ WLAN MAC}    getText    ${Hidden-Page-5GHZ WLAN MAC-GetVar}
-    sleep    100s
+    sleep    120s
     Wifi-MAC address check    ${SSID}    ${2.4GHZ WLAN MAC}    ${5GHZ WLAN MAC}
     #===Check default MAC END===
     ToLoginPage
@@ -512,7 +637,9 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}
     #===#Security Mode None setting===
     #Connect \ WIFI
+    sleep    120s
     Wifi-connect    ${SSID}
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -522,6 +649,11 @@ Library           String
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
     ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
     should contain    ${Security Mode}    None    msg=Security Mode not find None
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
     #===Check 2.4G and 5G wifi name End===
     #===Default WPA2 setting END===
     #${fw}    getText    xpath    //*[@id="modelName"]
@@ -535,6 +667,8 @@ Library           String
     ...
     ...    OK verify by Richard Wu 20180110
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0004
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -543,6 +677,9 @@ Library           String
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
     #===Restore END===
     ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
@@ -574,6 +711,7 @@ Library           String
     #===#Security Mode None setting===
     #Connect \ WIFI
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -583,18 +721,31 @@ Library           String
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
     ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
     should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0005
     [Documentation]    Wireless->Smart Connect enable/encryption=WPA2 test
+    ...
+    ...
+    ...    OK verify by Richard Wu 20180118
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0005
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    60    true
     #===Restore END===
     ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
@@ -626,6 +777,7 @@ Library           String
     #===#Security Mode None setting===
     #Connect \ WIFI
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
+    sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -635,10 +787,17 @@ Library           String
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
     ${Security Mode}    getText    ${Settings-Wireless-Security Mode-Select}
     should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0006
     [Documentation]    Wireless->Smart Connect enable/SSID special characters test
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0006
+    Ethernet_Choose_enable    all
+    sleep    5s
     #Restore
     ToLoginWithoutPassword
     RestoreDevice
@@ -649,13 +808,16 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     clearText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    "~!@#$% ^&*()_+"
+    sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    ~!@#$% ^&*()_+
     waitElementDisplayed    ${Settings-Wireless-Password-Input}    5    true
     clearText    ${Settings-Wireless-Password-Input}
-    sendtext    ${Settings-Wireless-Password-Input}    "~!@#$% ^&*()_+"
+    sendtext    ${Settings-Wireless-Password-Input}    ~!@#$% ^&*()_+
     waitElementDisplayed    ${Settings-Wireless-Advanced Settings…-Link}    5    true
     click    ${Settings-Wireless-Advanced Settings…-Link}
     waitElementDisplayed    ${Settings-Wireless-Security Mode-Select}    5    true
@@ -666,7 +828,14 @@ Library           String
     click    ${Settings-Wireless-Save-Click}
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    40    true
     click    ${Settings-Wireless-Finish-Click}
-    Wifi-connect    "~!@#$% ^&*()_+"    ~!@#$% ^&*()_+    WPA2
+    sleep    100s
+    Wifi-connect    ~!@#$% ^&*()_+    ~!@#$% ^&*()_+    WPA2
+    sleep    5s
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 wifi connect
     ToLoginWithoutPassword
