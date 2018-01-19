@@ -94,6 +94,8 @@ RestoreDevice
     click    xpath    (//button[@type='button'])[3]
     waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    5    TRUE
     click    ${Management-System Admin-System-Restore-Yes-Click}
+    #waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
+    #click    ${Management-System Admin-System-Restore to factory default success-Click}
     waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
     click    ${Management-System Admin-System-Restore to factory default success-Click}
 
@@ -113,10 +115,10 @@ ChooseLanguage
 Wizard-PPPoE-Username/password
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    73459408@hinet.net
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Username-Input}    tsd3
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    Y116658
+    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Passwor-Input}    tsd3
     sleep    1s
 
 Wizard-Wi-Fi Network Name/password
@@ -129,9 +131,9 @@ Wizard-Wi-Fi Network Name/password
     sleep    1s
 
 Wizard-Device Admin Password
-    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    20    true
-    clearText    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}
-    sendtext    ${Wizard-Username/Password Connection (PPPoE)-Device Admin Password-Input}    111111
+    waitElementDisplayed    id    admin_Password    20    true
+    clearText    id    admin_Password
+    sendtext    id    admin_Password    111111
     sleep    1s
 
 Wizard-check
@@ -280,9 +282,10 @@ Configure StaticIP
     sendtext    ${Settings-Internet-IPv4-StaticIP-Default Gateway-Input}    172.16.0.1    #Default Gateway Input
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
-    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    127.0.0.1    #Primary DNS Server Input
+    sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    8.8.8.8    #Primary DNS Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-StaticIP-Secondary DNS Server-Input}    8.8.8.8    #Secondary DNS Server Input
@@ -577,6 +580,8 @@ Configure IPv4 PPTP+Static IP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    8.8.8.8
+    ${CheckIPAddressInput}    getText    ${Settings-Internet-IPv4-PPTP-Check PPTP Gateway IP Address-GetVar}
+    Should Be True    "${CheckIPAddressInput}"=="Please enter a valid IP address."
     sleep    1s
 
 Configure IPv4 L2TP+Static IP-Without Save
@@ -612,6 +617,8 @@ Configure IPv4 L2TP+Static IP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    8.8.8.8
+    ${CheckIPAddressInput}    getText    ${Settings-Internet-IPv4-L2TP-Check L2TP Gateway IP Address-GetVar}
+    Should Be True    "${CheckIPAddressInput}"=="Please enter a valid IP address."
     sleep    1s
 
 ----1/5---

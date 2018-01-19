@@ -87,7 +87,34 @@ Resource          ../AllResources.txt
     [Tags]    DKP1608016-DHCP    DKP1608016-DHCP-0006
     changeBrowser    ie
     #Restore
-    ToLoginWithoutPassword
+    #===ToLoginWithoutPassword===
+    ToLoginPage
+    #check wizard
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
+    log    ${Check-wizard-Status}
+    Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
+    ...    ELSE    log    pass
+    sleep    5s
+    ToLoginPage
+    waitElementDisplayed    id    logIn_btn    20
+    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #check password
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
+    log    ${Check-password-Status}
+    dismissAlert
+    Run Keyword If    "${Check-password-Status}"=="False"    Wizard-Device Admin Password
+    Run Keyword If    "${Check-password-Status}"=="False"    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #===ToLoginWithoutPassword End===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     sleep    15s
@@ -97,7 +124,10 @@ Resource          ../AllResources.txt
     Wizard-Next
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    Wizard-Device Admin Password
+    waitElementDisplayed    id    device_password    20    true
+    clearText    id    device_password
+    sendtext    id    device_password    111111
+    sleep    1s
     Wizard-Next
     Wizard-check
     Wizard-Next
@@ -105,7 +135,18 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
-    ToLoginWithoutPassword
+    waitElementDisplayed    id    admin_Password    20    true
+    clearText    id    admin_Password
+    sleep    1s
+    sendtext    id    admin_Password    111111
+    waitElementDisplayed    id    logIn_btn    20
+    click    xpath    //button[@id='logIn_btn']
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    sleep    3s
     #===Check Internet Status===
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     log    ${GetConnection Type(IPv4)}
@@ -113,7 +154,34 @@ Resource          ../AllResources.txt
     log    ${GetNetwork Status(IPv4)}
     Should Be True    "${GetConnection Type(IPv4)}"=="動態 IP (DHCP)"
     sleep    3s
-    LoginwithPsw
+    #===ToLoginWithoutPassword===
+    ToLoginPage
+    #check wizard
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
+    log    ${Check-wizard-Status}
+    Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
+    ...    ELSE    log    pass
+    sleep    5s
+    ToLoginPage
+    waitElementDisplayed    id    logIn_btn    20
+    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #check password
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
+    log    ${Check-password-Status}
+    dismissAlert
+    Run Keyword If    "${Check-password-Status}"=="False"    Wizard-Device Admin Password
+    Run Keyword If    "${Check-password-Status}"=="False"    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #===ToLoginWithoutPassword End===
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
@@ -198,8 +266,35 @@ Resource          ../AllResources.txt
     [Documentation]    Setup Wizard_Chinese Language(PPPoE+Wired+Window10 IE11)
     [Tags]    DKP1608016-PPPoE    DKP1608016-PPPoE-0016
     changeBrowser    ie
+    #===ToLoginWithoutPassword===
+    ToLoginPage
+    #check wizard
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
+    log    ${Check-wizard-Status}
+    Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
+    ...    ELSE    log    pass
+    sleep    5s
+    ToLoginPage
+    waitElementDisplayed    id    logIn_btn    20
+    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #check password
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
+    log    ${Check-password-Status}
+    dismissAlert
+    Run Keyword If    "${Check-password-Status}"=="False"    Wizard-Device Admin Password
+    Run Keyword If    "${Check-password-Status}"=="False"    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #===ToLoginWithoutPassword End===
     #Restore
-    ToLoginWithoutPassword
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     sleep    15s
@@ -211,7 +306,10 @@ Resource          ../AllResources.txt
     Wizard-Next
     Wizard-Wi-Fi Network Name/password
     Wizard-Next
-    Wizard-Device Admin Password
+    waitElementDisplayed    id    device_password    20    true
+    clearText    id    device_password
+    sendtext    id    device_password    111111
+    sleep    1s
     Wizard-Next
     Wizard-check
     Wizard-Next
@@ -220,7 +318,18 @@ Resource          ../AllResources.txt
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    100    true
     ToLoginPage
     LoginPage-CheckLanguage    繁體中文
-    ToLoginWithoutPassword
+    waitElementDisplayed    id    admin_Password    20    true
+    clearText    id    admin_Password
+    sleep    1s
+    sendtext    id    admin_Password    111111
+    waitElementDisplayed    id    logIn_btn    20
+    click    xpath    //button[@id='logIn_btn']
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    sleep    3s
     #===Check Internet Status===
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     log    ${GetConnection Type(IPv4)}
@@ -228,10 +337,36 @@ Resource          ../AllResources.txt
     log    ${GetNetwork Status(IPv4)}
     Should Be True    "${GetConnection Type(IPv4)}"=="動態 IP (PPPoE)"
     sleep    3s
-    LoginWithPsw
+    #===ToLoginWithoutPassword===
+    ToLoginPage
+    #check wizard
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
+    log    ${Check-wizard-Status}
+    Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
+    ...    ELSE    log    pass
+    sleep    5s
+    ToLoginPage
+    waitElementDisplayed    id    logIn_btn    20
+    click    xpath    //button[@id='logIn_btn']
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #check password
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
+    log    ${Check-password-Status}
+    dismissAlert
+    Run Keyword If    "${Check-password-Status}"=="False"    Wizard-Device Admin Password
+    Run Keyword If    "${Check-password-Status}"=="False"    click    id    logIn_btn
+    sleep    1
+    ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
+    log    ${Check-UpgradeFW-Status}
+    Run Keyword If    "${Check-UpgradeFW-Status}"=="True"    click    xpath    //div[@id='Confirm_btn']
+    ...    ELSE    log    pass
+    #===ToLoginWithoutPassword End===
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]
     log    ${TAKE-IP}
-    LoginwithPsw
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
