@@ -83,19 +83,13 @@ ToClickLoginBtn
     ...    ELSE    log    pass
 
 RestoreDevice
-    click    ${Management-Time&Schedule-Time-Management-FunctionTable}
-    waitElementDisplayed    ${Management-Time&Schedule-Time-Management-FunctionTable}    5    TRUE
-    click    ${Management-Time&Schedule-Time-Management-FunctionTable}
-    waitElementDisplayed    ${Management-Time&Schedule-Time-Management-FunctionTable}    5    TRUE
-    click    ${Management-System Admin-Admin-System Admin-FunctionTableChild}
+    FunctionTable-Management-SystemAdmin
     waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
     click    ${Management-System Admin-System-System-ChangePage}
     waitElementDisplayed    xpath    (//button[@type='button'])[3]    5    TRUE
     click    xpath    (//button[@type='button'])[3]
     waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    5    TRUE
     click    ${Management-System Admin-System-Restore-Yes-Click}
-    #waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
-    #click    ${Management-System Admin-System-Restore to factory default success-Click}
     waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
     click    ${Management-System Admin-System-Restore to factory default success-Click}
 
@@ -131,9 +125,9 @@ Wizard-Wi-Fi Network Name/password
     sleep    1s
 
 Wizard-Device Admin Password
-    waitElementDisplayed    id    admin_Password    20    true
-    clearText    id    admin_Password
-    sendtext    id    admin_Password    111111
+    waitElementDisplayed    id    device_password    20    true
+    clearText    id    device_password
+    sendtext    id    device_password    111111
     sleep    1s
 
 Wizard-check
