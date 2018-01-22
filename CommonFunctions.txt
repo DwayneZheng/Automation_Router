@@ -5,6 +5,8 @@ Library           ../Functions/MAC Address.py
 Library           ../Functions/wifi_connect.py
 Library           ../Functions/wifi-mac.py
 Library           ../Functions/LAN_control.py
+Library           ../Functions/v_switch_profile.py
+Library           ../Functions/DNS_control.py
 
 *** Keywords ***
 ToLoginPage
@@ -361,6 +363,7 @@ FunctionTable-Settings-Internet
 
 FunctionTable-Settings-Wireless
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
+    sleep    1s
     click    ${Function Table-Settings-Wireless-FunctionTableChild}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
 
@@ -416,6 +419,7 @@ FunctionTable-Management-SystemLog
 
 FunctionTable-Management-SystemAdmin
     mouseOverToElement    ${Function Table-Management-FunctionTable}
+    sleep    1s
     click    ${Function Table-Management-System Admin-FunctionTableChild}
     waitElementDisplayed    ${Management-System Admin-Admin-Enable Graphical Authentication (CAPTCHA)-Switch}    10    true
 

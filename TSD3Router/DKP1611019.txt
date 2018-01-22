@@ -16,6 +16,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0007
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -45,7 +47,7 @@ Library           String
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     sleep    60s
     Wifi-connect    ${SSID}
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
@@ -61,6 +63,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0009
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -92,7 +96,7 @@ Library           String
     ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
     sleep    60s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
@@ -108,6 +112,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0010
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -139,7 +145,7 @@ Library           String
     ${Wireless-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
     sleep    120s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
@@ -155,6 +161,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0011
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -185,7 +193,7 @@ Library           String
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     sleep    120s
     Wifi-connect    ${SSID}
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
@@ -201,6 +209,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0013
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -232,7 +242,7 @@ Library           String
     ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
     sleep    120s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
@@ -248,6 +258,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0014
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -279,7 +291,7 @@ Library           String
     ${Wireless-password}    getText    ${Settings-Wireless-5G-Password-Input}
     sleep    120s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
@@ -295,6 +307,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0015
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -317,7 +331,7 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}    #Finish
     sleep    120s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${Check-rate}    WIFI_Data_Rate    DKP1611019-0015
@@ -333,6 +347,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0018
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -355,7 +371,7 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}    #Finish
     sleep    120s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${Check-rate}    WIFI_Data_Rate    DKP1611019-0018
@@ -369,20 +385,29 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0032
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginWithoutPassword
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
     FunctionTable-Settings-Wireless
-    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status-Switch}    10    true
-    click    ${Settings-Wireless-Smart Connect Status-Switch}
+    waitElementDisplayed    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}    10    true
+    click    ${Settings-Wireless-Smart Connect Status(Disable)-Switch}
     #===Configure DUT's 2.4G/5G SSID===
     waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
     clearText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
     sendtext    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    !@#$%^&*()~[]:
     ${Before Wi-Fi 2.4GHz SSID}    getText    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-2.4G-Password-Input}    10    true
+    ${WIFI-2.4G-password}    getText    ${Settings-Wireless-2.4G-Password-Input}
     waitElementDisplayed    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    10    true
     clearText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
     sendtext    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}    12 34 56/Aa}
     ${Before Wi-Fi 5GHz SSID}    getText    ${Settings-Wireless-5G-Wi-Fi Name (SSID)-Input}
+    waitElementDisplayed    ${Settings-Wireless-5G-Password-Input}    10    true
+    ${WIFI-5G-password}    getText    ${Settings-Wireless-5G-Password-Input}
     waitElementDisplayed    ${Settings-Wireless-Save-Click}    10    true
     click    ${Settings-Wireless-Save-Click}    #Save
     waitElementDisplayed    ${Settings-Wireless-Finish-Click}    50    true
@@ -397,6 +422,22 @@ Library           String
     ${After Wi-Fi 5GHz SSID}    getText    ${Home Page-DUT-Wi-Fi 5GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
     Should Be True    "${After Wi-Fi 2.4GHz SSID}"=="${Before Wi-Fi 2.4GHz SSID}"
     Should Be True    "${After Wi-Fi 5GHz SSID}"=="${Before Wi-Fi 5GHz SSID}"
+    sleep    120s
+    Wifi-connect    ${After Wi-Fi 2.4GHz SSID}    ${WIFI-2.4G-password}
+    sleep    10s
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    sleep    5s
+    WIFI_Delete_Profile
+    sleep    3s
+    Wifi-connect    ${After Wi-Fi 5GHz SSID}    ${WIFI-5G-password}
+    sleep    10s
+    Ethernet_Choose_Disable    all
+    sleep    5s
+    Def-Ping    0    ${GetDefault Gateway}
+    Ethernet_Choose_enable    all
+    sleep    5s
 
 0001
     [Documentation]    Wireless->Smart Connect default status test
@@ -405,6 +446,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0001
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginWithoutPassword
     ToHiddenPage
@@ -532,7 +575,7 @@ Library           String
     Should Be True    "${5G-wifi-Schedule}"=="Always Enable"
     sleep    100s
     Wifi-connect    ${SSID}    ${Wireless-password}
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     Def-Ping    0    ${GetDefault Gateway}
@@ -551,6 +594,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0002
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginWithoutPassword
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
@@ -586,7 +631,7 @@ Library           String
     #Connect \ WIFI
     sleep    120s
     Wifi-connect    ${SSID}
-    sleep    5s
+    sleep    10s
     ${CheckAuthentication}    Check_Authentication    Open
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -616,6 +661,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0004
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginWithoutPassword
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
@@ -652,7 +699,7 @@ Library           String
     #===#Security Mode None setting===
     #Connect \ WIFI
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA
-    sleep    5s
+    sleep    10s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -676,6 +723,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0005
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginWithoutPassword
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
@@ -713,7 +762,7 @@ Library           String
     #Connect \ WIFI
     sleep    120s
     Wifi-connect    ${SSID}    ${Wireless-password}    WPA2
-    sleep    5s
+    sleep    10s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal
     should be true    ${CheckAuthentication}
     #===Connect \ WIFI END===
@@ -734,6 +783,8 @@ Library           String
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0006
     Ethernet_Choose_enable    all
     sleep    5s
+    WIFI_Delete_Profile
+    sleep    1s
     Restore-To-Default
     ToLoginPage
     Lang2English
@@ -760,7 +811,7 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}
     sleep    120s
     Wifi-connect    ~!@#$% ^&*()_+    ~!@#$% ^&*()_+    WPA2
-    sleep    5s
+    sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     Def-Ping    0    ${GetDefault Gateway}
@@ -824,3 +875,8 @@ ping-log-test
     ${Wireless-password}    getText    ${Settings-Wireless-Password-Input}
     Wifi-connect    ${SSID}    ${Wireless-password}
     WIFI_Data_Rate    ping-log-test
+
+OpenEthernet
+    [Tags]    OpenEthernet
+    Ethernet_Choose_enable    all
+    sleep    5s
