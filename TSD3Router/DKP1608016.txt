@@ -33,6 +33,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     sleep    60s
     ToLoginPage
@@ -131,6 +132,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -174,7 +176,7 @@ Resource          ../AllResources.txt
     ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
     log    ${Check-password-Status}
     dismissAlert
-    Run Keyword If    "${Check-password-Status}"=="False"    Wizard-Device Admin Password
+    Run Keyword If    "${Check-password-Status}"=="False"    sendtext    id    admin_Password    111111
     Run Keyword If    "${Check-password-Status}"=="False"    click    id    logIn_btn
     sleep    1
     ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
@@ -207,6 +209,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     sleep    1s
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -244,6 +247,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     Wizard-check
     Wizard-Next
+    waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -357,7 +361,7 @@ Resource          ../AllResources.txt
     ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
     log    ${Check-password-Status}
     dismissAlert
-    Run Keyword If    "${Check-password-Status}"=="False"    Wizard-Device Admin Password
+    Run Keyword If    "${Check-password-Status}"=="False"    sendtext    id    admin_Password    111111
     Run Keyword If    "${Check-password-Status}"=="False"    click    id    logIn_btn
     sleep    1
     ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5
@@ -404,7 +408,7 @@ Resource          ../AllResources.txt
     log    ${GetConnection Type(IPv4)}
     ${GetNetwork Status(IPv4)}    getText    ${Home Page-Network Status(IPv4)-GetVar}
     log    ${GetNetwork Status(IPv4)}
-    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic PPPoE"
+    Should Be True    "${GetConnection Type(IPv4)}"=="Dynamic IP (PPPoE)"
     sleep    3s
     LoginWithPsw
     ${TAKE-IP}    getText    xpath    //*[@id="index_ShowIPAddress"]

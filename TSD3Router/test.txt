@@ -67,3 +67,6 @@ Lan enable
     sleep    5s
     defping    0    8.8.8.8    default    default    default    default
     ...    default
+
+DNS
+    ClearDNSCache

@@ -1584,6 +1584,7 @@ Library           String
     #===Configure DNS Server===
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    1.1.1.1
@@ -1616,6 +1617,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (DHCP)"
     #===Ping \ Gateway===
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
@@ -1627,13 +1630,16 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
-    ${CheckDlink1}    defping    0    www.google.com    default    default    default
+    ClearDNSCache
+    sleep    5s
+    ${CheckDlink1}    defping    0    www.dlink.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    1.1.1.1
@@ -1645,6 +1651,12 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${CheckDlink2}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -1762,6 +1774,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    1.1.1.1
@@ -1792,6 +1805,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (Static)"
     #===Ping \ Gateway===
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
@@ -1803,14 +1818,16 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
+    ClearDNSCache
     sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    default    default    default
+    ${CheckDlink1}    defping    0    www.dlink.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    1.1.1.1
@@ -1822,6 +1839,12 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${CheckDlink2}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -1861,6 +1884,7 @@ Library           String
     #===Configure DNS Server===
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
@@ -1888,6 +1912,8 @@ Library           String
     #===Finish MAC Address===
     #Ping \ Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
@@ -1896,8 +1922,9 @@ Library           String
     ${CheckPingDNS1}    defping    0    ${GetDefault Gateway}    default    default    default
     ...    default    default
     Should Be True    "${CheckPingDNS1}"=="True"
+    ClearDNSCache
     sleep    5s
-    ${CheckPingDNS2}    defping    0    www.google.com    default    default    default
+    ${CheckPingDNS2}    defping    0    www.dlink.com    default    default    default
     ...    default    default
     Should Be True    "${CheckPingDNS2}"=="False"
     #===Check MAC \ Address END===
@@ -1911,6 +1938,7 @@ Library           String
     #===Configure DNS Server===
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
@@ -1923,6 +1951,12 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    3s
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     #===Ping ===
     ${CheckPingDNS3}    defping    0    ${GetDefault Gateway}    default    default    default
     ...    default    default
@@ -2260,6 +2294,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     #===Configure DNS Server===
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    1.1.1.1
@@ -2280,6 +2315,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPTP)"
     #===Ping \ Gateway===
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
@@ -2291,8 +2328,9 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
+    ClearDNSCache
     sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
@@ -2303,6 +2341,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    1.1.1.1
@@ -2314,6 +2353,12 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -2602,6 +2647,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     #===Configure DNS Server===
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    1.1.1.1
@@ -2621,6 +2667,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
     #===Ping \ Gateway===
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     Def-Ping    0    ${GetDefault Gateway}
@@ -2633,14 +2681,16 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
+    ClearDNSCache
     sleep    5s
-    ${CheckDlink1}    defping    0    www.google.com    -f    -l    1300
+    ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
     #===Configure DNS Server===
     Configure L2TP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    1.1.1.1
@@ -2652,6 +2702,12 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
+    ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"

@@ -5,6 +5,7 @@ Library           ../Functions/MAC Address.py
 Library           ../Functions/wifi_connect.py
 Library           ../Functions/wifi-mac.py
 Library           ../Functions/LAN_control.py
+Library           ../Functions/Clear_DNS_Cache.py
 
 *** Keywords ***
 ToLoginPage
@@ -84,6 +85,7 @@ ToClickLoginBtn
 
 RestoreDevice
     FunctionTable-Management-SystemAdmin
+    sleep    1s
     waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
     click    ${Management-System Admin-System-System-ChangePage}
     waitElementDisplayed    xpath    (//button[@type='button'])[3]    5    TRUE
@@ -416,6 +418,7 @@ FunctionTable-Management-SystemLog
 
 FunctionTable-Management-SystemAdmin
     mouseOverToElement    ${Function Table-Management-FunctionTable}
+    sleep    1s
     click    ${Function Table-Management-System Admin-FunctionTableChild}
     waitElementDisplayed    ${Management-System Admin-Admin-Enable Graphical Authentication (CAPTCHA)-Switch}    10    true
 
