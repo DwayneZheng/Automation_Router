@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
@@ -7,6 +7,8 @@ Library           ../Functions/wifi-mac.py
 Library           ../Functions/LAN_control.py
 Library           ../Functions/v_switch_profile.py
 Library           ../Functions/DNS_control.py
+Library           ../Functions/Clear_DNS_Cache.py
+
 
 *** Keywords ***
 ToLoginPage
@@ -86,6 +88,7 @@ ToClickLoginBtn
 
 RestoreDevice
     FunctionTable-Management-SystemAdmin
+    sleep    1s
     waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
     click    ${Management-System Admin-System-System-ChangePage}
     waitElementDisplayed    xpath    (//button[@type='button'])[3]    5    TRUE

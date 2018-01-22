@@ -84,3 +84,4 @@ get_vswitch_pppoe
 
 DNS
     Ethernet_DNS    DHCP
+    ClearDNSCache
