@@ -69,4 +69,5 @@ Lan enable
     ...    default
 
 DNS
-    ClearDNSCache
+    #ClearDNSCache
+    Ethernet_DNS    DHCP

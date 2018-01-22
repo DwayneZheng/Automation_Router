@@ -6,6 +6,7 @@ Library           ../Functions/wifi_connect.py
 Library           ../Functions/wifi-mac.py
 Library           ../Functions/LAN_control.py
 Library           ../Functions/Clear_DNS_Cache.py
+Library           ../Functions/DNS_control.py
 
 *** Keywords ***
 ToLoginPage
