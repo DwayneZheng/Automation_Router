@@ -68,6 +68,21 @@ Lan enable
     defping    0    8.8.8.8    default    default    default    default
     ...    default
 
+vSwich-1
+    Vswirch_3
+
+get_vswitch_pppoe
+    ${var1}    ${var2}    Get_PPPoE
+    log    ${var1}
+    log    ${var2}
+    ${var1}    ${var2}    Get_PPTP
+    log    ${var1}
+    log    ${var2}
+    ${var1}    ${var2}    Get_L2TP
+    log    ${var1}
+    log    ${var2}
+
 DNS
     #ClearDNSCache
     Ethernet_DNS    DHCP
+
