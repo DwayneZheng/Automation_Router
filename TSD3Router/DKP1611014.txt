@@ -14,11 +14,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20180110
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0001
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin
@@ -44,11 +40,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0007
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin
@@ -69,11 +61,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0008
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    60    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
@@ -135,11 +123,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0009
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin

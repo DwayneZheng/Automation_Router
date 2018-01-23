@@ -14,25 +14,10 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0001
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
-    sleep    3s
+    Ping-Gateway
 
 0003
     [Documentation]    Internet_DHCP WAN Connection_Release IP Button Check
@@ -40,11 +25,7 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0003
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     click    ${Home Page-RenewReleaseIPAddress-Click}
@@ -92,11 +73,7 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0005
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -126,11 +103,7 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-PPPoE    DKP1611011-PPPoE-0027
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -161,11 +134,7 @@ Library           String
     [Documentation]    Internet _Static IP WAN Connection_Go to settings button check \ OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-StaticIP    DKP1611011-StaticIP-0028
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -197,11 +166,7 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-PPTP    DKP1611011-PPTP-0029
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -233,11 +198,7 @@ Library           String
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-L2TP    DKP1611011-L2TP-0030
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -272,12 +233,8 @@ Library           String
     ...    ------------------
     ...    Check IPv6 status
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0006
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -334,12 +291,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0007
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -356,12 +309,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0008
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -378,12 +327,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0009
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -414,12 +359,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0010
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -452,12 +393,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171214
     [Tags]    DKP1611011-PPPoE    DKP1611011-PPPoE-0019
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -498,12 +435,8 @@ Library           String
     ...    ---------------------
     ...    3.Unplug WAN connection
     [Tags]    DKP1611011-PPPoE    DKP1611011-PPPoE-0020
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -564,12 +497,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171213
     [Tags]    DKP1611011-StaticIP    DKP1611011-StaticIP-0021
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -608,12 +537,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171213
     [Tags]    DKP1611011-PPTP    DKP1611011-PPTP-0023
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -655,12 +580,8 @@ Library           String
     ...    -----------------------------
     ...    3.Unplug WAN connection
     [Tags]    DKP1611011-PPTP    DKP1611011-PPTP-0024
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -723,12 +644,8 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171213
     [Tags]    DKP1611011-L2TP    DKP1611011-L2TP-0025
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English
@@ -770,12 +687,8 @@ Library           String
     ...    ---------------------
     ...    3.Unplug WAN connection
     [Tags]    DKP1611011-L2TP    DKP1611011-L2TP-0026
-    ToLoginWithoutPassword
     #===Restore===
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore End===
     ToLoginPage
     Lang2English

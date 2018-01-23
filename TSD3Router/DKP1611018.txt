@@ -24,11 +24,7 @@ Library           String
     ...    OK verify by Richard Wu 20171213
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0046
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -120,11 +116,7 @@ Library           String
     ...    OK verify by Richard Wu 20171213
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0047
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -211,11 +203,7 @@ Library           String
     ...    OK verify by Richard Wu 20171228
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0048
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -313,11 +301,7 @@ Library           String
     ...    OK verify by Richard Wu 20171213
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0049
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -407,11 +391,7 @@ Library           String
     ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0050
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -513,11 +493,7 @@ Library           String
     ...    第 68行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0051
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -612,11 +588,7 @@ Library           String
     ...    第 73行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0052
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -722,11 +694,7 @@ Library           String
     ...    第 67行 因為878設定固定ip會跑掉，所以先把判斷ip功能關閉
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0053
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -821,11 +789,7 @@ Library           String
     ...    OK verify by Richard Wu 20171228
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0063
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -931,11 +895,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0064
     # copy by 52
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1052,11 +1012,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0065
     #copy 53
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1163,11 +1119,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0066
     #copy 46
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1271,11 +1223,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0067
     #copy 47
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1371,11 +1319,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0068
     #copy 48
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1483,11 +1427,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0069
     #copy 49
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1585,11 +1525,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171214
     [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0001
     #===Restore===
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1683,11 +1619,7 @@ Library           String
     [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0002
     Ethernet_DNS    DHCP
     #===Restore===
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1800,11 +1732,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-StaticIP    DKP1611018-StaticIP-0003
     #===Restore===
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -1888,11 +1816,7 @@ Library           String
     [Tags]    DKP1611018-StaticIP    DKP1611018-StaticIP-0004
     Ethernet_DNS    DHCP
     #===Restore===
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2004,11 +1928,7 @@ Library           String
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0005
     Ethernet_DNS    DHCP
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2127,11 +2047,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0011
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2225,11 +2141,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0012
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2306,11 +2218,7 @@ Library           String
     ...    -------------------------------------
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0015
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2371,11 +2279,7 @@ Library           String
     ...    -------------------------------------
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0017
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2455,11 +2359,7 @@ Library           String
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0018
     Ethernet_DNS    DHCP
     #===Restore===
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2557,11 +2457,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0019
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2622,11 +2518,7 @@ Library           String
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0021
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2703,10 +2595,6 @@ Library           String
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0022
     #Restore
     ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2767,11 +2655,7 @@ Library           String
     ...    -------------------------------------
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0024
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2845,11 +2729,7 @@ Library           String
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0025
     Ethernet_DNS    DHCP
     #===Restore===
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -2944,11 +2824,7 @@ Library           String
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0070
     #copy 12
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3025,11 +2901,7 @@ Library           String
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0107
     #copy by 0017
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3105,11 +2977,7 @@ Library           String
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0108
     #Copy by 15
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3171,11 +3039,7 @@ Library           String
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0110
     #copy by 107
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3256,11 +3120,7 @@ Library           String
     ...    OK verify by Richard Wu 20171229
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0111
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3337,11 +3197,7 @@ Library           String
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0112
     #Copy by 19
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3406,11 +3262,7 @@ Library           String
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0114
     #copy by 21
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3487,11 +3339,7 @@ Library           String
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0115
     #copy by 22
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3554,11 +3402,7 @@ Library           String
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0117
     #Copy by 24
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginPage
     Lang2English
@@ -3627,11 +3471,7 @@ Library           String
     [Documentation]    Internet->IPv4 PPPoE password special characters test
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0128
     #Restore
-    ToLoginWithoutPassword
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Settings-Internet
