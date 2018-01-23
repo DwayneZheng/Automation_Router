@@ -3668,11 +3668,11 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ~!@$%^&*()_+[]{}:';=?<>,."     #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ~!@$%^&*()_+[]{}:';=?<>,."    #Setting \ Account
     ${BeforePPPoEAccount1}    getText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ~!@$%^&*()_+[]{}:';=?<>,."     #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ~!@$%^&*()_+[]{}:';=?<>,."    #Setting \ Password
     ${BeforePPPoEPassword1}    getText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
     sleep    1s
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
@@ -3699,3 +3699,7 @@ test
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     should contain    ${Finish ConnectionType}    PPPoE    msg=not PPPoE
     #Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
+
+Ping_Gateway
+    ToLoginWithoutPassword
+    Ping-Gateway

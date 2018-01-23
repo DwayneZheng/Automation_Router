@@ -652,3 +652,17 @@ Restore-To-Default
     sleep    3s
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
+
+Ping-Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
+    ...    ELSE    log    pass
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    log    ${GetDefault Gateway}
+    Def-Ping    0    ${GetDefault Gateway}
+    sleep    3s
