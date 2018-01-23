@@ -1735,6 +1735,8 @@ ElementLocator-DIR-878
     Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar23-ImgClick}
     ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar24-ImgClick}    getElementLocator    xpath    //img[@onclick='deleteData(23)']
     Set Global Variable    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar24-ImgClick}
+    ${Features-WebsiteFilter-Save}    getElementLocator    xpath    //div[@id='Save_btn']
+    Set Global Variable    ${Features-WebsiteFilter-Save}
     #Features-Static Routes-IPv4
     ${Features-Static Routes-IPv4-Features-FunctionTable}    getElementLocator    xpath    (//a[contains(@href, '#')])[2]
     Set Global Variable    ${Features-Static Routes-IPv4-Features-FunctionTable}
