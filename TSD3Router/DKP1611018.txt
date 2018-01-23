@@ -1755,6 +1755,7 @@ Library           String
     ${CheckDlink1}    defping    0    www.dlink.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
+    Ethernet_DNS    back
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
@@ -1785,7 +1786,6 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1373}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
-    Ethernet_DNS    back
 
 0003
     [Documentation]    Internet->IPv4 Static IP test
@@ -1959,6 +1959,7 @@ Library           String
     ${CheckDlink1}    defping    0    www.dlink.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
+    Ethernet_DNS    back
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
@@ -1989,7 +1990,6 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1373}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
-    Ethernet_DNS    back
 
 0005
     [Documentation]    Internet->IPv4 PPPoE DNS test
@@ -2072,6 +2072,7 @@ Library           String
     ${CheckPingDNS2}    defping    0    www.dlink.com    default    default    default
     ...    default    default
     Should Be True    "${CheckPingDNS2}"=="False"
+    Ethernet_DNS    back
     #===Check MAC \ Address END===
     #===Ping End===
     ToLoginWithoutPassword
@@ -2111,7 +2112,6 @@ Library           String
     ...    default    default
     Should Be True    "${CheckPingDNS4}"=="True"
     #===Ping End===
-    Ethernet_DNS    back
 
 0011
     [Documentation]    Internet->IPv4 PPPoE Manual + Static IP test + MTU(Auto) + Mac Address Clone(enable)
@@ -2515,6 +2515,7 @@ Library           String
     ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
+    Ethernet_DNS    back
     #===Configure DNS Server===
     FunctionTable-Settings-Internet
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    3    true
@@ -2549,7 +2550,6 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1473}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
-    Ethernet_DNS    back
 
 0019
     [Documentation]    Internet->IPv4 L2TP Always on + Dynamic IP test + MTU(Auto)
@@ -2905,6 +2905,7 @@ Library           String
     ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink1}"=="False"
+    Ethernet_DNS    back
     #===Configure DNS Server===
     Configure L2TP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
@@ -2935,7 +2936,6 @@ Library           String
     ...    default    default
     Should Be True    "${CheckMTU1473}"=="Packet needs to be fragmented but DF set"
     #===Ping MTU END===
-    Ethernet_DNS    back
 
 0070
     [Documentation]    Internet->IPv4 PPTP Always on + Dynamic IP test + MTU(Manual)
@@ -3622,6 +3622,73 @@ Library           String
     ${Disconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
     ...    default    default
     Should Be True    "${Disconnect}"=="False"
+
+0128
+    [Documentation]    Internet->IPv4 PPPoE password special characters test
+    [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0128
+    #Restore
+    ToLoginWithoutPassword
+    RestoreDevice
+    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
+    click    ${Default- Wizard Page-X (Close)-Click}
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    #===Restore END===
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."    #Setting \ Account
+    ${BeforePPPoEAccount1}    getText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."    #Setting \ Password
+    ${BeforePPPoEPassword1}    getText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sleep    1s
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    ${AfterPPPoEAccount1}    getText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    ${AfterPPPoEPassword1}    getText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    Should Be True    "${BeforePPPoEAccount1}"=="${AfterPPPoEAccount1}"
+    Should Be True    "${BeforePPPoEPassword1}"=="${AfterPPPoEPassword1}"
+    sleep    1s
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
+    click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ~!@$%^&*()_+[]{}:';=?<>,."     #Setting \ Account
+    ${BeforePPPoEAccount1}    getText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
+    clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ~!@$%^&*()_+[]{}:';=?<>,."     #Setting \ Password
+    ${BeforePPPoEPassword1}    getText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    sleep    1s
+    click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
+    waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
+    sleep    3s
+    ToLoginWithoutPassword
+    FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
+    ${AfterPPPoEAccount1}    getText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
+    ${AfterPPPoEPassword1}    getText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
+    Should Be True    "${BeforePPPoEAccount1}"=="${AfterPPPoEAccount1}"
+    Should Be True    "${BeforePPPoEPassword1}"=="${AfterPPPoEPassword1}"
+    ${CheckLAN}    defping    0    8.8.8.8    default    default    default
+    ...    default    default
+    Should Be True    "${CheckLAN}"=="True"
 
 test
     #${fw}    getText    xpath    //*[@id="modelName"]

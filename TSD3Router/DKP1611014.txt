@@ -164,5 +164,6 @@ Library           String
     ${ShouldBeStringIPv4MACForSSID}    Set Variable    dlink-${LAN MAC-last4}
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
     ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     Should Be True    "${AfterSSID}"=="${ShouldBeStringIPv4MACForSSID}"
