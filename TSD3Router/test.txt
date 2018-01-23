@@ -86,7 +86,13 @@ DNS
     #ClearDNSCache
     Ethernet_DNS    DHCP
 
+screensh
+    tourl    www.google.com
+    sleep    5
+    screenshot    ../results/0001.jpg
+
 For
     ${ClientsCountFor}    Set Variable    3
     :FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    log    ${INDEX1}
+
