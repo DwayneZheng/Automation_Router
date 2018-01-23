@@ -1284,9 +1284,9 @@ ElementLocator-DIR-878
     Set Global Variable    ${Settings-Wireless-WPS-PIN Status-Switch}
     ${Settings-Wireless-Title-GetVar}    getElementLocator    xpath    //*[@id="FunctionName"]
     Set Global Variable    ${Settings-Wireless-Title-GetVar}
-    ${Settings-Wireless-Save-Click}    getElementLocator    xpath    //div[@id='Save_btn']
+    ${Settings-Wireless-Save-Click}    getElementLocator    xpath    //button[@type='submit']
     Set Global Variable    ${Settings-Wireless-Save-Click}
-    ${Settings-Wireless-Finish-Click}    getElementLocator    xpath    //button[@id='popalert_ok']
+    ${Settings-Wireless-Finish-Click}    getElementLocator    xpath    //div[@id='Confirm_btn']
     Set Global Variable    ${Settings-Wireless-Finish-Click}
     #Settings-Wireless-Guest Zone
     ${Settings-Wireless-Guest Zone-Guest Zone-ChangePage}    getElementLocator    xpath    //div[@id='page_btn']

@@ -45,14 +45,15 @@ Library           String
     click    ${Settings-Wireless-Finish-Click}    #Finish
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    10    true
     ${SSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    sleep    60s
+    sleep    120S
     Wifi-connect    ${SSID}
     sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    ${GetDefault Gateway}
+    Def-Ping    0    192.168.0.1    #ping Router
+    Def-Ping    50    ${GetDefault Gateway}
     Ethernet_Choose_enable    all
     sleep    5s
 

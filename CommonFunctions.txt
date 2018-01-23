@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
@@ -8,7 +8,6 @@ Library           ../Functions/LAN_control.py
 Library           ../Functions/v_switch_profile.py
 Library           ../Functions/DNS_control.py
 Library           ../Functions/Clear_DNS_Cache.py
-
 
 *** Keywords ***
 ToLoginPage
@@ -633,7 +632,9 @@ Wifi-connect
     ...
     ...    1)WPA2
     ...
-    ...    2)WPA \ 3)other \
+    ...    2)WPA \
+    ...
+    ...    3)other
     ${Connect-Check}    WIFI_ModifyingAndConnect    ${arg1}    ${arg2}    ${arg3}
     should be true    ${Connect-Check}
 
