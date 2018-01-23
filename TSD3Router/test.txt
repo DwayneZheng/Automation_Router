@@ -83,5 +83,6 @@ get_vswitch_pppoe
     log    ${var2}
 
 DNS
+    #ClearDNSCache
     Ethernet_DNS    DHCP
-    ClearDNSCache
+
