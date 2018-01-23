@@ -86,3 +86,7 @@ DNS
     #ClearDNSCache
     Ethernet_DNS    DHCP
 
+screensh
+    tourl    www.google.com
+    sleep    5
+    screenshot    ../results/0001.jpg

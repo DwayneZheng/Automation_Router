@@ -392,6 +392,7 @@ FunctionTable-Features-PortForwarding
 
 FunctionTable-Features-WebsiteFilter
     mouseOverToElement    ${Function Table-Features-FunctionTable}
+    sleep    1s
     click    ${Function Table-Features-Website Filter-FunctionTableChild}
     waitElementDisplayed    ${Features-Forwarding-Virtual-Add Rule-Click}    10    true
 
@@ -633,9 +634,7 @@ Wifi-connect
     ...
     ...    1)WPA2
     ...
-    ...    2)WPA \
-    ...
-    ...    3)other
+    ...    2)WPA \ 3)other
     ${Connect-Check}    WIFI_ModifyingAndConnect    ${arg1}    ${arg2}    ${arg3}
     should be true    ${Connect-Check}
 
@@ -650,5 +649,6 @@ Restore-To-Default
     ToLoginWithoutPassword
     RestoreDevice
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    50    true
+    sleep    3s
     click    ${Default- Wizard Page-X (Close)-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
