@@ -92,6 +92,7 @@ screensh
     screenshot    ../results/0001.jpg
 
 For
+    [Tags]    for
     ${ClientsCountFor}    Set Variable    3
     : FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    log    ${INDEX1}
