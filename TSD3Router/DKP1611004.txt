@@ -30,10 +30,74 @@ Resource          ../AllResources.txt
     sleep    10s
     tourl    http://netinfo.takming.edu.tw/
     sleep    10
-    screenshot    ../results/takming.jpg
+    screenshot    ../results/Deny-takming-Add.jpg
     tourl    http://www.moex.gov.tw/
     sleep    10
-    screenshot    ../results/moex.jpg
+    screenshot    ../results/Deny-moex-add.jpg
+    #Delete rule
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Features-WebsiteFilter
+    waitElementDisplayed    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar1-ImgClick}    3    true
+    click    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar1-ImgClick}
+    waitElementDisplayed    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar2-ImgClick}    3    true
+    click    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar2-ImgClick}
+    waitElementDisplayed    ${Features-WebsiteFilter-Save}    3    true
+    click    ${Features-WebsiteFilter-Save}
+    sleep    10s
+    tourl    http://netinfo.takming.edu.tw/
+    sleep    10
+    screenshot    ../results/Deny-takming-remove.jpg
+    tourl    http://www.moex.gov.tw/
+    sleep    10
+    screenshot    ../results/Deny-moex-remove.jpg
 
 0002
     [Tags]    DKP1611004-0002
+    Restore-To-Default
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Features-WebsiteFilter
+    waitElementDisplayed    ${Features-WebsiteFilter-Selector-Select}    20    true
+    click    ${Features-WebsiteFilter-Selector-Select}
+    waitElementDisplayed    ${Features-WebsiteFilter-ALLOW clients access to ONLY these sites-SelectChild}    3    true
+    click    ${Features-WebsiteFilter-ALLOW clients access to ONLY these sites-SelectChild}
+    waitElementDisplayed    ${Features-WebsiteFilter-Add Rule-Click}    3    true
+    click    ${Features-WebsiteFilter-Add Rule-Click}
+    waitElementDisplayed    ${Features-WebsiteFilter-Website URL/Domain-Input(var1)-Input}    3    true
+    clearText    ${Features-WebsiteFilter-Website URL/Domain-Input(var1)-Input}
+    sendtext    ${Features-WebsiteFilter-Website URL/Domain-Input(var1)-Input}    http://netinfo.takming.edu.tw/
+    waitElementDisplayed    ${Features-WebsiteFilter-Add Rule-Click}    3    true
+    click    ${Features-WebsiteFilter-Add Rule-Click}
+    waitElementDisplayed    ${Features-WebsiteFilter-Website URL/Domain-Input(var2)-Input}    3    true
+    clearText    ${Features-WebsiteFilter-Website URL/Domain-Input(var2)-Input}
+    sendtext    ${Features-WebsiteFilter-Website URL/Domain-Input(var2)-Input}    http://www.moex.gov.tw/
+    waitElementDisplayed    ${Features-WebsiteFilter-Save}    3    true
+    click    ${Features-WebsiteFilter-Save}
+    sleep    10s
+    tourl    http://netinfo.takming.edu.tw/
+    sleep    10
+    screenshot    ../results/Onlyallow-takming-Add.jpg
+    tourl    http://www.moex.gov.tw/
+    sleep    10
+    screenshot    ../results/Onlyallow-moex-add.jpg
+    #Delete rule
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    FunctionTable-Features-WebsiteFilter
+    waitElementDisplayed    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar1-ImgClick}    3    true
+    click    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar1-ImgClick}
+    waitElementDisplayed    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar2-ImgClick}    3    true
+    click    ${Features-WebsiteFilter-Website URL/Domain-DeleteDatavar2-ImgClick}
+    waitElementDisplayed    ${Features-WebsiteFilter-Save}    3    true
+    click    ${Features-WebsiteFilter-Save}
+    sleep    10s
+    tourl    http://netinfo.takming.edu.tw/
+    sleep    10
+    screenshot    ../results/Onlyallow-takming-remove.jpg
+    tourl    http://www.moex.gov.tw/
+    sleep    10
+    screenshot    ../results/Onlyallow-moex-remove.jpg

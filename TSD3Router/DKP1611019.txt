@@ -22,6 +22,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -70,6 +71,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -120,6 +122,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -170,6 +173,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -219,6 +223,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -269,6 +274,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -319,6 +325,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -360,6 +367,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -396,7 +404,10 @@ Library           String
     WIFI_Delete_Profile
     sleep    1s
     Restore-To-Default
-    ToLoginWithoutPassword
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -458,7 +469,9 @@ Library           String
     WIFI_Delete_Profile
     sleep    1s
     Restore-To-Default
-    ToLoginWithoutPassword
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
     ToHiddenPage
     #Check default SSID
     waitElementDisplayed    ${Hidden-Page-LAN MAC-GetVar}    10    true
@@ -473,6 +486,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -607,7 +621,10 @@ Library           String
     WIFI_Delete_Profile
     sleep    1s
     Restore-To-Default
-    ToLoginWithoutPassword
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -675,7 +692,10 @@ Library           String
     WIFI_Delete_Profile
     sleep    1s
     Restore-To-Default
-    ToLoginWithoutPassword
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -738,7 +758,10 @@ Library           String
     WIFI_Delete_Profile
     sleep    1s
     Restore-To-Default
-    ToLoginWithoutPassword
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
@@ -802,6 +825,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
+    Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
