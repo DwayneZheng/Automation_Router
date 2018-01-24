@@ -83,7 +83,7 @@ get_vswitch_pppoe
     log    ${var2}
 
 DNS
-    #ClearDNSCache
+    FlushDns
     Ethernet_DNS    DHCP
 
 screensh
@@ -96,3 +96,8 @@ For
     ${ClientsCountFor}    Set Variable    3
     : FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    log    ${INDEX1}
+
+special_characters
+    ${BeforePPPoEPassword1}    Set Variable    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."
+    ${AfterPPPoEPassword1}    Set Variable    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."
+    Should Be True    "${BeforePPPoEPassword1}"=="${AfterPPPoEPassword1}"
