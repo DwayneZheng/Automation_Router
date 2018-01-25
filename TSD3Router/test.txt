@@ -100,4 +100,4 @@ For
 special_characters
     ${BeforePPPoEPassword1}    Set Variable    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."
     ${AfterPPPoEPassword1}    Set Variable    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."
-    Should Be True    "${BeforePPPoEPassword1}"=="${AfterPPPoEPassword1}"
+    Should Be Equal    ${BeforePPPoEPassword1}    ${AfterPPPoEPassword1}

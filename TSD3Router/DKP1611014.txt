@@ -43,10 +43,35 @@ Library           String
     Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
+    FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    clearText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    SSID-Test
+    ${BeforeSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    clearText    ${Settings-Wireless-Password-Input}
+    sendtext    ${Settings-Wireless-Password-Input}    11111111
+    ${BeforeSSIDPassword}    getText    ${Settings-Wireless-Password-Input}
+    waitElementDisplayed    ${Settings-Wireless-Save-Click}    5    true
+    click    ${Settings-Wireless-Save-Click}
+    waitElementDisplayed    ${Settings-Wireless-Finish-Click}    40    true
+    click    ${Settings-Wireless-Finish-Click}
+    ToLoginWithoutPassword
+    Configure PPTP
+    ToLoginWithoutPassword
+    FunctionTable-Management-SystemAdmin
+    clearText    ${Management-System Admin-Admin-Password-Input}
+    sendtext    ${Management-System Admin-Admin-Password-Input}    111111    #Modify password
+    ${BeforePassword}    getText    ${Management-System Admin-Admin-Password-Input}
+    click    ${Management-System Admin-Admin-Save}
+    sleep    30s
+    ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin
     click    ${Management-System Admin-System-System-ChangePage}
     waitElementDisplayed    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    10    true
     click    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    #Save Settings To Local Hard Drive
+    #Restore
+    Restore-To-Default
+    #===Restore END===
 
 0008
     [Documentation]    System->Load Settings From Local Hard Drive
@@ -91,10 +116,7 @@ Library           String
     waitElementDisplayed    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    10    true
     click    ${Management-System Admin-System-Save Settings To Local Hard Drive-Click}    #Save Settings To Local Hard Drive
     #Restore
-    RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
-    click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    40    true
+    Restore-To-Default
     #===Restore END===
     ToLoginWithoutPassword
     FunctionTable-Management-SystemAdmin
@@ -102,10 +124,9 @@ Library           String
     # ===Load Settings From Local Hard Drive===
     ${Local}    Set Variable    C:\\Users\\Administrator\\Downloads\\config.bin
     sendtext    id    select_Folder    ${Local}
-    #sendtext    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}    C:\Users\f9621\Downloads\config.bin
-    #click    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
+    waitElementDisplayed    ${Management-System Admin-System-Load-Restore-Click}    20    true
     click    ${Management-System Admin-System-Load-Restore-Click}
-    waitElementDisplayed    ${Management-System Admin-System-Load-Yes-Click}    10    true
+    waitElementDisplayed    ${Management-System Admin-System-Load-Yes-Click}    20    true
     click    ${Management-System Admin-System-Load-Yes-Click}
     waitElementDisplayed    ${Management-System Admin-System-Load Settings From Local Hard Drive Success-Click}    120    true
     click    ${Management-System Admin-System-Load Settings From Local Hard Drive Success-Click}

@@ -222,7 +222,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
-    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
+    waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    5    true
     click    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    #setting Dynamic IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Service Name-Input}
@@ -1617,7 +1617,7 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-DHCP    DKP1611018-DHCP-0002
-    Ethernet_DNS    DHCP
+    Ethernet_DNS    DHCPGateway
     #===Restore===
     Restore-To-Default
     #===Restore END===
@@ -1814,7 +1814,7 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-StaticIP    DKP1611018-StaticIP-0004
-    Ethernet_DNS    DHCP
+    Ethernet_DNS    StaticIPGateway
     #===Restore===
     Restore-To-Default
     #===Restore END===
@@ -1926,7 +1926,7 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171219
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0005
-    Ethernet_DNS    DHCP
+    Ethernet_DNS    PPPoEGateway
     #Restore
     Restore-To-Default
     #===Restore END===
@@ -2357,7 +2357,7 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-PPTP    DKP1611018-PPTP-0018
-    Ethernet_DNS    DHCP
+    Ethernet_DNS    PPTPGateway
     #===Restore===
     Restore-To-Default
     #===Restore END===
@@ -2727,7 +2727,7 @@ Library           String
     ...
     ...    OK verify by Dwayne Cheng 20171218
     [Tags]    DKP1611018-L2TP    DKP1611018-L2TP-0025
-    Ethernet_DNS    DHCP
+    Ethernet_DNS    L2TPGateway
     #===Restore===
     Restore-To-Default
     #===Restore END===
@@ -3524,8 +3524,8 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
     ${AfterPPPoEAccount1}    getText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
     ${AfterPPPoEPassword1}    getText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    Should Be True    "${BeforePPPoEAccount1}"=="${AfterPPPoEAccount1}"
-    Should Be True    "${BeforePPPoEPassword1}"=="${AfterPPPoEPassword1}"
+    Should Be Equal    ${BeforePPPoEAccount1}    ${AfterPPPoEAccount1}
+    Should Be Equal    ${BeforePPPoEPassword1}    ${AfterPPPoEPassword1}
     ${CheckLAN}    defping    0    8.8.8.8    default    default    default
     ...    default    default
     Should Be True    "${CheckLAN}"=="True"
@@ -3539,7 +3539,3 @@ test
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     should contain    ${Finish ConnectionType}    PPPoE    msg=not PPPoE
     #Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
-
-Ping_Gateway
-    ToLoginWithoutPassword
-    Ping-Gateway
