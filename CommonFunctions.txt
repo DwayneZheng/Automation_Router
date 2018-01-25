@@ -1,6 +1,5 @@
 ﻿*** Settings ***
 Documentation     Date：2017/12/12
-<<<<<<< HEAD
 Library           ../Functions/DnsChange2Dhcp.py
 Library           ../Functions/IdentifyLanMacAddress.py
 Library           ../Functions/IdentifyWlanMacAddress.py
