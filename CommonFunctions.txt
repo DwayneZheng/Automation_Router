@@ -1,5 +1,11 @@
 *** Settings ***
 Documentation     Date：2017/12/12
+...
+...
+...               pingLib.py - RichardWu - 2017/12/15
+...               MAC Address.py - RichardWu - 2017/12/13
+...               wifi_connect.py - RichardWu - 2018/1/8
+...               wifi-mac.py - RichardWu - 2018/1/3
 Library           ../Functions/pingLib.py
 Library           ../Functions/MAC Address.py
 Library           ../Functions/wifi_connect.py
