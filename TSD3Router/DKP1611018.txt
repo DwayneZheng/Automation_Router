@@ -1682,7 +1682,7 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
-    ClearDNSCache
+    FlushDns
     sleep    5s
     ${CheckDlink1}    defping    0    www.dlink.com    default    default    default
     ...    default    default
@@ -1878,7 +1878,7 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
-    ClearDNSCache
+    FlushDns
     sleep    5s
     ${CheckDlink1}    defping    0    www.dlink.com    default    default    default
     ...    default    default
@@ -1987,7 +1987,7 @@ Library           String
     ${CheckPingDNS1}    defping    0    ${GetDefault Gateway}    default    default    default
     ...    default    default
     Should Be True    "${CheckPingDNS1}"=="True"
-    ClearDNSCache
+    FlushDns
     sleep    5s
     ${CheckPingDNS2}    defping    0    www.dlink.com    default    default    default
     ...    default    default
@@ -2410,7 +2410,7 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
-    ClearDNSCache
+    FlushDns
     sleep    5s
     ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default
@@ -2780,7 +2780,7 @@ Library           String
     ${CheckMTU1372}    defping    0    ${GetDefault Gateway}    -f    -l    1372
     ...    default    default
     Should Be True    "${CheckMTU1372}"=="True"
-    ClearDNSCache
+    FlushDns
     sleep    5s
     ${CheckDlink1}    defping    0    www.dlink.com    -f    -l    1300
     ...    default    default

@@ -13,8 +13,8 @@ Library           ../Functions/wifi-mac.py
 Library           ../Functions/LAN_control.py
 Library           ../Functions/v_switch_profile.py
 Library           ../Functions/DNS_control.py
-Library           ../Functions/Clear_DNS_Cache.py
 Library           ../Functions/DNS_control.py
+Library           ../Functions/FlushDns.py
 
 *** Keywords ***
 ToLoginPage
