@@ -1,5 +1,6 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Date：2017/12/12
+<<<<<<< HEAD
 Library           ../Functions/DnsChange2Dhcp.py
 Library           ../Functions/IdentifyLanMacAddress.py
 Library           ../Functions/IdentifyWlanMacAddress.py
@@ -8,6 +9,8 @@ Library           ../Functions/Ping.py
 Library           ../Functions/ToConnectSpecifiedSsid.py
 Library           ../Functions/Clear_DNS_Cache.py
 Library           ../Functions/vSwitchPreconfig.py
+Library           ../Functions/FlushDns.py
+
 
 *** Keywords ***
 ToLoginPage
