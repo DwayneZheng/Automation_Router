@@ -95,3 +95,6 @@ For
     ${ClientsCountFor}    Set Variable    3
     : FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    log    ${INDEX1}
+
+change_name_test
+    Ethernet_DNS    123
