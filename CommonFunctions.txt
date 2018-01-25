@@ -1,14 +1,15 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Date：2017/12/12
-Library           ../Functions/pingLib.py
-Library           ../Functions/MAC Address.py
-Library           ../Functions/wifi_connect.py
-Library           ../Functions/wifi-mac.py
-Library           ../Functions/LAN_control.py
-Library           ../Functions/v_switch_profile.py
-Library           ../Functions/DNS_control.py
-Library           ../Functions/DNS_control.py
+Library           ../Functions/DnsChange2Dhcp.py
+Library           ../Functions/IdentifyLanMacAddress.py
+Library           ../Functions/IdentifyWlanMacAddress.py
+Library           ../Functions/LanSwitch.py
+Library           ../Functions/Ping.py
+Library           ../Functions/ToConnectSpecifiedSsid.py
+Library           ../Functions/Clear_DNS_Cache.py
+Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/FlushDns.py
+
 
 *** Keywords ***
 ToLoginPage
