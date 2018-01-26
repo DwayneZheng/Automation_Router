@@ -273,7 +273,7 @@ Resource          ../AllResources.txt
     ...    ELSE    log    pass
     sleep    5s
     ToLoginPage
-    waitElementDisplayed    id    logIn_btn    20
+    waitElementDisplayed    id    logIn_btn    30
     click    id    logIn_btn
     sleep    1
     ${Check-UpgradeFW-Status}    waitElementDisplayed    xpath    //div[@id='Confirm_btn']    5

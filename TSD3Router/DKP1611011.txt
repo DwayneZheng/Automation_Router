@@ -35,14 +35,7 @@ Library           String
     ${GetDefault Gateway-first}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     ${Reverse-Result}    defping    0    ${GetDefault Gateway-first}    default    default    default
