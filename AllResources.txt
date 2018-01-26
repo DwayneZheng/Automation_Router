@@ -2,3 +2,4 @@
 Resource          CommonFunctions.txt
 Library           com.rabbit.automation.robotframework.KeyWordLib
 Resource          ElementLocators/ElementLocator-DIR-878.txt
+Resource          ElementLocators_DIR-882/ElementLocator.txt

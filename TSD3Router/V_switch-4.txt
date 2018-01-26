@@ -1,0 +1,6 @@
+*** Settings ***
+Resource          ../AllResources.txt
+
+*** Test Cases ***
+4
+    Vswirch_4

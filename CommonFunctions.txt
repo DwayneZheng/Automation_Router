@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/DnsChange2Dhcp.py
 Library           ../Functions/IdentifyLanMacAddress.py
@@ -9,7 +9,7 @@ Library           ../Functions/ToConnectSpecifiedSsid.py
 Library           ../Functions/Clear_DNS_Cache.py
 Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/FlushDns.py
-
+Library           ../Functions/vSwitchPreconfig.py
 
 *** Keywords ***
 ToLoginPage
@@ -271,9 +271,10 @@ Configure StaticIP
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    10    true
     click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
     #Switch to staticIP
+    ${Static IP}=    Get_DHCP_Static_IP
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
     clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    172.16.0.40    #IP Address Input
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    ${Static IP}    #IP Address Input
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
@@ -308,15 +309,16 @@ Configure PPTP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    10    true
     click    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}
     #Switch to PPTP
+    ${PPTP-Account}    ${PPTP-IP}    Get_PPTP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    172.16.0.1    #PPTP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    PPTP1    #Username Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    ${PPTP-Account}    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    PPTP1    #Password Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    ${PPTP-Account}    #Password Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true

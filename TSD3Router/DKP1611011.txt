@@ -2,7 +2,7 @@
 Documentation     Subject: TSD3 Router Home Page
 ...
 ...               Date：2017/12/14
-Suite Setup       ElementLocator-DIR-878
+Suite Setup       ElementLocator
 Force Tags        DKP1611011
 Resource          ../AllResources.txt
 Library           String
@@ -27,7 +27,12 @@ Library           String
     #Restore
     Restore-To-Default
     #===Restore END===
-    ToLoginWithoutPassword
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    Ping-Gateway
+    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    ${GetDefault Gateway-first}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
@@ -40,7 +45,7 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
-    ${Reverse-Result}    defping    0    ${GetDefault Gateway}    default    default    default
+    ${Reverse-Result}    defping    0    ${GetDefault Gateway-first}    default    default    default
     ...    default    default
     Run Keyword If    "${Reverse-Result}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True    False
