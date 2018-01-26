@@ -2,7 +2,7 @@
 Documentation     Subject: TSD3 Router Default Setup Wizard
 ...
 ...               Date: 2017/11/28
-Suite Setup       ElementLocator-DIR-878
+Suite Setup       ElementLocator
 Force Tags        DKP1608016
 Default Tags
 Resource          ../AllResources.txt

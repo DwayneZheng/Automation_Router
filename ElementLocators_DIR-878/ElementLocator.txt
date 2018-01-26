@@ -1,8 +1,8 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Date：2017/12/26
 
 *** Keywords ***
-ElementLocator-DIR-878
+ElementLocator
     #DKP1608016
     ${Wizard-Next-Click}    getElementLocator    xpath    //*[@id="btn_next"]
     Set Global Variable    ${Wizard-Next-Click}

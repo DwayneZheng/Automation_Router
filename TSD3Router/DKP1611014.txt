@@ -2,7 +2,7 @@
 Documentation     Subject: TSD3 Router->Management->System Admin
 ...
 ...               Date：2018/01/10
-Suite Setup       ElementLocator-DIR-878
+Suite Setup       ElementLocator
 Force Tags        DKP1611014
 Resource          ../AllResources.txt
 Library           String

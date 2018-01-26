@@ -1,5 +1,5 @@
 *** Settings ***
-Suite Setup       ElementLocator-DIR-878
+Suite Setup       ElementLocator
 Force Tags        DKP1611004
 Resource          ../AllResources.txt
 
