@@ -1,15 +1,13 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
-Library           ../Functions/DnsChange2Dhcp.py
 Library           ../Functions/IdentifyLanMacAddress.py
 Library           ../Functions/IdentifyWlanMacAddress.py
 Library           ../Functions/LanSwitch.py
 Library           ../Functions/Ping.py
 Library           ../Functions/ToConnectSpecifiedSsid.py
-Library           ../Functions/Clear_DNS_Cache.py
 Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/FlushDns.py
-
+Library           ../Functions/DnsChange2Dhcp.py
 
 *** Keywords ***
 ToLoginPage
@@ -149,7 +147,6 @@ Wizard-check
 
 LoginPage-CheckLanguage
     [Arguments]    ${InputLanuage}
-    [Tags]
     waitElementDisplayed    xpath    (//a[contains(@href, '#')])[2]    20    true
     ${Lanuage Check}    getText    xpath    (//a[contains(@href, '#')])[2]
     Run Keyword If    "${Lanuage Check}"=="${InputLanuage}"    log    Lanuage:Matched

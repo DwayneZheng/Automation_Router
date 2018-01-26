@@ -132,9 +132,10 @@ Library           String
     click    ${Management-System Admin-System-Load Settings From Local Hard Drive Success-Click}
     # ===Load Settings From Local Hard Drive End===
     ToLoginWithoutPassword
-    FunctionTable-Settings-Wireless
-    ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
-    ${AfterSSIDPassword}    getText    ${Settings-Wireless-Password-Input}
+    waitElementDisplayed    ${Home Page-DUT-ImgClick}    20    true
+    click    ${Home Page-DUT-ImgClick}
+    ${AfterSSID}    getText    ${Home Page-DUT-Wi-Fi 2.4GHz-Wifi-Wi-Fi Name (SSID)-GetVar}
+    ${AfterSSIDPassword}    getText    ${Home Page-DUT-Wi-Fi 2.4GHz-Password-GetVar}
     Should Be True    "${BeforeSSID}"=="${AfterSSID}"
     Should Be True    "${BeforeSSIDPassword}"=="${AfterSSIDPassword}"
 

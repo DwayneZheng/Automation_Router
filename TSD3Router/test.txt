@@ -97,7 +97,6 @@ For
     : FOR    ${INDEX1}    IN RANGE    1    ${ClientsCountFor}
     \    log    ${INDEX1}
 
-
 change_name_test
     Ethernet_DNS    123
 
@@ -105,4 +104,3 @@ special_characters
     ${BeforePPPoEPassword1}    Set Variable    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."
     ${AfterPPPoEPassword1}    Set Variable    ~!@#$%^&*()_-+\ /[]{}:';=?<>,."
     Should Be Equal    ${BeforePPPoEPassword1}    ${AfterPPPoEPassword1}
-
