@@ -1,5 +1,7 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/26
+...
+...               For DIR-878
 
 *** Keywords ***
 ElementLocator
