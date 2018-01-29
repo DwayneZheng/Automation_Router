@@ -9,6 +9,7 @@ Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/FlushDns.py
 Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/DnsChange2Dhcp.py
+Library           ../Functions/IdentifyWlanMacAddress.py
 
 *** Keywords ***
 ToLoginPage
