@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2018/1/26
 
 *** Keywords ***
@@ -121,43 +121,43 @@ ElementLocator
     Set Global Variable    ${Function Table-Home-FunctionTable}
     ${Function Table-Settings-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Settings']
     Set Global Variable    ${Function Table-Settings-FunctionTable}
-    ${Function Table-Settings-Wizard-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[1]
+    ${Function Table-Settings-Wizard-FunctionTableChild}    getElementLocator    xpath    //a[@onclick='return confirmExit()']
     Set Global Variable    ${Function Table-Settings-Wizard-FunctionTableChild}
     ${Function Table-Settings-Internet-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit();'])[2]
     Set Global Variable    ${Function Table-Settings-Internet-FunctionTableChild}
-    ${Function Table-Settings-Wireless-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[3]
+    ${Function Table-Settings-Wireless-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[2]
     Set Global Variable    ${Function Table-Settings-Wireless-FunctionTableChild}
-    ${Function Table-Settings-Network-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[4]
+    ${Function Table-Settings-Network-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[3]
     Set Global Variable    ${Function Table-Settings-Network-FunctionTableChild}
     ${Function Table-Features-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Advanced']
     Set Global Variable    ${Function Table-Features-FunctionTable}
-    ${Function Table-Features-QoS Engine-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[5]
+    ${Function Table-Features-QoS Engine-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[4]
     Set Global Variable    ${Function Table-Features-QoS Engine-FunctionTableChild}
-    ${Function Table-Features-Firewall-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[6]
+    ${Function Table-Features-Firewall-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[5]
     Set Global Variable    ${Function Table-Features-Firewall-FunctionTableChild}
-    ${Function Table-Features-Port Forwarding-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[7]
+    ${Function Table-Features-Port Forwarding-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[6]
     Set Global Variable    ${Function Table-Features-Port Forwarding-FunctionTableChild}
-    ${Function Table-Features-Website Filter-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[8]
+    ${Function Table-Features-Website Filter-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[7]
     Set Global Variable    ${Function Table-Features-Website Filter-FunctionTableChild}
-    ${Function Table-Features-Static Route-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[9]
+    ${Function Table-Features-Static Route-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[8]
     Set Global Variable    ${Function Table-Features-Static Route-FunctionTableChild}
-    ${Function Table-Features-Dynamic DNS-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[10]
+    ${Function Table-Features-Dynamic DNS-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[9]
     Set Global Variable    ${Function Table-Features-Dynamic DNS-FunctionTableChild}
-    ${Function Table-Features-Quick VPN-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[11]
+    ${Function Table-Features-Quick VPN-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[10]
     Set Global Variable    ${Function Table-Features-Quick VPN-FunctionTableChild}
     ${Function Table-Management-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Management']
     Set Global Variable    ${Function Table-Management-FunctionTable}
-    ${Function Table-Management-Time & Schedule-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[12]
+    ${Function Table-Management-Time & Schedule-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[11]
     Set Global Variable    ${Function Table-Management-Time & Schedule-FunctionTableChild}
-    ${Function Table-Management-System Log-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[13]
+    ${Function Table-Management-System Log-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[12]
     Set Global Variable    ${Function Table-Management-System Log-FunctionTableChild}
-    ${Function Table-Management-System Admin-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[14]
+    ${Function Table-Management-System Admin-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[13]
     Set Global Variable    ${Function Table-Management-System Admin-FunctionTableChild}
-    ${Function Table-Management-Device-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[15]
+    ${Function Table-Management-Device-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[14]
     Set Global Variable    ${Function Table-Management-Device-FunctionTableChild}
-    ${Function Table-Management-Upgrade-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[16]
+    ${Function Table-Management-Upgrade-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[15]
     Set Global Variable    ${Function Table-Management-Upgrade-FunctionTableChild}
-    ${Function Table-Management-Statistics-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[17]
+    ${Function Table-Management-Statistics-FunctionTableChild}    getElementLocator    xpath    (//a[@onclick='return confirmExit()'])[16]
     Set Global Variable    ${Function Table-Management-Statistics-FunctionTableChild}
     #Home Page
     ${Home Page-Home-FunctionTable}    getElementLocator    xpath    //a[@id='menu_Home']

@@ -1,6 +1,8 @@
 *** Settings ***
+Force Tags        Choose_V_switch-1
 Resource          ../AllResources.txt
 
 *** Test Cases ***
 1
+    [Tags]    V1
     Vswirch_1

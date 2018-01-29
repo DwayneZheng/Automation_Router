@@ -75,17 +75,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -165,17 +156,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -259,17 +241,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC Address
     log    ${Before MAC Address}
@@ -351,17 +324,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -448,17 +412,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -546,17 +501,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -649,17 +595,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -750,17 +687,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -845,17 +773,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -959,17 +878,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -1079,10 +989,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -1181,10 +1089,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -1275,17 +1181,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -1378,17 +1275,8 @@ Library           String
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (PPPoE)"    #Check connection type
     #===Check type End===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC Address
     log    ${Before MAC Address}
@@ -1487,10 +1375,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     log    ${Before MAC Address}
     log    ${After MAC Address}
@@ -1565,17 +1451,8 @@ Library           String
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (DHCP)"
     #===Ping \ Gateway===
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -1664,16 +1541,8 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #===Ping MTU===
     ${CheckMTU1300}    defping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -1712,6 +1581,7 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${CheckDlink2}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -1773,18 +1643,8 @@ Library           String
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (Static)"
     #===Ping \ Gateway===
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
-    sleep    3s
     #===Ping END===
     #===Ping MTU===
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1400
@@ -1862,16 +1722,8 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #===Ping MTU===
     ${CheckMTU1300}    defping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -1910,6 +1762,7 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${CheckDlink2}    defping    0    www.google.com    default    default    default
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -1976,16 +1829,8 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #===Ping ===
     ${CheckPingDNS1}    defping    0    ${GetDefault Gateway}    default    default    default
@@ -2021,7 +1866,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
-    sleep    3s
+    sleep    5s
     ToLoginPage
     Lang2English
     ToClickLoginBtn
@@ -2029,9 +1874,7 @@ Library           String
     ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
     #===Ping ===
-    ${CheckPingDNS3}    defping    0    ${GetDefault Gateway}    default    default    default
-    ...    default    default
-    Should Be True    "${CheckPingDNS3}"=="True"
+    Ping-Gateway
     sleep    5s
     ${CheckPingDNS4}    defping    0    www.google.com    default    default    default
     ...    default    default
@@ -2097,18 +1940,8 @@ Library           String
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    sleep    3s
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPPoE)"
@@ -2196,10 +2029,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -2254,17 +2085,8 @@ Library           String
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Static IP (PPTP)"
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2328,10 +2150,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2397,16 +2217,8 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #===Ping MTU===
     ${CheckMTU1300}    defping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2449,6 +2261,7 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -2499,17 +2312,8 @@ Library           String
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2570,10 +2374,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2639,10 +2441,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2703,10 +2503,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -2768,16 +2566,8 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetPrimary DNS Server1}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server1}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #===Ping MTU===
     sleep    3s
@@ -2817,6 +2607,7 @@ Library           String
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetPrimary DNS Server2}    getText    ${Home Page-Primary DNS Server(IPv4)-GetVar}
     ${GetSecondary DNS Server2}    getText    ${Home Page-Secondary DNS Server(IPv4)-GetVar}
+    Ping-Gateway
     ${CheckDlink2}    defping    0    www.google.com    -f    -l    1300
     ...    default    default
     Should Be True    "${CheckDlink2}"=="True"
@@ -2879,17 +2670,8 @@ Library           String
     ${Finish MAC Address}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
     #===Finish MAC Address===
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Check MAC \ Address
     log    ${Before MAC Address}
@@ -2954,10 +2736,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3028,10 +2808,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3096,10 +2874,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3176,10 +2952,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3244,17 +3018,8 @@ Library           String
     ${Finish ConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
     Should Be True    "${Finish ConnectionType}"=="Dynamic IP (L2TP)"
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3312,17 +3077,8 @@ Library           String
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3390,10 +3146,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3456,10 +3210,8 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
     #===Ping END===
     #Ping MTU
     Def-Ping    0    ${GetDefault Gateway}    -f    -l    1300
@@ -3478,6 +3230,8 @@ Library           String
 
 0128
     [Documentation]    Internet->IPv4 PPPoE password special characters test
+    ...
+    ...    OK verify by Dwayne Cheng 20180126
     [Tags]    DKP1611018-PPPoE    DKP1611018-PPPoE-0128
     #Restore
     Restore-To-Default
