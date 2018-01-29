@@ -194,7 +194,8 @@ Resource          ../AllResources.txt
     [Tags]    DKP1608016-DHCP    DKP1608016-DHCP-0007
     changeBrowser    firefox
     #Restore
-    Restore-To-Default
+    ToLoginWithoutPassword
+    RestoreDevice
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
@@ -230,7 +231,8 @@ Resource          ../AllResources.txt
     [Tags]    DKP1608016-DHCP    DKP1608016-DHCP-0008
     changeBrowser    chrome
     #Restore
-    Restore-To-Default
+    ToLoginWithoutPassword
+    RestoreDevice
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}
@@ -375,7 +377,8 @@ Resource          ../AllResources.txt
     [Tags]    DKP1608016-PPPoE    DKP1608016-PPPoE-0017
     changeBrowser    firefox
     #Restore
-    Restore-To-Default
+    ToLoginWithoutPassword
+    RestoreDevice
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-English-Select-child}
@@ -415,7 +418,8 @@ Resource          ../AllResources.txt
     [Tags]    DKP1608016-PPPoE    DKP1608016-PPPoE-0018
     changeBrowser    chrome
     #Restore
-    Restore-To-Default
+    ToLoginWithoutPassword
+    RestoreDevice
     #===Restore END===
     ToLoginPage
     ChooseLanguage    ${Language-한국-Select-child}

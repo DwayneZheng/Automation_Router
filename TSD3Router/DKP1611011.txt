@@ -35,10 +35,12 @@ Library           String
     ${GetDefault Gateway-first}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
-    Ping-Gateway
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
-    ${Reverse-Result}    defping    0    ${GetDefault Gateway-first}    default    default    default
+    ${Reverse-Result}    defping    0    ${GetDefault Gateway}    default    default    default
     ...    default    default
     Run Keyword If    "${Reverse-Result}"=="False"    log    FunctionPass
     ...    ELSE    log    FunctionFail    Should Be True    False
@@ -51,14 +53,7 @@ Library           String
     ToLoginWithoutPassword
     click    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     ${Reverse-Result}    defping    0    ${GetDefault Gateway}    default    default    default
@@ -77,17 +72,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
+    Ping-Gateway
     #===Ping END===
     waitElementDisplayed    ${Home Page-Go to settings (V4)-Click}    10    true
     click    ${Home Page-Go to settings (V4)-Click}
@@ -111,17 +96,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #Ping \ Gateway
-    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
+    Ping-Gateway
     #===Ping END===
     click    ${Home Page-Go to settings (V4)-Click}
     sleep    3s
@@ -148,10 +123,7 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
+    Ping-Gateway
     #===Ping END===
     click    ${Home Page-Go to settings (V4)-Click}
     sleep    3s
@@ -174,16 +146,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #Ping IP
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
+    Ping-Gateway
     #===Ping END===
     click    ${Home Page-Go to settings (V4)-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
@@ -206,16 +169,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #Ping IP
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}
+    Ping-Gateway
     #===Ping END===
     click    ${Home Page-Go to settings (V4)-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-My Internet Connection is-GetVar}    10    true
@@ -269,13 +223,7 @@ Library           String
     #===Check IPv6 status End===
     #===Ping Gateway===
     FunctionTable-Home
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    Ping-Gateway
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     ${GetPing}    defping    0    ${GetDefault Gateway}    -n    10    default
@@ -402,16 +350,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     #===Check Internet Status===
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
@@ -444,16 +383,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     ToLoginPage
     Lang2English
@@ -506,16 +436,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     #===Check Internet Status===
     ${GetConnection Type(IPv4)}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
@@ -544,16 +465,7 @@ Library           String
     Configure PPTP
     ToLoginWithoutPassword
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     ToLoginPage
     Lang2English
@@ -589,16 +501,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     ToLoginPage
     Lang2English
@@ -653,16 +556,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     ToLoginWithoutPassword
     #===Check Internet Status===
@@ -696,16 +590,7 @@ Library           String
     Lang2English
     ToClickLoginBtn
     #===Ping Gateway===
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
-    ...    ELSE    log    pass
-    ToLoginPage
-    Lang2English
-    ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
-    ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    log    ${GetDefault Gateway}
-    Def-Ping    0    ${GetDefault Gateway}    -n    10
+    Ping-Gateway
     #===Ping Gateway End===
     ToLoginWithoutPassword
     #===Check Internet Status===

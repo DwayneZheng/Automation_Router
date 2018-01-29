@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Documentation     Date：2017/12/12
 Library           ../Functions/IdentifyLanMacAddress.py
 Library           ../Functions/IdentifyWlanMacAddress.py
@@ -7,10 +7,8 @@ Library           ../Functions/Ping.py
 Library           ../Functions/ToConnectSpecifiedSsid.py
 Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/FlushDns.py
-
 Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/DnsChange2Dhcp.py
-
 
 *** Keywords ***
 ToLoginPage
@@ -243,16 +241,17 @@ ToHiddenPage
 Configure PPPoE
     [Documentation]    Test in vm
     FunctionTable-Settings-Internet
+    ${PPPoE-Account}    ${PPPoE-IP}    Get_PPPoE
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    tsd3    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ${PPPoE-Account}    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    tsd3    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ${PPPoE-Account}    #Setting \ Password
     sleep    1s
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
@@ -339,15 +338,16 @@ Configure L2TP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    10    true
     click    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}
     #Switch to L2TP
+    ${L2TP-Account}    ${L2TP-IP}    Get_L2TP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    172.16.0.1    #L2TP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    L2TP1    #Username Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    ${L2TP-Account}    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    L2TP1    #Password Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    ${L2TP-Account}    #Password Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Save-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
@@ -360,103 +360,103 @@ FunctionTable-Home
 
 FunctionTable-Settings-Wizard
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Settings-Wizard-FunctionTableChild}
     waitElementDisplayed    ${Settings - Wizard Page-Next-Click}    10    TRUE
 
 FunctionTable-Settings-Internet
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Settings-Internet-FunctionTableChild}
     waitElementDisplayed    ${Settings-Network-Advanced Settings...-Link}    10    true
 
 FunctionTable-Settings-Wireless
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Settings-Wireless-FunctionTableChild}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
 
 FunctionTable-Settings-Network
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Settings-Network-FunctionTableChild}
     waitElementDisplayed    ${Settings-Network-Enable DNS Relay-Switch}    10    true
 
 FunctionTable-Features-QoSEngine
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Features-QoS Engine-FunctionTableChild}
     waitElementDisplayed    ${Features-Qos Engine-Download Speed-Input}    10    true
 
 FunctionTable-Features-Firewall
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    v
     click    ${Function Table-Features-Firewall-FunctionTableChild}
     waitElementDisplayed    ${Features-Firewall- Advanced-Enable DMZ-Switch}    10    true
 
 FunctionTable-Features-PortForwarding
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Features-Port Forwarding-FunctionTableChild}
     waitElementDisplayed    ${Features-PortForwarding-Add Rule-Click}    10    true
 
 FunctionTable-Features-WebsiteFilter
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Features-Website Filter-FunctionTableChild}
     waitElementDisplayed    ${Features-Forwarding-Virtual-Add Rule-Click}    10    true
 
 FunctionTable-Features-StaticRoute
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Features-Static Route-FunctionTableChild}
     waitElementDisplayed    ${Features-Static Routes-IPv6-IPv6-Click}    10    true
 
 FunctionTable-Features-DynamicDNS
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Features-Dynamic DNS-FunctionTableChild}
     waitElementDisplayed    ${Features-DynamicDNS-Enable Dynamic DNS-Switch}    10    true
 
 FunctionTable-Features-QuickVPN
     mouseOverToElement    ${Function Table-Features-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Features-Quick VPN-FunctionTableChild}
     waitElementDisplayed    ${Features-QuickVPN-L2TP over IPSec-Switch}    10    true
 
 FunctionTable-Management-Time&Schedule
     mouseOverToElement    ${Function Table-Management-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Management-Time & Schedule-FunctionTableChild}
     waitElementDisplayed    ${Management-Time&Schedule-Time-Time Zone-Select}    10    true
 
 FunctionTable-Management-SystemLog
     mouseOverToElement    ${Function Table-Management-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Management-System Log-FunctionTableChild}
     waitElementDisplayed    ${Management-System Log-Enable Logging to Syslog Server-Switch}    10    true
 
 FunctionTable-Management-SystemAdmin
     mouseOverToElement    ${Function Table-Management-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Management-System Admin-FunctionTableChild}
     waitElementDisplayed    ${Management-System Admin-Admin-Advanced Settings...-Link}    10    true
 
 FunctionTable-Management-Device
     mouseOverToElement    ${Function Table-Management-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Management-Device-FunctionTableChild}
     waitElementDisplayed    ${Management-Device-Turn Parental Control-Select}    10    true
 
 FunctionTable-Management-Upgrade
     mouseOverToElement    ${Function Table-Management-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Management-Upgrade-FunctionTableChild}
     waitElementDisplayed    ${Management-Upgrade-Check for New Firmware-Click}    10    true
 
 FunctionTable-Management-Statistics
     mouseOverToElement    ${Function Table-Management-FunctionTable}
-    sleep    1s
+    sleep    2s
     click    ${Function Table-Management-Statistics-FunctionTableChild}
     waitElementDisplayed    ${Management-Statistics-Internet-Click}    10    true
 
@@ -464,16 +464,17 @@ FunctionTable-Management-Statistics
 
 Configure PPPoE-Without Save
     FunctionTable-Settings-Internet
+    ${PPPoE-Account}    ${PPPoE-IP}    Get_PPPoE
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    tsd3    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ${PPPoE-Account}    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    tsd3    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ${PPPoE-Account}    #Setting \ Password
     sleep    1s
 
 Configure DHCP-Without Save
@@ -486,13 +487,14 @@ Configure DHCP-Without Save
 
 Configure Static IP-Without Save
     FunctionTable-Settings-Internet
+    ${Static IP}=    Get_DHCP_Static_IP
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Static IP-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    10    true
     clearText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    172.16.0.40    #IP Address Input
+    sendtext    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}    ${Static IP}    #IP Address Input
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-StaticIP-Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
@@ -506,6 +508,7 @@ Configure Static IP-Without Save
 
 Configure PPTP-Without Save
     FunctionTable-Settings-Internet
+    ${PPTP-Account}    ${PPTP-IP}    Get_PPTP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
@@ -515,16 +518,17 @@ Configure PPTP-Without Save
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    172.16.0.1    #PPTP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    PPTP1    #Username Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    ${PPTP-Account}    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    PPTP1    #Password Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    ${PPTP-Account}    #Password Input
     sleep    1s
 
 ----12/18---
 
 Configure L2TP-Without Save
     FunctionTable-Settings-Internet
+    ${L2TP-Account}    ${L2TP-IP}    Get_L2TP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    3    true
@@ -534,26 +538,27 @@ Configure L2TP-Without Save
     sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    172.16.0.1    #L2TP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    L2TP1    #Username Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    ${L2TP-Account}    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    L2TP1    #Password Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    ${L2TP-Account}    #Password Input
     sleep    1s
 
 ---1219---
 
 Configure IPv4 PPPoE+Static IP-Without Save
     FunctionTable-Settings-Internet
+    ${PPPoE-Account}    ${PPPoE-IP}    Get_PPPoE
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-PPPoE-SelectChild}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Username-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    PPPoE1    #Setting \ Account
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Username-Input}    ${PPPoE-Account}    #Setting \ Account
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Password-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    PPPoE1    #Setting \ Password
+    sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ${PPPoE-Account}    #Setting \ Password
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
@@ -561,7 +566,7 @@ Configure IPv4 PPPoE+Static IP-Without Save
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    #choose Static IP
     clearText    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    172.16.10.51    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPPoE-IP Address-Input}    ${PPPoE-IP}    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    8.8.8.8
@@ -569,6 +574,7 @@ Configure IPv4 PPPoE+Static IP-Without Save
 
 Configure IPv4 PPTP+Static IP-Without Save
     FunctionTable-Settings-Internet
+    ${PPTP-Account}    ${PPTP-IP}    Get_PPTP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP-SelectChild}    3    true
@@ -578,10 +584,10 @@ Configure IPv4 PPTP+Static IP-Without Save
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Server-Input}    172.16.0.1    #PPTP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    PPTP1    #Username Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Username-Input}    ${PPTP-Account}    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-PPTP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    PPTP1    #Password Input
+    sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    ${PPTP-Account}    #Password Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
@@ -590,7 +596,7 @@ Configure IPv4 PPTP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    #setting Static IP
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    172.16.0.51    #input static address
+    sendtext    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}    ${PPTP-IP}    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-PPTP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
@@ -606,6 +612,7 @@ Configure IPv4 PPTP+Static IP-Without Save
 
 Configure IPv4 L2TP+Static IP-Without Save
     FunctionTable-Settings-Internet
+    ${L2TP-Account}    ${L2TP-IP}    Get_L2TP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-My Internet Connection is-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP-SelectChild}    3    true
@@ -615,10 +622,10 @@ Configure IPv4 L2TP+Static IP-Without Save
     sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Server-Input}    172.16.0.1    #L2TP Server Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Username-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Username-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    L2TP1    #Username Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-Username-Input}    ${L2TP-Account}    #Username Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Password-Input}    10    true
     clearText    ${Settings-Internet-IPv4-L2TP-Password-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    L2TP1    #Password Input
+    sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    ${L2TP-Account}    #Password Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
@@ -627,7 +634,7 @@ Configure IPv4 L2TP+Static IP-Without Save
     click    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    #setting Static IP
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
-    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    172.16.0.51    #input static address
+    sendtext    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}    ${L2TP-IP}    #input static address
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-L2TP Subnet Mask-Input}    255.255.255.0    #Subnet Mask Input
