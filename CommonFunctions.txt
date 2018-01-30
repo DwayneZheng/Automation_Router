@@ -682,7 +682,7 @@ Restore-To-Default
 Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    60s
+    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    100s
     ...    ELSE    log    pass
     ToLoginPage
     Lang2English
