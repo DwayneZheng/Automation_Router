@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Documentation     Date：2018/1/26
 ...
 ...               For DIR-882
@@ -3152,7 +3152,7 @@ ElementLocator
     Set Global Variable    ${Management-System Admin-System-Load Settings From Local Hard Drive-Click}
     ${Management-System Admin-System-Load-Restore-Click}    getElementLocator    xpath    //tr[@id='upload_File_Button']/td/button
     Set Global Variable    ${Management-System Admin-System-Load-Restore-Click}
-    ${Management-System Admin-System-Load-Yes-Click}    getElementLocator    xpath    //div[@id='popMessage_button_upload']
+    ${Management-System Admin-System-Load-Yes-Click}    getElementLocator    xpath    //div[@onclick='Device_RFC()']
     Set Global Variable    ${Management-System Admin-System-Load-Yes-Click}
     ${Management-System Admin-System-Load-NO-Click}    getElementLocator    xpath    //div[@onclick='returnToMain()']
     Set Global Variable    ${Management-System Admin-System-Load-NO-Click}
