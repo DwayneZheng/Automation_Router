@@ -98,6 +98,7 @@ RestoreDevice
     waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    5    TRUE
     click    ${Management-System Admin-System-Restore-Yes-Click}
     waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    100    TRUE
+    sleep    2s
     click    ${Management-System Admin-System-Restore to factory default success-Click}
 
 Wizard-Next
@@ -682,7 +683,7 @@ Restore-To-Default
 Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    100s
+    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    120s
     ...    ELSE    log    pass
     ToLoginPage
     Lang2English
@@ -690,5 +691,6 @@ Ping-Gateway
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
+    sleep    3s
     Def-Ping    0    ${GetDefault Gateway}
     sleep    3s

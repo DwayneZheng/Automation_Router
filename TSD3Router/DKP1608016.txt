@@ -133,6 +133,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
+    sleep    2s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -208,6 +209,7 @@ Resource          ../AllResources.txt
     Wizard-Next
     sleep    1s
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
+    sleep    2s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -244,6 +246,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    100    true
+    sleep    2s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -314,6 +317,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
+    sleep    2s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -392,6 +396,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
+    sleep    2s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
@@ -433,6 +438,7 @@ Resource          ../AllResources.txt
     Wizard-check
     Wizard-Next
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}    60    true
+    sleep    2s
     click    ${Wizard-Username/Password Connection (PPPoE)-Finish-Click}
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
     ToLoginPage
