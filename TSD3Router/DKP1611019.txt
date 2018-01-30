@@ -397,7 +397,9 @@ Library           String
     sleep    5s
 
 0032
-    [Documentation]    Wireless->SSID test
+    [Documentation]    Wireless->SSID test \ \
+    ...
+    ...    OK verify by Richard Wu
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0032
     Ethernet_Choose_enable    all
     sleep    5s
@@ -682,7 +684,6 @@ Library           String
 0004
     [Documentation]    Wireless->Smart Connect enable/encryption=WPA test
     ...
-    ...    Not support disable ethernet
     ...
     ...
     ...    OK verify by Richard Wu 20180110
@@ -816,6 +817,9 @@ Library           String
 
 0006
     [Documentation]    Wireless->Smart Connect enable/SSID special characters test
+    ...
+    ...
+    ...    OK verify by Richard Wu
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0006
     Ethernet_Choose_enable    all
     sleep    5s
