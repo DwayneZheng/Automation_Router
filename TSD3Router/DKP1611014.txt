@@ -171,5 +171,6 @@ Library           String
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    sleep    2s
     ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     Should Be True    "${AfterSSID}"=="${ShouldBeStringIPv4MACForSSID}"
