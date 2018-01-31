@@ -32,11 +32,7 @@ Library           String
 0007
     [Documentation]    System->Save Settings To Local Hard Drive
     ...
-    ...    Critrntia not test in this case:
     ...
-    ...    ------------------------------------
-    ...    DUT must save current setting on local pc(Major)
-    ...    -------------------------------------
     ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0007
     #Restore
@@ -78,11 +74,7 @@ Library           String
     ...
     ...    Add DKP1611014-0007 System->Save Settings To Local Hard Drive
     ...
-    ...    Critrntia not test in this case:
     ...
-    ...    ------------------------------------
-    ...    The restore configure file must same as previous setting(Major)
-    ...    -------------------------------------
     ...    OK verify by Dwayne Cheng 20180116
     [Tags]    DKP1611014-DHCP    DKP1611014-DHCP-0008
     #Restore
@@ -154,6 +146,7 @@ Library           String
     waitElementDisplayed    ${Management-System Admin-System-Restore-Yes-Click}    10    true
     click    ${Management-System Admin-System-Restore-Yes-Click}
     waitElementDisplayed    ${Management-System Admin-System-Restore to factory default success-Click}    120    true
+    sleep    2s
     click    ${Management-System Admin-System-Restore to factory default success-Click}
     waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    20    true
     click    ${Default- Wizard Page-X (Close)-Click}
@@ -174,3 +167,7 @@ Library           String
     sleep    2s
     ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     Should Be True    "${AfterSSID}"=="${ShouldBeStringIPv4MACForSSID}"
+
+Reboot
+    ToLoginWithoutPassword
+    RebootDevice

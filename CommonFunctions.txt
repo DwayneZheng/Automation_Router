@@ -79,7 +79,7 @@ Lang2Italiano
 
 ToClickLoginBtn
     sendKeyEscape
-    waitElementDisplayed    id    logIn_btn    30
+    waitElementDisplayed    id    logIn_btn    30    true
     click    id    logIn_btn
     #click    xpath    //button[@id='logIn_btn']
     sleep    1
@@ -224,13 +224,22 @@ ToLoginWithoutPassword
     ToLoginPage
     #check wizard
     ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
+    sleep    1s
     log    ${Check-wizard-Status}
     Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
     ...    ELSE    log    pass
     sleep    5s
-    ToLoginPage
-    ToClickLoginBtn
     #check password
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
+    log    ${Check-password-Status}
+    ${CheckStatus}    Set Variable    ${Check-wizard-Status}-${Check-password-Status}
+    Run Keyword If    "${CheckStatus}"=="True-False"    click    ${Default- Wizard Page-X (Close)-Click}
+    ...    ELSE IF    "${CheckStatus}"=="False-False"    ToClickLoginBtn
+    ...    ELSE    log    pass    #Run Keyword If    "${Check-password-Status}"=="False"    waitElementDisplayed
+    ...    # ${Default- Wizard Page-X (Close)-Click}    3    # ELSE    log    pass    #sleep
+    ...    # 1s    #Run Keyword If    "${Check-password-Status}"=="False"    click    ${Default- Wizard Page-X (Close)-Click}    # ELSE
+    ...    # log    pass
     ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
     log    ${Check-password-Status}
     dismissAlert
@@ -681,6 +690,10 @@ Restore-To-Default
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
 
 Ping-Gateway
+    RebootDevice
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    120s
@@ -691,6 +704,21 @@ Ping-Gateway
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
-    sleep    3s
+    sleep    5s
     Def-Ping    0    ${GetDefault Gateway}
     sleep    3s
+
+RebootDevice
+    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5    TRUE
+    FunctionTable-Management-SystemAdmin
+    sleep    1s
+    waitElementDisplayed    ${Management-System Admin-System-System-ChangePage}    5    TRUE
+    click    ${Management-System Admin-System-System-ChangePage}
+    waitElementDisplayed    ${Management-System Admin-System-Reboot The Device-Click}    5    TRUE
+    click    ${Management-System Admin-System-Reboot The Device-Click}
+    waitElementDisplayed    ${Management-System Admin-System-Reboot-Yes-Click}    5    TRUE
+    click    ${Management-System Admin-System-Reboot-Yes-Click}
+    waitElementDisplayed    ${Management-System Admin-System-Reboot-Success-Click}    100    TRUE
+    sleep    2s
+    click    ${Management-System Admin-System-Reboot-Success-Click}
+    sleep    1s

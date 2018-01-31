@@ -3172,6 +3172,8 @@ ElementLocator
     Set Global Variable    ${Management-System Admin-System-Reboot-Yes-Click}
     ${Management-System Admin-System-Reboot-No-Click}    getElementLocator    xpath    //*[@id="REBOOTCheck"]/table[2]/tbody/tr/td[2]/div
     Set Global Variable    ${Management-System Admin-System-Reboot-No-Click}
+    ${Management-System Admin-System-Reboot-Success-Click}    getElementLocator    xpath    //div[@id='SuccessREBOOT']/table[2]/tbody/tr/td/center/div
+    Set Global Variable    ${Management-System Admin-System-Reboot-Success-Click}	
     ${Management-System Admin-System-Auto Reboot-Select}    getElementLocator    xpath    (//a[contains(@href, '#')])[4]
     Set Global Variable    ${Management-System Admin-System-Auto Reboot-Select}
     ${Management-System Admin-System-Never-SelectChild}    getElementLocator    xpath    (//a[contains(@href, '#')])[5]
