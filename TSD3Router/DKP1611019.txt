@@ -53,8 +53,9 @@ Library           String
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -104,8 +105,9 @@ Library           String
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -155,8 +157,9 @@ Library           String
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -205,8 +208,9 @@ Library           String
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    Open    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -256,8 +260,9 @@ Library           String
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA-Personal    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -307,8 +312,9 @@ Library           String
     sleep    5s
     ${CheckAuthentication}    Check_Authentication    WPA2-Personal    #check Security mode
     should be true    ${CheckAuthentication}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -349,8 +355,9 @@ Library           String
     sleep    5s
     ${Check-rate}    WIFI_Data_Rate    DKP1611019-0015
     Should be true    ${Check-rate}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -391,15 +398,14 @@ Library           String
     sleep    5s
     ${Check-rate}    WIFI_Data_Rate    DKP1611019-0018
     Should be true    ${Check-rate}
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
 0032
-    [Documentation]    Wireless->SSID test \ \
-    ...
-    ...    OK verify by Richard Wu
+    [Documentation]    Wireless->SSID test \ \ OK verify by Richard Wu
     [Tags]    DKP1611019-DHCP    DKP1611019-DHCP-0032
     Ethernet_Choose_enable    all
     sleep    5s
@@ -448,8 +454,9 @@ Library           String
     sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    0    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     sleep    5s
     WIFI_Delete_Profile
     sleep    3s
@@ -457,7 +464,8 @@ Library           String
     sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -603,8 +611,9 @@ Library           String
     sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
     #===Check 5G default===
@@ -672,8 +681,9 @@ Library           String
     should contain    ${Security Mode}    None    msg=Security Mode not find None
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
     #===Check 2.4G and 5G wifi name End===
@@ -743,8 +753,9 @@ Library           String
     should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -810,8 +821,9 @@ Library           String
     should contain    ${Security Mode}    WPA/WPA2-Personal    msg=Security Mode not find None
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
@@ -855,8 +867,9 @@ Library           String
     sleep    10s
     Ethernet_Choose_Disable    all
     sleep    5s
-    Def-Ping    0    192.168.0.1    #ping Router
-    Def-Ping    50    ${GetDefault Gateway}
+    IP_Address_Renew
+    Def-Ping    25    192.168.0.1    -n    10    #ping Router
+    Def-Ping    25    ${GetDefault Gateway}    -n    10
     Ethernet_Choose_enable    all
     sleep    5s
 
