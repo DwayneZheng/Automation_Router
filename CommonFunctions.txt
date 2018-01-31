@@ -356,106 +356,124 @@ Configure L2TP
     sleep    3s
 
 FunctionTable-Home
+    waitElementDisplayed    ${Function Table-Home-FunctionTable}    10    true
     click    ${Function Table-Home-FunctionTable}
     waitElementDisplayed    ${Home Page-Go to settings (V4)-Click}    10    true
 
 FunctionTable-Settings-Wizard
+    waitElementDisplayed    ${Function Table-Settings-FunctionTable}    10    TRUE
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
     sleep    2s
     click    ${Function Table-Settings-Wizard-FunctionTableChild}
     waitElementDisplayed    ${Settings - Wizard Page-Next-Click}    10    TRUE
 
 FunctionTable-Settings-Internet
+    waitElementDisplayed    ${Function Table-Settings-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
     sleep    2s
     click    ${Function Table-Settings-Internet-FunctionTableChild}
     waitElementDisplayed    ${Settings-Network-Advanced Settings...-Link}    10    true
 
 FunctionTable-Settings-Wireless
+    waitElementDisplayed    ${Function Table-Settings-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
     sleep    2s
     click    ${Function Table-Settings-Wireless-FunctionTableChild}
     waitElementDisplayed    ${Settings-Wireless-2.4G-Wi-Fi Name (SSID)-Input}    10    true
 
 FunctionTable-Settings-Network
+    waitElementDisplayed    ${Function Table-Settings-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Settings-FunctionTable}
     sleep    2s
     click    ${Function Table-Settings-Network-FunctionTableChild}
     waitElementDisplayed    ${Settings-Network-Enable DNS Relay-Switch}    10    true
 
 FunctionTable-Features-QoSEngine
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    2s
     click    ${Function Table-Features-QoS Engine-FunctionTableChild}
     waitElementDisplayed    ${Features-Qos Engine-Download Speed-Input}    10    true
 
 FunctionTable-Features-Firewall
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    v
     click    ${Function Table-Features-Firewall-FunctionTableChild}
     waitElementDisplayed    ${Features-Firewall- Advanced-Enable DMZ-Switch}    10    true
 
 FunctionTable-Features-PortForwarding
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    2s
     click    ${Function Table-Features-Port Forwarding-FunctionTableChild}
     waitElementDisplayed    ${Features-PortForwarding-Add Rule-Click}    10    true
 
 FunctionTable-Features-WebsiteFilter
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    2s
     click    ${Function Table-Features-Website Filter-FunctionTableChild}
     waitElementDisplayed    ${Features-Forwarding-Virtual-Add Rule-Click}    10    true
 
 FunctionTable-Features-StaticRoute
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    2s
     click    ${Function Table-Features-Static Route-FunctionTableChild}
     waitElementDisplayed    ${Features-Static Routes-IPv6-IPv6-Click}    10    true
 
 FunctionTable-Features-DynamicDNS
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    2s
     click    ${Function Table-Features-Dynamic DNS-FunctionTableChild}
     waitElementDisplayed    ${Features-DynamicDNS-Enable Dynamic DNS-Switch}    10    true
 
 FunctionTable-Features-QuickVPN
+    waitElementDisplayed    ${Function Table-Features-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Features-FunctionTable}
     sleep    2s
     click    ${Function Table-Features-Quick VPN-FunctionTableChild}
     waitElementDisplayed    ${Features-QuickVPN-L2TP over IPSec-Switch}    10    true
 
 FunctionTable-Management-Time&Schedule
+    waitElementDisplayed    ${Function Table-Management-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     sleep    2s
     click    ${Function Table-Management-Time & Schedule-FunctionTableChild}
     waitElementDisplayed    ${Management-Time&Schedule-Time-Time Zone-Select}    10    true
 
 FunctionTable-Management-SystemLog
+    waitElementDisplayed    ${Function Table-Management-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     sleep    2s
     click    ${Function Table-Management-System Log-FunctionTableChild}
     waitElementDisplayed    ${Management-System Log-Enable Logging to Syslog Server-Switch}    10    true
 
 FunctionTable-Management-SystemAdmin
+    waitElementDisplayed    ${Function Table-Management-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     sleep    2s
     click    ${Function Table-Management-System Admin-FunctionTableChild}
     waitElementDisplayed    ${Management-System Admin-Admin-Advanced Settings...-Link}    10    true
 
 FunctionTable-Management-Device
+    waitElementDisplayed    ${Function Table-Management-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     sleep    2s
     click    ${Function Table-Management-Device-FunctionTableChild}
     waitElementDisplayed    ${Management-Device-Turn Parental Control-Select}    10    true
 
 FunctionTable-Management-Upgrade
+    waitElementDisplayed    ${Function Table-Management-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     sleep    2s
     click    ${Function Table-Management-Upgrade-FunctionTableChild}
     waitElementDisplayed    ${Management-Upgrade-Check for New Firmware-Click}    10    true
 
 FunctionTable-Management-Statistics
+    waitElementDisplayed    ${Function Table-Management-FunctionTable}    10    true
     mouseOverToElement    ${Function Table-Management-FunctionTable}
     sleep    2s
     click    ${Function Table-Management-Statistics-FunctionTableChild}

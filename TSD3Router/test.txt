@@ -53,7 +53,7 @@ wifi mac check
     Wifi-MAC address check    dlink-5610    74:da:da:94:56:11    74:da:da:94:56:12
 
 ping
-    Def-Ping    0    8.8.8.8
+    Def-Ping    25    8.8.8.8    -n    10
 
 Lan disconnect
     Ethernet_Choose_Disable    1
