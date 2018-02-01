@@ -708,13 +708,12 @@ Restore-To-Default
     waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
 
 Ping-Gateway
-    RebootDevice
     ToLoginPage
     Lang2English
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
-    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    sleep    120s
+    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    RebootDevice
     ...    ELSE    log    pass
     ToLoginPage
     Lang2English
@@ -740,3 +739,4 @@ RebootDevice
     sleep    2s
     click    ${Management-System Admin-System-Reboot-Success-Click}
     sleep    1s
+    waitElementDisplayed    id    logIn_btn    30    true
