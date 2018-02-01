@@ -228,10 +228,10 @@ ToLoginWithoutPassword
     log    ${Check-wizard-Status}
     Run Keyword If    "${Check-wizard-Status}"=="True"    click    ${Default- Wizard Page-X (Close)-Click}
     ...    ELSE    log    pass
-    sleep    5s
+    sleep    3s
     #check password
     ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
-    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
+    ${Check-password-Status}    waitElementDisplayed    ${Function Table-Settings-FunctionTable}    5
     log    ${Check-password-Status}
     ${CheckStatus}    Set Variable    ${Check-wizard-Status}-${Check-password-Status}
     Run Keyword If    "${CheckStatus}"=="True-False"    click    ${Default- Wizard Page-X (Close)-Click}
@@ -712,6 +712,7 @@ Ping-Gateway
     Lang2English
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
+    sleep    1s
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     Run Keyword If    "${GetDefault Gateway}"=="Not Available"    RebootDevice
     ...    ELSE    log    pass
@@ -719,6 +720,7 @@ Ping-Gateway
     Lang2English
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-MAC Address(IPv4)-GetVar}    5    true
+    sleep    1s
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     log    ${GetDefault Gateway}
     sleep    5s

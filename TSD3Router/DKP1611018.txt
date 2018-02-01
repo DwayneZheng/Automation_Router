@@ -42,6 +42,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -126,6 +127,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -205,6 +207,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    5    true
@@ -220,6 +223,7 @@ Library           String
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -295,6 +299,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -543,6 +548,7 @@ Library           String
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -790,6 +796,7 @@ Library           String
     clearText    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-MTU-Manual-Input-Input}    1350
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-var(1)-SelectChild}    3    true
@@ -972,6 +979,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -1075,6 +1083,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -1163,6 +1172,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -1263,6 +1273,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Dynamic IP-SelectChild}    3    true
@@ -1358,6 +1369,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-DHCP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Auto-SelectChild}    3    true
@@ -1439,6 +1451,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    1.1.1.1
@@ -1448,6 +1461,7 @@ Library           String
     #===Configure DNS Server End===
     #===Configure MTU===
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-DHCP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Manual-SelectChild}    3    true
@@ -1461,6 +1475,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-DHCP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    3s
     #===Setting DHCP END===
@@ -1496,6 +1511,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-DHCP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-DHCP-Primary DNS Server-Input}    1.1.1.1
@@ -1505,6 +1521,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-DHCP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
     ToLoginPage
@@ -1550,6 +1567,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-MTU-Select}
@@ -1622,6 +1640,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-StaticIP-IP Address-Input}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
@@ -1641,6 +1660,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-DHCP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    3s
     #===Setting Static IP End===
@@ -1678,6 +1698,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-StaticIP-Primary DNS Server-Input}    1.1.1.1
@@ -1687,6 +1708,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-DHCP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
     ToLoginPage
@@ -1733,6 +1755,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
@@ -1743,6 +1766,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    3s
     #===Setting PPPOE END===
@@ -1788,6 +1812,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPPoE-Primary DNS Server-Input}    1.1.1.1
@@ -1798,6 +1823,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-PPPoE-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
     ToLoginPage
@@ -1930,12 +1956,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to PPTP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
@@ -2129,6 +2157,7 @@ Library           String
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     #===Configure DNS Server===
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    1.1.1.1
@@ -2139,6 +2168,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-DHCP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    3s
     #===Setting Static IP End===
@@ -2178,6 +2208,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-Primary DNS Server-Input}    1.1.1.1
@@ -2187,6 +2218,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-PPTP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    5s
     ToLoginPage
@@ -2225,12 +2257,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
@@ -2278,12 +2312,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Auto-SelectChild}    3    true
@@ -2481,6 +2517,7 @@ Library           String
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     #===Configure DNS Server===
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    1.1.1.1
@@ -2491,6 +2528,7 @@ Library           String
     #save
     click    ${Settings-Internet-IPv4-L2TP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
+    sleep    1s
     click    ${Settings-Internet-IPv4-StaticIP-Finish-Click}
     sleep    3s
     ToLoginPage
@@ -2526,6 +2564,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    3    true
     clearText    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}
     sendtext    ${Settings-Internet-IPv4-L2TP-Primary DNS Server-Input}    1.1.1.1
@@ -2578,12 +2617,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to PPTP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    3    true
@@ -2645,6 +2686,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}    #Setting MTU
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
@@ -2725,6 +2767,7 @@ Library           String
     clearText    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}
     sendtext    ${Settings-Internet-IPv4-PPTP-MTU-Manual-Input-Input}    1350
     scroll
+    sleep    1s
     #save
     click    ${Settings-Internet-IPv4-PPTP-Save-Click}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Finish-Click}    40    true
@@ -2780,6 +2823,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}    #Setting MTU
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Manual-SelectChild}    3    true
@@ -2932,12 +2976,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
@@ -2989,12 +3035,14 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
@@ -3058,6 +3106,7 @@ Library           String
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
     #Switch to L2TP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
@@ -3119,6 +3168,7 @@ Library           String
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-L2TP-L2TP IP Address-Input}
     #Switch to L2TP
     scroll
+    sleep    1s
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-MTU-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-MTU-Manual-SelectChild}    3    true
