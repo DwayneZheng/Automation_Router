@@ -10,6 +10,7 @@ Library           ../Functions/FlushDns.py
 Library           ../Functions/vSwitchPreconfig.py
 Library           ../Functions/DnsChange2Dhcp.py
 Library           ../Functions/IdentifyWlanMacAddress.py
+Library           robot.libraries.DateTime
 
 *** Keywords ***
 ToLoginPage
@@ -79,7 +80,12 @@ Lang2Italiano
 
 ToClickLoginBtn
     sendKeyEscape
-    waitElementDisplayed    id    logIn_btn    30    true
+    ${Title}    Set Variable    ClickLoginBtn
+    ${Time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    ${CheckLoginIn}    waitElementDisplayed    id    logIn_btn
+    Run Keyword If    "${CheckLoginIn}"=="False"    screenshot    ../results/${Title}_${Time}.jpg
+    ...    ELSE    log    pass
+    #waitElementDisplayed    id    logIn_btn    30    true
     click    id    logIn_btn
     #click    xpath    //button[@id='logIn_btn']
     sleep    1
@@ -236,10 +242,7 @@ ToLoginWithoutPassword
     ${CheckStatus}    Set Variable    ${Check-wizard-Status}-${Check-password-Status}
     Run Keyword If    "${CheckStatus}"=="True-False"    click    ${Default- Wizard Page-X (Close)-Click}
     ...    ELSE IF    "${CheckStatus}"=="False-False"    ToClickLoginBtn
-    ...    ELSE    log    pass    #Run Keyword If    "${Check-password-Status}"=="False"    waitElementDisplayed
-    ...    # ${Default- Wizard Page-X (Close)-Click}    3    # ELSE    log    pass    #sleep
-    ...    # 1s    #Run Keyword If    "${Check-password-Status}"=="False"    click    ${Default- Wizard Page-X (Close)-Click}    # ELSE
-    ...    # log    pass
+    ...    ELSE    log    pass
     ${Check-password-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    5
     log    ${Check-password-Status}
     dismissAlert
@@ -590,6 +593,7 @@ Configure IPv4 PPPoE+Static IP-Without Save
     sendtext    ${Settings-Internet-IPv4-PPPoE-Password-Input}    ${PPPoE-Account}    #Setting \ Password
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPPoE-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPPoE-Static IP-SelectChild}    3    true
@@ -619,6 +623,7 @@ Configure IPv4 PPTP+Static IP-Without Save
     sendtext    ${Settings-Internet-IPv4-PPTP-Password-Input}    ${PPTP-Account}    #Password Input
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Static IP-SelectChild}    3    true
@@ -657,6 +662,7 @@ Configure IPv4 L2TP+Static IP-Without Save
     sendtext    ${Settings-Internet-IPv4-L2TP-Password-Input}    ${L2TP-Account}    #Password Input
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Static IP-SelectChild}    3    true
@@ -702,10 +708,18 @@ Wifi-MAC address check
 Restore-To-Default
     ToLoginWithoutPassword
     RestoreDevice
-    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    50    true
+    ${Title}    Set Variable    RestoreClose
+    ${Time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    50
+    Run Keyword If    "${Check-wizard-Status}"=="False"    screenshot    ../results/${Title}_${Time}.jpg
+    ...    ELSE    log    pass
     sleep    3s
     click    ${Default- Wizard Page-X (Close)-Click}
-    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150    true
+    ${Check-wizard-Status}    waitElementDisplayed    ${Home Page-Home-FunctionTable}    150
+    ${Title}    Set Variable    RestoreHome
+    ${Time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    Run Keyword If    "${Check-wizard-Status}"=="False"    screenshot    ../results/${Title}_${Time}.jpg
+    ...    ELSE    log    pass
 
 Ping-Gateway
     ToLoginPage
@@ -714,6 +728,11 @@ Ping-Gateway
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
     sleep    1s
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${Title}    Set Variable    PingGateway
+    ${Time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    scroll
+    Run Keyword If    "${GetDefault Gateway}"=="Not Available"    screenshot    ../results/${Title}_${Time}.jpg
+    ...    ELSE    log    pass
     Run Keyword If    "${GetDefault Gateway}"=="Not Available"    RebootDevice
     ...    ELSE    log    pass
     ToLoginPage
@@ -742,3 +761,14 @@ RebootDevice
     click    ${Management-System Admin-System-Reboot-Success-Click}
     sleep    1s
     waitElementDisplayed    id    logIn_btn    30    true
+
+AssertAnImageIsVisible
+    # Step 1: verify the page contains the given element
+    Page should contain image    ${element id}
+    # Step 2: verify that the element is visible
+    Element should be visible    ${element id}
+    # Step 3: verify the src attribute of the image is accessible
+    ${img src}    Get element attribute    ${element id}@src
+    Create session    img-src    ${img src}
+    ${response}    Get    img-src    \    # URL is relative to the session URL
+    Should be equal as integers    ${response.status_code}    200

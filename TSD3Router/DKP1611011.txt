@@ -13,11 +13,54 @@ Library           String
     ...
     ...    OK verify by Richard Wu 20171212
     [Tags]    DKP1611011-DHCP    DKP1611011-DHCP-0001
-    #Restore
+    #===Restore===
     Restore-To-Default
-    #===Restore END===
-    ToLoginWithoutPassword
+    #===Restore End===
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ToHiddenPage
+    ${GetWANMAC}    getText    ${Hidden-Page-WAN MAC-GetVar}
+    log    ${GetWANMAC}
+    ToLoginPage
+    Lang2English
+    ToClickLoginBtn
+    ${GetCableStatus}    getText    ${Home Page-Cable Status(IPv4)-GetVar}
+    ${CableStatus}    Set Variable    Connected
+    Should Be Equal    ${GetCableStatus}    ${CableStatus}
+    ${GetConnectionType}    getText    ${Home Page-Connection Type(IPv4)-GetVar}
+    ${ConnectionType}    Set Variable    Dynamic IP (DHCP)
+    Should Be Equal    ${GetConnectionType}    ${ConnectionType}
+    ${GetNetworkStatus}    getText    ${Home Page-Network Status(IPv4)-GetVar}
+    ${NetworkStatus}    Set Variable    Connected
+    Should Be Equal    ${GetNetworkStatus}    ${NetworkStatus}
+    ${GetConnectionUptime}    getText    ${Home Page-Connection Uptime(IPv4)-GetVar}
+    log    ${GetConnectionUptime}
+    Run Keyword If    "${GetConnectionUptime}"=="0 Day 0 Hour 0 Min 0 Sec"    Should Be True    False
+    ...    ELSE    log    pass
+    ${GetMACAddress}    getText    ${Home Page-MAC Address(IPv4)-GetVar}
+    Should Be Equal    ${GetWANMAC}    ${GetMACAddress}
+    ${GetIPAddress}    getText    ${Home Page-IP Address(IPv4)-GetVar}
+    ${CheckIPAddress}    Get Substring    ${GetIPAddress}    \    6
+    ${IPAddress}    Set Variable    172.16
+    Should Be Equal    ${CheckIPAddress}    ${IPAddress}
+    ${GetSubnetMask}    getText    ${Home Page-Subnet Mask(IPv4)-GetVar}
+    ${SubnetMask}    Set Variable    255.255.255.0
+    Should Be Equal    ${GetSubnetMask}    ${SubnetMask}
+    ${GetDefaultGateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
+    ${CheckDefaultGateway}    Get Substring    ${GetDefaultGateway}    \    6
+    ${DefaultGateway}    Set Variable    172.16
+    Should Be Equal    ${CheckDefaultGateway}    ${DefaultGateway}
+    ${GetConnectedClients}    getText    ${Home Page-Connected Clients(character)-Click}
+    ${ConnectedClients}    Set Variable    1
+    Should Be Equal    ${GetConnectedClients}    ${ConnectedClients}
+    ${string}    Set Variable    DKP1611011-0001
+    ${time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    screenshot    ../results/${string}_${time}.jpg
+    #===Ping Gateway===
+    FunctionTable-Home
     Ping-Gateway
+    #===Ping Gateway End===
 
 0003
     [Documentation]    Internet_DHCP WAN Connection_Release IP Button Check

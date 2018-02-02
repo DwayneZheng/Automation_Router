@@ -1,6 +1,7 @@
 *** Settings ***
 Resource          ../AllResources.txt
 Library           String
+Library           robot.libraries.DateTime
 
 *** Test Cases ***
 test
@@ -90,6 +91,9 @@ screensh
     tourl    www.google.com
     sleep    5
     screenshot    ../results/0001.jpg
+    ${string}    Set Variable    HOME
+    ${time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    screenshot    ../results/${string}_${time}.jpg
 
 For
     [Tags]    for

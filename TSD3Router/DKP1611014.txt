@@ -83,7 +83,9 @@ Library           String
     ToLoginWithoutPassword
     FunctionTable-Settings-Wireless
     waitElementDisplayed    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    5    true
+    sleep    1s
     clearText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
+    sleep    1s
     sendtext    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}    SSID-Test
     ${BeforeSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     clearText    ${Settings-Wireless-Password-Input}
@@ -167,7 +169,3 @@ Library           String
     sleep    2s
     ${AfterSSID}    getText    ${Settings-Wireless-Wi-Fi Name (SSID)-Input}
     Should Be True    "${AfterSSID}"=="${ShouldBeStringIPv4MACForSSID}"
-
-Reboot
-    ToLoginWithoutPassword
-    RebootDevice
