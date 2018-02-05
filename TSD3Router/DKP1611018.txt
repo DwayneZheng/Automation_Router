@@ -1061,8 +1061,17 @@ Library           String
     ToLoginPage
     Lang2English
     ToClickLoginBtn
-    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    10    true
-    click    ${Home Page-RenewReleaseIPAddress-Click}    #Disconnect Button
+    sleep    2s
+    ${Check-Release}    waitElementDisplayed    ${Home Page-RenewReleaseIPAddress-Click}    10
+    ${Title}    Set Variable    Release
+    ${Time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
+    scroll
+    scroll
+    Run Keyword If    "${Check-Release}"=="False"    screenshot    ../results/${Title}_${Time}.jpg
+    ...    ELSE    log    pass
+    ${GetReleaseBtn}    getText    ${Home Page-RenewReleaseIPAddress-Click}
+    Run Keyword If    "${GetReleaseBtn}"=="Release IP Address"    click    ${Home Page-RenewReleaseIPAddress-Click}
+    ...    ELSE    log    pass
     sleep    15s
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     ${CheckDisconnect}    defping    0    ${GetDefault Gateway}    -n    10    default
@@ -1587,6 +1596,7 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-Auto-SelectChild}    #Setting MTU
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Choose-Select}    3    true
     click    ${Settings-Internet-IPv4-StaticIP-MAC Address Clone-Choose-Select}
     waitElementDisplayed    ${Settings-Internet-IPv4-StaticIP-var(1)-SelectChild}    3    true
@@ -1975,8 +1985,10 @@ Library           String
     click    ${Settings-Internet-IPv4-PPTP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to PPTP
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU
     #save
@@ -2042,8 +2054,10 @@ Library           String
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
     #Switch to PPTP
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU-Auto
     #save
@@ -2096,8 +2110,10 @@ Library           String
     ${Set IP Address}    getText    ${Settings-Internet-IPv4-PPTP-PPTP IP Address-Input}
     #Switch to PPTP
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU
     #save
@@ -2270,8 +2286,10 @@ Library           String
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
@@ -2324,8 +2342,10 @@ Library           String
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
@@ -2703,8 +2723,11 @@ Library           String
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}    3    true
     click    ${Settings-Internet-IPv4-PPTP-Advanced Settings...-Click}
     scroll
+    scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Select}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Select}    #Setting MTU
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-PPTP-MTU-Auto-SelectChild}    #Setting MTU-Auto
     #save
@@ -2994,8 +3017,10 @@ Library           String
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP
@@ -3052,8 +3077,10 @@ Library           String
     click    ${Settings-Internet-IPv4-L2TP-Advanced Settings...-Click}
     scroll
     scroll
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Address Mode-Select}
+    scroll
     waitElementDisplayed    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    3    true
     click    ${Settings-Internet-IPv4-L2TP-Dynamic IP-SelectChild}    #setting Dynamic IP
     #Switch to L2TP

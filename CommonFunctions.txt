@@ -132,6 +132,7 @@ Wizard-PPPoE-Username/password
 Wizard-Wi-Fi Network Name/password
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}
+    sleep    1s
     sendtext    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Network Name-Input}    878
     waitElementDisplayed    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}    20    true
     clearText    ${Wizard-Username/Password Connection (PPPoE)-Wi-Fi Password-Input}
@@ -237,7 +238,7 @@ ToLoginWithoutPassword
     sleep    3s
     #check password
     ${Check-wizard-Status}    waitElementDisplayed    ${Default- Wizard Page-X (Close)-Click}    3
-    ${Check-password-Status}    waitElementDisplayed    ${Function Table-Settings-FunctionTable}    5
+    ${Check-password-Status}    waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    5
     log    ${Check-password-Status}
     ${CheckStatus}    Set Variable    ${Check-wizard-Status}-${Check-password-Status}
     Run Keyword If    "${CheckStatus}"=="True-False"    click    ${Default- Wizard Page-X (Close)-Click}
@@ -726,11 +727,12 @@ Ping-Gateway
     Lang2English
     ToClickLoginBtn
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    10    true
-    sleep    1s
+    scroll
+    scroll
+    sleep    3s
     ${GetDefault Gateway}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     ${Title}    Set Variable    PingGateway
     ${Time}    Get Current Date    result_format=%Y%m%d_%H%M%S%f
-    scroll
     Run Keyword If    "${GetDefault Gateway}"=="Not Available"    screenshot    ../results/${Title}_${Time}.jpg
     ...    ELSE    log    pass
     Run Keyword If    "${GetDefault Gateway}"=="Not Available"    RebootDevice

@@ -77,7 +77,10 @@ Library           String
     waitElementDisplayed    ${Home Page-Default Gateway(IPv4)-GetVar}    20    true
     ${GetDefault Gateway-first}    getText    ${Home Page-Default Gateway(IPv4)-GetVar}
     click    ${Home Page-RenewReleaseIPAddress-Click}
+    ${GetReleaseBtn}    getText    ${Home Page-RenewReleaseIPAddress-Click}
     sleep    20s
+    Run Keyword If    "${GetReleaseBtn}"=="Release IP Address"    click    ${Home Page-RenewReleaseIPAddress-Click}
+    ...    ELSE    log    pass
     ToLoginPage
     Lang2English
     ToClickLoginBtn
